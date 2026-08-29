@@ -271,7 +271,7 @@ export function CoverageMap() {
             >
               <span className="w-3 h-3 rounded-full flex-none" style={{ background: SVC_COLOR[s] }} />
               {svcLabel(s)}
-              <span className="ms-auto ps-2.5 tabular-nums text-faint font-medium">{counts[s]}</span>
+              <span className="ms-auto ps-2.5 font-mono tabular-nums text-faint font-medium">{counts[s]}</span>
             </div>
           ) : null,
         )}
@@ -293,7 +293,7 @@ export function CoverageMap() {
           </button>
         ))}
       </div>
-      <div className="absolute bottom-4 start-3.5 z-[5] text-[.72rem] text-muted bg-white/85 border border-line px-3 py-1.5 rounded-full backdrop-blur-sm">
+      <div className="map-hint absolute bottom-4 start-3.5 z-[5] font-mono text-[.7rem] text-muted bg-white/85 border border-line px-3 py-1.5 rounded-full backdrop-blur-sm">
         {t('mapHint')}
       </div>
     </div>

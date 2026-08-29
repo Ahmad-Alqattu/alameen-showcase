@@ -14,47 +14,61 @@ import { Wrap } from './Chrome'
  */
 
 const T = {
-  eyebrow: ['الذكاء الاصطناعي · سَبْر', 'Artificial Intelligence · Sabr'] as Bi,
-  h2a: ['ذكاءٌ اصطناعي ', 'An AI that '] as Bi,
-  h2em: ['لا يستطيع التسريب', 'cannot leak'] as Bi,
+  eyebrow: ['المساعد الذكي · سَبْر', 'Sabr · the assistant'] as Bi,
+  h2a: ['اسأل بالعربية. ', 'Ask in plain Arabic. '] as Bi,
+  h2em: ['يجيبك من بياناتك.', 'It answers from your data.'] as Bi,
   h2b: ['', ''] as Bi,
   lede: [
-    'كل مزوّد في هذا المعرض سيقول إن لديه ذكاءً اصطناعياً. السؤال الذي يسأله المشتري الحكومي هو الآخر: ما الذي يمنعه من رؤية ما لا يحق لسائله رؤيته؟ عندنا الجواب معماريّ لا وعديّ — «سَبْر» لا يملك اتصالاً بقاعدة البيانات أصلاً.',
-    'Every vendor at this show will say they have AI. The question a government buyer actually asks is the next one: what stops it from seeing what the person asking is not allowed to see? Our answer is architectural rather than a promise — Sabr has no database connection at all.',
+    'سؤال مكتوب كما تقوله، فيختار سَبْر البيانات ويشغّل التقرير ويعرض النتيجة رسماً أو خريطة — بصلاحياتك أنت، لا بصلاحياته.',
+    'A question written the way you would say it. Sabr picks the data, runs the report and draws the result as a chart or a map — with your permissions, not its own.',
   ] as Bi,
-  askLabel: ['سؤال المستخدم', 'User question'] as Bi,
-  runLabel: ['يشغّل تقريراً محكوماً بصلاحيات السائل…', 'Running a governed report with the asker’s permissions…'] as Bi,
-  answerLabel: ['الإجابة كما تظهر في المنصة', 'The answer, as it appears in the platform'] as Bi,
-  flowH: ['الطريق الذي يسلكه كل سؤال', 'The path every question takes'] as Bi,
-  guaranteesH: ['أربع ضمانات مبنيّة في المعمار', 'Four guarantees built into the architecture'] as Bi,
+  askLabel: ['السؤال', 'The question'] as Bi,
+  stepsLabel: ['ما فعله', 'What it did'] as Bi,
+  runLabel: ['يشغّل التقرير…', 'Running the report…'] as Bi,
+  answerLabel: ['الشاشة كما هي في المنصة', 'The screen, as it is in the platform'] as Bi,
+  flowH: ['طريق السؤال', 'The path of a question'] as Bi,
+  guaranteesH: ['ما يضمنه المعمار', 'What the architecture guarantees'] as Bi,
+  afterH: ['وبعد الجواب', 'After the answer'] as Bi,
 }
 
 /**
- * Each demo is a real exchange, transcribed from the screenshot it reveals —
- * the question as it was typed, and the assistant's own answer line.
+ * Three real exchanges, transcribed from the screenshots they reveal — the
+ * question, the steps the assistant announced, and its own answer line.
  */
-const DEMOS: { q: Bi; a: Bi; img: string; w: number; h: number }[] = [
+const DEMOS: { q: Bi; steps: Bi[]; a: Bi; img: string; w: number; h: number }[] = [
   {
-    q: ['كم عدد الآبار المسجلة في كل محافظة؟', 'How many registered wells are there per governorate?'],
+    q: ['كم عدد الآبار المسجلة في كل محافظة؟', 'How many registered wells in each governorate?'],
+    steps: [
+      ['أتحقق من عدد الآبار المسجلة لكل محافظة', 'Checking registered well counts per governorate'],
+      ['أعرضها كرسم أعمدة', 'Rendering them as a bar chart'],
+    ],
     a: [
-      'أعلى المحافظات تسجيلاً للآبار هي أريحا والأغوار بـ151 بئراً، تليها جنين (131) وشمال غزة (89). من إجمالي 963 بئراً.',
-      'The governorate with the most registered wells is Jericho & the Jordan Valley with 151, followed by Jenin (131) and North Gaza (89) — out of 963 wells in total.',
+      'أعلى المحافظات أريحا والأغوار بـ151 بئراً، تليها جنين 131 وشمال غزة 89 — من أصل 963 بئراً.',
+      'Jericho & the Jordan Valley lead with 151 wells, then Jenin at 131 and North Gaza at 89 — out of 963.',
     ],
     img: '03.jpg', w: 556, h: 616,
   },
   {
     q: ['وزّع الآبار حسب حالة الترخيص، بشكل دائري', 'Break the wells down by licence status, as a pie'],
+    steps: [
+      ['أتحقق من أعمدة سجل الآبار', 'Checking the columns on the well register'],
+      ['أجمع الآبار حسب حالة الترخيص لعرضها دائرياً', 'Grouping by licence status for a pie'],
+    ],
     a: [
-      'الغالبية الساحقة من الآبار (تقريباً 94%) حالتها الترخيصية غير مسجلة.',
-      'The overwhelming majority of wells (roughly 94%) have no recorded licence status.',
+      'الغالبية الساحقة — نحو 94% — حالتها الترخيصية غير مسجلة. فجوة بيانات قبل أن تكون فجوة امتثال.',
+      'The overwhelming majority — about 94% — have no recorded licence status. A data gap before it is a compliance gap.',
     ],
     img: '04.jpg', w: 556, h: 616,
   },
   {
-    q: ['اعرض مواقع الآبار على خريطة حرارية', 'Show the well locations on a heat map'],
+    q: ['اعرض مواقع الآبار على خريطة حرارية', 'Plot the wells on a heat map'],
+    steps: [
+      ['أرسم الكثافة النسبية بترجيح العدد', 'Plotting relative density weighted by count'],
+      ['ويمكن ترجيحها بإجمالي السحب المؤكد م³', 'Or weight it by total confirmed abstraction, m³'],
+    ],
     a: [
-      'تم عرض توزيع مواقع الآبار على الخريطة الحرارية، ويظهر التمركز الجغرافي للآبار المسجلة.',
-      'The well locations are plotted on the heat map, showing where registered wells cluster geographically.',
+      'رُسم 952 بئراً من 963 — و11 سجلاً بلا إحداثيات، معلَنة تحت الخريطة بدل أن تُطوى بصمت.',
+      '952 of 963 wells plotted — and 11 records with no coordinates, stated under the map rather than quietly dropped.',
     ],
     img: '05.jpg', w: 556, h: 606,
   },
@@ -62,41 +76,40 @@ const DEMOS: { q: Bi; a: Bi; img: string; w: number; h: number }[] = [
 
 const GUARANTEES: { t: Bi; d: Bi }[] = [
   {
-    t: ['لا اتصال بقاعدة البيانات', 'No database connection'],
+    t: ['بصلاحياتك أنت', 'Your permissions, not its own'],
     d: [
-      'النموذج لا يملك سلسلة اتصال، ولا يكتب SQL، ولا يعرف اسم جدول أو عمود واحد. كل ما يستطيع تسميته هو ما ينشره كتالوج البيانات المصفّى بالصلاحيات.',
-      'The model holds no connection string, writes no SQL, and knows no table or column name. All it can name is what the permission-filtered dataset catalog publishes.',
+      'ما لا يحقّ لك أن تراه لا يظهر لسَبْر أصلاً — لا في البيانات ولا في الأعمدة.',
+      'What you may not see never reaches Sabr — not the dataset, not the column.',
     ],
   },
   {
-    t: ['بصلاحيات السائل نفسه', 'The asker’s own permissions'],
+    t: ['لا يلمس قاعدة البيانات', 'It never touches the database'],
     d: [
-      'كل استدعاء يمر بمسار التقارير بِرمز المستخدم نفسه. مجموعة بيانات لا يقرؤها ليست في الكتالوج، وعمود لا يقرؤه يرفضه الطرف الخادم — ولا يوجد أمر يوسّع أياً منهما.',
-      'Every call goes through the reporting route with the caller’s own token. A dataset they cannot read is not in the catalog; a column they cannot read is rejected — and no prompt can widen either.',
+      'يسأل محرّك التقارير نفسه الذي يستخدمه موظفوك. لا SQL ولا اسم جدول.',
+      'It asks the same reporting engine your staff use. No SQL, no table names.',
     ],
   },
   {
-    t: ['عزل المؤسسة بالبناء', 'Tenant isolation by construction'],
+    t: ['كل رقم ومصدره', 'Every number, with its source'],
     d: [
-      'الاستعلام يسلك المسار ذاته الذي يسلكه تقرير بشري، فيسري عزل المؤسسة وأمن مستوى الصف تلقائياً — لا كقاعدة يجب أن يتذكرها أحد.',
-      'The query takes the same path a human report run takes, so tenant scoping and row-level security apply automatically — not as a rule someone must remember.',
+      'الفلاتر التي أنتجت النتيجة وعدد السجلات الحقيقي ظاهران مع الجواب.',
+      'The filters behind the result and the true record count travel with it.',
     ],
   },
   {
-    t: ['نتيجة محكومة، لا تفريغ للبيانات', 'A governed result, never a data dump'],
+    t: ['عربي أولاً', 'Arabic first'],
     d: [
-      'حجم النتيجة تحدده المنصة لا النموذج، ويصل معها عدد الصفوف الحقيقي والفلاتر التي أنتجتها — فلا تصير «الأعلى» تعني «الأعلى ضمن أول خمسين صفاً».',
-      'The platform, not the model, fixes the result size — and the true row count and the filters that produced it travel with it, so “the highest” can never quietly mean “the highest of the first fifty rows”.',
+      'يفهم أسماء المحافظات والآبار كما تُكتب، ويجيب بالعربية ويطبع بها.',
+      'It reads governorate and well names as they are written, answers in Arabic and prints in Arabic.',
     ],
   },
 ]
 
 const AFTER: Bi[] = [
-  ['جدول حقيقي بالفلاتر وعدد الصفوف', 'A real table with its filters and row count'],
-  ['بدّل العرض: أعمدة · دائري · خطي', 'Switch the view: bars · pie · line'],
+  ['بدّل العرض: أعمدة · دائري · خطي · خريطة', 'Switch the view: bars · pie · line · map'],
   ['اطبع بالقالب الرسمي', 'Print on the official template'],
   ['صدّر إلى Excel', 'Export to Excel'],
-  ['افتحه في منشئ التقارير', 'Open it in the report builder'],
+  ['احفظه تقريراً أو ثبّته على لوحتك', 'Save it as a report, or pin it to a dashboard'],
 ]
 
 /** Types a string out, then holds. Respects reduced-motion by showing it at once. */
@@ -123,15 +136,15 @@ function useTypewriter(text: string, active: boolean) {
 function FlowDiagram() {
   const { L, lang } = useI18n()
   const steps: Bi[] = [
-    ['سؤال المستخدم', 'User question'],
-    ['سَبْر — يقرر خطوة واحدة', 'Sabr — decides one step'],
-    ['محرّك التقارير برمز المستخدم', 'Report engine, user’s token'],
-    ['الصلاحيات · بوابات الأعمدة · RLS', 'Permissions · column gates · RLS'],
-    ['النتيجة + بياناتها الوصفية', 'Result + its metadata'],
+    ['سؤالك', 'Your question'],
+    ['سَبْر يختار الخطوة', 'Sabr picks the step'],
+    ['محرّك التقارير', 'The reporting engine'],
+    ['صلاحياتك · عزل مؤسستك', 'Your permissions · your tenant'],
+    ['النتيجة ومصدرها', 'The result and its source'],
   ]
   return (
     <div className="mt-8">
-      <h3 className="text-[.8rem] font-semibold tracking-[.13em] uppercase text-cyan/90 mb-4">{L(T.flowH)}</h3>
+      <h3 className="font-mono text-[.78rem] font-semibold tracking-[.14em] uppercase text-cyan/90 mb-4">{L(T.flowH)}</h3>
       <ol className="flex flex-wrap items-stretch gap-2" dir={lang === 'ar' ? 'rtl' : 'ltr'}>
         {steps.map((s, i) => (
           <li key={s[1]} className="flex items-center gap-2">
@@ -154,8 +167,8 @@ function FlowDiagram() {
       </ol>
       <p className="mt-3 text-[.8rem] text-[#93b4d4] font-light leading-7">
         {L([
-          'لا يوجد سهم من النموذج إلى قاعدة البيانات — وهذه هي النقطة كلها.',
-          'There is no arrow from the model to the database — and that is the entire point.',
+          'لاحظ ما ليس في المخطط: سهم من سَبْر إلى قاعدة البيانات.',
+          'Note what the diagram does not have: an arrow from Sabr to the database.',
         ])}
       </p>
     </div>
@@ -188,12 +201,12 @@ export function AiSection() {
   useEffect(() => {
     if (!live) return
     const full = L(demo.q).length * 42
-    const t1 = setTimeout(() => setPhase('running'), full + 500)
-    const t2 = setTimeout(() => setPhase('answer'), full + 1500)
+    const t1 = setTimeout(() => setPhase('running'), full + 600)
+    const t2 = setTimeout(() => setPhase('answer'), full + 2600)
     const t3 = setTimeout(() => {
       setPhase('typing')
       setI((v) => (v + 1) % DEMOS.length)
-    }, full + 7000)
+    }, full + 9500)
     return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3) }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [i, live])
@@ -211,7 +224,7 @@ export function AiSection() {
           [background:radial-gradient(680px_420px_at_82%_-8%,rgb(0_167_225/.28),transparent_62%),radial-gradient(560px_380px_at_-4%_100%,rgb(0_120_233/.22),transparent_60%)]"
       />
       <Wrap className="relative">
-        <div className="inline-flex items-center gap-3 text-[.8rem] font-semibold tracking-[.14em] uppercase text-cyan mb-5 before:content-[''] before:w-8 before:h-0.5 before:bg-cyan before:rounded">
+        <div className="inline-flex items-center gap-3 font-mono text-[.78rem] font-semibold tracking-[.14em] uppercase text-cyan mb-5 before:content-[''] before:w-8 before:h-0.5 before:bg-cyan before:rounded">
           {L(T.eyebrow)}
         </div>
         <h2 className="text-[clamp(1.7rem,3.6vw,3rem)] font-bold leading-[1.28] max-w-[20ch]">
@@ -228,13 +241,35 @@ export function AiSection() {
         <div className="grid lg:grid-cols-[1fr_minmax(300px,440px)] grid-cols-1 gap-8 mt-9 items-start">
           <div>
             <div className="rounded-2xl border border-white/15 bg-white/[.05] backdrop-blur-sm p-5">
-              <div className="text-[.72rem] tracking-[.12em] uppercase text-cyan/80 font-semibold">{L(T.askLabel)}</div>
+              <div className="font-mono text-[.7rem] tracking-[.13em] uppercase text-cyan/80 font-semibold">{L(T.askLabel)}</div>
               <div className="mt-2.5 text-[clamp(1.05rem,1.9vw,1.5rem)] font-semibold leading-[1.7] min-h-[2.6em]">
                 {typed}
                 <span className="inline-block w-[3px] h-[1.05em] align-[-.16em] bg-cyan ms-1 animate-[blink_1s_steps(2)_infinite]" />
               </div>
+              {/* The steps it announced. This is what makes the answer auditable. */}
               <div
-                className={`mt-3.5 flex items-center gap-2.5 text-[.82rem] text-cyan transition-opacity duration-300 ${
+                className={`grid transition-all duration-500 ${
+                  phase === 'typing' ? 'grid-rows-[0fr] opacity-0' : 'grid-rows-[1fr] opacity-100 mt-4'
+                }`}
+              >
+                <div className="overflow-hidden">
+                  <div className="font-mono text-[.68rem] tracking-[.13em] uppercase text-cyan/70 mb-2">
+                    {L(T.stepsLabel)}
+                  </div>
+                  <ul className="flex flex-col gap-1.5">
+                    {demo.steps.map((st) => (
+                      <li key={st[1]} className="flex items-start gap-2.5 text-[.82rem] text-[#a9c6e2] font-light leading-7">
+                        <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 text-cyan/70 flex-none mt-2" fill="none" stroke="currentColor" strokeWidth="2.5">
+                          <path d="m5 12 5 5L20 7" />
+                        </svg>
+                        {L(st)}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+              <div
+                className={`mt-3 flex items-center gap-2.5 text-[.82rem] text-cyan transition-opacity duration-300 ${
                   phase === 'running' ? 'opacity-100' : 'opacity-0'
                 }`}
               >
@@ -260,8 +295,8 @@ export function AiSection() {
             <FlowDiagram />
 
             <div className="mt-8">
-              <h3 className="text-[.8rem] font-semibold tracking-[.13em] uppercase text-cyan/90 mb-4">
-                {L(['وما الذي يمكن فعله بالإجابة', 'And what you can do with the answer'] as Bi)}
+              <h3 className="font-mono text-[.78rem] font-semibold tracking-[.14em] uppercase text-cyan/90 mb-4">
+                {L(T.afterH)}
               </h3>
               <div className="flex flex-wrap gap-2">
                 {AFTER.map((a) => (
@@ -294,14 +329,14 @@ export function AiSection() {
         </div>
 
         {/* guarantees */}
-        <h3 className="text-[.8rem] font-semibold tracking-[.13em] uppercase text-cyan/90 mt-12 mb-5">
+        <h3 className="font-mono text-[.78rem] font-semibold tracking-[.14em] uppercase text-cyan/90 mt-12 mb-5">
           {L(T.guaranteesH)}
         </h3>
         <div className="grid md:grid-cols-2 xl:grid-cols-4 grid-cols-1 gap-3.5">
           {GUARANTEES.map((g, n) => (
             <div key={g.t[1]} className="rounded-2xl border border-white/15 bg-white/[.05] p-5 transition hover:border-cyan/50 hover:bg-white/[.08]">
               <div className="flex items-center gap-2.5 mb-2.5">
-                <span className="w-7 h-7 rounded-lg bg-cyan/20 border border-cyan/40 text-cyan text-[.78rem] font-bold flex items-center justify-center tabular-nums">
+                <span className="w-7 h-7 rounded-lg bg-cyan/20 border border-cyan/40 text-cyan font-mono text-[.76rem] font-semibold flex items-center justify-center tabular-nums">
                   {n + 1}
                 </span>
                 <b className="text-[.95rem] font-bold">{L(g.t)}</b>

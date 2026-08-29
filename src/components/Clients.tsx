@@ -23,7 +23,7 @@ export function ClientsSection() {
             }`}
           >
             {L(c.title)}
-            <span className="opacity-65 font-normal text-[.78rem] ms-1.5 tabular-nums">{c.items.length}</span>
+            <span className="opacity-65 font-mono font-normal text-[.76rem] ms-1.5 tabular-nums">{c.items.length}</span>
           </button>
         ))}
       </div>
@@ -45,7 +45,7 @@ export function ClientsSection() {
             </div>
             <div>
               <div className="text-[.8rem] font-semibold text-ink leading-6">{L(it.n)}</div>
-              <div className="text-[.68rem] text-faint leading-5">{Lx(it.n)}</div>
+              <div className="cl-en text-[.68rem] text-faint leading-5">{Lx(it.n)}</div>
             </div>
           </div>
         ))}

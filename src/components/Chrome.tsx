@@ -40,7 +40,7 @@ export function SectionLabel({ k, className = '' }: { k: DictKey; className?: st
   const { t } = useI18n()
   return (
     <div
-      className={`flex items-center gap-4 mb-2 text-[.8rem] tracking-[.13em] text-brand uppercase font-semibold after:content-[''] after:flex-1 after:h-px after:bg-gradient-to-r after:from-line-strong after:to-transparent ${className}`}
+      className={`flex items-center gap-4 mb-2 font-mono text-[.78rem] tracking-[.14em] text-brand uppercase font-semibold after:content-[''] after:flex-1 after:h-px after:bg-gradient-to-r after:from-line-strong after:to-transparent ${className}`}
     >
       {t(k)}
     </div>

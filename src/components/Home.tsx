@@ -18,7 +18,7 @@ function Hero() {
   return (
     <section className="pt-[clamp(34px,6vh,78px)] pb-[clamp(20px,3.5vh,44px)]">
       <Wrap>
-        <div className="inline-flex items-center gap-3 text-[.8rem] font-semibold tracking-[.13em] text-brand uppercase mb-5 animate-rise [animation-delay:.05s] before:content-[''] before:w-[34px] before:h-0.5 before:bg-brand before:rounded">
+        <div className="inline-flex items-center gap-3 font-mono text-[.78rem] font-semibold tracking-[.14em] text-brand uppercase mb-5 animate-rise [animation-delay:.05s] before:content-[''] before:w-[34px] before:h-0.5 before:bg-brand before:rounded">
           {t('overline')}
         </div>
         <h1 className="text-[clamp(2rem,4.4vw,3.8rem)] font-bold leading-[1.24] text-navy max-w-[21ch] animate-rise [animation-delay:.12s]">
@@ -34,7 +34,7 @@ function Hero() {
         <div className="flex flex-wrap gap-[clamp(16px,3vw,44px)] mt-[clamp(24px,4vh,40px)] animate-rise [animation-delay:.3s]">
           {stats.map(([v, l]) => (
             <div key={l} className="border-s-[3px] border-brand ps-4">
-              <b className="block text-[clamp(1.35rem,2.3vw,1.9rem)] font-bold text-navy tabular-nums">{v}</b>
+              <b className="block font-mono text-[clamp(1.5rem,2.5vw,2.1rem)] font-semibold text-navy tabular-nums tracking-tight">{v}</b>
               <span className="text-[.82rem] text-faint">{l}</span>
             </div>
           ))}
@@ -75,18 +75,18 @@ function ProductsGrid() {
                 <h3 className={`font-semibold text-navy leading-[1.45] ${p.flagship ? 'text-[clamp(1.25rem,2.1vw,1.6rem)]' : 'text-[1.16rem]'}`}>
                   {L(p.name)}
                 </h3>
-                <div className="text-[.78rem] text-brand font-medium tracking-wide mt-1">{Lx(p.name)}</div>
+                <div className="en-name text-[.78rem] text-brand font-medium tracking-wide mt-1">{Lx(p.name)}</div>
                 <div className="text-[.86rem] text-muted font-light leading-7 mt-2">{L(p.tag)}</div>
                 <div className="flex items-center gap-2 mt-auto pt-3 flex-wrap">
                   {p.flagship && (
-                    <span className="text-[.72rem] px-3 py-1 rounded-full border border-brand/45 text-brand bg-brand/5 font-medium">
+                    <span className="tag text-[.72rem] px-3 py-1 rounded-full border border-brand/45 text-brand bg-brand/5 font-medium">
                       {t('flagBadge')}
                     </span>
                   )}
-                  <span className="text-[.72rem] px-3 py-1 rounded-full border border-line-strong text-muted bg-[#fbfdff] font-medium">
+                  <span className="tag text-[.72rem] px-3 py-1 rounded-full border border-line-strong text-muted bg-[#fbfdff] font-medium">
                     {L(p.sector)}
                   </span>
-                  <span className="text-[.72rem] text-faint tabular-nums">
+                  <span className="count font-mono text-[.72rem] text-faint tabular-nums">
                     {p.imgs.length} {t('shots')}
                   </span>
                   <span className="ms-auto w-9 h-9 rounded-full border border-line-strong flex items-center justify-center text-muted transition group-hover:bg-brand group-hover:border-brand group-hover:text-white flex-none">
@@ -118,7 +118,7 @@ function AboutSection() {
             <div className="grid grid-cols-[repeat(auto-fit,minmax(150px,1fr))] gap-3 mt-7">
               {c.beneficiaries.map((b) => (
                 <div key={b[1]} className="text-center py-5 px-2.5 rounded-2xl bg-gradient-to-b from-[#f0f6fd] to-white border border-line">
-                  <b className="block text-[clamp(1.5rem,2.6vw,2.1rem)] font-bold text-brand tabular-nums">
+                  <b className="block font-mono text-[clamp(1.6rem,2.7vw,2.2rem)] font-semibold text-brand tabular-nums tracking-tight">
                     {b[0]}
                     {b[0].length < 4 ? '+' : ''}
                   </b>
@@ -145,7 +145,7 @@ function AboutSection() {
               key={m[0]}
               className="relative p-4.5 rounded-2xl bg-white border border-line before:content-[''] before:absolute before:top-0 before:start-0 before:w-11 before:h-[3px] before:bg-gradient-to-r before:from-brand before:to-cyan before:rounded-b"
             >
-              <b className="text-[1.25rem] font-bold text-brand tabular-nums">{m[0]}</b>
+              <b className="font-mono text-[1.3rem] font-semibold text-brand tabular-nums tracking-tight">{m[0]}</b>
               <p className="text-[.83rem] text-muted leading-7 mt-1.5">{lang === 'ar' ? m[1] : m[2]}</p>
             </div>
           ))}

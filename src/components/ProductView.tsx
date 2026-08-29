@@ -152,7 +152,7 @@ export function ProductView({ product: p }: { product: Product }) {
                 <svg viewBox="0 0 24 24" fill="currentColor" className="w-[15px] h-[15px]"><path d="M8 5v14l11-7z" /></svg>
               )}
             </button>
-            <span dir="ltr" className="text-[.82rem] tabular-nums text-muted px-2 min-w-[52px] text-center">
+            <span dir="ltr" className="font-mono text-[.82rem] tabular-nums text-muted px-2 min-w-[52px] text-center">
               {idx + 1} / {n}
             </span>
             <button
