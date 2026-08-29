@@ -18,8 +18,14 @@ export function ProductView({ product: p }: { product: Product }) {
   const startRef = useRef(Date.now())
   const touchX = useRef<number | null>(null)
 
-  const n = p.imgs.length
-  const img = p.imgs[idx]
+  /* Where a product has both ends of the system, the visitor picks one rather
+     than scrolling through a mixture. Staff first: that is the product. */
+  const sides = Array.from(new Set(p.imgs.map((i) => i.side).filter(Boolean))) as ('staff' | 'citizen')[]
+  const split = sides.length > 1
+  const [side, setSide] = useState<'staff' | 'citizen'>('staff')
+  const imgs = split ? p.imgs.filter((i) => i.side === side) : p.imgs
+  const n = imgs.length
+  const img = imgs[Math.min(idx, n - 1)]
 
   const go = useCallback(
     (i: number, manual = false) => {
@@ -46,8 +52,8 @@ export function ProductView({ product: p }: { product: Product }) {
   /* preload the next image */
   useEffect(() => {
     const nx = new Image()
-    nx.src = productImg(p.slug, p.imgs[(idx + 1) % n].f)
-  }, [idx, n, p])
+    nx.src = productImg(p.slug, imgs[(idx + 1) % n].f)
+  }, [idx, n, p, imgs])
 
   /* keyboard */
   useEffect(() => {
@@ -99,6 +105,27 @@ export function ProductView({ product: p }: { product: Product }) {
             </span>
           </div>
         </div>
+
+        {split && (
+          <div className="flex items-center gap-2 mb-3.5 flex-wrap">
+            {(['staff', 'citizen'] as const).map((sd) => (
+              <button
+                key={sd}
+                onClick={() => { setSide(sd); setIdx(0); setPlaying(true) }}
+                className={`px-5 py-2.5 rounded-full text-[.86rem] font-semibold border transition ${
+                  side === sd
+                    ? 'bg-navy border-navy text-white shadow-[0_8px_20px_-8px_rgb(0_40_78/.5)]'
+                    : 'border-line-strong text-muted bg-white hover:border-brand hover:text-brand'
+                }`}
+              >
+                {t(sd === 'staff' ? 'sideStaff' : 'sideCitizen')}
+                <span className="opacity-65 font-mono font-normal text-[.76rem] ms-1.5 tabular-nums">
+                  {p.imgs.filter((i) => i.side === sd).length}
+                </span>
+              </button>
+            ))}
+          </div>
+        )}
 
         {/* stage */}
         <div
@@ -178,7 +205,7 @@ export function ProductView({ product: p }: { product: Product }) {
 
         {/* thumbnails */}
         <div ref={thumbsRef} className="thumbs-scroll flex gap-2.5 overflow-x-auto pt-3.5 pb-2 px-0.5">
-          {p.imgs.map((e, i) => (
+          {imgs.map((e, i) => (
             <button
               key={e.f}
               onClick={() => go(i, true)}

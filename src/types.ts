@@ -7,6 +7,8 @@ export interface ProductImage {
   h: number
   cap?: Bi
   note?: Bi
+  /** Which end of the system this screen belongs to, where a product has both. */
+  side?: 'staff' | 'citizen'
 }
 
 export interface ProductUser {

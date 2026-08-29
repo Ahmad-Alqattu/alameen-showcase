@@ -70,11 +70,6 @@ export function Portals({ portals }: { portals: Portal[] }) {
   const { t } = useI18n()
   return (
     <div className="mt-7">
-      {/* The product's own slideshow IS the staff system — this marks the
-          hand-off from the officer's side to the citizen's. */}
-      <p className="mb-7 ps-4 border-s-2 border-brand text-[.92rem] text-muted font-light leading-8 max-w-[62ch]">
-        {t('staffNote')}
-      </p>
       <div className="flex items-baseline gap-4 flex-wrap mb-1.5">
         <h3 className="text-[clamp(1.1rem,2vw,1.5rem)] font-bold text-navy">{t('portalsH')}</h3>
         <span className="font-mono text-[.78rem] text-faint tabular-nums">{portals.length}</span>
