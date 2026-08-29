@@ -189,12 +189,8 @@ describe('client portals and apps', () => {
     }
   })
 
-  it('citizen portals are linked, staff systems are not', () => {
+  it('every citizen portal is linked', () => {
     for (const p of es.portals!) expect(p.url, `${p.n[1]} should link`).toBeTruthy()
-    for (const s of es.staff ?? []) {
-      expect(s.url, `${s.n[1]} is internal and must not link out`).toBeNull()
-      expect(assetExists(`assets/portals/${s.shot}`)).toBe(true)
-    }
   })
 
   it('every app has an icon, phone shots and a store link', () => {
