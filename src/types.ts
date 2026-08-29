@@ -14,12 +14,16 @@ export interface ProductUser {
   l: string | null
 }
 
-/** A client's live portal: a screenshot for offline proof, a link for the curious. */
+/**
+ * A deployed client system. Citizen-facing portals carry a URL and open in a
+ * new tab; staff-facing systems carry `url: null` and are shown as a
+ * screenshot only — an internal login screen does not belong on a public link.
+ */
 export interface Portal {
   n: Bi
   l: string
   shot: string
-  url: string
+  url: string | null
   gov: string
   w: number
   h: number
@@ -48,6 +52,7 @@ export interface Product {
   usersNote?: Bi
   portals?: Portal[]
   apps?: AppEntry[]
+  staff?: Portal[]
 }
 
 export interface ClientItem {
