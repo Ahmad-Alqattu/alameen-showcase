@@ -176,6 +176,13 @@ describe('brand assets', () => {
   })
 })
 
+describe('the recorded demo', () => {
+  it('ships both codecs and a poster', () => {
+    for (const f of ['assets/video/sabr_demo.webm', 'assets/video/sabr_demo.mp4', 'assets/video/sabr_poster.jpg'])
+      expect(assetExists(f), `missing ${f}`).toBe(true)
+  })
+})
+
 describe('AI band screenshots', () => {
   /**
    * The band references product screenshots by filename directly rather than

@@ -26,6 +26,7 @@ const T = {
   stepsLabel: ['ما فعله', 'What it did'] as Bi,
   runLabel: ['يشغّل التقرير…', 'Running the report…'] as Bi,
   answerLabel: ['الشاشة كما هي في المنصة', 'The screen, as it is in the platform'] as Bi,
+  answerLabelLive: ['تسجيل مباشر من المنصة', 'Screen-recorded from the platform'] as Bi,
   flowH: ['طريق السؤال', 'The path of a question'] as Bi,
   guaranteesH: ['ما يضمنه المعمار', 'What the architecture guarantees'] as Bi,
   afterH: ['وبعد الجواب', 'After the answer'] as Bi,
@@ -35,7 +36,7 @@ const T = {
  * Three real exchanges, transcribed from the screenshots they reveal — the
  * question, the steps the assistant announced, and its own answer line.
  */
-const DEMOS: { q: Bi; steps: Bi[]; a: Bi; img: string; w: number; h: number }[] = [
+const DEMOS: { q: Bi; steps: Bi[]; a: Bi; img: string; w: number; h: number; video?: boolean }[] = [
   {
     q: ['كم عدد الآبار المسجلة في كل محافظة؟', 'How many registered wells in each governorate?'],
     steps: [
@@ -57,7 +58,7 @@ const DEMOS: { q: Bi; steps: Bi[]; a: Bi; img: string; w: number; h: number }[] 
       'نابلس أولاً بـ435 عينة، تليها جنين بـ336 — وحدهما 52% من إجمالي 1,494 عينة، موزّعة على عشر محافظات.',
       'Nablus leads with 435 samples, then Jenin with 336 — together 52% of all 1,494, spread across ten governorates.',
     ],
-    img: '25.jpg', w: 1088, h: 1216,
+    img: '25.jpg', w: 1088, h: 1216, video: true,
   },
   {
     q: ['اعرض مواقع الآبار على خريطة حرارية', 'Plot the wells on a heat map'],
@@ -206,6 +207,7 @@ export function AiSection() {
   }, [])
 
   const demo = DEMOS[i]
+  const isVideo = !!demo.video
   const typed = useTypewriter(L(demo.q), live && phase === 'typing')
 
   /* typing -> running -> answer -> next question */
@@ -322,19 +324,41 @@ export function AiSection() {
           {/* the real screen */}
           <figure className="lg:sticky lg:top-24">
             <div className="rounded-2xl border border-white/15 bg-white/[.05] p-3 shadow-[0_30px_70px_-24px_rgb(0_0_0/.7)]">
-              <img
-                key={demo.img}
-                src={productImg('dwp', demo.img)}
-                width={demo.w}
-                height={demo.h}
-                alt={L(demo.q)}
-                className={`w-full rounded-xl bg-white transition-all duration-500 ${
-                  phase === 'answer' ? 'opacity-100 translate-y-0' : 'opacity-35 translate-y-1'
-                }`}
-              />
+              {/* The pie exchange is a screen recording of the running platform,
+                  not a still. Muted and looping: an exhibition hall runs past
+                  60 dBA and show rules cap sound anyway, so it has to read with
+                  no audio. preload="none" keeps it off the initial load. */}
+              {isVideo ? (
+                <video
+                  key="live"
+                  className="w-full rounded-xl bg-white"
+                  poster="./assets/video/sabr_poster.jpg"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="none"
+                  aria-label={L(demo.q)}
+                >
+                  <source src="./assets/video/sabr_demo.webm" type="video/webm" />
+                  <source src="./assets/video/sabr_demo.mp4" type="video/mp4" />
+                  <img src="./assets/video/sabr_poster.jpg" alt={L(demo.q)} />
+                </video>
+              ) : (
+                <img
+                  key={demo.img}
+                  src={productImg('dwp', demo.img)}
+                  width={demo.w}
+                  height={demo.h}
+                  alt={L(demo.q)}
+                  className={`w-full rounded-xl bg-white transition-all duration-500 ${
+                    phase === 'answer' ? 'opacity-100 translate-y-0' : 'opacity-35 translate-y-1'
+                  }`}
+                />
+              )}
             </div>
             <figcaption className="mt-2.5 text-[.75rem] text-[#8fb0d4] text-center font-light">
-              {L(T.answerLabel)}
+              {isVideo ? L(T.answerLabelLive) : L(T.answerLabel)}
             </figcaption>
           </figure>
         </div>

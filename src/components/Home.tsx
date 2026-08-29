@@ -4,6 +4,7 @@ import { Wrap, SectionLabel } from './Chrome'
 import { ClientsSection } from './Clients'
 import { CoverageMap } from './CoverageMap'
 import { AiSection } from './AiSection'
+import { CardPreview } from './Preview'
 
 function Hero() {
   const { t, heroTitle } = useI18n()
@@ -64,13 +65,18 @@ function ProductsGrid() {
                   : ''
               }`}
             >
-              <div
-                className={`flex-none rounded-[20px] bg-white border border-line shadow-[0_8px_22px_-10px_rgb(9_45_92/.22)] flex items-center justify-center p-3 ${
-                  p.flagship ? 'w-[102px] h-[102px] rounded-3xl' : 'w-[84px] h-[84px]'
-                }`}
-              >
-                <img loading="lazy" src={productLogo(p)} alt="" className="max-w-full max-h-full object-contain" />
-              </div>
+              {p.flagship ? (
+                <div className="flex-none w-[102px] h-[102px] rounded-3xl bg-white border border-line shadow-[0_8px_22px_-10px_rgb(9_45_92/.22)] flex items-center justify-center p-3">
+                  <img loading="lazy" src={productLogo(p)} alt="" className="max-w-full max-h-full object-contain" />
+                </div>
+              ) : (
+                <div className="flex flex-col gap-4">
+                  <CardPreview product={p} />
+                  <div className="w-[62px] h-[62px] rounded-2xl bg-white border border-line shadow-[0_8px_22px_-10px_rgb(9_45_92/.22)] flex items-center justify-center p-2.5">
+                    <img loading="lazy" src={productLogo(p)} alt="" className="max-w-full max-h-full object-contain" />
+                  </div>
+                </div>
+              )}
               <div className="flex flex-col flex-1 gap-0 min-w-0">
                 <h3 className={`font-semibold text-navy leading-[1.45] ${p.flagship ? 'text-[clamp(1.25rem,2.1vw,1.6rem)]' : 'text-[1.16rem]'}`}>
                   {L(p.name)}
@@ -96,6 +102,11 @@ function ProductsGrid() {
                   </span>
                 </div>
               </div>
+              {p.flagship && (
+                <div className="hidden lg:block w-[clamp(300px,32%,420px)] flex-none">
+                  <CardPreview product={p} count={5} />
+                </div>
+              )}
             </a>
           ))}
         </div>
