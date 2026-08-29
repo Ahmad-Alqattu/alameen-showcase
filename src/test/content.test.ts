@@ -175,3 +175,13 @@ describe('brand assets', () => {
       expect(assetExists(f), `missing ${f}`).toBe(true)
   })
 })
+
+describe('AI band screenshots', () => {
+  /**
+   * The band references product screenshots by filename directly rather than
+   * through showcase.json, so nothing else would catch a rename.
+   */
+  it.each(['03.jpg', '25.jpg', '05.jpg', '09.jpg'])('dwp/%s exists', (f) => {
+    expect(assetExists(`assets/products/dwp/${f}`)).toBe(true)
+  })
+})

@@ -49,16 +49,15 @@ const DEMOS: { q: Bi; steps: Bi[]; a: Bi; img: string; w: number; h: number }[] 
     img: '03.jpg', w: 556, h: 616,
   },
   {
-    q: ['وزّع الآبار حسب حالة الترخيص، بشكل دائري', 'Break the wells down by licence status, as a pie'],
+    q: ['وزّع عينات المختبر على المحافظات، بشكل دائري', 'Distribute the lab samples across governorates, as a pie'],
     steps: [
-      ['أتحقق من أعمدة سجل الآبار', 'Checking the columns on the well register'],
-      ['أجمع الآبار حسب حالة الترخيص لعرضها دائرياً', 'Grouping by licence status for a pie'],
+      ['جاري تجميع عدد العينات حسب المحافظة', 'Aggregating sample counts by governorate'],
     ],
     a: [
-      'الغالبية الساحقة — نحو 94% — حالتها الترخيصية غير مسجلة. فجوة بيانات قبل أن تكون فجوة امتثال.',
-      'The overwhelming majority — about 94% — have no recorded licence status. A data gap before it is a compliance gap.',
+      'نابلس أولاً بـ435 عينة، تليها جنين بـ336 — وحدهما 52% من إجمالي 1,494 عينة، موزّعة على عشر محافظات.',
+      'Nablus leads with 435 samples, then Jenin with 336 — together 52% of all 1,494, spread across ten governorates.',
     ],
-    img: '04.jpg', w: 556, h: 616,
+    img: '25.jpg', w: 1088, h: 1216,
   },
   {
     q: ['اعرض مواقع الآبار على خريطة حرارية', 'Plot the wells on a heat map'],
@@ -71,6 +70,18 @@ const DEMOS: { q: Bi; steps: Bi[]; a: Bi; img: string; w: number; h: number }[] 
       '952 of 963 wells plotted — and 11 records with no coordinates, stated under the map rather than quietly dropped.',
     ],
     img: '05.jpg', w: 556, h: 606,
+  },
+  {
+    q: ['وزّع الآبار حسب المحافظة، بمتوسط العمق', 'Distribute the wells by governorate, on average depth'],
+    steps: [
+      ['أجمع حسب فئة: المحافظة', 'Grouping by category: governorate'],
+      ['والقيمة: متوسط العمق الكلي م', 'And the measure: average total depth, m'],
+    ],
+    a: [
+      'محافظة واحدة تقارب 570 متراً بينما تستقر الأغلبية بين 150 و250 — والفئة نفسها قابلة للتبديل: الحوض، نوع المكمن، التكوين الجيولوجي، مستوى الخطر البيئي، أولوية التأهيل… تسعة عشر عموداً تُعاد القسمة عليها دون كتابة تقرير جديد.',
+      'One governorate approaches 570 m while most settle between 150 and 250 — and the category itself is interchangeable: aquifer, reservoir type, geological formation, environmental risk, rehabilitation priority… nineteen columns the same data can be re-divided across, without writing a new report.',
+    ],
+    img: '09.jpg', w: 1352, h: 838,
   },
 ]
 
