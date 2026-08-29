@@ -3,6 +3,7 @@ import { SHOWCASE, productLogo } from '../data'
 import { Wrap, SectionLabel } from './Chrome'
 import { ClientsSection } from './Clients'
 import { CoverageMap } from './CoverageMap'
+import { AiSection } from './AiSection'
 
 function Hero() {
   const { t, heroTitle } = useI18n()
@@ -198,6 +199,7 @@ export function Home() {
     <main>
       <Hero />
       <ProductsGrid />
+      <AiSection />
       <AboutSection />
       <section className="py-[clamp(26px,4.5vh,56px)]">
         <Wrap id="clients">

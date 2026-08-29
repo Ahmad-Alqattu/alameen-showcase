@@ -51,6 +51,7 @@ export function Topbar() {
   const { t, toggle } = useI18n()
   const anchors: [DictKey, string][] = [
     ['navProducts', 'products'],
+    ['navAi', 'ai'],
     ['navAbout', 'about'],
     ['navClients', 'clients'],
     ['navContact', 'contact'],

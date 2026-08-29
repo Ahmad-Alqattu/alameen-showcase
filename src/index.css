@@ -28,6 +28,10 @@
     from { opacity: 0; transform: translateY(24px); }
     to   { opacity: 1; transform: none; }
   }
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
   @keyframes ppulse {
     0%   { transform: scale(0.6); opacity: 0.55; }
     70%  { transform: scale(2.1); opacity: 0; }
