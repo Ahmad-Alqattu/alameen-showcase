@@ -17,8 +17,8 @@
     "One configurable platform for water operations, regulation and intelligence"
    ],
    "about": [
-    "تسعة أنظمة بدخولٍ واحد ومحرّكٍ واحد، مبنية ومُشغَّلة لسلطة مياه وطنية: الترخيص والموارد والتوزيع والصرف والمختبرات والخرائط. كل طلب يمشي في مسارٍ مُهيَّأ، وينتهي بوثيقة موقّعة قابلة للتحقق.",
-    "Nine systems, one login, one engine underneath — built and running for a national water authority: licensing, resources, distribution, wastewater, labs and GIS. Every request moves through a configured workflow, and can end in a signed, verifiable document."
+    "تسعة أنظمة بدخولٍ واحد ومحرّكٍ واحد، مبنية ومُشغَّلة لسلطة مياه وطنية: الترخيص والموارد المائية والتوزيع والصرف والمختبرات والخرائط. كل طلب يمشي في مسارٍ مُهيَّأ بمراحله وأزمنته ومسؤوليه، وكل انتقال يسجّل من تصرّف وماذا تغيّر ومتى، وينتهي بوثيقة مجمَّدة قابلة للتحقق برمز QR. والمساعد الذكي «سَبْر» يجيب من المحرّك نفسه وبصلاحيات سائله.",
+    "Nine systems, one login and one engine underneath, built and running for a national water authority: licensing, water resources, distribution, wastewater, laboratories and GIS. Every request moves through a configured workflow with its stages, SLAs and owners; every transition records who acted, what changed and when; and it can end in a frozen, QR-verifiable document. Sabr, the assistant, answers through that same engine with the asking user's permissions."
    ],
    "feats": [
     [
@@ -406,8 +406,8 @@
     "An integrated platform for managing and analysing city & municipal geographic data"
    ],
    "about": [
-    "خرائط تفاعلية تُدار بها المدينة: الأراضي والأبنية والشوارع والإنارة والصرف والنفايات — كل طبقة مربوطة بسجلّها، وكل قرار تخطيطي مسنود بخريطة.",
-    "Interactive maps you run a city from: land, buildings, streets, lighting, sewerage and waste — every layer tied to its register, every planning decision backed by a map."
+    "خرائط تفاعلية تُدار بها المدينة: قطع الأراضي وملكياتها ومعاملاتها، والأبنية وترقيمها، والشوارع والإنارة وشبكة الصرف والبنية التحتية والنفايات الصلبة. كل طبقة مربوطة بسجلّها فلا رقم بلا موقع ولا موقع بلا سجل، وتقارير مخطط الموقع والتنظيم تصدر من البيانات نفسها — فيصير التخطيط العمراني وقرار الخدمة مسنودَين بخريطة لا بتقدير.",
+    "Interactive maps a city is run from: parcels with their ownership and transactions, buildings and their numbering, streets, lighting, the sewer network, utilities and solid waste. Every layer is tied to its register — no record without a location, no location without a record — and site-plan and zoning reports come off the same data, so urban planning and service decisions rest on a map rather than an estimate."
    ],
    "feats": [
     [
@@ -721,8 +721,8 @@
     "A smart platform for municipal & government services — from request to certificate"
    ],
    "about": [
-    "المواطن يقدّم طلبه من بيته، والطلب يمشي في مسارٍ مُعرَّف بين الدوائر حتى الشهادة. النماذج والقوالب والمسارات تُهيَّأ كلها بلا برمجة.",
-    "The citizen files from home, and the request moves along a defined path between departments until the certificate. Forms, templates and workflows are all configured without code."
+    "المواطن يقدّم طلبه من بيته، والطلب يمشي في مسارٍ مُعرَّف بين الدوائر حتى إصدار الشهادة. تفويض المهام والإشعارات وسجل التدقيق تجعل كل خطوة مرئية ولها مسؤول، والأرشيف يحفظ الطلب ووثائقه للرجوع إليها. والنماذج والقوالب والمسارات تُهيَّأ كلها بلا برمجة — فالخدمة الجديدة إعدادٌ لا مشروع تطوير.",
+    "The citizen files from home, and the request travels a defined path between departments until the certificate is issued. Task delegation, notifications and an audit trail make every step visible and owned, and the archive keeps the request and its documents for later. Forms, templates and workflows are all configured without code — so a new service is a setup, not a development project."
    ],
    "feats": [
     [
@@ -969,8 +969,8 @@
     "A comprehensive system for managing HR and employee affairs digitally"
    ],
    "about": [
-    "ملف الموظف كاملاً في مكان واحد: الدوام والإجازات والتقييم والترقيات — بخدمة ذاتية تُغني عن مراجعة الموارد البشرية، ووحدات للمستودعات والعُهد والصيانة.",
-    "The whole employee file in one place: attendance, leave, appraisals and promotions — with self-service that saves a trip to HR, plus inventory, custody and maintenance modules."
+    "ملف الموظف كاملاً في مكان واحد: الدوام والورديات والإجازات والمغادرات، وحركات الملف من ترقية وعلاوة وتكليف، والتقييم بمعايير وأوزان. الخدمة الذاتية تُغني الموظف عن مراجعة الموارد البشرية لطلب إجازة أو قسيمة راتب، وتُضاف إليها وحدات المستودعات والعُهد والصيانة وحجز القاعات في المنصة نفسها.",
+    "The whole employee file in one place: attendance, shifts, leave and permissions; file transactions from promotions to allowances and assignments; and appraisals with weighted criteria. Self-service saves the employee a trip to HR for a leave request or a payslip, and inventory, asset custody, maintenance and room booking sit in the same platform."
    ],
    "feats": [
     [
@@ -1267,8 +1267,8 @@
     "The full construction project lifecycle — from design to closure"
    ],
    "about": [
-    "المشروع الإنشائي من التصميم حتى الإغلاق: جداول الكميات، والعطاء ولجانه، واختيار المقاول، ومتابعة الإنجاز، ودفعاته بنسبٍ معتمدة — وكل خطوة موثَّقة.",
-    "A construction project from design to closure: bills of quantities, the tender and its committees, contractor award, progress tracking, and payments against approved completion — every step documented."
+    "المشروع الإنشائي من التصميم حتى الإغلاق: تعريف المشروع وتعيين المهندسين والمستفيدين وإعداد جداول الكميات، ثم العطاء بلجانه وفتح المظاريف واختيار المقاول الفائز وضماناته، ثم متابعة التنفيذ ونِسَب الإنجاز ودفعات المقاول عليها، وأخيراً الصيانة والتسليم. وكل مرحلة موثَّقة وتُصدَّر تقاريرها إلى Word وPDF وExcel.",
+    "A construction project from design to closure: project setup, assigning engineers and beneficiaries, preparing the bill of quantities; then the tender with its committees, opening, contractor award and guarantees; then execution against approved items, with completion percentages driving contractor payments; and finally maintenance and handover. Every stage is documented, and its reports export to Word, PDF and Excel."
    ],
    "feats": [
     [
@@ -1486,8 +1486,8 @@
     "Smart network management — interactive maps and the Fair Water Allocation Model"
    ],
    "about": [
-    "شبكة التوزيع على الخريطة وفي الأرقام معاً: الاستهلاك والتزويد والفاقد، ونموذج التخصيص العادل يحسب الطلب والحصة لكل تجمّع ومزوّد خدمة.",
-    "The distribution network on the map and in the numbers at once: consumption, supply and losses — with the Fair Water Allocation Model computing demand and share for every community and provider."
+    "شبكة التوزيع على الخريطة وفي الأرقام معاً: خرائط تفاعلية لعناصر الشبكة ومساراتها ومصادرها وخزاناتها، وقاعدة بيانات للتجمّعات ومزوّدي الخدمة. ونموذج التخصيص العادل للمياه يقدّر الطلب لكل تجمّع ومزوّد ويحسب الحصة العادلة ويكشف الفروق والفاقد — فتصير التقارير عن الاستهلاك والتزويد أساساً لقرار التخطيط والصيانة.",
+    "The distribution network on the map and in the numbers at once: interactive maps of network items, routes, local sources and storage, over a database of communities and service providers. The Fair Water Allocation Model estimates demand per community and provider, computes the fair share and exposes discrepancies and losses — so consumption and supply reports become the basis for planning and maintenance decisions."
    ],
    "feats": [
     [
@@ -1613,8 +1613,8 @@
     "Managing and collecting property & land taxes efficiently and transparently"
    ],
    "about": [
-    "سجل المكلّفين والعقارات، والتحصيل والمتأخرات، والتقييم والاعتراضات — بإشعارات ضريبية وتقارير مالية، وتكامل مع نظام PTAX المركزي.",
-    "The taxpayer and property register, collection and arrears, assessment and objections — with tax notices, financial reports, and integration with the central PTAX system."
+    "سجل منظَّم للمكلّفين والعقارات والأراضي والأبنية، وإصدار الإيصالات ومتابعة الدفعات والمتأخرات لحظياً. يدعم النظام التقييم الدقيق للعقار والاعتراض والطعن عليه بما يحفظ العدالة والمساءلة، ويُصدر الإشعارات الضريبية والتقارير المالية، ويتكامل مع نظام PTAX المركزي لتوحيد البيانات وأمنها.",
+    "A structured register of taxpayers, properties, land and buildings, with receipt issuance and real-time tracking of payments and arrears. It supports accurate assessment along with objections and appeals, so fairness and accountability are preserved, issues tax notices and financial reports, and integrates with the central PTAX system for unified, secured data."
    ],
    "feats": [
     [
@@ -1783,8 +1783,8 @@
     "Water services in the citizen's pocket — tankers, complaints, news & indicators"
    ],
    "about": [
-    "خدمات المياه في جيب المواطن: طلب صهريج، وشكوى تُتابَع، وأخبار وعطاءات ومؤشرات أداء — على iOS وأندرويد.",
-    "Water services in the citizen's pocket: request a tanker, file a complaint and follow it, read news, tenders and performance indicators — on iOS and Android."
+    "خدمات المياه في جيب المواطن: طلب صهريج مياه، وتقديم شكوى ومتابعة مسارها، والأخبار والإعلانات والعطاءات ومؤشرات الأداء والحملات التوعوية. قناة تواصل مباشرة بين السلطة والمواطن تختصر المراجعات وتجعل الإجراء سريعاً وواضحاً ومتاحاً على iOS وأندرويد.",
+    "Water services in the citizen's pocket: request a water tanker, file a complaint and follow where it went, plus news, announcements, tenders, performance indicators and awareness campaigns. A direct channel between the authority and the citizen that removes the trip to the counter and keeps the process fast and visible, on iOS and Android."
    ],
    "feats": [
     [
@@ -1919,8 +1919,8 @@
     "Interactive maps and geo-historical content connecting curricula to the real world"
    ],
    "about": [
-    "خرائط تفاعلية ومحتوى جغرافي وتاريخي يربط المنهاج بالأرض — تجربة تعلّم تُعمّق الوعي بالتراث والهوية.",
-    "Interactive maps and geo-historical content that tie the curriculum to the ground — a learning experience that deepens awareness of heritage and identity."
+    "منصة تعليمية تفاعلية تضع بين يدي الطالب والمعلم خرائط متعددة الطبقات وبيانات جغرافية ومحتوى تاريخياً موثَّقاً، فتربط المنهاج بالأرض التي يتحدث عنها. تجربة تعلّم تُرسّخ المعرفة وتُعمّق الوعي بالتراث والهوية الوطنية.",
+    "An interactive learning platform that puts layered maps, geographical data and documented historical content in the hands of students and teachers, tying the curriculum to the ground it describes — a learning experience that makes knowledge stick and deepens awareness of heritage and national identity."
    ],
    "feats": [
     [
@@ -2029,8 +2029,8 @@
     "Collecting and analysing social data with interactive indicators and reports"
    ],
    "about": [
-    "بيانات اجتماعية تُجمع من الميدان فتتحوّل مؤشرات ورسوماً وتقارير — قاعدة مركزية تتابع بها الوزارة الاحتياج والبرامج.",
-    "Social data collected in the field and turned into indicators, charts and reports — one central base the ministry tracks need and programs from."
+    "بيانات اجتماعية تُجمع من الميدان فتتحوّل مؤشرات ورسوماً وتقارير تفاعلية تدعم القرار. قاعدة مركزية تتابع بها الوزارة الاحتياج الاجتماعي وتقيس أثر البرامج والمشاريع، ويصل إليها المسؤول وصانع السياسة بسهولة بدل أن تبقى موزَّعة في ملفات متفرقة.",
+    "Social data collected in the field and turned into indicators, charts and interactive reports that support decisions. One central base the ministry tracks social need from and measures the impact of its programs and projects, reachable by officials and policymakers instead of sitting scattered across separate files."
    ],
    "feats": [
     [
