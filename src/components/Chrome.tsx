@@ -98,31 +98,95 @@ export function Topbar() {
   )
 }
 
+/**
+ * The closing section, not a strip. It is where the nav's "Contact" lands and
+ * the last thing a visitor reads, so it carries an invitation and labelled
+ * contact details rather than an undifferentiated row of numbers.
+ */
 export function Footer() {
-  const { L } = useI18n()
-  const hq: [string, string] = [
-    'عمارة الزيتونة – الطابق الرابع، شارع الإرسال، رام الله – فلسطين',
-    'Al-Zaytouna Building, 4th Floor – Al-Irsal Street, Ramallah, Palestine',
+  const { L, lang } = useI18n()
+
+  const cta: [string, string] = [
+    'نعرض لك المنصة على بياناتك',
+    'We will show you the platform on your own data',
   ]
+  const ctaSub: [string, string] = [
+    'اطلب عرضاً، أو مرّ علينا — نجهّز لك بيئة تجريبية بأرقام مؤسستك خلال أيام.',
+    'Ask for a walkthrough, or come and see us — we set up a trial environment on your organization’s own figures within days.',
+  ]
+
+  /** [label, value, href, ltr?] */
+  const rows: [[string, string], string, string, boolean][] = [
+    [['البريد الإلكتروني', 'Email'], 'Info@alameentech.com', 'mailto:Info@alameentech.com', true],
+    [['الجوال', 'Mobile'], '+970 599 206 305', 'tel:+970599206305', true],
+    [['هاتف المكتب', 'Office'], '+970 2 2988555', 'tel:+97022988555', true],
+    [['الموقع', 'Website'], 'alameentech.com', 'https://alameentech.com', true],
+  ]
+
+  const hqLines: [string, string][] = [
+    ['عمارة الزيتونة – الطابق الرابع', 'Al-Zaytouna Building, 4th Floor'],
+    ['شارع الإرسال', 'Al-Irsal Street'],
+    // kept on one line: a city name must never break across two
+    ['رام الله – فلسطين', 'Ramallah, Palestine'],
+  ]
+
   return (
-    <footer id="contact" className="mt-[clamp(26px,5vh,60px)] bg-gradient-to-br from-[#03203d] to-navy text-[#eaf3fc]">
-      <Wrap className="grid md:grid-cols-[auto_1fr_auto] grid-cols-1 gap-[clamp(20px,4vw,60px)] items-center py-9 md:text-start text-center md:justify-items-start justify-items-center">
-        <img className="h-8" src="./assets/logo-alameen-white.svg" alt="" />
-        <div className="flex flex-wrap gap-x-6 gap-y-2 text-[.86rem] text-[#b8cfe8] font-light justify-center">
-          <a className="hover:text-white transition" href="https://alameentech.com" target="_blank" rel="noopener">
-            alameentech.com
-          </a>
-          <a className="hover:text-white transition" href="mailto:Info@alameentech.com">
-            Info@alameentech.com
-          </a>
-          <a className="hover:text-white transition" href="tel:+970599206305">
-            <span dir="ltr">+970 599 206 305</span>
-          </a>
-          <a className="hover:text-white transition" href="tel:+97022988555">
-            <span dir="ltr">+970 2 2988555</span>
-          </a>
+    <footer id="contact" className="mt-[clamp(30px,5vh,64px)] bg-gradient-to-br from-[#03203d] to-navy text-[#eaf3fc]">
+      <Wrap className="pt-[clamp(38px,6vh,70px)] pb-8">
+        <div className="grid lg:grid-cols-[1.1fr_1fr] grid-cols-1 gap-[clamp(28px,5vw,72px)]">
+          {/* the invitation */}
+          <div>
+            <div className="font-mono text-[.78rem] font-semibold tracking-[.14em] uppercase text-cyan mb-4">
+              {L(['تواصل معنا', 'Get in touch'])}
+            </div>
+            <h2 className="text-[clamp(1.4rem,2.6vw,2.1rem)] font-bold leading-[1.35] max-w-[20ch]">{L(cta)}</h2>
+            <p className="mt-3.5 text-[.92rem] font-light leading-8 text-[#b0cbe6] max-w-[46ch]">{L(ctaSub)}</p>
+            <a
+              href="mailto:Info@alameentech.com"
+              className="mt-6 inline-flex items-center gap-3 px-6 py-3.5 rounded-full bg-cyan text-navy font-bold text-[.95rem] transition hover:bg-white"
+            >
+              {L(['راسلنا', 'Email us'])}
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" className="w-4 h-4 rtl:-scale-x-100">
+                <path d="M5 12h14m-7-7 7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+
+          {/* labelled details — which number is which should never be a guess */}
+          <div className="grid sm:grid-cols-2 grid-cols-1 gap-x-8 gap-y-5 content-start">
+            {rows.map(([label, value, href, ltr]) => (
+              <div key={value}>
+                <div className="font-mono text-[.68rem] tracking-[.13em] uppercase text-[#7fa3c6] mb-1">{L(label)}</div>
+                <a
+                  href={href}
+                  {...(href.startsWith('http') ? { target: '_blank', rel: 'noopener' } : {})}
+                  className="text-[.95rem] font-medium hover:text-cyan transition"
+                  dir={ltr ? 'ltr' : undefined}
+                  style={ltr && lang === 'ar' ? { display: 'block', textAlign: 'right' } : undefined}
+                >
+                  {value}
+                </a>
+              </div>
+            ))}
+            <div className="sm:col-span-2">
+              <div className="font-mono text-[.68rem] tracking-[.13em] uppercase text-[#7fa3c6] mb-1">
+                {L(['المقر الرئيسي', 'Headquarters'])}
+              </div>
+              <address className="not-italic text-[.92rem] font-light leading-7 text-[#b0cbe6]">
+                {hqLines.map((l) => (
+                  <span key={l[1]} className="block">{L(l)}</span>
+                ))}
+              </address>
+            </div>
+          </div>
         </div>
-        <div className="text-[.8rem] text-[#8fb0d4] font-light leading-7 max-w-[34ch]">{L(hq)}</div>
+
+        <div className="mt-[clamp(30px,5vh,54px)] pt-6 border-t border-white/12 flex flex-wrap items-center justify-between gap-5">
+          <img className="h-8" src="./assets/logo-alameen-white.svg" alt="Al-Ameen Technologies" />
+          <div className="font-mono text-[.72rem] text-[#7fa3c6]">
+            © {new Date().getFullYear()} {L(['الأمين للتقنيات', 'Al-Ameen Technologies'])}
+          </div>
+        </div>
       </Wrap>
     </footer>
   )

@@ -173,7 +173,7 @@ function Partners() {
   const { L } = useI18n()
   return (
     <>
-      <SectionLabel k="partnersLabel" className="mt-11" />
+      <SectionLabel k="partnersLabel" />
       <div className="grid grid-cols-[repeat(auto-fill,minmax(180px,1fr))] gap-3.5 mt-6">
         {SHOWCASE.partners.map((p) => (
           <div
@@ -211,6 +211,10 @@ export function Home() {
           <h2 className="text-[clamp(1.4rem,2.6vw,2.1rem)] font-bold text-navy mb-1.5">{t('covH2')}</h2>
           <p className="text-[.95rem] text-muted font-light max-w-[70ch] leading-7">{t('covSub')}</p>
           <CoverageMap />
+        </Wrap>
+      </section>
+      <section className="pb-[clamp(26px,4.5vh,56px)]">
+        <Wrap>
           <Partners />
         </Wrap>
       </section>
