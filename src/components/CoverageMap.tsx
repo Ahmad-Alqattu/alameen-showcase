@@ -43,7 +43,10 @@ export function CoverageMap() {
       const pxPerUnit = (wrap.clientWidth || 1200) / view.w
       let s = PIN_S * Math.sqrt(k)
       s = Math.max(15 / (24 * pxPerUnit), Math.min(92 / (24 * pxPerUnit), s))
-      svg.querySelectorAll('.gov-label').forEach((el) => el.setAttribute('font-size', (13 * k).toFixed(2)))
+      // Labels are drawn in SVG user units, so the kiosk rem scale never
+      // reaches them — lift the base the zoom multiplies instead.
+      const labelPx = document.documentElement.dataset.mode === 'kiosk' ? 19 : 13
+      svg.querySelectorAll('.gov-label').forEach((el) => el.setAttribute('font-size', (labelPx * k).toFixed(2)))
       svg.querySelectorAll('.pt-halo').forEach((el) =>
         el.setAttribute('r', (Number(el.getAttribute('data-r')) * k).toFixed(2)),
       )
@@ -287,7 +290,7 @@ export function CoverageMap() {
             key={id}
             id={id}
             aria-label={id}
-            className="w-11 h-11 rounded-xl bg-white/95 border border-line-strong text-navy text-xl font-bold flex items-center justify-center shadow-[0_8px_20px_-8px_rgb(9_45_92/.3)] transition hover:bg-brand hover:border-brand hover:text-white"
+            className="mbtn w-11 h-11 rounded-xl bg-white/95 border border-line-strong text-navy text-xl font-bold flex items-center justify-center shadow-[0_8px_20px_-8px_rgb(9_45_92/.3)] transition hover:bg-brand hover:border-brand hover:text-white"
           >
             {ch}
           </button>

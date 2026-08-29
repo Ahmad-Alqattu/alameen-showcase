@@ -93,7 +93,7 @@ export function ProductView({ product: p }: { product: Product }) {
               <h2 className="text-[clamp(1.1rem,2vw,1.5rem)] font-bold text-navy leading-snug">{L(p.name)}</h2>
               <div className="text-[.78rem] text-brand mt-0.5 font-medium tracking-wide">{Lx(p.name)}</div>
             </div>
-            <span className="flex-none text-[.72rem] px-3 py-1 rounded-full border border-brand/45 text-brand bg-brand/5 font-medium">
+            <span className="tag flex-none text-[.72rem] px-3 py-1 rounded-full border border-brand/45 text-brand bg-brand/5 font-medium">
               {L(p.sector)}
             </span>
           </div>

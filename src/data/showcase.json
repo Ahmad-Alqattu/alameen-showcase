@@ -1,1 +1,3903 @@
-{"products":[{"slug":"dwp","logo":"logo.svg","sector":["المياه والقطاع الحكومي","Water & Government"],"flagship":true,"name":["المنصة الرقمية للمياه","Digital Water Platform"],"tag":["منصة واحدة قابلة للتهيئة لعمليات المياه والترخيص والذكاء التشغيلي","One configurable platform for water operations, regulation and intelligence"],"about":["منصة وطنية بُنيت ونُشرت لسلطة المياه الفلسطينية: تسعة أنظمة بدخولٍ واحد ومحرّكٍ واحد — الخدمات الرقمية، مسارات العمل، الترخيص، نظم المعلومات الجغرافية، الأصول، المختبرات، التقارير، لوحات المؤشرات، والمساعد الذكي «سَبْر». كل طلب يمرّ بمسار عمل مُهيَّأ بمراحل وأزمنة ومسؤولين، وينتهي بوثيقة مجمَّدة قابلة للتحقق عبر رمز QR. والمساعد الذكي يجيب عبر محرّك التقارير المحوكم نفسه وبصلاحيات المستخدم السائل — دون أي وصولٍ مباشر لقاعدة البيانات.","Built and deployed for a national water authority — licensing, water resources, distribution, wastewater, laboratories and GIS behind one gateway. Nine systems, one login, one engine underneath. Every request moves through a configured workflow with stages, SLAs and owners, and can end in a frozen, QR-verifiable issued document. Sabr, the AI assistant, answers through the same governed reporting engine and inherits the asking user's permissions — no raw database access."],"feats":[["ترخيص وخدمات رقمية متكاملة","Licensing & digital services"],["محرّك مسارات عمل بمراحل وأزمنة SLA","Staged, SLA-timed workflow engine"],["20 طبقة GIS · 3,707 معلماً ممثَّلاً","20 GIS layers · 3,707 mapped features"],["المساعد الذكي «سَبْر»","Sabr — the AI assistant"],["منشئ تقارير بلا كود، بصياغة ذكية","No-code, AI-drafted report builder"],["لوحات مؤشرات من تقارير محفوظة","Dashboards built from saved reports"],["وثائق مجمَّدة بتحقق QR","Frozen, QR-verifiable documents"],["تعدُّد مؤسسات وصلاحيات على مستوى الصف","Multi-tenant · row-level access control"],["عربي / إنجليزي مع دعم RTL كامل","Arabic & English, fully RTL-aware"],[".NET 10 · React 19 · PostgreSQL/PostGIS",".NET 10 · React 19 · PostgreSQL/PostGIS"]],"client":["مُشغَّلة مرجعياً لدى سلطة المياه الفلسطينية","Reference deployment: Palestinian Water Authority"],"imgs":[{"f":"03.jpg","w":556,"h":616,"cap":["«اسأل بياناتك التشغيلية» — المساعد الذكي «سَبْر»","Ask your operational data — Sabr"],"note":["يجيب عبر محرك التقارير المحوكم وبصلاحيات المستخدم السائل نفسه — لا وصول مباشر لقاعدة البيانات.","Answers through the governed reporting engine with the asking user's permissions — no raw database access."]},{"f":"04.jpg","w":556,"h":616,"cap":["مساعد واحد… وكل أشكال الإجابة","One assistant, every shape of answer"],"note":["رسم بياني أو تفصيل رقمي أو خريطة كثافة — «سَبْر» يختار العرض الأنسب للسؤال.","A bar chart, a breakdown, or a geographic density map — Sabr picks the visualization that fits."]},{"f":"05.jpg","w":556,"h":606,"cap":["الإجابة على الخريطة","The answer, on the map"],"note":["توزيع الآبار حسب حالة الترخيص يظهر كثافةً جغرافية فورية للآبار المسجلة.","Well distribution by licence status rendered as instant geographic density."]},{"f":"06.jpg","w":1600,"h":1038,"cap":["من إجابة… إلى تقرير مملوك","From answer to owned report"],"note":["بنقرة واحدة ينتقل السؤال إلى منشئ التقارير: عدِّله واحفظه وثبِّته على لوحة المؤشرات.","One click carries the question into the report builder — refine, save, or pin to a dashboard."]},{"f":"02.jpg","w":1600,"h":1038,"cap":["البنية التحتية والموارد — على الخريطة","Infrastructure & resources on the map"],"note":["20 طبقة تشغيلية و3,707 معلماً ممثَّلاً: آبار وينابيع وشبكات ومحطات ضخ ومعالجة وأحواض جوفية.","20 operational layers, 3,707 mapped features: wells, springs, networks, stations, plants, aquifers."]},{"f":"07.jpg","w":1600,"h":1038,"cap":["لا سجلَّ بلا جغرافيا","No record stands alone"],"note":["افتح أي أصل — وجغرافيته وموقعه على الشبكة حاضران معه.","Open an asset and its geography is already there."]},{"f":"08.jpg","w":1600,"h":1038,"cap":["أدخِل الهندسة الجغرافية… لا تُعِد رسمها","Bring geometry in — don't redraw it"],"note":["مسار خط أنابيب مستورد مباشرة من Shapefile أو GeoJSON ومطابَق على شبكته.","A pipeline route imported straight from Shapefile or GeoJSON, matched to its network."]},{"f":"09.jpg","w":1352,"h":838,"cap":["صِفه… فيبني نفسه","Describe it. It builds itself."],"note":["جملة واحدة تصبح تعريف تقرير كاملاً: مجموعة البيانات والأعمدة والتجميع والمخطط — مولَّد وقابل للمراجعة.","One plain sentence becomes a report definition: dataset, columns, grouping, visualization."]},{"f":"10.jpg","w":1600,"h":1038,"cap":["المحرك نفسه… على اللوحة","The same engine, on the dashboard"],"note":["كل بطاقة في لوحة المؤشرات تقريرٌ محفوظ — لا شاشات مبرمجة يدوياً.","Every dashboard tile is a saved report — nothing hard-coded screen by screen."]},{"f":"11.jpg","w":1600,"h":1038,"cap":["صِف اللوحة… وشاهدها تُبنى","Describe it. Watch it build itself."],"note":["أمرٌ واحد يقترح ست بطاقات مهيأة من بيانات الموارد المائية المحوكمة.","One prompt proposes six configured tiles from governed water-resources datasets."]},{"f":"12.jpg","w":1287,"h":1600,"cap":["محرك مراحل وأزمنة ومسؤولين","A staged, timed, role-assigned engine"],"note":["كل طلب يتحرك في مسار عمل مُهيأ، وكل انتقال يسجِّل: من تصرَّف، وماذا تغيَّر، ومتى.","Every transition records who acted, what changed, and when — with SLAs per stage."]},{"f":"13.jpg","w":722,"h":1600,"cap":["الناتج الموقَّع","The signed outcome"],"note":["وثيقة مجمَّدة قابلة للتحقق عبر رمز QR — تحفظ ما صدر تماماً، مستقلةً عن أي تغييرات لاحقة.","A frozen, QR-verifiable document preserving exactly what was issued."]},{"f":"14.jpg","w":1400,"h":1440,"cap":["طلبٌ… من أوله إلى آخره","A request, end to end"],"note":["يُقدَّم من نموذج الاستقبال العام ويُسنَد فوراً إلى مساره المُهيأ ذي المراحل الست.","Submitted through public intake and immediately assigned to its configured six-stage process."]},{"f":"01.jpg","w":1600,"h":1038,"cap":["…والمنصة تتفاعل فوراً","…and the platform reacts immediately"],"note":["الطلب نفسه يظهر في طابور المهام المشترك — بلا إدخال مكرر ولا متابعة يدوية.","The same request appears in the shared task queue — no duplicate entry, no manual follow-up."]},{"f":"15.jpg","w":1600,"h":1038,"cap":["الإشعار المُهيأ ينطلق تلقائياً","The configured notification fires"],"note":["إشعار المرحلة يصل لأصحاب العلاقة وفق ما هُيِّئ في تعريف المسار.","Stage notifications reach the right people exactly as configured."]},{"f":"16.jpg","w":1600,"h":1440,"cap":["سجلٌّ واحد… وكل طلب قابل للتتبع","One register, every request traceable"],"note":["أرشيف بحثي واحد: الحالة والتواريخ والمالك والمسار والتاريخ الكامل منذ الاستقبال.","One searchable archive with status, dates, owner, process and full history."]},{"f":"17.jpg","w":1600,"h":1038,"cap":["تعريف خدمة واحد","One service definition"],"note":["التصنيف والمسار ونوع الطلب وجهة المعالجة — ما هي الخدمة يُعرَّف مرة واحدة لا مبعثراً في شاشات.","Category, workflow, request type and processing entity — defined once, not scattered."]},{"f":"18.jpg","w":1600,"h":1038,"cap":["…ومخرجاتها ورسومها ونموذجها","…its outputs, its fees, its form"],"note":["التعريف ذاته يحمل الوثائق الصادرة وقواعد الرسوم وحقول نموذج الاستقبال — عقد خدمة واحد مُهيأ.","The same definition carries document outputs, fee rules and intake-form fields."]},{"f":"19.jpg","w":1600,"h":1038,"cap":["مسار عمل… مخطَّطاً أمامك","A process, laid out"],"note":["11 مرحلة و12 طريقاً، بمسؤول وزمن SLA لكل مرحلة — هذا هو التعريف المنفَّذ نفسه، لا مخطط توضيحي.","11 stages, 12 routes, owners and SLAs per stage — the executable definition itself, not a diagram."]},{"f":"20.jpg","w":1600,"h":1038,"cap":["انقر طريقاً… ترَ قواعده","Click a path. See its rules."],"note":["لكل طريق هدفه وتحققاته وسلوك إشعاراته: تقدُّم أو إرجاع أو رفض، كلٌّ يُهيأ باستقلال.","Every route carries target, validations and notification behavior — advance, return or reject."]},{"f":"21.jpg","w":1600,"h":1038,"cap":["المنشئ نفسه… لنموذج أكثف","The same builder, a denser form"],"note":["طلب حفر بئر بنظامَي إحداثيات وخريطة مدمجة وربط بسجل الآبار القائم — من حقول قابلة لإعادة الاستخدام.","A well-drilling application with dual coordinate systems, embedded map and register link."]},{"f":"22.jpg","w":1600,"h":1383,"cap":["ليست مساراً واحداً… بل مكتبة","Not one workflow. A library."],"note":["+12 مسار عمل مُهيأ: لكل نوع رخصة أو مسار امتثال مراحله وانتقالاته وأزمنته — بإصدارات تُنشر باستقلال.","12+ configured workflows, each versioned and published independently."]},{"f":"23.jpg","w":1600,"h":1038,"cap":["ما الذي يُرسَل… ومتى","What gets sent, and when"],"note":["نصوص الإشعارات ومحفزاتها وقنوات إرسالها بياناتٌ محوكمة أيضاً — لا منطقاً مبرمجاً.","Notification wording, triggers and channels are governed data too — not hard-coded logic."]},{"f":"24.jpg","w":1600,"h":1038,"cap":["الوثيقة… قبل إصدارها","The document, before it's issued"],"note":["حقول الدمج والترويسة والمعاينة — وثيقة المسار تُؤلَّف وتُحوكم قبل أن يبلغ الطلب التوقيع.","Merge fields, letterhead and preview — authored and governed before signature."]}],"users":[{"n":["سلطة المياه الفلسطينية","Palestinian Water Authority"],"l":"pwa-auth.png"}]},{"slug":"madeenati","logo":"logo.png","sector":["البلديات والمدن","Municipalities & Cities"],"name":["مدينتي — نظام المعلومات الجغرافية","Madeenati GIS System"],"tag":["منصة متكاملة لإدارة وتحليل البيانات الجغرافية للمدن والبلديات","An integrated platform for managing and analysing city & municipal geographic data"],"about":["نظام «مدينتي» منصة متكاملة لإدارة البيانات الجغرافية للمدن والبلديات: خرائط تفاعلية متعددة الطبقات، وإدارة كاملة للأراضي والأبنية والشوارع والبنية التحتية، مع مراقبة التطور العمراني والخدمات العامة. يدعم متّخذي القرار ويرتقي بالتخطيط الحضري وبكفاءة الخدمات المقدَّمة للمؤسسات والجمهور.","Madeenati is an integrated GIS platform for cities and municipalities: interactive layered maps and complete management of land, buildings, streets and infrastructure, with monitoring of urban development and public services. It supports decision-makers, enhances urban planning and delivers more efficient services."],"feats":[["عارض الخرائط التفاعلي متعدد الطبقات","Geographic map viewer — layered, interactive"],["إدارة الأراضي: القطع والملكيات والمعاملات","Land management — parcels, ownership, transactions"],["إدارة الأبنية والشقق والترقيم","Building management — apartments & numbering"],["الشوارع وربطها بالقطع والبنية التحتية","Streets, linked to parcels & infrastructure"],["الإنارة: محطات وخطوط وأعمدة وصيانة","Lighting — stations, lines, poles, maintenance"],["شبكة الصرف الصحي ومحطات الضخ","Sewage network & pumping stations"],["البنية التحتية: كهرباء ومياه واتصالات","Infrastructure — power, water, telecom"],["النفايات الصلبة: حاويات ومسارات وشاحنات","Solid waste — containers, routes, trucks"],["تقرير مخطط الموقع والتنظيم","Site plan & zoning reports"],["الخريطة السياحية وتقارير تحليلية شاملة","Tourist map & analytical reports"]],"client":["مُشغَّل لدى بلديات فلسطينية","Deployed across Palestinian municipalities"],"imgs":[{"f":"01.jpg","w":1600,"h":738},{"f":"02.jpg","w":1600,"h":752},{"f":"03.jpg","w":1600,"h":760},{"f":"04.jpg","w":1600,"h":748},{"f":"05.jpg","w":1600,"h":668},{"f":"06.jpg","w":1600,"h":653},{"f":"07.jpg","w":1600,"h":646},{"f":"08.jpg","w":1600,"h":627},{"f":"09.jpg","w":1123,"h":598},{"f":"10.jpg","w":1135,"h":543},{"f":"11.jpg","w":722,"h":463},{"f":"12.jpg","w":1600,"h":529},{"f":"13.jpg","w":1600,"h":508},{"f":"14.jpg","w":1600,"h":502},{"f":"15.jpg","w":1600,"h":447},{"f":"16.jpg","w":1600,"h":492},{"f":"17.jpg","w":1600,"h":385},{"f":"18.jpg","w":1600,"h":426},{"f":"19.jpg","w":1600,"h":387},{"f":"20.jpg","w":1600,"h":574},{"f":"21.jpg","w":1600,"h":409},{"f":"22.jpg","w":1600,"h":325},{"f":"23.jpg","w":1600,"h":781},{"f":"24.jpg","w":1600,"h":267},{"f":"25.jpg","w":985,"h":370},{"f":"26.jpg","w":981,"h":527},{"f":"27.jpg","w":912,"h":431},{"f":"28.jpg","w":1076,"h":289},{"f":"29.jpg","w":1476,"h":498},{"f":"30.jpg","w":949,"h":525},{"f":"31.jpg","w":827,"h":221},{"f":"32.jpg","w":941,"h":529},{"f":"33.jpg","w":1079,"h":470},{"f":"34.jpg","w":1021,"h":564},{"f":"35.jpg","w":972,"h":276},{"f":"36.jpg","w":1001,"h":382},{"f":"37.jpg","w":954,"h":557},{"f":"38.jpg","w":1106,"h":587},{"f":"39.jpg","w":1109,"h":588},{"f":"40.jpg","w":1110,"h":592},{"f":"41.jpg","w":1600,"h":339},{"f":"42.jpg","w":1600,"h":424},{"f":"43.jpg","w":1600,"h":354},{"f":"44.jpg","w":1600,"h":496}],"users":[{"n":["بلدية دورا","Dura Municipality"],"l":"dura.png"},{"n":["بلدية يطا","Yatta Municipality"],"l":null},{"n":["بلدية بيت لحم","Bethlehem Municipality"],"l":null}],"usersNote":["وبلديات أخرى عبر برامج الإدارة المكانية","and more municipalities via spatial-management programs"]},{"slug":"eservices","logo":"logo.png","sector":["الحكومة الرقمية","Digital Government"],"name":["منصة الخدمات الإلكترونية","E-Services Platform"],"tag":["منصة ذكية لخدمات البلديات والمؤسسات الحكومية من الطلب حتى الشهادة","A smart platform for municipal & government services — from request to certificate"],"about":["منصة رقمية ذكية تنظّم خدمات البلديات والمؤسسات الحكومية: إدارة طلبات الخدمة وإصدار الشهادات وبيانات المواطنين بشفافية ومساءلة كاملة. بمزايا مثل تفويض المهام والإشعارات الذكية والتدقيق، تتابع الدوائر سير العمل خطوة بخطوة، ويصل المواطن إلى خدماته إلكترونياً دون عناء المراجعات.","A smart digital platform for municipalities and government institutions: managing service requests, certificate issuance and citizen data with transparency and accountability. With task delegation, smart notifications and auditing, departments monitor workflows effortlessly — and citizens access services online, saving time and paperwork."],"feats":[["بوابة المواطن: تقديم وتتبّع الطلبات","Citizen portal — submit & track requests"],["مسارات عمل مُهيَّأة للطلبات والموافقات","Configured workflows & approvals"],["منشئ النماذج بلا برمجة","No-code form builder"],["قوالب الشهادات والوثائق الرسمية","Certificate & document templates"],["رخص الأبنية: تقديم ومتابعة إلكترونية","Building permits — online end to end"],["إدارة المهام وتفويضها بين الموظفين","Task management & delegation"],["أرشيف رقمي آمن قابل للبحث","Secure, searchable digital archive"],["سجل المواطنين والشركات","Citizen & company registration"],["جلسات المجلس وقراراته","Council sessions & decisions"],["صلاحيات وأدوار محكومة","Roles & access control"]],"client":["مُشغَّلة لدى بلديات ومؤسسات حكومية","Running in municipalities & government institutions"],"imgs":[{"f":"01.jpg","w":1600,"h":934},{"f":"02.jpg","w":1600,"h":1094},{"f":"03.jpg","w":1600,"h":1354},{"f":"04.jpg","w":1586,"h":1600},{"f":"05.jpg","w":937,"h":1600},{"f":"06.jpg","w":1600,"h":960},{"f":"07.jpg","w":1526,"h":877},{"f":"08.jpg","w":1530,"h":907},{"f":"09.jpg","w":1550,"h":660},{"f":"10.jpg","w":1600,"h":687},{"f":"11.jpg","w":1394,"h":770},{"f":"12.jpg","w":1405,"h":700},{"f":"13.jpg","w":1401,"h":806},{"f":"14.jpg","w":1398,"h":563},{"f":"15.jpg","w":1391,"h":968},{"f":"16.jpg","w":1394,"h":651},{"f":"17.jpg","w":1390,"h":555},{"f":"18.jpg","w":1394,"h":784},{"f":"19.jpg","w":1420,"h":926},{"f":"20.jpg","w":1364,"h":815},{"f":"21.jpg","w":1395,"h":1600},{"f":"22.jpg","w":1392,"h":566},{"f":"23.jpg","w":1398,"h":726},{"f":"24.jpg","w":732,"h":875},{"f":"25.jpg","w":703,"h":600},{"f":"26.jpg","w":726,"h":723},{"f":"27.jpg","w":736,"h":483},{"f":"28.jpg","w":720,"h":1493},{"f":"29.jpg","w":720,"h":1492},{"f":"30.jpg","w":720,"h":1492},{"f":"31.jpg","w":720,"h":1491},{"f":"32.jpg","w":720,"h":1387}],"users":[{"n":["54 بلدية وهيئة محلية في الضفة وغزة","54 municipalities across the West Bank & Gaza"],"l":null},{"n":["برنامج مراكز خدمات الجمهور – MDLF","Citizen Service Centers program – MDLF"],"l":null}],"usersNote":["القائمة الكاملة في قسم عملاؤنا وعلى الخريطة","Full list under Clients and on the map"]},{"slug":"eywa","logo":"logo.png","sector":["الموارد البشرية","Human Resources"],"name":["إيوا — إدارة الموارد البشرية","Eywa — HRMS Solution"],"tag":["نظام شامل لإدارة الموارد البشرية وشؤون الموظفين رقمياً","A comprehensive system for managing HR and employee affairs digitally"],"about":["«إيوا» نظام شامل لإدارة الموارد البشرية وشؤون الموظفين: ضبط دقيق للدوام وساعات العمل والإجازات والمغادرات، وملف موظف كامل بأرشفة وتوثيق لكل الحركات. يمنح الموظفين خدمات ذاتية — طلبات الإجازات وقسائم الرواتب والتقييم السنوي — ويضم وحدات متكاملة للمستودعات والعُهد والصيانة وحجز قاعات الاجتماعات في منصة واحدة.","Eywa is a comprehensive HR system: precise control of attendance, working hours, leaves and permissions, with complete employee files, archiving and documentation of every transaction. Employees get self-services — leave requests, salary slips, annual evaluations — plus integrated modules for inventory, asset custody, maintenance and meeting-room booking in one platform."],"feats":[["ملف الموظف الشامل","Employee profile & history"],["التوظيف والمقابلات حتى التعيين","Recruitment & interviews to hiring"],["الدوام والورديات والإجازات","Time, attendance & shifts"],["الخدمة الذاتية للموظفين","Employee self-services"],["حركات الملف الوظيفي: ترقيات وعلاوات","File transactions — promotions, allowances"],["تقييم الأداء بمعايير وأوزان","Weighted performance evaluation"],["التعاميم والإعلانات وأرشيفها","Announcements & circulars"],["المستودعات والباركود","Inventory with barcode tracking"],["العُهد والجرد السنوي","Asset custody & annual audits"],["حجز القاعات والصيانة والدعم الفني","Room booking · maintenance & support"]],"client":["مُطبَّق لدى مؤسسات وهيئات متعددة","In production across multiple organizations"],"imgs":[{"f":"01.jpg","w":1056,"h":1600},{"f":"02.jpg","w":1349,"h":927},{"f":"03.jpg","w":1349,"h":1290},{"f":"04.jpg","w":1349,"h":1003},{"f":"05.jpg","w":1349,"h":624},{"f":"06.jpg","w":1349,"h":1386},{"f":"07.jpg","w":1339,"h":518},{"f":"08.jpg","w":1218,"h":556},{"f":"09.jpg","w":1290,"h":514},{"f":"10.jpg","w":1341,"h":440},{"f":"11.jpg","w":1348,"h":399},{"f":"12.jpg","w":1345,"h":480},{"f":"13.jpg","w":989,"h":415},{"f":"14.jpg","w":1216,"h":489},{"f":"15.jpg","w":1223,"h":410},{"f":"16.jpg","w":1222,"h":360},{"f":"17.jpg","w":1101,"h":386},{"f":"18.jpg","w":1217,"h":375},{"f":"19.jpg","w":1215,"h":406},{"f":"20.jpg","w":1225,"h":348},{"f":"21.jpg","w":1225,"h":351},{"f":"22.jpg","w":1348,"h":511},{"f":"23.jpg","w":1283,"h":367},{"f":"24.jpg","w":1221,"h":407},{"f":"25.jpg","w":1342,"h":415},{"f":"26.jpg","w":1339,"h":478},{"f":"27.jpg","w":1293,"h":589},{"f":"28.jpg","w":1223,"h":479},{"f":"29.jpg","w":1349,"h":320},{"f":"30.jpg","w":1348,"h":328},{"f":"31.jpg","w":1220,"h":334},{"f":"32.jpg","w":1222,"h":334},{"f":"33.jpg","w":1232,"h":216},{"f":"34.jpg","w":1221,"h":148},{"f":"35.jpg","w":1101,"h":194},{"f":"36.jpg","w":1102,"h":135},{"f":"37.jpg","w":1220,"h":284},{"f":"38.jpg","w":1220,"h":314},{"f":"39.jpg","w":1224,"h":319},{"f":"40.jpg","w":1221,"h":365},{"f":"41.jpg","w":1220,"h":206},{"f":"42.jpg","w":1221,"h":245},{"f":"43.jpg","w":1219,"h":227},{"f":"44.jpg","w":1226,"h":242},{"f":"45.jpg","w":1345,"h":336},{"f":"46.jpg","w":1240,"h":338}]},{"slug":"buildflow","logo":"logo.png","sector":["المشاريع الإنشائية","Construction Projects"],"name":["بيلد فلو — إدارة المشاريع الإنشائية","BuildFlow — Construction Lifecycle"],"tag":["دورة حياة المشروع الإنشائي كاملة: من التصميم حتى الإغلاق","The full construction project lifecycle — from design to closure"],"about":["نظام متكامل لإدارة دورة حياة المشاريع الإنشائية من التصميم حتى الإغلاق: توحيد الإجراءات، وتعزيز التواصل بين الإداريين والمهندسين والمقاولين والمستفيدين، وتوثيق دقيق لكل خطوة. يساعد المؤسسات والبلديات والوزارات على تحسين التخطيط والتنفيذ والمتابعة، مع تقارير شاملة تُصدَّر بصيغ Word وPDF وExcel وتضمن الشفافية الكاملة في إدارة الموارد والتمويل.","An integrated system managing the full lifecycle of construction projects, from design to closure: standardized procedures, better communication between administrators, engineers, contractors and beneficiaries, and precise documentation of every step. Comprehensive reports — exportable to Word, PDF and Excel — keep costs, progress and payments fully transparent."],"feats":[["مرحلة التصميم وجداول الكميات BOQ","Design phase & Bill of Quantities"],["العطاءات: لجان وفتح مظاريف وتقييم","Bidding — committees, opening, evaluation"],["اختيار المقاول الفائز والعقود والضمانات","Contractor award, contracts & guarantees"],["متابعة التنفيذ ونِسَب الإنجاز","Execution monitoring & progress rates"],["دفعات المقاول حسب الإنجاز المعتمد","Payments by approved completion"],["الصيانة الدورية والطارئة","Routine & emergency maintenance"],["الإغلاق الرسمي للمشروع بوثائقه","Official project closure & handover"],["تقارير Word / PDF / Excel","Word / PDF / Excel reporting"]],"client":["للمؤسسات والبلديات والوزارات","For institutions, municipalities & ministries"],"imgs":[{"f":"01.jpg","w":1395,"h":1221},{"f":"02.jpg","w":1388,"h":1086},{"f":"03.jpg","w":1400,"h":1221},{"f":"04.jpg","w":1397,"h":1082},{"f":"05.jpg","w":1600,"h":493},{"f":"06.jpg","w":1391,"h":647},{"f":"07.jpg","w":1395,"h":739},{"f":"08.jpg","w":1398,"h":635},{"f":"09.jpg","w":1398,"h":481},{"f":"10.jpg","w":1390,"h":578},{"f":"11.jpg","w":1391,"h":414},{"f":"12.jpg","w":1392,"h":468},{"f":"13.jpg","w":1391,"h":672},{"f":"14.jpg","w":1397,"h":680},{"f":"15.jpg","w":1395,"h":673},{"f":"16.jpg","w":1396,"h":317},{"f":"17.jpg","w":1392,"h":541},{"f":"18.jpg","w":1402,"h":661},{"f":"19.jpg","w":1394,"h":529},{"f":"20.jpg","w":1396,"h":822},{"f":"21.jpg","w":1390,"h":334},{"f":"22.jpg","w":1394,"h":805},{"f":"23.jpg","w":1394,"h":712},{"f":"24.jpg","w":1392,"h":663},{"f":"25.jpg","w":1002,"h":588},{"f":"26.jpg","w":999,"h":581},{"f":"27.jpg","w":1006,"h":561},{"f":"28.jpg","w":1002,"h":593},{"f":"29.jpg","w":1003,"h":596},{"f":"30.jpg","w":736,"h":736}],"users":[{"n":["مؤسسة التعاون","Welfare Association (Taawon)"],"l":null}]},{"slug":"wsdis","logo":"logo.png","sector":["قطاع المياه","Water Sector"],"name":["نظام معلومات التزويد المائي WSDIS","WSDIS — Water Supply & Distribution"],"tag":["إدارة ذكية لشبكات التوزيع: خرائط تفاعلية ونموذج التخصيص العادل للمياه","Smart network management — interactive maps and the Fair Water Allocation Model"],"about":["حل متكامل لإدارة شبكات توزيع المياه بذكاء وكفاءة: يجمع الخرائط التفاعلية بقواعد بيانات متقدمة لنمذجة التوزيع ومراقبة الأداء بدقة. يحلّل الاستهلاك ويتتبّع التزويد ويكشف الفاقد، ويحتسب — عبر نموذج التخصيص العادل للمياه — الطلب والتخصيص والفاقد لكل تجمّع أو مزوّد خدمة، مع تقارير ديناميكية تدعم التخطيط واتخاذ القرار.","An all-in-one solution for smart water network management: interactive maps combined with advanced databases to model distribution and monitor performance. It analyses consumption, tracks supply and detects losses — and through the integrated Fair Water Allocation Model computes demand, fair allocation and discrepancies per community or provider, with dynamic reports for planning and decision-making."],"feats":[["خريطة تفاعلية للشبكة وطبقاتها","Interactive network map & layers"],["قاعدة بيانات التجمّعات ومزوّدي الخدمة","Communities & providers database"],["الوحدة المفاهيمية: عناصر الشبكة وعلاقاتها","Conceptual module — items & relations"],["نموذج التخصيص العادل للمياه","Fair Water Allocation Model"],["تحليل الاستهلاك وكشف الفاقد","Consumption analysis & loss detection"],["تقارير ديناميكية متعددة المستويات","Dynamic, multi-level reports"],["لوحة تحكم للمستخدمين والصلاحيات","Control panel — users & permissions"]],"client":["مُطوَّر لقطاع المياه الفلسطيني","Developed for the Palestinian water sector"],"imgs":[{"f":"01.jpg","w":1248,"h":582},{"f":"02.jpg","w":1098,"h":635},{"f":"03.jpg","w":1101,"h":584},{"f":"04.jpg","w":1095,"h":510},{"f":"05.jpg","w":1088,"h":589},{"f":"06.jpg","w":1087,"h":584},{"f":"07.jpg","w":1331,"h":551},{"f":"08.jpg","w":1086,"h":325},{"f":"09.jpg","w":1085,"h":456},{"f":"10.jpg","w":1080,"h":469},{"f":"11.jpg","w":1090,"h":241}],"users":[{"n":["سلطة المياه الفلسطينية","Palestinian Water Authority"],"l":"pwa-auth.png"},{"n":["بتمويل البنك الدولي","Funded by the World Bank"],"l":"world-bank.png"}]},{"slug":"ptax","logo":"logo.png","sector":["المالية والإيرادات","Finance & Revenue"],"name":["نظام ضريبة الأملاك","Property Tax System"],"tag":["إدارة وتحصيل ضرائب العقارات والأراضي بكفاءة وشفافية","Managing and collecting property & land taxes efficiently and transparently"],"about":["منصة رقمية لإدارة وتحصيل الضرائب على العقارات والأراضي والأبنية: تسجيل منظَّم للمالكين، وإصدار الإيصالات، ومتابعة فورية للدفعات والمتأخرات. يدعم النظام التقييم الدقيق للعقارات والاعتراضات والطعون بما يضمن العدالة والمساءلة، ويُصدر الإشعارات الضريبية والتقارير المالية، مع تكامل كامل مع نظام PTAX المركزي لتوحيد البيانات وأمنها.","A digital platform for managing and collecting taxes on properties, lands and buildings: structured owner registration, receipt issuance and real-time tracking of payments and arrears. It supports accurate assessment, objections and appeals, generates tax notifications and financial reports, and integrates with the central PTAX system for data unification and security."],"feats":[["سجل المكلّفين والعقارات","Owner & property register"],["الإيصالات والتحصيل الفوري","Receipts & real-time collection"],["متابعة الدفعات والمتأخرات","Payments & arrears tracking"],["التقييم والاعتراضات والطعون","Assessment, objections & appeals"],["الإشعارات الضريبية","Tax notifications"],["تقارير مالية شاملة","Comprehensive financial reports"],["تكامل مع نظام PTAX المركزي","Central PTAX integration"]],"client":["لصالح الإدارة العامة لضريبة الأملاك — دولة فلسطين","For the General Directorate of Property Tax — State of Palestine"],"imgs":[{"f":"01.jpg","w":1482,"h":900},{"f":"02.jpg","w":1479,"h":875},{"f":"03.jpg","w":1481,"h":881},{"f":"04.jpg","w":1480,"h":895},{"f":"05.jpg","w":1476,"h":896},{"f":"06.jpg","w":1482,"h":898},{"f":"07.jpg","w":1483,"h":898},{"f":"08.jpg","w":1477,"h":894},{"f":"09.jpg","w":1477,"h":886},{"f":"10.jpg","w":1478,"h":897},{"f":"11.jpg","w":1489,"h":903},{"f":"12.jpg","w":1488,"h":901},{"f":"13.jpg","w":1484,"h":895},{"f":"14.jpg","w":1483,"h":892},{"f":"15.jpg","w":1559,"h":941},{"f":"16.jpg","w":1480,"h":885},{"f":"17.jpg","w":1258,"h":567},{"f":"18.jpg","w":1257,"h":705},{"f":"19.jpg","w":975,"h":584},{"f":"20.jpg","w":851,"h":435},{"f":"21.jpg","w":1253,"h":366}],"users":[{"n":["الإدارة العامة لضريبة الأملاك","General Directorate of Property Tax"],"l":"ptax-dir.png"}]},{"slug":"pwa-app","logo":"logo.png","sector":["تطبيقات الجوال","Mobile Apps"],"name":["تطبيق مياه فلسطين","Palestine Water App"],"tag":["خدمات المياه في جيب المواطن: صهاريج وشكاوى وأخبار ومؤشرات","Water services in the citizen's pocket — tankers, complaints, news & indicators"],"about":["حل رقمي شامل طوّرته «الأمين» لسلطة المياه الفلسطينية يرتقي بتجربة المستخدم ويُيسّر الوصول لخدمات المياه عبر الهاتف: طلب صهاريج المياه، وتقديم الشكاوى، والأخبار والإعلانات، والعطاءات، ومؤشرات الأداء، والحملات التوعوية — تواصل فعّال بين السلطة والمواطنين بإجراءات رقمية سريعة ودقيقة وشفافة.","A comprehensive mobile solution developed by Al-Ameen for the Palestinian Water Authority: water tanker requests, complaint submission, news and announcements, tenders, performance indicators and awareness campaigns — efficient communication between the authority and citizens through fast, accurate, transparent digital processes."],"feats":[["طلب صهاريج المياه","Water tanker requests"],["تقديم الشكاوى ومتابعتها","Complaints — submit & track"],["الأخبار والإعلانات والعطاءات","News, announcements & tenders"],["مؤشرات الأداء","Performance indicators"],["الحملات التوعوية","Awareness campaigns"],["iOS و Android","iOS & Android"]],"client":["مُطوَّر لسلطة المياه الفلسطينية","Developed for the Palestinian Water Authority"],"imgs":[{"f":"01.jpg","w":1600,"h":740},{"f":"02.jpg","w":1600,"h":491},{"f":"03.jpg","w":1600,"h":371},{"f":"04.jpg","w":1394,"h":560},{"f":"05.jpg","w":1394,"h":295},{"f":"06.jpg","w":780,"h":1600},{"f":"07.jpg","w":793,"h":1599},{"f":"08.jpg","w":793,"h":1599},{"f":"09.jpg","w":793,"h":1599},{"f":"10.jpg","w":793,"h":1599},{"f":"11.jpg","w":793,"h":1599},{"f":"12.jpg","w":793,"h":1599},{"f":"13.jpg","w":793,"h":1599},{"f":"14.jpg","w":486,"h":1393},{"f":"15.jpg","w":462,"h":933}],"users":[{"n":["سلطة المياه الفلسطينية","Palestinian Water Authority"],"l":"pwa-auth.png"}]},{"slug":"atlas","logo":"logo.png","sector":["التعليم","Education"],"name":["الأطلس التعليمي التفاعلي","Interactive Educational Atlas"],"tag":["خرائط تفاعلية ومحتوى جغرافي وتاريخي يربط المنهاج بالواقع","Interactive maps and geo-historical content connecting curricula to the real world"],"about":["منصة رقمية تفاعلية تزوّد الطلبة والمعلمين بخرائط تفاعلية وبيانات جغرافية ومحتوى تاريخي، وتربط المناهج الدراسية بالمعرفة الواقعية — تجربة تعلّم جاذبة تُعمّق الوعي بالتراث والهوية الوطنية.","A digital platform providing students and teachers with interactive maps, geographical data and historical content. It connects curricula with real-world knowledge, fostering awareness of heritage and national identity through an engaging learning experience."],"feats":[["خرائط تفاعلية متعددة الطبقات","Interactive layered maps"],["محتوى جغرافي وتاريخي موثَّق","Curated geo-historical content"],["ربط المنهاج بالمعرفة الواقعية","Curriculum-to-reality linking"],["تعزيز الهوية والتراث الوطني","Heritage & national identity"]],"client":["بالتعاون مع وزارة التربية والتعليم — دولة فلسطين","With the Ministry of Education — State of Palestine"],"imgs":[{"f":"01.jpg","w":1359,"h":621},{"f":"02.jpg","w":1365,"h":626},{"f":"03.jpg","w":1362,"h":575},{"f":"04.jpg","w":1365,"h":666},{"f":"05.jpg","w":1002,"h":572},{"f":"06.jpg","w":1428,"h":658},{"f":"07.jpg","w":1289,"h":542},{"f":"08.jpg","w":1314,"h":584},{"f":"09.jpg","w":560,"h":273},{"f":"10.jpg","w":602,"h":314}],"users":[{"n":["وزارة التربية والتعليم","Ministry of Education"],"l":"moe.png"},{"n":["1000 مدرسة","1,000 schools"],"l":null}]},{"slug":"social","logo":"logo.png","sector":["القطاع الاجتماعي","Social Sector"],"name":["تطبيق وزارة التنمية الاجتماعية","Ministry of Social Affairs App"],"tag":["جمع البيانات الاجتماعية وتحليلها بمؤشرات وتقارير تفاعلية","Collecting and analysing social data with interactive indicators and reports"],"about":["منصة رقمية متقدمة طُوّرت لوزارة التنمية الاجتماعية لجمع البيانات الاجتماعية وتحليلها بدقة وشفافية: أدوات إحصائية شاملة تعرض المؤشرات والرسوم والتقارير التفاعلية لدعم القرار، وتمكّن الوزارة من رصد الاحتياجات الاجتماعية ومتابعة البرامج والمشاريع عبر قاعدة بيانات مركزية يسهل وصول المسؤولين وصنّاع السياسات إليها.","An advanced digital platform developed for the Ministry of Social Affairs to collect and analyse social data with accuracy and transparency: comprehensive statistical tools displaying indicators, charts and interactive reports that support decision-making, enabling the ministry to monitor social needs and track programs through a centralized database."],"feats":[["جمع البيانات الميدانية","Field data collection"],["مؤشرات ورسوم بيانية تفاعلية","Interactive indicators & charts"],["متابعة البرامج والمشاريع","Program & project tracking"],["قاعدة بيانات مركزية","Centralized database"]],"client":["لصالح وزارة التنمية الاجتماعية — دولة فلسطين","For the Ministry of Social Affairs — State of Palestine"],"imgs":[{"f":"01.jpg","w":345,"h":360},{"f":"02.jpg","w":264,"h":540},{"f":"03.jpg","w":293,"h":237},{"f":"04.jpg","w":241,"h":192},{"f":"05.jpg","w":234,"h":163},{"f":"06.jpg","w":180,"h":216},{"f":"07.jpg","w":219,"h":163}],"users":[{"n":["وزارة التنمية الاجتماعية","Ministry of Social Development"],"l":"mosd.png"}]}],"company":{"about":["نحن شركة الأمين للتقنيات — اسم يرتكز على الثقة والريادة والابتكار في عالم التحول الرقمي. نمتلك إرثاً من التميّز يمتد لأكثر من خمسة عشر عاماً في تطوير الحلول البرمجية المتقدمة وتطبيقات نظم المعلومات الجغرافية (GIS)، نخدم به البلديات والمؤسسات والهيئات الحكومية في فلسطين والشرق الأوسط. بفريق من الخبراء والمبدعين نعيد تعريف التكنولوجيا في خدمة المجتمعات: أنظمة ذكية موثوقة سهلة الاستخدام، تستجيب بدقة لاحتياجات عملائنا. لسنا مجرد شركة تقنية — نحن شريك استراتيجي يمكِّن المؤسسات ويبسِّط العمليات ويعزز الكفاءة والإنتاجية.","Alameen Technologies is a pioneering IT company specializing in advanced software solutions and GIS applications. With over 15 years of expertise, we serve municipalities, institutions and government bodies across Palestine and the Middle East — designing smart, reliable, user-friendly systems that respond precisely to our clients' needs. We are not just a technology vendor; we are a strategic partner that empowers organizations, streamlines operations and drives efficiency and productivity."],"vision":[["أن نكون الخيار التقني الأول للحوكمة الإلكترونية والتحول الرقمي","To be the first technology choice for e-governance and digital transformation"],["تقنيات مبتكرة تواكب احتياجات المجتمع وتدعم استقراره ونموّه","Innovative technologies that serve society's needs and support its growth"],["بنية تحتية رقمية وطنية تعزز كفاءة الأداء الحكومي والخدمي","A national digital infrastructure that elevates government and service performance"],["شراكات استراتيجية مبنية على الثقة والجودة والالتزام بالتطوير","Strategic partnerships built on trust, quality and continuous development"]],"milestones":[["2008","تأسيس الشركة كمزوِّد حلول رقمية في فلسطين","Founded as a Palestinian digital solutions provider"],["2016","إطلاق منصتَي «مدينتي» و«إيوا» لخدمة البلديات والمؤسسات","Madeenati & Eywa platforms launched for municipalities and institutions"],["2018","إطلاق منصة الخدمات العامة للبلديات والحكومة","Public Services Platform launched for municipalities and government"],["2025","شراكات مع مزوِّدي تقنية إقليميين ودوليين وبناء المنصة الرقمية للمياه","Regional & international technology partnerships; the Digital Water Platform"]],"projects":[["نظام معلومات توزيع المياه WSDIS وربطه بأنظمة الفوترة والتحكم","البنك الدولي","WSDIS water distribution system linked to billing & control","World Bank"],["مراكز خدمات الجمهور في 30 بلدية","صندوق تطوير وإقراض الهيئات المحلية","Citizen service centers across 30 municipalities","MDLF"],["الخدمات الإلكترونية لبلديات البيرة وطولكرم وأريحا وبيت لحم","بدعم USAID","E-services for Al-Bireh, Tulkarem, Jericho & Bethlehem","USAID-funded"],["نظام GIS ويب متكامل لسلطة الأراضي","بالتعاون مع GIZ","Integrated web GIS for the Land Authority","with GIZ"],["تطبيق مياه فلسطين للهواتف الذكية (Android/iOS)","سلطة المياه الفلسطينية","Palestine Water mobile app (Android/iOS)","Palestinian Water Authority"],["الأطلس التعليمي التفاعلي لفلسطين عبر الإنترنت","وزارة التربية والتعليم","Interactive online educational atlas of Palestine","Ministry of Education"],["رقمنة وإدارة أكثر من 3,711 سجل ضريبة أملاك","مديرية ضريبة الأملاك","Digitization of 3,711+ property-tax registers","Property Tax Directorate"],["نظام إدارة برنامج إحياء البلدة القديمة في القدس","مؤسسة التعاون","Old City of Jerusalem revitalization programme system","Welfare Association"]],"beneficiaries":[["12","وزارة وهيئة حكومية","Ministries & authorities"],["54","بلدية وهيئة محلية","Municipalities"],["6","جامعات ومؤسسات أكاديمية","Universities"],["8","مؤسسات قطاع خاص","Private-sector clients"],["1000","مدرسة يخدمها الأطلس التعليمي","Schools on the atlas"]],"contact":{"hq":["عمارة الزيتونة – الطابق الرابع، شارع الإرسال، رام الله – فلسطين","Al-Zaytouna Building, 4th Floor – Al-Irsal Street, Ramallah, Palestine"],"phone":"+970 2 2988555","mobile":"+970 599 206 305","email":"Info@alameentech.com","web":"alameentech.com"}},"clients":[{"key":"gov","title":["الوزارات والهيئات الحكومية","Government Ministries & Authorities"],"items":[{"n":["سلطة المياه الفلسطينية","Palestinian Water Authority"],"l":"pwa-auth.png"},{"n":["سلطة الأراضي الفلسطينية","Palestinian Land Authority"],"l":"land-auth.png"},{"n":["وزارة التربية والتعليم","Ministry of Education"],"l":"moe.png"},{"n":["وزارة المالية","Ministry of Finance"],"l":"mof.png"},{"n":["وزارة التنمية الاجتماعية","Ministry of Social Development"],"l":"mosd.png"},{"n":["وزارة النقل والمواصلات","Ministry of Transport"],"l":"mot.png"},{"n":["وزارة الأشغال العامة والإسكان","Ministry of Public Works & Housing"],"l":"mopwh.png"},{"n":["وزارة الاقتصاد الوطني","Ministry of National Economy"],"l":"mone.png"},{"n":["الجهاز المركزي للإحصاء الفلسطيني","PCBS — Central Bureau of Statistics"],"l":"pcbs.png"},{"n":["الإدارة العامة لضريبة الأملاك","General Directorate of Property Tax"],"l":"ptax-dir.png"},{"n":["هيئة الإذاعة والتلفزيون","Palestine Broadcasting Corporation"],"l":"pbc.png"},{"n":["هيئة مقاومة الجدار والاستيطان","Wall & Colonization Resistance Commission"],"l":"wall-comm.png"},{"n":["هيئة شؤون الأسرى والمحررين","Commission of Detainees' Affairs"],"l":"detainees.png"}]},{"key":"mun","title":["البلديات والهيئات المحلية","Municipalities & Local Bodies"],"items":[{"n":["بلدية البيرة","Al-Bireh"],"l":"bireh.png"},{"n":["بلدية طولكرم","Tulkarem"],"l":"tulkarem.png"},{"n":["بلدية أريحا","Jericho"],"l":"jericho.png"},{"n":["بلدية دورا","Dura"],"l":"dura.png"},{"n":["بلدية بيرزيت","Birzeit"],"l":"birzeit-mun.png"},{"n":["بلدية الرام","Al-Ram"],"l":"alram.png"},{"n":["بلدية عقربا","Aqraba"],"l":"aqraba.png"},{"n":["بلدية الخضر","Al-Khader"],"l":"khader.png"},{"n":["بلدية حوارة","Howwara"],"l":"howwara.png"},{"n":["بلدية سبسطية","Sabastia"],"l":"sabastia.png"},{"n":["بلدية عزون","Azzun"],"l":"azzun.png"},{"n":["بلدية يعبد","Ya'abad"],"l":"yaabad.png"},{"n":["بلدية صوريف","Surif"],"l":"surif.png"},{"n":["بلدية نوبا","Nuba"],"l":"nuba.png"},{"n":["بلدية الدوحة","Ad-Doha"],"l":"doha.png"},{"n":["بلدية عقابا","Aqqaba"],"l":"aqqaba.png"},{"n":["بلدية بني زيد الغربية","West Bani Zaid"],"l":"bani-zaid.png"},{"n":["بلدية عصيرة الشمالية","Asira ash-Shamaliya"],"l":"asira.png"},{"n":["بلدية الزاوية","Az-Zawya"],"l":"zawya.png"},{"n":["بلدية ترقوميا","Tarqumia"],"l":"tarqumia.png"},{"n":["بلدية الكرمل","Al-Karmel"],"l":"karmel.png"},{"n":["بلدية الكفريات","Al-Kafriyat"],"l":"kafriyat.png"},{"n":["بلدية زعترة","Za'atara"],"l":"zaatara.png"},{"n":["بلدية الفخاري","Al-Fukhari"],"l":"fukhari.png"},{"n":["بلدية خزاعة","Khuza'a"],"l":"khuzaa.png"},{"n":["بلدية البريج","Al-Breij"],"l":"breij.png"},{"n":["بلدية المغازي","Al-Maghazi"],"l":"maghazi.png"},{"n":["بلدية الزهراء","Az-Zahra"],"l":"zahra.png"},{"n":["بلدية الشوكة","Ash-Shuka"],"l":"shuka.png"},{"n":["بلدية كفر اللبد","Kufr al-Labad"],"l":"kufr-labad.png"},{"n":["بلدية عجة","Ajja"],"l":"ajja.png"},{"n":["بلدية برقين","Burqin"],"l":"burqin.png"},{"n":["بلدية الشيوخ","Ash-Shuyoukh"],"l":"shuyoukh.png"},{"n":["بلدية تقوع","Tuqu'"],"l":"tuqu.png"},{"n":["مصلحة مياه بلديات الساحل","CMWU — Coastal Municipalities Water Utility"],"l":null},{"n":["القبيبة – عمواس","Al-Qubeibeh (Emmaus)"],"l":"nm1.png"},{"n":["السواحرة الشرقية","East Sawahreh"],"l":"nm2.png"},{"n":["الجيب","Al-Jib"],"l":"nm3.png"},{"n":["الطيبة","Taybeh"],"l":"nm4.png"},{"n":["المزرعة الشرقية","Al-Mazra'a ash-Sharqiya"],"l":"nm5.png"},{"n":["عطارة","Atara"],"l":"nm6.png"},{"n":["بيت عور التحتا","Beit Ur al-Tahta"],"l":"nm7.png"},{"n":["كوبر","Kobar"],"l":"nm8.png"},{"n":["باقة الشرقية","Baqa ash-Sharqiya"],"l":null},{"n":["زيتا","Zeita"],"l":"nm10.png"},{"n":["بيت أولا","Beit Ula"],"l":"nm11.png"},{"n":["هندازة – بريضعة","Hindaza & Breideh"],"l":"nm12.png"},{"n":["نحالين","Nahhalin"],"l":"nm13.png"},{"n":["جيوس","Jayyous"],"l":"nm14.png"},{"n":["كفل حارس","Kifl Haris"],"l":"nm15.png"},{"n":["الزبابدة","Zababdeh"],"l":"nm16.png"},{"n":["جبع","Jab'a"],"l":"nm17.png"},{"n":["ميثلون","Meithalun"],"l":"nm18.png"},{"n":["سيلة الظهر","Silat ad-Dhahr"],"l":null}]},{"key":"fund","title":["الممولون والشركاء الدوليون","International Funders & Partners"],"items":[{"n":["الوكالة الأمريكية للتنمية الدولية","USAID"],"l":"usaid.png"},{"n":["البنك الدولي","The World Bank"],"l":"world-bank.png"},{"n":["الوكالة الألمانية للتعاون الدولي","GIZ"],"l":"giz.png"},{"n":["Global Communities","Global Communities"],"l":"global-communities.png"},{"n":["Tetra Tech","Tetra Tech"],"l":"tetra-tech.png"},{"n":["التعاون البلجيكي BTC","BTC — Belgian Development Agency"],"l":"btc.png"},{"n":["CHF International","CHF International"],"l":"chf.png"}]},{"key":"uni","title":["الجامعات","Universities"],"items":[{"n":["جامعة القدس","Al-Quds University"],"l":"alquds-univ.png"},{"n":["جامعة بيرزيت","Birzeit University"],"l":"birzeit-univ.png"},{"n":["جامعة فلسطين التقنية – خضوري","Palestine Technical University – Kadoorie"],"l":"ptu.png"},{"n":["جامعة النجاح الوطنية","An-Najah National University"],"l":null}]},{"key":"priv","title":["القطاع الخاص والمؤسسات","Private Sector & Organizations"],"items":[{"n":["الاتصالات الفلسطينية بالتل","Paltel"],"l":"paltel.png"},{"n":["شركة جوّال","Jawwal"],"l":null},{"n":["مؤسسة التعاون","Welfare Association (Taawon)"],"l":null},{"n":["HEC للاستشارات الهندسية","HEC — Hydro Engineering Consultancy"],"l":"hec.png"},{"n":["ATLAS لتقنيات الخرائط","ATLAS Mapping Technology"],"l":"atlas-tech.png"},{"n":["صحيفة القدس","Al-Quds Newspaper"],"l":"alquds-news.png"},{"n":["LaserMax","LaserMax"],"l":"lasermax.png"},{"n":["Reach","Reach"],"l":"reach.png"}]}],"partners":[{"n":["Microsoft","Microsoft"],"l":"microsoft.png"},{"n":["Oracle","Oracle"],"l":"oracle.png"},{"n":["DocuWare","DocuWare"],"l":"docuware.png"},{"n":["Zeutschel","Zeutschel"],"l":"zeutschel.png"},{"n":["OpenKM","OpenKM"],"l":"openkm.png"},{"n":["مجموعة UTTS – عُمان","UTTS Group – Oman"],"l":"utts.png"}],"map":{"w":604.6,"h":640.0,"proj":{"lon0":34.1,"lon1":35.68,"lat0":31.18,"lat1":32.6},"paths":[{"code":"JEN","nameAr":"جنين","nameEn":"Jenin","d":"M440.3 34.3 446.8 37.8 457.6 40.7 476.3 36.4 485.4 37.9 491.4 42.8 498.2 45.0 504.9 62.5 502.1 73.8 504.3 81.5 507.7 84.8 507.1 92.3 504.9 95.4 504.7 93.6 501.5 93.8 501.0 98.4 498.5 95.8 495.1 95.4 495.3 100.5 491.6 105.6 488.5 104.3 488.4 103.2 490.3 103.2 488.1 100.6 488.3 98.2 484.5 100.7 485.2 102.2 482.2 102.4 481.9 104.9 476.6 104.9 473.3 107.2 472.8 115.3 469.5 116.9 471.3 117.4 469.5 120.2 474.1 126.1 471.6 129.8 470.0 128.3 470.6 131.9 466.7 135.9 451.7 127.1 450.6 131.3 448.2 133.4 442.7 134.4 431.8 130.5 430.9 133.2 430.6 130.8 429.7 131.4 428.4 129.3 424.0 129.3 419.8 127.3 413.1 131.2 409.1 128.8 408.0 125.9 407.0 127.1 404.9 124.5 402.4 124.4 403.1 122.8 401.0 121.8 402.1 120.5 400.1 118.1 403.3 115.5 398.2 114.1 392.7 108.3 386.0 111.2 386.3 108.9 389.1 108.5 388.5 107.2 392.3 105.2 389.5 104.6 392.7 99.7 399.6 95.2 399.1 92.2 394.8 91.2 393.2 92.6 391.9 90.9 387.7 91.0 392.1 85.4 393.1 82.7 391.2 81.5 392.6 80.6 379.9 83.7 379.3 82.1 378.2 83.0 379.3 80.0 378.0 79.0 380.9 78.1 382.2 71.1 378.2 65.0 372.2 64.6 379.9 55.9 387.2 55.6 397.3 48.5 397.9 46.4 406.1 42.7 413.1 34.7 416.7 34.0 420.0 28.7 425.6 26.0 427.3 23.2 430.4 22.0 440.3 34.3Z","cx":442.5,"cy":79.9,"area":9596,"fill":"#dcebfa"},{"code":"TKM","nameAr":"طولكرم","nameEn":"Tulkarem","d":"M402.9 116.0 400.1 118.9 402.1 120.5 401.0 121.8 403.1 122.9 398.2 124.3 401.2 124.5 401.3 126.4 399.1 127.6 397.3 131.8 398.9 131.0 398.6 133.5 402.9 135.0 402.9 136.7 406.5 136.0 404.7 138.9 406.5 138.6 407.7 144.0 405.6 145.3 408.7 146.8 405.8 148.4 400.9 147.1 400.4 149.7 402.3 150.1 402.9 154.4 404.1 152.9 405.9 153.8 405.1 157.3 402.7 157.9 400.3 161.7 397.6 160.3 394.7 161.1 395.4 163.3 391.2 162.8 388.0 165.1 388.4 166.9 383.8 169.5 378.3 168.5 377.6 166.4 374.8 167.4 374.2 171.6 376.8 176.0 372.5 179.7 372.4 181.7 365.1 178.2 363.3 175.6 353.9 173.3 354.8 167.3 348.4 167.3 352.1 164.6 351.8 161.3 356.1 151.0 352.6 145.4 348.1 144.2 350.9 118.6 354.8 117.1 355.4 114.6 359.6 114.5 360.3 109.7 363.4 107.6 362.9 101.2 359.9 99.5 364.8 88.2 367.2 73.3 369.7 67.2 372.8 64.0 378.2 65.0 382.2 71.1 380.9 78.1 378.0 79.0 379.3 80.0 378.2 83.0 379.3 82.1 379.9 83.7 392.6 80.6 391.2 81.5 393.1 82.7 392.1 85.4 387.7 91.0 391.9 90.9 393.2 92.6 394.8 91.2 398.5 91.7 399.9 94.0 392.7 99.7 389.5 104.6 392.3 105.2 388.5 107.2 389.1 108.5 386.3 108.9 386.0 111.2 392.7 108.3 395.4 112.1 402.9 116.0Z","cx":376.4,"cy":128.4,"area":4049,"fill":"#e1f1e2"},{"code":"TBS","nameAr":"طوباس","nameEn":"Tubas","d":"M520.7 84.8 527.7 85.1 532.5 89.0 543.6 91.8 551.4 96.2 557.6 95.6 559.9 96.8 559.0 99.2 560.4 103.7 558.8 107.8 558.2 105.5 556.2 104.9 558.7 113.2 556.6 115.4 557.9 120.8 556.3 125.2 559.0 126.9 560.4 130.6 556.9 135.6 559.8 137.2 561.6 141.3 561.2 145.9 558.2 147.3 559.0 151.0 560.8 152.2 559.9 157.0 563.3 160.4 561.9 162.9 560.2 161.3 560.3 163.3 558.2 163.1 560.5 167.3 562.7 166.4 562.1 170.5 563.9 171.4 560.8 172.2 563.1 173.2 564.1 176.0 560.5 176.0 559.9 180.9 562.4 180.2 563.8 183.4 562.4 185.2 556.8 182.2 550.0 182.8 546.9 187.2 544.8 186.7 545.0 191.9 541.9 192.4 535.2 188.3 533.0 191.1 528.0 188.7 525.5 184.8 525.7 182.2 527.6 180.8 526.8 175.4 525.0 176.0 521.0 173.5 521.0 171.3 517.0 172.3 515.7 166.0 513.2 166.0 511.9 167.8 509.0 164.1 507.0 165.1 506.9 160.5 502.3 157.4 495.3 156.0 486.1 146.1 483.8 150.6 478.6 146.2 472.7 146.7 467.0 143.9 466.7 141.6 468.8 140.0 466.0 136.9 470.6 131.9 470.0 128.3 471.6 129.8 474.1 126.1 469.5 120.2 471.3 117.4 469.5 116.9 472.8 115.3 473.3 107.2 476.6 104.9 481.9 104.9 482.2 102.4 485.2 102.2 484.5 100.7 488.3 98.2 488.1 100.6 490.3 103.2 488.4 103.2 488.5 104.3 491.6 105.6 495.3 100.5 495.1 95.4 498.5 95.8 501.0 98.4 501.5 93.8 504.7 93.6 504.9 95.4 508.2 89.8 506.8 85.3 512.9 87.5 515.2 85.0 520.7 84.8Z","cx":521.9,"cy":133.6,"area":6667,"fill":"#fdeddc"},{"code":"NAB","nameAr":"نابلس","nameEn":"Nablus","d":"M406.5 201.4 408.9 200.9 409.3 198.6 411.2 197.6 410.3 196.4 412.3 197.0 412.2 193.3 409.6 192.4 412.7 186.3 411.7 185.4 413.8 179.9 407.1 180.5 406.2 178.6 409.5 178.2 407.5 175.4 408.8 173.2 406.9 173.2 408.4 171.4 407.6 169.4 411.0 167.9 411.3 169.8 412.6 166.6 411.1 165.9 413.2 163.6 411.5 164.4 409.9 162.0 407.2 163.2 405.7 162.0 405.4 159.0 407.7 156.9 405.3 153.5 404.0 152.9 402.9 154.4 402.3 150.1 400.5 150.2 400.9 147.1 405.8 148.4 408.8 146.5 405.6 145.3 407.7 144.0 406.5 138.6 404.7 138.9 406.5 136.0 402.9 136.7 402.9 135.0 398.6 133.5 398.9 131.0 397.3 131.8 399.1 127.6 401.3 126.4 401.2 124.5 398.2 124.3 403.3 123.8 407.0 127.1 408.0 125.9 409.1 128.8 413.1 131.2 419.8 127.3 424.0 129.3 428.4 129.3 429.7 131.4 430.6 130.8 430.9 133.2 431.8 130.5 442.7 134.4 448.2 133.4 450.6 131.3 451.7 127.1 455.3 128.5 466.7 135.9 465.7 137.7 468.8 140.0 466.7 141.6 468.3 145.4 472.7 146.7 478.6 146.2 483.8 150.6 486.1 146.1 495.3 156.0 502.3 157.4 506.9 160.5 506.9 165.0 509.0 164.1 511.9 167.8 508.0 170.3 505.5 167.0 503.7 170.0 505.4 175.4 504.4 176.3 510.5 192.5 508.1 194.2 508.0 196.4 504.8 197.3 502.8 199.8 501.3 217.5 505.3 222.6 499.9 226.3 497.8 225.2 497.5 222.6 494.3 223.9 493.8 226.4 490.1 227.6 489.7 230.2 491.8 239.4 499.0 247.2 506.6 249.0 507.7 255.6 500.2 253.0 488.0 253.3 488.0 251.4 485.6 250.7 472.6 252.4 458.3 246.0 456.1 249.2 451.1 246.3 449.7 241.9 447.0 243.3 448.4 244.2 447.5 244.7 443.8 243.3 440.6 245.4 437.4 243.9 436.0 246.7 433.7 246.0 433.4 244.0 435.4 243.0 434.0 243.1 434.3 241.4 433.1 242.5 428.6 239.6 426.3 240.4 429.7 240.6 428.8 242.4 428.7 241.2 427.3 243.1 423.8 242.7 423.0 245.8 421.1 242.0 419.2 242.1 421.7 239.9 420.1 238.3 427.8 236.0 427.1 233.2 435.0 228.7 435.9 222.9 439.0 221.0 438.6 222.9 440.4 223.8 440.9 220.6 444.8 216.9 438.3 212.4 438.2 214.1 433.5 214.7 433.9 216.2 428.8 220.3 426.5 215.7 414.6 214.1 411.4 210.1 408.5 210.8 405.6 206.6 402.5 205.7 403.7 202.6 406.5 201.4Z","cx":456.0,"cy":188.2,"area":9714,"fill":"#eee7f8"},{"code":"QLQ","nameAr":"قلقيلية","nameEn":"Qalqilya","d":"M407.0 156.6 407.3 158.2 405.1 159.9 405.7 162.0 407.2 163.2 409.9 162.0 411.5 164.4 413.2 163.6 411.1 165.9 412.6 166.6 411.3 169.8 409.8 167.9 407.6 169.4 408.4 171.4 406.9 172.4 408.8 173.2 407.7 176.4 409.8 177.4 408.7 178.9 406.2 178.6 407.1 180.5 413.8 179.9 411.7 185.4 412.7 186.3 409.0 193.5 405.4 194.7 403.3 193.0 400.4 194.8 397.8 194.2 392.7 198.1 392.2 197.1 386.1 198.8 383.8 197.1 384.8 196.2 382.2 195.5 383.3 192.0 380.4 192.8 377.2 189.8 375.8 191.2 372.3 190.8 371.3 192.2 373.2 201.5 370.9 203.0 370.4 206.1 367.7 205.4 366.0 207.2 364.8 210.0 366.0 210.6 364.9 211.5 366.0 213.8 359.4 214.8 356.9 212.8 353.4 220.7 349.0 218.8 341.6 222.0 338.8 213.7 340.5 206.4 338.8 203.8 335.2 202.3 335.2 198.6 328.9 191.1 328.4 184.6 330.2 180.7 339.9 177.2 348.4 167.3 351.2 168.2 349.8 166.9 353.9 166.9 355.2 170.1 353.7 170.8 353.9 173.3 363.3 175.6 365.1 178.2 372.4 181.7 372.5 179.7 376.8 176.0 374.2 171.6 374.8 167.4 377.6 166.4 378.3 168.5 383.8 169.5 388.4 166.9 388.0 165.1 391.2 162.8 395.4 163.3 394.7 161.1 397.6 160.3 400.3 161.7 402.7 157.9 406.3 155.7 407.0 156.6Z","cx":369.0,"cy":187.9,"area":2663,"fill":"#dcf1f4"},{"code":"JRC","nameAr":"اريحا","nameEn":"Jericho","d":"M515.9 166.2 517.0 172.3 521.0 171.3 521.0 173.5 525.0 176.0 526.8 175.4 527.6 180.8 525.7 182.2 525.5 184.8 529.1 189.5 533.0 191.1 535.2 188.3 542.9 192.4 545.0 191.9 544.8 186.7 546.9 187.2 550.0 182.8 556.9 182.2 560.5 185.0 558.2 187.4 558.9 191.3 556.4 191.2 558.5 193.4 555.6 192.7 556.9 193.6 556.3 195.9 557.6 194.9 558.1 196.2 554.6 197.0 557.6 198.6 557.5 200.0 555.9 199.8 556.5 201.5 557.1 200.4 559.7 201.5 558.3 205.3 552.9 206.0 552.8 208.6 555.0 209.1 553.9 210.4 552.6 209.5 552.3 211.4 553.3 212.3 555.4 210.7 554.0 212.4 555.3 213.2 553.5 213.8 552.4 220.5 548.2 221.6 549.4 224.0 548.2 224.9 551.2 226.7 550.4 229.9 553.4 230.6 552.4 233.4 553.7 233.7 551.0 233.0 551.7 234.3 550.1 234.8 550.8 236.4 549.4 235.6 549.4 239.1 547.4 238.1 548.5 240.8 547.5 241.5 549.2 241.5 547.2 242.3 548.3 243.1 547.0 243.9 547.4 247.5 545.2 248.7 543.8 247.2 544.6 251.4 543.2 254.1 545.2 256.8 543.9 260.3 547.1 261.3 544.8 263.6 547.2 265.1 545.1 268.0 547.0 268.7 546.4 270.6 548.3 270.7 548.6 269.4 549.3 271.0 550.2 269.8 549.7 271.3 551.9 271.0 549.2 276.7 550.3 278.8 551.6 278.2 551.8 281.3 554.1 283.3 551.4 289.0 552.9 290.8 550.9 291.4 552.8 293.0 551.7 295.8 553.2 296.5 551.7 298.1 553.3 298.5 552.9 300.9 551.4 300.1 552.2 302.1 549.8 301.7 550.9 304.6 546.4 305.0 545.3 311.7 548.4 316.9 547.6 318.6 549.0 318.1 547.5 319.5 549.6 321.8 548.4 323.1 550.9 324.4 550.9 326.9 554.9 327.4 553.3 328.4 553.9 331.6 551.9 331.9 552.1 333.5 550.0 335.0 554.6 340.8 553.4 341.2 554.7 344.1 553.2 346.6 554.6 349.7 551.7 350.3 552.4 352.6 551.0 352.9 552.7 354.4 552.0 357.9 555.8 363.6 554.5 369.1 558.3 376.1 554.6 378.1 538.9 374.3 531.5 386.1 527.1 378.3 526.5 373.2 520.6 367.7 514.7 367.8 500.5 373.4 493.0 370.5 491.4 368.2 489.2 369.2 485.2 364.5 492.9 362.5 487.4 356.2 483.8 357.4 482.7 353.6 486.5 349.3 488.4 344.1 494.8 345.3 499.3 343.3 494.6 321.5 497.6 321.0 503.7 315.7 498.9 308.6 499.5 303.0 497.9 302.8 498.8 300.1 497.7 299.4 498.9 297.9 497.2 297.1 498.4 294.4 492.3 290.7 497.6 291.5 500.9 287.2 502.0 278.3 498.2 276.6 509.3 274.8 507.7 250.6 503.7 247.4 499.0 247.2 494.2 242.6 491.8 239.4 490.1 227.6 493.8 226.4 494.3 223.9 497.5 222.6 497.8 225.2 499.9 226.3 505.3 222.6 501.3 217.5 502.8 199.8 504.8 197.3 508.0 196.4 508.1 194.2 510.5 192.6 504.4 176.3 505.4 175.4 503.7 173.1 503.7 169.5 505.5 167.0 508.0 170.3 513.2 166.0 515.9 166.2Z","cx":524.8,"cy":280.9,"area":10136,"fill":"#f9e9e6"},{"code":"SLF","nameAr":"سلفيت","nameEn":"Salfit","d":"M407.1 200.9 403.7 202.6 402.5 205.7 405.6 206.6 408.5 210.8 411.4 210.1 414.6 214.1 426.5 215.7 428.8 220.3 433.9 216.2 433.5 214.7 438.2 214.1 438.3 212.4 444.9 217.2 440.9 220.6 440.4 223.8 438.6 222.9 439.0 221.0 435.9 222.9 435.0 228.7 427.1 233.2 427.8 236.0 420.1 238.3 421.7 239.7 421.3 241.5 418.2 242.8 417.8 245.7 415.7 244.2 412.0 244.8 411.1 242.1 409.4 242.5 408.1 240.6 410.0 239.0 405.9 239.5 401.6 242.7 400.0 241.2 397.4 242.0 395.7 239.8 390.4 239.5 386.0 241.4 383.9 244.5 374.1 243.8 373.6 248.3 368.8 249.9 366.7 246.8 365.2 248.5 361.1 248.6 361.4 246.8 359.7 246.1 357.4 247.5 350.8 244.4 348.8 245.6 346.0 240.8 342.6 241.7 339.5 231.4 337.7 229.9 339.4 224.9 345.8 219.6 349.0 218.8 353.4 220.7 356.9 212.8 359.4 214.8 366.3 213.6 364.8 210.0 366.0 207.2 367.7 205.4 370.4 206.1 370.9 203.0 373.2 201.5 371.3 192.2 372.3 190.8 375.8 191.2 377.2 189.8 380.4 192.8 383.3 192.0 382.2 195.5 384.8 196.2 383.8 197.1 386.1 198.8 392.2 197.1 392.7 198.1 397.8 194.2 400.4 194.8 403.3 193.0 405.4 194.7 411.1 192.5 412.3 197.0 410.3 196.4 411.2 197.6 409.3 198.6 409.2 200.5 407.1 200.9Z","cx":387.1,"cy":223.3,"area":3379,"fill":"#f3efd9"},{"code":"RAM","nameAr":"رام الله والبيرة","nameEn":"Ramallah","d":"M497.5 291.5 492.3 290.7 498.4 294.4 497.2 297.1 498.9 297.9 497.7 299.4 498.8 300.1 497.9 302.8 499.5 303.0 498.9 308.6 503.7 315.7 497.6 321.0 494.6 321.5 499.3 343.3 494.8 345.3 487.0 344.1 483.4 341.0 482.2 343.4 479.0 341.8 476.4 344.9 474.4 344.2 472.5 342.6 472.4 337.8 468.8 336.3 465.9 331.6 459.3 331.9 456.8 327.3 448.5 322.9 444.4 322.7 442.4 328.6 439.2 326.1 439.2 322.0 428.9 321.5 428.6 324.0 426.0 325.6 418.7 320.3 416.1 321.5 415.9 324.6 413.0 325.9 416.7 331.3 415.5 334.4 409.7 330.2 405.0 332.9 403.8 330.6 401.0 329.6 399.2 331.3 388.2 330.5 378.0 326.4 379.5 330.4 374.7 339.8 368.8 337.6 371.1 340.5 365.2 337.3 361.7 347.8 357.3 352.1 352.8 352.9 346.7 351.4 336.1 353.2 330.1 348.7 327.7 338.1 328.7 333.5 346.5 328.4 354.1 329.2 354.9 326.3 353.4 321.7 354.9 318.6 353.3 308.5 343.6 303.0 336.6 284.9 341.8 282.3 343.8 274.3 344.2 262.7 345.9 261.5 346.0 257.5 342.6 241.7 344.6 240.4 348.8 245.6 350.8 244.4 357.4 247.5 359.7 246.1 361.4 246.8 361.1 248.6 365.2 248.5 366.7 246.8 368.8 249.9 373.6 248.3 374.1 243.8 383.9 244.5 386.0 241.4 390.4 239.5 395.7 239.8 397.4 242.0 400.0 241.2 401.6 242.7 405.9 239.5 410.0 239.0 408.1 240.6 409.3 242.5 411.1 242.1 412.8 245.3 415.7 244.2 417.1 246.0 418.2 242.8 421.1 242.0 423.4 245.9 423.8 242.7 427.3 243.1 428.7 241.2 428.7 242.5 429.7 240.6 426.3 240.4 430.0 239.7 433.1 242.5 434.3 241.4 434.0 243.1 435.4 243.0 433.4 244.0 433.7 246.0 435.4 246.6 437.6 243.9 440.6 245.4 443.8 243.3 448.0 244.5 447.0 243.3 449.7 241.9 451.1 246.3 456.1 249.2 458.3 246.0 472.6 252.4 485.6 250.7 488.0 251.4 488.0 253.3 500.2 253.0 505.8 254.5 507.8 255.2 509.3 274.8 498.2 276.6 502.0 278.3 502.2 283.7 497.5 291.5Z","cx":419.5,"cy":290.9,"area":14071,"fill":"#e6ecf4"},{"code":"JER","nameAr":"القدس","nameEn":"Jerusalem","d":"M420.6 384.3 424.4 384.1 428.5 390.0 431.7 385.8 437.5 382.6 437.3 379.3 432.6 377.0 433.5 373.5 431.4 369.9 430.0 359.8 419.1 356.3 405.1 357.0 398.6 354.9 390.3 349.1 385.6 350.4 368.8 337.6 374.7 339.8 379.5 330.4 378.0 326.4 388.2 330.5 399.2 331.3 401.0 329.6 403.8 330.6 405.0 332.9 409.7 330.2 415.5 334.4 416.7 331.3 413.0 325.9 415.9 324.6 416.1 321.5 418.6 320.3 426.0 325.6 428.6 324.0 428.9 321.5 439.2 322.0 439.2 326.1 442.4 328.6 444.8 322.3 451.1 323.7 456.8 327.3 459.3 331.9 465.9 331.6 468.8 336.3 472.4 337.8 472.5 342.6 474.4 344.2 476.4 344.9 479.0 341.8 482.2 343.4 483.4 341.0 488.4 344.1 486.5 349.3 482.7 353.6 483.8 357.4 487.4 356.2 492.9 362.5 485.2 364.5 489.2 369.2 491.4 368.2 493.0 370.5 500.5 373.4 514.7 367.8 520.6 367.7 526.5 373.2 527.1 378.3 531.5 386.1 525.9 392.4 519.5 387.7 514.9 386.6 509.6 389.1 505.8 385.5 503.7 387.0 501.9 385.5 492.9 385.7 479.7 390.8 471.8 387.5 467.8 389.6 465.3 388.9 465.9 392.1 464.9 392.0 466.3 393.5 464.0 393.1 463.9 390.8 460.5 394.0 450.6 392.2 447.9 393.2 446.8 396.6 444.5 395.4 443.1 398.3 436.5 396.5 434.9 394.5 431.7 395.5 428.0 391.4 427.5 392.4 424.9 390.8 418.6 390.7 417.2 392.3 416.7 390.9 414.5 392.0 412.0 387.1 418.8 383.5 420.6 384.3Z","cx":450.2,"cy":358.9,"area":5607,"fill":"#d8e6f6"},{"code":"BTH","nameAr":"بيت لحم","nameEn":"Bethlehem","d":"M410.2 387.6 412.0 387.1 415.2 392.2 418.6 390.7 424.9 390.8 427.5 392.4 428.0 391.4 431.7 395.5 434.9 394.5 436.5 396.5 443.1 398.3 444.5 395.4 446.8 396.6 447.9 393.2 450.6 392.2 460.5 394.0 463.9 390.8 464.0 393.1 466.3 393.5 464.9 392.0 465.7 388.7 467.8 389.6 471.8 387.5 479.7 390.8 495.3 385.5 501.9 385.5 503.7 387.0 505.8 385.5 509.6 389.1 515.0 386.5 520.4 388.2 525.9 392.4 521.1 396.0 517.7 401.6 514.7 412.8 516.2 419.3 512.8 422.2 512.4 425.0 508.5 429.1 507.5 433.7 502.5 439.1 501.4 442.9 499.9 453.4 504.2 465.0 499.6 472.0 496.3 473.2 495.6 483.7 497.3 490.8 495.7 495.1 496.8 499.5 480.3 512.3 472.0 507.8 462.8 506.8 461.5 504.7 462.3 502.9 460.5 501.9 458.2 495.3 448.7 486.9 445.0 487.6 433.5 478.6 431.5 475.1 432.9 474.0 429.0 470.0 427.7 466.0 432.5 456.4 427.7 454.9 420.7 447.4 415.8 444.9 413.9 445.5 412.5 444.1 412.0 446.2 406.2 444.7 405.6 446.7 403.8 445.5 402.1 441.5 396.6 437.6 397.6 435.4 402.6 437.1 402.9 435.5 406.2 435.0 406.3 433.2 402.8 431.5 403.2 430.1 389.2 428.7 387.0 425.6 385.3 426.5 377.1 424.0 376.0 420.1 372.0 422.0 369.5 418.8 363.2 421.7 363.0 418.7 370.3 413.0 375.0 411.5 384.5 399.4 390.2 398.9 393.8 391.2 395.4 390.4 396.7 392.2 398.8 392.1 405.1 385.9 410.2 387.6Z","cx":456.2,"cy":435.4,"area":10655,"fill":"#e8f3d9"},{"code":"GZA","nameAr":"غزة","nameEn":"Gaza","d":"M139.2 477.6 144.1 481.8 141.4 483.7 145.8 488.3 149.6 486.9 150.9 489.4 151.6 486.9 155.3 487.3 153.4 492.0 156.0 492.6 157.3 496.1 124.7 528.7 121.0 526.7 121.0 522.2 118.5 517.9 119.8 515.3 114.7 513.2 113.6 511.0 106.2 511.2 135.3 474.9 139.2 477.6Z","cx":132.5,"cy":501.1,"area":1210,"fill":"#fbe9d0"},{"code":"JBA","nameAr":"شمالي قطاع غزة","nameEn":"Gaza North","d":"M149.6 486.9 145.5 488.1 141.4 483.7 144.1 481.8 135.3 474.9 150.1 452.8 179.4 477.6 173.9 487.8 162.7 494.5 157.3 496.1 156.0 492.6 153.4 492.0 155.3 487.3 151.6 486.9 150.9 489.4 149.6 486.9Z","cx":157.2,"cy":475.8,"area":1011,"fill":"#e9e3f4"},{"code":"KHN","nameAr":"خان يونس","nameEn":"Khan Yunis","d":"M73.2 547.1 76.1 544.0 80.9 545.4 86.6 544.6 90.8 547.0 92.4 544.9 101.4 552.0 104.7 552.8 101.9 558.0 104.8 584.0 102.3 590.2 93.3 595.5 88.4 603.3 81.8 588.2 75.3 589.1 72.0 587.2 61.3 570.4 56.0 565.0 73.2 547.1Z","cx":84.2,"cy":569.6,"area":1768,"fill":"#d7eef0"},{"code":"MDL","nameAr":"المنطقة الوسطى","nameEn":"Middle Area","d":"M103.8 513.9 106.2 511.2 111.8 510.9 118.7 514.3 120.2 515.9 118.5 517.9 121.0 522.2 121.0 526.7 124.9 527.9 107.8 545.3 104.9 552.6 101.4 552.0 92.4 544.9 90.8 547.0 86.6 544.6 80.9 545.4 76.1 544.0 90.8 529.6 103.8 513.9Z","cx":103.4,"cy":531.7,"area":955,"fill":"#f7e3ea"},{"code":"RFA","nameAr":"رفح","nameEn":"Rafah","d":"M49.9 571.2 56.0 565.0 56.9 565.6 72.0 587.2 75.3 589.1 81.8 588.2 88.4 603.3 74.2 612.1 69.4 617.6 63.8 619.8 53.9 587.6 52.1 587.1 45.7 575.0 49.9 571.2Z","cx":66.3,"cy":593.4,"area":1022,"fill":"#eff0d8"},{"code":"HBN","nameAr":"الخليل","nameEn":"Hebron","d":"M472.0 507.8 480.3 512.3 452.4 534.3 433.1 552.1 406.9 556.6 395.2 561.3 350.8 559.1 314.7 566.5 302.9 555.9 298.1 544.7 300.1 534.9 304.3 525.8 315.5 511.1 320.7 500.2 322.2 494.2 321.9 471.6 325.9 452.2 343.0 429.7 363.0 418.7 364.2 422.2 367.2 419.2 370.0 418.9 372.0 422.0 376.0 420.1 377.1 424.0 385.3 426.5 387.0 425.6 389.2 428.7 403.2 430.1 402.8 431.5 406.3 433.2 406.2 435.0 402.9 435.5 402.6 437.1 397.6 435.4 397.1 438.5 402.1 441.5 402.6 444.4 405.1 446.6 406.5 446.6 406.2 444.7 412.0 446.2 412.5 444.1 413.9 445.5 415.8 444.9 420.7 447.4 427.7 454.9 432.5 456.4 427.7 466.0 429.0 470.0 432.9 474.0 431.5 475.1 432.6 477.5 437.3 482.6 440.6 483.3 445.0 487.6 448.7 486.9 458.2 495.3 460.5 501.9 462.3 502.9 461.5 504.7 462.8 506.8 472.0 507.8Z","cx":379.2,"cy":501.0,"area":16373,"fill":"#e2e9f0"}],"points":[{"n":["بلدية البيرة","Al-Bireh"],"g":["رام الله والبيرة","Ramallah & Al-Bireh"],"lat":31.907,"lon":35.216,"s":"csc","l":"bireh.png"},{"n":["بلدية طولكرم","Tulkarem"],"g":["طولكرم","Tulkarem"],"lat":32.311,"lon":35.028,"s":"csc","l":"tulkarem.png"},{"n":["بلدية أريحا","Jericho"],"g":["أريحا","Jericho"],"lat":31.857,"lon":35.456,"s":"csc","l":"jericho.png"},{"n":["بلدية دورا","Dura"],"g":["الخليل","Hebron"],"lat":31.507,"lon":35.028,"s":"both","l":"dura.png"},{"n":["بلدية بيرزيت","Birzeit"],"g":["رام الله والبيرة","Ramallah & Al-Bireh"],"lat":31.975,"lon":35.195,"s":"csc","l":"birzeit-mun.png"},{"n":["بلدية الرام","Al-Ram"],"g":["القدس","Jerusalem"],"lat":31.848,"lon":35.234,"s":"csc","l":"alram.png"},{"n":["بلدية عقربا","Aqraba"],"g":["نابلس","Nablus"],"lat":32.124,"lon":35.345,"s":"csc","l":"aqraba.png"},{"n":["بلدية الخضر","Al-Khader"],"g":["بيت لحم","Bethlehem"],"lat":31.694,"lon":35.17,"s":"csc","l":"khader.png"},{"n":["بلدية حوارة","Howwara"],"g":["نابلس","Nablus"],"lat":32.152,"lon":35.253,"s":"csc","l":"howwara.png"},{"n":["بلدية سبسطية","Sabastia"],"g":["نابلس","Nablus"],"lat":32.276,"lon":35.191,"s":"csc","l":"sabastia.png"},{"n":["بلدية عزون","Azzun"],"g":["قلقيلية","Qalqilya"],"lat":32.176,"lon":35.06,"s":"csc","l":"azzun.png"},{"n":["بلدية يعبد","Ya'abad"],"g":["جنين","Jenin"],"lat":32.446,"lon":35.169,"s":"csc","l":"yaabad.png"},{"n":["بلدية صوريف","Surif"],"g":["الخليل","Hebron"],"lat":31.653,"lon":35.062,"s":"csc","l":"surif.png"},{"n":["بلدية نوبا","Nuba"],"g":["الخليل","Hebron"],"lat":31.618,"lon":35.03,"s":"csc","l":"nuba.png"},{"n":["بلدية الدوحة","Ad-Doha"],"g":["بيت لحم","Bethlehem"],"lat":31.702,"lon":35.182,"s":"csc","l":"doha.png"},{"n":["بلدية عقابا","Aqqaba"],"g":["طوباس","Tubas"],"lat":32.343,"lon":35.264,"s":"csc","l":"aqqaba.png"},{"n":["بلدية بني زيد الغربية","West Bani Zaid"],"g":["رام الله والبيرة","Ramallah & Al-Bireh"],"lat":32.024,"lon":35.108,"s":"csc","l":"bani-zaid.png"},{"n":["بلدية عصيرة الشمالية","Asira ash-Shamaliya"],"g":["نابلس","Nablus"],"lat":32.272,"lon":35.272,"s":"csc","l":"asira.png"},{"n":["بلدية الزاوية","Az-Zawya"],"g":["سلفيت","Salfit"],"lat":32.128,"lon":35.011,"s":"csc","l":"zawya.png"},{"n":["بلدية ترقوميا","Tarqumia"],"g":["الخليل","Hebron"],"lat":31.571,"lon":34.981,"s":"csc","l":"tarqumia.png"},{"n":["بلدية الكرمل","Al-Karmel"],"g":["الخليل","Hebron"],"lat":31.421,"lon":35.132,"s":"csc","l":"karmel.png"},{"n":["بلدية الكفريات","Al-Kafriyat"],"g":["طولكرم","Tulkarem"],"lat":32.245,"lon":35.033,"s":"csc","l":"kafriyat.png"},{"n":["بلدية زعترة","Za'atara"],"g":["بيت لحم","Bethlehem"],"lat":31.648,"lon":35.253,"s":"csc","l":"zaatara.png"},{"n":["بلدية الفخاري","Al-Fukhari"],"g":["خانيونس","Khan Younis"],"lat":31.276,"lon":34.313,"s":"csc","l":"fukhari.png"},{"n":["بلدية خزاعة","Khuza'a"],"g":["خانيونس","Khan Younis"],"lat":31.306,"lon":34.363,"s":"csc","l":"khuzaa.png"},{"n":["بلدية البريج","Al-Breij"],"g":["الوسطى","Deir al-Balah"],"lat":31.44,"lon":34.403,"s":"csc","l":"breij.png"},{"n":["بلدية المغازي","Al-Maghazi"],"g":["الوسطى","Deir al-Balah"],"lat":31.422,"lon":34.389,"s":"csc","l":"maghazi.png"},{"n":["بلدية الزهراء","Az-Zahra"],"g":["غزة","Gaza"],"lat":31.482,"lon":34.421,"s":"csc","l":"zahra.png"},{"n":["بلدية الشوكة","Ash-Shuka"],"g":["رفح","Rafah"],"lat":31.238,"lon":34.296,"s":"csc","l":"shuka.png"},{"n":["بلدية كفر اللبد","Kufr al-Labad"],"g":["طولكرم","Tulkarem"],"lat":32.291,"lon":35.098,"s":"csc","l":"kufr-labad.png"},{"n":["بلدية عجة","Ajja"],"g":["جنين","Jenin"],"lat":32.339,"lon":35.203,"s":"csc","l":"ajja.png"},{"n":["بلدية برقين","Burqin"],"g":["جنين","Jenin"],"lat":32.455,"lon":35.259,"s":"csc","l":"burqin.png"},{"n":["بلدية الشيوخ","Ash-Shuyoukh"],"g":["الخليل","Hebron"],"lat":31.618,"lon":35.14,"s":"csc","l":"shuyoukh.png"},{"n":["بلدية تقوع","Tuqu'"],"g":["بيت لحم","Bethlehem"],"lat":31.633,"lon":35.23,"s":"csc","l":"tuqu.png"},{"n":["القبيبة – عمواس","Al-Qubeibeh (Emmaus)"],"g":["القدس","Jerusalem"],"lat":31.839,"lon":35.137,"s":"csc","l":"nm1.png"},{"n":["السواحرة الشرقية","East Sawahreh"],"g":["القدس","Jerusalem"],"lat":31.752,"lon":35.283,"s":"csc","l":"nm2.png"},{"n":["الجيب","Al-Jib"],"g":["القدس","Jerusalem"],"lat":31.868,"lon":35.18,"s":"csc","l":"nm3.png"},{"n":["الطيبة","Taybeh"],"g":["رام الله والبيرة","Ramallah & Al-Bireh"],"lat":31.955,"lon":35.301,"s":"csc","l":"nm4.png"},{"n":["المزرعة الشرقية","Al-Mazra'a ash-Sharqiya"],"g":["رام الله والبيرة","Ramallah & Al-Bireh"],"lat":31.988,"lon":35.275,"s":"csc","l":"nm5.png"},{"n":["عطارة","Atara"],"g":["رام الله والبيرة","Ramallah & Al-Bireh"],"lat":32.03,"lon":35.198,"s":"csc","l":"nm6.png"},{"n":["بيت عور التحتا","Beit Ur al-Tahta"],"g":["رام الله والبيرة","Ramallah & Al-Bireh"],"lat":31.888,"lon":35.104,"s":"csc","l":"nm7.png"},{"n":["كوبر","Kobar"],"g":["رام الله والبيرة","Ramallah & Al-Bireh"],"lat":31.988,"lon":35.169,"s":"csc","l":"nm8.png"},{"n":["بلدية باقة الشرقية","Baqa ash-Sharqiya"],"g":["طولكرم","Tulkarem"],"lat":32.412,"lon":35.052,"s":"csc","l":null},{"n":["زيتا","Zeita"],"g":["طولكرم","Tulkarem"],"lat":32.397,"lon":35.03,"s":"csc","l":"nm10.png"},{"n":["بيت أولا","Beit Ula"],"g":["الخليل","Hebron"],"lat":31.558,"lon":35.02,"s":"csc","l":"nm11.png"},{"n":["هندازة – بريضعة","Hindaza & Breideh"],"g":["بيت لحم","Bethlehem"],"lat":31.681,"lon":35.235,"s":"csc","l":"nm12.png"},{"n":["نحالين","Nahhalin"],"g":["بيت لحم","Bethlehem"],"lat":31.687,"lon":35.108,"s":"csc","l":"nm13.png"},{"n":["جيوس","Jayyous"],"g":["قلقيلية","Qalqilya"],"lat":32.19,"lon":35.048,"s":"csc","l":"nm14.png"},{"n":["كفل حارس","Kifl Haris"],"g":["سلفيت","Salfit"],"lat":32.117,"lon":35.157,"s":"csc","l":"nm15.png"},{"n":["الزبابدة","Zababdeh"],"g":["جنين","Jenin"],"lat":32.372,"lon":35.371,"s":"csc","l":"nm16.png"},{"n":["جبع","Jab'a"],"g":["جنين","Jenin"],"lat":32.328,"lon":35.293,"s":"csc","l":"nm17.png"},{"n":["ميثلون","Meithalun"],"g":["جنين","Jenin"],"lat":32.355,"lon":35.268,"s":"csc","l":"nm18.png"},{"n":["بلدية سيلة الظهر","Silat ad-Dhahr"],"g":["جنين","Jenin"],"lat":32.359,"lon":35.24,"s":"csc","l":null},{"n":["بلدية عتيل","Attil"],"g":["طولكرم","Tulkarem"],"lat":32.386,"lon":35.033,"s":"csc","l":null},{"n":["بلدية يطا","Yatta"],"g":["الخليل","Hebron"],"lat":31.449,"lon":35.089,"s":"mad","l":null},{"n":["بلدية بيت لحم","Bethlehem"],"g":["بيت لحم","Bethlehem"],"lat":31.705,"lon":35.202,"s":"mad","l":null},{"n":["مصلحة مياه بلديات الساحل","CMWU"],"g":["قطاع غزة","Gaza Strip"],"lat":31.52,"lon":34.44,"s":"water","l":null}]}}
+{
+ "products": [
+  {
+   "slug": "dwp",
+   "logo": "logo.svg",
+   "sector": [
+    "المياه والقطاع الحكومي",
+    "Water & Government"
+   ],
+   "flagship": true,
+   "name": [
+    "المنصة الرقمية للمياه",
+    "Digital Water Platform"
+   ],
+   "tag": [
+    "منصة واحدة قابلة للتهيئة لعمليات المياه والترخيص والذكاء التشغيلي",
+    "One configurable platform for water operations, regulation and intelligence"
+   ],
+   "about": [
+    "تسعة أنظمة بدخولٍ واحد ومحرّكٍ واحد، مبنية ومُشغَّلة لسلطة مياه وطنية: الترخيص والموارد والتوزيع والصرف والمختبرات والخرائط. كل طلب يمشي في مسارٍ مُهيَّأ، وينتهي بوثيقة موقّعة قابلة للتحقق.",
+    "Nine systems, one login, one engine underneath — built and running for a national water authority: licensing, resources, distribution, wastewater, labs and GIS. Every request moves through a configured workflow, and can end in a signed, verifiable document."
+   ],
+   "feats": [
+    [
+     "ترخيص وخدمات رقمية متكاملة",
+     "Licensing & digital services"
+    ],
+    [
+     "محرّك مسارات عمل بمراحل وأزمنة SLA",
+     "Staged, SLA-timed workflow engine"
+    ],
+    [
+     "20 طبقة GIS · 3,707 معلماً ممثَّلاً",
+     "20 GIS layers · 3,707 mapped features"
+    ],
+    [
+     "المساعد الذكي «سَبْر»",
+     "Sabr — the AI assistant"
+    ],
+    [
+     "منشئ تقارير بلا كود، بصياغة ذكية",
+     "No-code, AI-drafted report builder"
+    ],
+    [
+     "لوحات مؤشرات من تقارير محفوظة",
+     "Dashboards built from saved reports"
+    ],
+    [
+     "وثائق مجمَّدة بتحقق QR",
+     "Frozen, QR-verifiable documents"
+    ],
+    [
+     "تعدُّد مؤسسات وصلاحيات على مستوى الصف",
+     "Multi-tenant · row-level access control"
+    ],
+    [
+     "عربي / إنجليزي مع دعم RTL كامل",
+     "Arabic & English, fully RTL-aware"
+    ],
+    [
+     ".NET 10 · React 19 · PostgreSQL/PostGIS",
+     ".NET 10 · React 19 · PostgreSQL/PostGIS"
+    ]
+   ],
+   "client": [
+    "مُشغَّلة مرجعياً لدى سلطة المياه الفلسطينية",
+    "Reference deployment: Palestinian Water Authority"
+   ],
+   "imgs": [
+    {
+     "f": "03.jpg",
+     "w": 556,
+     "h": 616,
+     "cap": [
+      "«اسأل بياناتك التشغيلية» — المساعد الذكي «سَبْر»",
+      "Ask your operational data — Sabr"
+     ],
+     "note": [
+      "يجيب عبر محرك التقارير المحوكم وبصلاحيات المستخدم السائل نفسه — لا وصول مباشر لقاعدة البيانات.",
+      "Answers through the governed reporting engine with the asking user's permissions — no raw database access."
+     ]
+    },
+    {
+     "f": "04.jpg",
+     "w": 556,
+     "h": 616,
+     "cap": [
+      "مساعد واحد… وكل أشكال الإجابة",
+      "One assistant, every shape of answer"
+     ],
+     "note": [
+      "رسم بياني أو تفصيل رقمي أو خريطة كثافة — «سَبْر» يختار العرض الأنسب للسؤال.",
+      "A bar chart, a breakdown, or a geographic density map — Sabr picks the visualization that fits."
+     ]
+    },
+    {
+     "f": "05.jpg",
+     "w": 556,
+     "h": 606,
+     "cap": [
+      "الإجابة على الخريطة",
+      "The answer, on the map"
+     ],
+     "note": [
+      "توزيع الآبار حسب حالة الترخيص يظهر كثافةً جغرافية فورية للآبار المسجلة.",
+      "Well distribution by licence status rendered as instant geographic density."
+     ]
+    },
+    {
+     "f": "06.jpg",
+     "w": 1600,
+     "h": 1038,
+     "cap": [
+      "من إجابة… إلى تقرير مملوك",
+      "From answer to owned report"
+     ],
+     "note": [
+      "بنقرة واحدة ينتقل السؤال إلى منشئ التقارير: عدِّله واحفظه وثبِّته على لوحة المؤشرات.",
+      "One click carries the question into the report builder — refine, save, or pin to a dashboard."
+     ]
+    },
+    {
+     "f": "02.jpg",
+     "w": 1600,
+     "h": 1038,
+     "cap": [
+      "البنية التحتية والموارد — على الخريطة",
+      "Infrastructure & resources on the map"
+     ],
+     "note": [
+      "20 طبقة تشغيلية و3,707 معلماً ممثَّلاً: آبار وينابيع وشبكات ومحطات ضخ ومعالجة وأحواض جوفية.",
+      "20 operational layers, 3,707 mapped features: wells, springs, networks, stations, plants, aquifers."
+     ]
+    },
+    {
+     "f": "07.jpg",
+     "w": 1600,
+     "h": 1038,
+     "cap": [
+      "لا سجلَّ بلا جغرافيا",
+      "No record stands alone"
+     ],
+     "note": [
+      "افتح أي أصل — وجغرافيته وموقعه على الشبكة حاضران معه.",
+      "Open an asset and its geography is already there."
+     ]
+    },
+    {
+     "f": "08.jpg",
+     "w": 1600,
+     "h": 1038,
+     "cap": [
+      "أدخِل الهندسة الجغرافية… لا تُعِد رسمها",
+      "Bring geometry in — don't redraw it"
+     ],
+     "note": [
+      "مسار خط أنابيب مستورد مباشرة من Shapefile أو GeoJSON ومطابَق على شبكته.",
+      "A pipeline route imported straight from Shapefile or GeoJSON, matched to its network."
+     ]
+    },
+    {
+     "f": "09.jpg",
+     "w": 1352,
+     "h": 838,
+     "cap": [
+      "صِفه… فيبني نفسه",
+      "Describe it. It builds itself."
+     ],
+     "note": [
+      "جملة واحدة تصبح تعريف تقرير كاملاً: مجموعة البيانات والأعمدة والتجميع والمخطط — مولَّد وقابل للمراجعة.",
+      "One plain sentence becomes a report definition: dataset, columns, grouping, visualization."
+     ]
+    },
+    {
+     "f": "10.jpg",
+     "w": 1600,
+     "h": 1038,
+     "cap": [
+      "المحرك نفسه… على اللوحة",
+      "The same engine, on the dashboard"
+     ],
+     "note": [
+      "كل بطاقة في لوحة المؤشرات تقريرٌ محفوظ — لا شاشات مبرمجة يدوياً.",
+      "Every dashboard tile is a saved report — nothing hard-coded screen by screen."
+     ]
+    },
+    {
+     "f": "11.jpg",
+     "w": 1600,
+     "h": 1038,
+     "cap": [
+      "صِف اللوحة… وشاهدها تُبنى",
+      "Describe it. Watch it build itself."
+     ],
+     "note": [
+      "أمرٌ واحد يقترح ست بطاقات مهيأة من بيانات الموارد المائية المحوكمة.",
+      "One prompt proposes six configured tiles from governed water-resources datasets."
+     ]
+    },
+    {
+     "f": "12.jpg",
+     "w": 1287,
+     "h": 1600,
+     "cap": [
+      "محرك مراحل وأزمنة ومسؤولين",
+      "A staged, timed, role-assigned engine"
+     ],
+     "note": [
+      "كل طلب يتحرك في مسار عمل مُهيأ، وكل انتقال يسجِّل: من تصرَّف، وماذا تغيَّر، ومتى.",
+      "Every transition records who acted, what changed, and when — with SLAs per stage."
+     ]
+    },
+    {
+     "f": "13.jpg",
+     "w": 722,
+     "h": 1600,
+     "cap": [
+      "الناتج الموقَّع",
+      "The signed outcome"
+     ],
+     "note": [
+      "وثيقة مجمَّدة قابلة للتحقق عبر رمز QR — تحفظ ما صدر تماماً، مستقلةً عن أي تغييرات لاحقة.",
+      "A frozen, QR-verifiable document preserving exactly what was issued."
+     ]
+    },
+    {
+     "f": "14.jpg",
+     "w": 1400,
+     "h": 1440,
+     "cap": [
+      "طلبٌ… من أوله إلى آخره",
+      "A request, end to end"
+     ],
+     "note": [
+      "يُقدَّم من نموذج الاستقبال العام ويُسنَد فوراً إلى مساره المُهيأ ذي المراحل الست.",
+      "Submitted through public intake and immediately assigned to its configured six-stage process."
+     ]
+    },
+    {
+     "f": "01.jpg",
+     "w": 1600,
+     "h": 1038,
+     "cap": [
+      "…والمنصة تتفاعل فوراً",
+      "…and the platform reacts immediately"
+     ],
+     "note": [
+      "الطلب نفسه يظهر في طابور المهام المشترك — بلا إدخال مكرر ولا متابعة يدوية.",
+      "The same request appears in the shared task queue — no duplicate entry, no manual follow-up."
+     ]
+    },
+    {
+     "f": "15.jpg",
+     "w": 1600,
+     "h": 1038,
+     "cap": [
+      "الإشعار المُهيأ ينطلق تلقائياً",
+      "The configured notification fires"
+     ],
+     "note": [
+      "إشعار المرحلة يصل لأصحاب العلاقة وفق ما هُيِّئ في تعريف المسار.",
+      "Stage notifications reach the right people exactly as configured."
+     ]
+    },
+    {
+     "f": "16.jpg",
+     "w": 1600,
+     "h": 1440,
+     "cap": [
+      "سجلٌّ واحد… وكل طلب قابل للتتبع",
+      "One register, every request traceable"
+     ],
+     "note": [
+      "أرشيف بحثي واحد: الحالة والتواريخ والمالك والمسار والتاريخ الكامل منذ الاستقبال.",
+      "One searchable archive with status, dates, owner, process and full history."
+     ]
+    },
+    {
+     "f": "17.jpg",
+     "w": 1600,
+     "h": 1038,
+     "cap": [
+      "تعريف خدمة واحد",
+      "One service definition"
+     ],
+     "note": [
+      "التصنيف والمسار ونوع الطلب وجهة المعالجة — ما هي الخدمة يُعرَّف مرة واحدة لا مبعثراً في شاشات.",
+      "Category, workflow, request type and processing entity — defined once, not scattered."
+     ]
+    },
+    {
+     "f": "18.jpg",
+     "w": 1600,
+     "h": 1038,
+     "cap": [
+      "…ومخرجاتها ورسومها ونموذجها",
+      "…its outputs, its fees, its form"
+     ],
+     "note": [
+      "التعريف ذاته يحمل الوثائق الصادرة وقواعد الرسوم وحقول نموذج الاستقبال — عقد خدمة واحد مُهيأ.",
+      "The same definition carries document outputs, fee rules and intake-form fields."
+     ]
+    },
+    {
+     "f": "19.jpg",
+     "w": 1600,
+     "h": 1038,
+     "cap": [
+      "مسار عمل… مخطَّطاً أمامك",
+      "A process, laid out"
+     ],
+     "note": [
+      "11 مرحلة و12 طريقاً، بمسؤول وزمن SLA لكل مرحلة — هذا هو التعريف المنفَّذ نفسه، لا مخطط توضيحي.",
+      "11 stages, 12 routes, owners and SLAs per stage — the executable definition itself, not a diagram."
+     ]
+    },
+    {
+     "f": "20.jpg",
+     "w": 1600,
+     "h": 1038,
+     "cap": [
+      "انقر طريقاً… ترَ قواعده",
+      "Click a path. See its rules."
+     ],
+     "note": [
+      "لكل طريق هدفه وتحققاته وسلوك إشعاراته: تقدُّم أو إرجاع أو رفض، كلٌّ يُهيأ باستقلال.",
+      "Every route carries target, validations and notification behavior — advance, return or reject."
+     ]
+    },
+    {
+     "f": "21.jpg",
+     "w": 1600,
+     "h": 1038,
+     "cap": [
+      "المنشئ نفسه… لنموذج أكثف",
+      "The same builder, a denser form"
+     ],
+     "note": [
+      "طلب حفر بئر بنظامَي إحداثيات وخريطة مدمجة وربط بسجل الآبار القائم — من حقول قابلة لإعادة الاستخدام.",
+      "A well-drilling application with dual coordinate systems, embedded map and register link."
+     ]
+    },
+    {
+     "f": "22.jpg",
+     "w": 1600,
+     "h": 1383,
+     "cap": [
+      "ليست مساراً واحداً… بل مكتبة",
+      "Not one workflow. A library."
+     ],
+     "note": [
+      "+12 مسار عمل مُهيأ: لكل نوع رخصة أو مسار امتثال مراحله وانتقالاته وأزمنته — بإصدارات تُنشر باستقلال.",
+      "12+ configured workflows, each versioned and published independently."
+     ]
+    },
+    {
+     "f": "23.jpg",
+     "w": 1600,
+     "h": 1038,
+     "cap": [
+      "ما الذي يُرسَل… ومتى",
+      "What gets sent, and when"
+     ],
+     "note": [
+      "نصوص الإشعارات ومحفزاتها وقنوات إرسالها بياناتٌ محوكمة أيضاً — لا منطقاً مبرمجاً.",
+      "Notification wording, triggers and channels are governed data too — not hard-coded logic."
+     ]
+    },
+    {
+     "f": "24.jpg",
+     "w": 1600,
+     "h": 1038,
+     "cap": [
+      "الوثيقة… قبل إصدارها",
+      "The document, before it's issued"
+     ],
+     "note": [
+      "حقول الدمج والترويسة والمعاينة — وثيقة المسار تُؤلَّف وتُحوكم قبل أن يبلغ الطلب التوقيع.",
+      "Merge fields, letterhead and preview — authored and governed before signature."
+     ]
+    }
+   ],
+   "users": [
+    {
+     "n": [
+      "سلطة المياه الفلسطينية",
+      "Palestinian Water Authority"
+     ],
+     "l": "pwa-auth.png"
+    }
+   ]
+  },
+  {
+   "slug": "madeenati",
+   "logo": "logo.png",
+   "sector": [
+    "البلديات والمدن",
+    "Municipalities & Cities"
+   ],
+   "name": [
+    "مدينتي — نظام المعلومات الجغرافية",
+    "Madeenati GIS System"
+   ],
+   "tag": [
+    "منصة متكاملة لإدارة وتحليل البيانات الجغرافية للمدن والبلديات",
+    "An integrated platform for managing and analysing city & municipal geographic data"
+   ],
+   "about": [
+    "خرائط تفاعلية تُدار بها المدينة: الأراضي والأبنية والشوارع والإنارة والصرف والنفايات — كل طبقة مربوطة بسجلّها، وكل قرار تخطيطي مسنود بخريطة.",
+    "Interactive maps you run a city from: land, buildings, streets, lighting, sewerage and waste — every layer tied to its register, every planning decision backed by a map."
+   ],
+   "feats": [
+    [
+     "عارض الخرائط التفاعلي متعدد الطبقات",
+     "Geographic map viewer — layered, interactive"
+    ],
+    [
+     "إدارة الأراضي: القطع والملكيات والمعاملات",
+     "Land management — parcels, ownership, transactions"
+    ],
+    [
+     "إدارة الأبنية والشقق والترقيم",
+     "Building management — apartments & numbering"
+    ],
+    [
+     "الشوارع وربطها بالقطع والبنية التحتية",
+     "Streets, linked to parcels & infrastructure"
+    ],
+    [
+     "الإنارة: محطات وخطوط وأعمدة وصيانة",
+     "Lighting — stations, lines, poles, maintenance"
+    ],
+    [
+     "شبكة الصرف الصحي ومحطات الضخ",
+     "Sewage network & pumping stations"
+    ],
+    [
+     "البنية التحتية: كهرباء ومياه واتصالات",
+     "Infrastructure — power, water, telecom"
+    ],
+    [
+     "النفايات الصلبة: حاويات ومسارات وشاحنات",
+     "Solid waste — containers, routes, trucks"
+    ],
+    [
+     "تقرير مخطط الموقع والتنظيم",
+     "Site plan & zoning reports"
+    ],
+    [
+     "الخريطة السياحية وتقارير تحليلية شاملة",
+     "Tourist map & analytical reports"
+    ]
+   ],
+   "client": [
+    "مُشغَّل لدى بلديات فلسطينية",
+    "Deployed across Palestinian municipalities"
+   ],
+   "imgs": [
+    {
+     "f": "01.jpg",
+     "w": 1600,
+     "h": 738
+    },
+    {
+     "f": "02.jpg",
+     "w": 1600,
+     "h": 752
+    },
+    {
+     "f": "03.jpg",
+     "w": 1600,
+     "h": 760
+    },
+    {
+     "f": "04.jpg",
+     "w": 1600,
+     "h": 748
+    },
+    {
+     "f": "05.jpg",
+     "w": 1600,
+     "h": 668
+    },
+    {
+     "f": "06.jpg",
+     "w": 1600,
+     "h": 653
+    },
+    {
+     "f": "07.jpg",
+     "w": 1600,
+     "h": 646
+    },
+    {
+     "f": "08.jpg",
+     "w": 1600,
+     "h": 627
+    },
+    {
+     "f": "09.jpg",
+     "w": 1123,
+     "h": 598
+    },
+    {
+     "f": "10.jpg",
+     "w": 1135,
+     "h": 543
+    },
+    {
+     "f": "11.jpg",
+     "w": 722,
+     "h": 463
+    },
+    {
+     "f": "12.jpg",
+     "w": 1600,
+     "h": 529
+    },
+    {
+     "f": "13.jpg",
+     "w": 1600,
+     "h": 508
+    },
+    {
+     "f": "14.jpg",
+     "w": 1600,
+     "h": 502
+    },
+    {
+     "f": "15.jpg",
+     "w": 1600,
+     "h": 447
+    },
+    {
+     "f": "16.jpg",
+     "w": 1600,
+     "h": 492
+    },
+    {
+     "f": "17.jpg",
+     "w": 1600,
+     "h": 385
+    },
+    {
+     "f": "18.jpg",
+     "w": 1600,
+     "h": 426
+    },
+    {
+     "f": "19.jpg",
+     "w": 1600,
+     "h": 387
+    },
+    {
+     "f": "20.jpg",
+     "w": 1600,
+     "h": 574
+    },
+    {
+     "f": "21.jpg",
+     "w": 1600,
+     "h": 409
+    },
+    {
+     "f": "22.jpg",
+     "w": 1600,
+     "h": 325
+    },
+    {
+     "f": "23.jpg",
+     "w": 1600,
+     "h": 781
+    },
+    {
+     "f": "24.jpg",
+     "w": 1600,
+     "h": 267
+    },
+    {
+     "f": "25.jpg",
+     "w": 985,
+     "h": 370
+    },
+    {
+     "f": "26.jpg",
+     "w": 981,
+     "h": 527
+    },
+    {
+     "f": "27.jpg",
+     "w": 912,
+     "h": 431
+    },
+    {
+     "f": "28.jpg",
+     "w": 1076,
+     "h": 289
+    },
+    {
+     "f": "29.jpg",
+     "w": 1476,
+     "h": 498
+    },
+    {
+     "f": "30.jpg",
+     "w": 949,
+     "h": 525
+    },
+    {
+     "f": "31.jpg",
+     "w": 827,
+     "h": 221
+    },
+    {
+     "f": "32.jpg",
+     "w": 941,
+     "h": 529
+    },
+    {
+     "f": "33.jpg",
+     "w": 1079,
+     "h": 470
+    },
+    {
+     "f": "34.jpg",
+     "w": 1021,
+     "h": 564
+    },
+    {
+     "f": "35.jpg",
+     "w": 972,
+     "h": 276
+    },
+    {
+     "f": "36.jpg",
+     "w": 1001,
+     "h": 382
+    },
+    {
+     "f": "37.jpg",
+     "w": 954,
+     "h": 557
+    },
+    {
+     "f": "38.jpg",
+     "w": 1106,
+     "h": 587
+    },
+    {
+     "f": "39.jpg",
+     "w": 1109,
+     "h": 588
+    },
+    {
+     "f": "40.jpg",
+     "w": 1110,
+     "h": 592
+    },
+    {
+     "f": "41.jpg",
+     "w": 1600,
+     "h": 339
+    },
+    {
+     "f": "42.jpg",
+     "w": 1600,
+     "h": 424
+    },
+    {
+     "f": "43.jpg",
+     "w": 1600,
+     "h": 354
+    },
+    {
+     "f": "44.jpg",
+     "w": 1600,
+     "h": 496
+    }
+   ],
+   "users": [
+    {
+     "n": [
+      "بلدية دورا",
+      "Dura Municipality"
+     ],
+     "l": "dura.png"
+    },
+    {
+     "n": [
+      "بلدية يطا",
+      "Yatta Municipality"
+     ],
+     "l": null
+    },
+    {
+     "n": [
+      "بلدية بيت لحم",
+      "Bethlehem Municipality"
+     ],
+     "l": null
+    }
+   ],
+   "usersNote": [
+    "وبلديات أخرى عبر برامج الإدارة المكانية",
+    "and more municipalities via spatial-management programs"
+   ]
+  },
+  {
+   "slug": "eservices",
+   "logo": "logo.png",
+   "sector": [
+    "الحكومة الرقمية",
+    "Digital Government"
+   ],
+   "name": [
+    "منصة الخدمات الإلكترونية",
+    "E-Services Platform"
+   ],
+   "tag": [
+    "منصة ذكية لخدمات البلديات والمؤسسات الحكومية من الطلب حتى الشهادة",
+    "A smart platform for municipal & government services — from request to certificate"
+   ],
+   "about": [
+    "المواطن يقدّم طلبه من بيته، والطلب يمشي في مسارٍ مُعرَّف بين الدوائر حتى الشهادة. النماذج والقوالب والمسارات تُهيَّأ كلها بلا برمجة.",
+    "The citizen files from home, and the request moves along a defined path between departments until the certificate. Forms, templates and workflows are all configured without code."
+   ],
+   "feats": [
+    [
+     "بوابة المواطن: تقديم وتتبّع الطلبات",
+     "Citizen portal — submit & track requests"
+    ],
+    [
+     "مسارات عمل مُهيَّأة للطلبات والموافقات",
+     "Configured workflows & approvals"
+    ],
+    [
+     "منشئ النماذج بلا برمجة",
+     "No-code form builder"
+    ],
+    [
+     "قوالب الشهادات والوثائق الرسمية",
+     "Certificate & document templates"
+    ],
+    [
+     "رخص الأبنية: تقديم ومتابعة إلكترونية",
+     "Building permits — online end to end"
+    ],
+    [
+     "إدارة المهام وتفويضها بين الموظفين",
+     "Task management & delegation"
+    ],
+    [
+     "أرشيف رقمي آمن قابل للبحث",
+     "Secure, searchable digital archive"
+    ],
+    [
+     "سجل المواطنين والشركات",
+     "Citizen & company registration"
+    ],
+    [
+     "جلسات المجلس وقراراته",
+     "Council sessions & decisions"
+    ],
+    [
+     "صلاحيات وأدوار محكومة",
+     "Roles & access control"
+    ]
+   ],
+   "client": [
+    "مُشغَّلة لدى بلديات ومؤسسات حكومية",
+    "Running in municipalities & government institutions"
+   ],
+   "imgs": [
+    {
+     "f": "01.jpg",
+     "w": 1600,
+     "h": 934
+    },
+    {
+     "f": "02.jpg",
+     "w": 1600,
+     "h": 1094
+    },
+    {
+     "f": "03.jpg",
+     "w": 1600,
+     "h": 1354
+    },
+    {
+     "f": "04.jpg",
+     "w": 1586,
+     "h": 1600
+    },
+    {
+     "f": "05.jpg",
+     "w": 937,
+     "h": 1600
+    },
+    {
+     "f": "06.jpg",
+     "w": 1600,
+     "h": 960
+    },
+    {
+     "f": "07.jpg",
+     "w": 1526,
+     "h": 877
+    },
+    {
+     "f": "08.jpg",
+     "w": 1530,
+     "h": 907
+    },
+    {
+     "f": "09.jpg",
+     "w": 1550,
+     "h": 660
+    },
+    {
+     "f": "10.jpg",
+     "w": 1600,
+     "h": 687
+    },
+    {
+     "f": "11.jpg",
+     "w": 1394,
+     "h": 770
+    },
+    {
+     "f": "12.jpg",
+     "w": 1405,
+     "h": 700
+    },
+    {
+     "f": "13.jpg",
+     "w": 1401,
+     "h": 806
+    },
+    {
+     "f": "14.jpg",
+     "w": 1398,
+     "h": 563
+    },
+    {
+     "f": "15.jpg",
+     "w": 1391,
+     "h": 968
+    },
+    {
+     "f": "16.jpg",
+     "w": 1394,
+     "h": 651
+    },
+    {
+     "f": "17.jpg",
+     "w": 1390,
+     "h": 555
+    },
+    {
+     "f": "18.jpg",
+     "w": 1394,
+     "h": 784
+    },
+    {
+     "f": "19.jpg",
+     "w": 1420,
+     "h": 926
+    },
+    {
+     "f": "20.jpg",
+     "w": 1364,
+     "h": 815
+    },
+    {
+     "f": "21.jpg",
+     "w": 1395,
+     "h": 1600
+    },
+    {
+     "f": "22.jpg",
+     "w": 1392,
+     "h": 566
+    },
+    {
+     "f": "23.jpg",
+     "w": 1398,
+     "h": 726
+    },
+    {
+     "f": "24.jpg",
+     "w": 732,
+     "h": 875
+    },
+    {
+     "f": "25.jpg",
+     "w": 703,
+     "h": 600
+    },
+    {
+     "f": "26.jpg",
+     "w": 726,
+     "h": 723
+    },
+    {
+     "f": "27.jpg",
+     "w": 736,
+     "h": 483
+    },
+    {
+     "f": "28.jpg",
+     "w": 720,
+     "h": 1493
+    },
+    {
+     "f": "29.jpg",
+     "w": 720,
+     "h": 1492
+    },
+    {
+     "f": "30.jpg",
+     "w": 720,
+     "h": 1492
+    },
+    {
+     "f": "31.jpg",
+     "w": 720,
+     "h": 1491
+    },
+    {
+     "f": "32.jpg",
+     "w": 720,
+     "h": 1387
+    }
+   ],
+   "users": [
+    {
+     "n": [
+      "54 بلدية وهيئة محلية في الضفة وغزة",
+      "54 municipalities across the West Bank & Gaza"
+     ],
+     "l": null
+    },
+    {
+     "n": [
+      "برنامج مراكز خدمات الجمهور – MDLF",
+      "Citizen Service Centers program – MDLF"
+     ],
+     "l": null
+    }
+   ],
+   "usersNote": [
+    "القائمة الكاملة في قسم عملاؤنا وعلى الخريطة",
+    "Full list under Clients and on the map"
+   ]
+  },
+  {
+   "slug": "eywa",
+   "logo": "logo.png",
+   "sector": [
+    "الموارد البشرية",
+    "Human Resources"
+   ],
+   "name": [
+    "إيوا — إدارة الموارد البشرية",
+    "Eywa — HRMS Solution"
+   ],
+   "tag": [
+    "نظام شامل لإدارة الموارد البشرية وشؤون الموظفين رقمياً",
+    "A comprehensive system for managing HR and employee affairs digitally"
+   ],
+   "about": [
+    "ملف الموظف كاملاً في مكان واحد: الدوام والإجازات والتقييم والترقيات — بخدمة ذاتية تُغني عن مراجعة الموارد البشرية، ووحدات للمستودعات والعُهد والصيانة.",
+    "The whole employee file in one place: attendance, leave, appraisals and promotions — with self-service that saves a trip to HR, plus inventory, custody and maintenance modules."
+   ],
+   "feats": [
+    [
+     "ملف الموظف الشامل",
+     "Employee profile & history"
+    ],
+    [
+     "التوظيف والمقابلات حتى التعيين",
+     "Recruitment & interviews to hiring"
+    ],
+    [
+     "الدوام والورديات والإجازات",
+     "Time, attendance & shifts"
+    ],
+    [
+     "الخدمة الذاتية للموظفين",
+     "Employee self-services"
+    ],
+    [
+     "حركات الملف الوظيفي: ترقيات وعلاوات",
+     "File transactions — promotions, allowances"
+    ],
+    [
+     "تقييم الأداء بمعايير وأوزان",
+     "Weighted performance evaluation"
+    ],
+    [
+     "التعاميم والإعلانات وأرشيفها",
+     "Announcements & circulars"
+    ],
+    [
+     "المستودعات والباركود",
+     "Inventory with barcode tracking"
+    ],
+    [
+     "العُهد والجرد السنوي",
+     "Asset custody & annual audits"
+    ],
+    [
+     "حجز القاعات والصيانة والدعم الفني",
+     "Room booking · maintenance & support"
+    ]
+   ],
+   "client": [
+    "مُطبَّق لدى مؤسسات وهيئات متعددة",
+    "In production across multiple organizations"
+   ],
+   "imgs": [
+    {
+     "f": "01.jpg",
+     "w": 1056,
+     "h": 1600
+    },
+    {
+     "f": "02.jpg",
+     "w": 1349,
+     "h": 927
+    },
+    {
+     "f": "03.jpg",
+     "w": 1349,
+     "h": 1290
+    },
+    {
+     "f": "04.jpg",
+     "w": 1349,
+     "h": 1003
+    },
+    {
+     "f": "05.jpg",
+     "w": 1349,
+     "h": 624
+    },
+    {
+     "f": "06.jpg",
+     "w": 1349,
+     "h": 1386
+    },
+    {
+     "f": "07.jpg",
+     "w": 1339,
+     "h": 518
+    },
+    {
+     "f": "08.jpg",
+     "w": 1218,
+     "h": 556
+    },
+    {
+     "f": "09.jpg",
+     "w": 1290,
+     "h": 514
+    },
+    {
+     "f": "10.jpg",
+     "w": 1341,
+     "h": 440
+    },
+    {
+     "f": "11.jpg",
+     "w": 1348,
+     "h": 399
+    },
+    {
+     "f": "12.jpg",
+     "w": 1345,
+     "h": 480
+    },
+    {
+     "f": "13.jpg",
+     "w": 989,
+     "h": 415
+    },
+    {
+     "f": "14.jpg",
+     "w": 1216,
+     "h": 489
+    },
+    {
+     "f": "15.jpg",
+     "w": 1223,
+     "h": 410
+    },
+    {
+     "f": "16.jpg",
+     "w": 1222,
+     "h": 360
+    },
+    {
+     "f": "17.jpg",
+     "w": 1101,
+     "h": 386
+    },
+    {
+     "f": "18.jpg",
+     "w": 1217,
+     "h": 375
+    },
+    {
+     "f": "19.jpg",
+     "w": 1215,
+     "h": 406
+    },
+    {
+     "f": "20.jpg",
+     "w": 1225,
+     "h": 348
+    },
+    {
+     "f": "21.jpg",
+     "w": 1225,
+     "h": 351
+    },
+    {
+     "f": "22.jpg",
+     "w": 1348,
+     "h": 511
+    },
+    {
+     "f": "23.jpg",
+     "w": 1283,
+     "h": 367
+    },
+    {
+     "f": "24.jpg",
+     "w": 1221,
+     "h": 407
+    },
+    {
+     "f": "25.jpg",
+     "w": 1342,
+     "h": 415
+    },
+    {
+     "f": "26.jpg",
+     "w": 1339,
+     "h": 478
+    },
+    {
+     "f": "27.jpg",
+     "w": 1293,
+     "h": 589
+    },
+    {
+     "f": "28.jpg",
+     "w": 1223,
+     "h": 479
+    },
+    {
+     "f": "29.jpg",
+     "w": 1349,
+     "h": 320
+    },
+    {
+     "f": "30.jpg",
+     "w": 1348,
+     "h": 328
+    },
+    {
+     "f": "31.jpg",
+     "w": 1220,
+     "h": 334
+    },
+    {
+     "f": "32.jpg",
+     "w": 1222,
+     "h": 334
+    },
+    {
+     "f": "33.jpg",
+     "w": 1232,
+     "h": 216
+    },
+    {
+     "f": "34.jpg",
+     "w": 1221,
+     "h": 148
+    },
+    {
+     "f": "35.jpg",
+     "w": 1101,
+     "h": 194
+    },
+    {
+     "f": "36.jpg",
+     "w": 1102,
+     "h": 135
+    },
+    {
+     "f": "37.jpg",
+     "w": 1220,
+     "h": 284
+    },
+    {
+     "f": "38.jpg",
+     "w": 1220,
+     "h": 314
+    },
+    {
+     "f": "39.jpg",
+     "w": 1224,
+     "h": 319
+    },
+    {
+     "f": "40.jpg",
+     "w": 1221,
+     "h": 365
+    },
+    {
+     "f": "41.jpg",
+     "w": 1220,
+     "h": 206
+    },
+    {
+     "f": "42.jpg",
+     "w": 1221,
+     "h": 245
+    },
+    {
+     "f": "43.jpg",
+     "w": 1219,
+     "h": 227
+    },
+    {
+     "f": "44.jpg",
+     "w": 1226,
+     "h": 242
+    },
+    {
+     "f": "45.jpg",
+     "w": 1345,
+     "h": 336
+    },
+    {
+     "f": "46.jpg",
+     "w": 1240,
+     "h": 338
+    }
+   ]
+  },
+  {
+   "slug": "buildflow",
+   "logo": "logo.png",
+   "sector": [
+    "المشاريع الإنشائية",
+    "Construction Projects"
+   ],
+   "name": [
+    "بيلد فلو — إدارة المشاريع الإنشائية",
+    "BuildFlow — Construction Lifecycle"
+   ],
+   "tag": [
+    "دورة حياة المشروع الإنشائي كاملة: من التصميم حتى الإغلاق",
+    "The full construction project lifecycle — from design to closure"
+   ],
+   "about": [
+    "المشروع الإنشائي من التصميم حتى الإغلاق: جداول الكميات، والعطاء ولجانه، واختيار المقاول، ومتابعة الإنجاز، ودفعاته بنسبٍ معتمدة — وكل خطوة موثَّقة.",
+    "A construction project from design to closure: bills of quantities, the tender and its committees, contractor award, progress tracking, and payments against approved completion — every step documented."
+   ],
+   "feats": [
+    [
+     "مرحلة التصميم وجداول الكميات BOQ",
+     "Design phase & Bill of Quantities"
+    ],
+    [
+     "العطاءات: لجان وفتح مظاريف وتقييم",
+     "Bidding — committees, opening, evaluation"
+    ],
+    [
+     "اختيار المقاول الفائز والعقود والضمانات",
+     "Contractor award, contracts & guarantees"
+    ],
+    [
+     "متابعة التنفيذ ونِسَب الإنجاز",
+     "Execution monitoring & progress rates"
+    ],
+    [
+     "دفعات المقاول حسب الإنجاز المعتمد",
+     "Payments by approved completion"
+    ],
+    [
+     "الصيانة الدورية والطارئة",
+     "Routine & emergency maintenance"
+    ],
+    [
+     "الإغلاق الرسمي للمشروع بوثائقه",
+     "Official project closure & handover"
+    ],
+    [
+     "تقارير Word / PDF / Excel",
+     "Word / PDF / Excel reporting"
+    ]
+   ],
+   "client": [
+    "للمؤسسات والبلديات والوزارات",
+    "For institutions, municipalities & ministries"
+   ],
+   "imgs": [
+    {
+     "f": "01.jpg",
+     "w": 1395,
+     "h": 1221
+    },
+    {
+     "f": "02.jpg",
+     "w": 1388,
+     "h": 1086
+    },
+    {
+     "f": "03.jpg",
+     "w": 1400,
+     "h": 1221
+    },
+    {
+     "f": "04.jpg",
+     "w": 1397,
+     "h": 1082
+    },
+    {
+     "f": "05.jpg",
+     "w": 1600,
+     "h": 493
+    },
+    {
+     "f": "06.jpg",
+     "w": 1391,
+     "h": 647
+    },
+    {
+     "f": "07.jpg",
+     "w": 1395,
+     "h": 739
+    },
+    {
+     "f": "08.jpg",
+     "w": 1398,
+     "h": 635
+    },
+    {
+     "f": "09.jpg",
+     "w": 1398,
+     "h": 481
+    },
+    {
+     "f": "10.jpg",
+     "w": 1390,
+     "h": 578
+    },
+    {
+     "f": "11.jpg",
+     "w": 1391,
+     "h": 414
+    },
+    {
+     "f": "12.jpg",
+     "w": 1392,
+     "h": 468
+    },
+    {
+     "f": "13.jpg",
+     "w": 1391,
+     "h": 672
+    },
+    {
+     "f": "14.jpg",
+     "w": 1397,
+     "h": 680
+    },
+    {
+     "f": "15.jpg",
+     "w": 1395,
+     "h": 673
+    },
+    {
+     "f": "16.jpg",
+     "w": 1396,
+     "h": 317
+    },
+    {
+     "f": "17.jpg",
+     "w": 1392,
+     "h": 541
+    },
+    {
+     "f": "18.jpg",
+     "w": 1402,
+     "h": 661
+    },
+    {
+     "f": "19.jpg",
+     "w": 1394,
+     "h": 529
+    },
+    {
+     "f": "20.jpg",
+     "w": 1396,
+     "h": 822
+    },
+    {
+     "f": "21.jpg",
+     "w": 1390,
+     "h": 334
+    },
+    {
+     "f": "22.jpg",
+     "w": 1394,
+     "h": 805
+    },
+    {
+     "f": "23.jpg",
+     "w": 1394,
+     "h": 712
+    },
+    {
+     "f": "24.jpg",
+     "w": 1392,
+     "h": 663
+    },
+    {
+     "f": "25.jpg",
+     "w": 1002,
+     "h": 588
+    },
+    {
+     "f": "26.jpg",
+     "w": 999,
+     "h": 581
+    },
+    {
+     "f": "27.jpg",
+     "w": 1006,
+     "h": 561
+    },
+    {
+     "f": "28.jpg",
+     "w": 1002,
+     "h": 593
+    },
+    {
+     "f": "29.jpg",
+     "w": 1003,
+     "h": 596
+    },
+    {
+     "f": "30.jpg",
+     "w": 736,
+     "h": 736
+    }
+   ],
+   "users": [
+    {
+     "n": [
+      "مؤسسة التعاون",
+      "Welfare Association (Taawon)"
+     ],
+     "l": null
+    }
+   ]
+  },
+  {
+   "slug": "wsdis",
+   "logo": "logo.png",
+   "sector": [
+    "قطاع المياه",
+    "Water Sector"
+   ],
+   "name": [
+    "نظام معلومات التزويد المائي WSDIS",
+    "WSDIS — Water Supply & Distribution"
+   ],
+   "tag": [
+    "إدارة ذكية لشبكات التوزيع: خرائط تفاعلية ونموذج التخصيص العادل للمياه",
+    "Smart network management — interactive maps and the Fair Water Allocation Model"
+   ],
+   "about": [
+    "شبكة التوزيع على الخريطة وفي الأرقام معاً: الاستهلاك والتزويد والفاقد، ونموذج التخصيص العادل يحسب الطلب والحصة لكل تجمّع ومزوّد خدمة.",
+    "The distribution network on the map and in the numbers at once: consumption, supply and losses — with the Fair Water Allocation Model computing demand and share for every community and provider."
+   ],
+   "feats": [
+    [
+     "خريطة تفاعلية للشبكة وطبقاتها",
+     "Interactive network map & layers"
+    ],
+    [
+     "قاعدة بيانات التجمّعات ومزوّدي الخدمة",
+     "Communities & providers database"
+    ],
+    [
+     "الوحدة المفاهيمية: عناصر الشبكة وعلاقاتها",
+     "Conceptual module — items & relations"
+    ],
+    [
+     "نموذج التخصيص العادل للمياه",
+     "Fair Water Allocation Model"
+    ],
+    [
+     "تحليل الاستهلاك وكشف الفاقد",
+     "Consumption analysis & loss detection"
+    ],
+    [
+     "تقارير ديناميكية متعددة المستويات",
+     "Dynamic, multi-level reports"
+    ],
+    [
+     "لوحة تحكم للمستخدمين والصلاحيات",
+     "Control panel — users & permissions"
+    ]
+   ],
+   "client": [
+    "مُطوَّر لقطاع المياه الفلسطيني",
+    "Developed for the Palestinian water sector"
+   ],
+   "imgs": [
+    {
+     "f": "01.jpg",
+     "w": 1248,
+     "h": 582
+    },
+    {
+     "f": "02.jpg",
+     "w": 1098,
+     "h": 635
+    },
+    {
+     "f": "03.jpg",
+     "w": 1101,
+     "h": 584
+    },
+    {
+     "f": "04.jpg",
+     "w": 1095,
+     "h": 510
+    },
+    {
+     "f": "05.jpg",
+     "w": 1088,
+     "h": 589
+    },
+    {
+     "f": "06.jpg",
+     "w": 1087,
+     "h": 584
+    },
+    {
+     "f": "07.jpg",
+     "w": 1331,
+     "h": 551
+    },
+    {
+     "f": "08.jpg",
+     "w": 1086,
+     "h": 325
+    },
+    {
+     "f": "09.jpg",
+     "w": 1085,
+     "h": 456
+    },
+    {
+     "f": "10.jpg",
+     "w": 1080,
+     "h": 469
+    },
+    {
+     "f": "11.jpg",
+     "w": 1090,
+     "h": 241
+    }
+   ],
+   "users": [
+    {
+     "n": [
+      "سلطة المياه الفلسطينية",
+      "Palestinian Water Authority"
+     ],
+     "l": "pwa-auth.png"
+    },
+    {
+     "n": [
+      "بتمويل البنك الدولي",
+      "Funded by the World Bank"
+     ],
+     "l": "world-bank.png"
+    }
+   ]
+  },
+  {
+   "slug": "ptax",
+   "logo": "logo.png",
+   "sector": [
+    "المالية والإيرادات",
+    "Finance & Revenue"
+   ],
+   "name": [
+    "نظام ضريبة الأملاك",
+    "Property Tax System"
+   ],
+   "tag": [
+    "إدارة وتحصيل ضرائب العقارات والأراضي بكفاءة وشفافية",
+    "Managing and collecting property & land taxes efficiently and transparently"
+   ],
+   "about": [
+    "سجل المكلّفين والعقارات، والتحصيل والمتأخرات، والتقييم والاعتراضات — بإشعارات ضريبية وتقارير مالية، وتكامل مع نظام PTAX المركزي.",
+    "The taxpayer and property register, collection and arrears, assessment and objections — with tax notices, financial reports, and integration with the central PTAX system."
+   ],
+   "feats": [
+    [
+     "سجل المكلّفين والعقارات",
+     "Owner & property register"
+    ],
+    [
+     "الإيصالات والتحصيل الفوري",
+     "Receipts & real-time collection"
+    ],
+    [
+     "متابعة الدفعات والمتأخرات",
+     "Payments & arrears tracking"
+    ],
+    [
+     "التقييم والاعتراضات والطعون",
+     "Assessment, objections & appeals"
+    ],
+    [
+     "الإشعارات الضريبية",
+     "Tax notifications"
+    ],
+    [
+     "تقارير مالية شاملة",
+     "Comprehensive financial reports"
+    ],
+    [
+     "تكامل مع نظام PTAX المركزي",
+     "Central PTAX integration"
+    ]
+   ],
+   "client": [
+    "لصالح الإدارة العامة لضريبة الأملاك — دولة فلسطين",
+    "For the General Directorate of Property Tax — State of Palestine"
+   ],
+   "imgs": [
+    {
+     "f": "01.jpg",
+     "w": 1482,
+     "h": 900
+    },
+    {
+     "f": "02.jpg",
+     "w": 1479,
+     "h": 875
+    },
+    {
+     "f": "03.jpg",
+     "w": 1481,
+     "h": 881
+    },
+    {
+     "f": "04.jpg",
+     "w": 1480,
+     "h": 895
+    },
+    {
+     "f": "05.jpg",
+     "w": 1476,
+     "h": 896
+    },
+    {
+     "f": "06.jpg",
+     "w": 1482,
+     "h": 898
+    },
+    {
+     "f": "07.jpg",
+     "w": 1483,
+     "h": 898
+    },
+    {
+     "f": "08.jpg",
+     "w": 1477,
+     "h": 894
+    },
+    {
+     "f": "09.jpg",
+     "w": 1477,
+     "h": 886
+    },
+    {
+     "f": "10.jpg",
+     "w": 1478,
+     "h": 897
+    },
+    {
+     "f": "11.jpg",
+     "w": 1489,
+     "h": 903
+    },
+    {
+     "f": "12.jpg",
+     "w": 1488,
+     "h": 901
+    },
+    {
+     "f": "13.jpg",
+     "w": 1484,
+     "h": 895
+    },
+    {
+     "f": "14.jpg",
+     "w": 1483,
+     "h": 892
+    },
+    {
+     "f": "15.jpg",
+     "w": 1559,
+     "h": 941
+    },
+    {
+     "f": "16.jpg",
+     "w": 1480,
+     "h": 885
+    },
+    {
+     "f": "17.jpg",
+     "w": 1258,
+     "h": 567
+    },
+    {
+     "f": "18.jpg",
+     "w": 1257,
+     "h": 705
+    },
+    {
+     "f": "19.jpg",
+     "w": 975,
+     "h": 584
+    },
+    {
+     "f": "20.jpg",
+     "w": 851,
+     "h": 435
+    },
+    {
+     "f": "21.jpg",
+     "w": 1253,
+     "h": 366
+    }
+   ],
+   "users": [
+    {
+     "n": [
+      "الإدارة العامة لضريبة الأملاك",
+      "General Directorate of Property Tax"
+     ],
+     "l": "ptax-dir.png"
+    }
+   ]
+  },
+  {
+   "slug": "pwa-app",
+   "logo": "logo.png",
+   "sector": [
+    "تطبيقات الجوال",
+    "Mobile Apps"
+   ],
+   "name": [
+    "تطبيق مياه فلسطين",
+    "Palestine Water App"
+   ],
+   "tag": [
+    "خدمات المياه في جيب المواطن: صهاريج وشكاوى وأخبار ومؤشرات",
+    "Water services in the citizen's pocket — tankers, complaints, news & indicators"
+   ],
+   "about": [
+    "خدمات المياه في جيب المواطن: طلب صهريج، وشكوى تُتابَع، وأخبار وعطاءات ومؤشرات أداء — على iOS وأندرويد.",
+    "Water services in the citizen's pocket: request a tanker, file a complaint and follow it, read news, tenders and performance indicators — on iOS and Android."
+   ],
+   "feats": [
+    [
+     "طلب صهاريج المياه",
+     "Water tanker requests"
+    ],
+    [
+     "تقديم الشكاوى ومتابعتها",
+     "Complaints — submit & track"
+    ],
+    [
+     "الأخبار والإعلانات والعطاءات",
+     "News, announcements & tenders"
+    ],
+    [
+     "مؤشرات الأداء",
+     "Performance indicators"
+    ],
+    [
+     "الحملات التوعوية",
+     "Awareness campaigns"
+    ],
+    [
+     "iOS و Android",
+     "iOS & Android"
+    ]
+   ],
+   "client": [
+    "مُطوَّر لسلطة المياه الفلسطينية",
+    "Developed for the Palestinian Water Authority"
+   ],
+   "imgs": [
+    {
+     "f": "01.jpg",
+     "w": 1600,
+     "h": 740
+    },
+    {
+     "f": "02.jpg",
+     "w": 1600,
+     "h": 491
+    },
+    {
+     "f": "03.jpg",
+     "w": 1600,
+     "h": 371
+    },
+    {
+     "f": "04.jpg",
+     "w": 1394,
+     "h": 560
+    },
+    {
+     "f": "05.jpg",
+     "w": 1394,
+     "h": 295
+    },
+    {
+     "f": "06.jpg",
+     "w": 780,
+     "h": 1600
+    },
+    {
+     "f": "07.jpg",
+     "w": 793,
+     "h": 1599
+    },
+    {
+     "f": "08.jpg",
+     "w": 793,
+     "h": 1599
+    },
+    {
+     "f": "09.jpg",
+     "w": 793,
+     "h": 1599
+    },
+    {
+     "f": "10.jpg",
+     "w": 793,
+     "h": 1599
+    },
+    {
+     "f": "11.jpg",
+     "w": 793,
+     "h": 1599
+    },
+    {
+     "f": "12.jpg",
+     "w": 793,
+     "h": 1599
+    },
+    {
+     "f": "13.jpg",
+     "w": 793,
+     "h": 1599
+    },
+    {
+     "f": "14.jpg",
+     "w": 486,
+     "h": 1393
+    },
+    {
+     "f": "15.jpg",
+     "w": 462,
+     "h": 933
+    }
+   ],
+   "users": [
+    {
+     "n": [
+      "سلطة المياه الفلسطينية",
+      "Palestinian Water Authority"
+     ],
+     "l": "pwa-auth.png"
+    }
+   ]
+  },
+  {
+   "slug": "atlas",
+   "logo": "logo.png",
+   "sector": [
+    "التعليم",
+    "Education"
+   ],
+   "name": [
+    "الأطلس التعليمي التفاعلي",
+    "Interactive Educational Atlas"
+   ],
+   "tag": [
+    "خرائط تفاعلية ومحتوى جغرافي وتاريخي يربط المنهاج بالواقع",
+    "Interactive maps and geo-historical content connecting curricula to the real world"
+   ],
+   "about": [
+    "خرائط تفاعلية ومحتوى جغرافي وتاريخي يربط المنهاج بالأرض — تجربة تعلّم تُعمّق الوعي بالتراث والهوية.",
+    "Interactive maps and geo-historical content that tie the curriculum to the ground — a learning experience that deepens awareness of heritage and identity."
+   ],
+   "feats": [
+    [
+     "خرائط تفاعلية متعددة الطبقات",
+     "Interactive layered maps"
+    ],
+    [
+     "محتوى جغرافي وتاريخي موثَّق",
+     "Curated geo-historical content"
+    ],
+    [
+     "ربط المنهاج بالمعرفة الواقعية",
+     "Curriculum-to-reality linking"
+    ],
+    [
+     "تعزيز الهوية والتراث الوطني",
+     "Heritage & national identity"
+    ]
+   ],
+   "client": [
+    "بالتعاون مع وزارة التربية والتعليم — دولة فلسطين",
+    "With the Ministry of Education — State of Palestine"
+   ],
+   "imgs": [
+    {
+     "f": "01.jpg",
+     "w": 1359,
+     "h": 621
+    },
+    {
+     "f": "02.jpg",
+     "w": 1365,
+     "h": 626
+    },
+    {
+     "f": "03.jpg",
+     "w": 1362,
+     "h": 575
+    },
+    {
+     "f": "04.jpg",
+     "w": 1365,
+     "h": 666
+    },
+    {
+     "f": "05.jpg",
+     "w": 1002,
+     "h": 572
+    },
+    {
+     "f": "06.jpg",
+     "w": 1428,
+     "h": 658
+    },
+    {
+     "f": "07.jpg",
+     "w": 1289,
+     "h": 542
+    },
+    {
+     "f": "08.jpg",
+     "w": 1314,
+     "h": 584
+    },
+    {
+     "f": "09.jpg",
+     "w": 560,
+     "h": 273
+    },
+    {
+     "f": "10.jpg",
+     "w": 602,
+     "h": 314
+    }
+   ],
+   "users": [
+    {
+     "n": [
+      "وزارة التربية والتعليم",
+      "Ministry of Education"
+     ],
+     "l": "moe.png"
+    },
+    {
+     "n": [
+      "1000 مدرسة",
+      "1,000 schools"
+     ],
+     "l": null
+    }
+   ]
+  },
+  {
+   "slug": "social",
+   "logo": "logo.png",
+   "sector": [
+    "القطاع الاجتماعي",
+    "Social Sector"
+   ],
+   "name": [
+    "تطبيق وزارة التنمية الاجتماعية",
+    "Ministry of Social Affairs App"
+   ],
+   "tag": [
+    "جمع البيانات الاجتماعية وتحليلها بمؤشرات وتقارير تفاعلية",
+    "Collecting and analysing social data with interactive indicators and reports"
+   ],
+   "about": [
+    "بيانات اجتماعية تُجمع من الميدان فتتحوّل مؤشرات ورسوماً وتقارير — قاعدة مركزية تتابع بها الوزارة الاحتياج والبرامج.",
+    "Social data collected in the field and turned into indicators, charts and reports — one central base the ministry tracks need and programs from."
+   ],
+   "feats": [
+    [
+     "جمع البيانات الميدانية",
+     "Field data collection"
+    ],
+    [
+     "مؤشرات ورسوم بيانية تفاعلية",
+     "Interactive indicators & charts"
+    ],
+    [
+     "متابعة البرامج والمشاريع",
+     "Program & project tracking"
+    ],
+    [
+     "قاعدة بيانات مركزية",
+     "Centralized database"
+    ]
+   ],
+   "client": [
+    "لصالح وزارة التنمية الاجتماعية — دولة فلسطين",
+    "For the Ministry of Social Affairs — State of Palestine"
+   ],
+   "imgs": [
+    {
+     "f": "01.jpg",
+     "w": 345,
+     "h": 360
+    },
+    {
+     "f": "02.jpg",
+     "w": 264,
+     "h": 540
+    },
+    {
+     "f": "03.jpg",
+     "w": 293,
+     "h": 237
+    },
+    {
+     "f": "04.jpg",
+     "w": 241,
+     "h": 192
+    },
+    {
+     "f": "05.jpg",
+     "w": 234,
+     "h": 163
+    },
+    {
+     "f": "06.jpg",
+     "w": 180,
+     "h": 216
+    },
+    {
+     "f": "07.jpg",
+     "w": 219,
+     "h": 163
+    }
+   ],
+   "users": [
+    {
+     "n": [
+      "وزارة التنمية الاجتماعية",
+      "Ministry of Social Development"
+     ],
+     "l": "mosd.png"
+    }
+   ]
+  }
+ ],
+ "company": {
+  "about": [
+   "نحن شركة الأمين للتقنيات — اسم يرتكز على الثقة والريادة والابتكار في عالم التحول الرقمي. نمتلك إرثاً من التميّز يمتد لأكثر من خمسة عشر عاماً في تطوير الحلول البرمجية المتقدمة وتطبيقات نظم المعلومات الجغرافية (GIS)، نخدم به البلديات والمؤسسات والهيئات الحكومية في فلسطين والشرق الأوسط. بفريق من الخبراء والمبدعين نعيد تعريف التكنولوجيا في خدمة المجتمعات: أنظمة ذكية موثوقة سهلة الاستخدام، تستجيب بدقة لاحتياجات عملائنا. لسنا مجرد شركة تقنية — نحن شريك استراتيجي يمكِّن المؤسسات ويبسِّط العمليات ويعزز الكفاءة والإنتاجية.",
+   "Alameen Technologies is a pioneering IT company specializing in advanced software solutions and GIS applications. With over 15 years of expertise, we serve municipalities, institutions and government bodies across Palestine and the Middle East — designing smart, reliable, user-friendly systems that respond precisely to our clients' needs. We are not just a technology vendor; we are a strategic partner that empowers organizations, streamlines operations and drives efficiency and productivity."
+  ],
+  "vision": [
+   [
+    "أن نكون الخيار التقني الأول للحوكمة الإلكترونية والتحول الرقمي",
+    "To be the first technology choice for e-governance and digital transformation"
+   ],
+   [
+    "تقنيات مبتكرة تواكب احتياجات المجتمع وتدعم استقراره ونموّه",
+    "Innovative technologies that serve society's needs and support its growth"
+   ],
+   [
+    "بنية تحتية رقمية وطنية تعزز كفاءة الأداء الحكومي والخدمي",
+    "A national digital infrastructure that elevates government and service performance"
+   ],
+   [
+    "شراكات استراتيجية مبنية على الثقة والجودة والالتزام بالتطوير",
+    "Strategic partnerships built on trust, quality and continuous development"
+   ]
+  ],
+  "milestones": [
+   [
+    "2008",
+    "تأسيس الشركة كمزوِّد حلول رقمية في فلسطين",
+    "Founded as a Palestinian digital solutions provider"
+   ],
+   [
+    "2016",
+    "إطلاق منصتَي «مدينتي» و«إيوا» لخدمة البلديات والمؤسسات",
+    "Madeenati & Eywa platforms launched for municipalities and institutions"
+   ],
+   [
+    "2018",
+    "إطلاق منصة الخدمات العامة للبلديات والحكومة",
+    "Public Services Platform launched for municipalities and government"
+   ],
+   [
+    "2025",
+    "شراكات مع مزوِّدي تقنية إقليميين ودوليين وبناء المنصة الرقمية للمياه",
+    "Regional & international technology partnerships; the Digital Water Platform"
+   ]
+  ],
+  "projects": [
+   [
+    "نظام معلومات توزيع المياه WSDIS وربطه بأنظمة الفوترة والتحكم",
+    "البنك الدولي",
+    "WSDIS water distribution system linked to billing & control",
+    "World Bank"
+   ],
+   [
+    "مراكز خدمات الجمهور في 30 بلدية",
+    "صندوق تطوير وإقراض الهيئات المحلية",
+    "Citizen service centers across 30 municipalities",
+    "MDLF"
+   ],
+   [
+    "الخدمات الإلكترونية لبلديات البيرة وطولكرم وأريحا وبيت لحم",
+    "بدعم USAID",
+    "E-services for Al-Bireh, Tulkarem, Jericho & Bethlehem",
+    "USAID-funded"
+   ],
+   [
+    "نظام GIS ويب متكامل لسلطة الأراضي",
+    "بالتعاون مع GIZ",
+    "Integrated web GIS for the Land Authority",
+    "with GIZ"
+   ],
+   [
+    "تطبيق مياه فلسطين للهواتف الذكية (Android/iOS)",
+    "سلطة المياه الفلسطينية",
+    "Palestine Water mobile app (Android/iOS)",
+    "Palestinian Water Authority"
+   ],
+   [
+    "الأطلس التعليمي التفاعلي لفلسطين عبر الإنترنت",
+    "وزارة التربية والتعليم",
+    "Interactive online educational atlas of Palestine",
+    "Ministry of Education"
+   ],
+   [
+    "رقمنة وإدارة أكثر من 3,711 سجل ضريبة أملاك",
+    "مديرية ضريبة الأملاك",
+    "Digitization of 3,711+ property-tax registers",
+    "Property Tax Directorate"
+   ],
+   [
+    "نظام إدارة برنامج إحياء البلدة القديمة في القدس",
+    "مؤسسة التعاون",
+    "Old City of Jerusalem revitalization programme system",
+    "Welfare Association"
+   ]
+  ],
+  "beneficiaries": [
+   [
+    "12",
+    "وزارة وهيئة حكومية",
+    "Ministries & authorities"
+   ],
+   [
+    "54",
+    "بلدية وهيئة محلية",
+    "Municipalities"
+   ],
+   [
+    "6",
+    "جامعات ومؤسسات أكاديمية",
+    "Universities"
+   ],
+   [
+    "8",
+    "مؤسسات قطاع خاص",
+    "Private-sector clients"
+   ],
+   [
+    "1000",
+    "مدرسة يخدمها الأطلس التعليمي",
+    "Schools on the atlas"
+   ]
+  ],
+  "contact": {
+   "hq": [
+    "عمارة الزيتونة – الطابق الرابع، شارع الإرسال، رام الله – فلسطين",
+    "Al-Zaytouna Building, 4th Floor – Al-Irsal Street, Ramallah, Palestine"
+   ],
+   "phone": "+970 2 2988555",
+   "mobile": "+970 599 206 305",
+   "email": "Info@alameentech.com",
+   "web": "alameentech.com"
+  }
+ },
+ "clients": [
+  {
+   "key": "gov",
+   "title": [
+    "الوزارات والهيئات الحكومية",
+    "Government Ministries & Authorities"
+   ],
+   "items": [
+    {
+     "n": [
+      "سلطة المياه الفلسطينية",
+      "Palestinian Water Authority"
+     ],
+     "l": "pwa-auth.png"
+    },
+    {
+     "n": [
+      "سلطة الأراضي الفلسطينية",
+      "Palestinian Land Authority"
+     ],
+     "l": "land-auth.png"
+    },
+    {
+     "n": [
+      "وزارة التربية والتعليم",
+      "Ministry of Education"
+     ],
+     "l": "moe.png"
+    },
+    {
+     "n": [
+      "وزارة المالية",
+      "Ministry of Finance"
+     ],
+     "l": "mof.png"
+    },
+    {
+     "n": [
+      "وزارة التنمية الاجتماعية",
+      "Ministry of Social Development"
+     ],
+     "l": "mosd.png"
+    },
+    {
+     "n": [
+      "وزارة النقل والمواصلات",
+      "Ministry of Transport"
+     ],
+     "l": "mot.png"
+    },
+    {
+     "n": [
+      "وزارة الأشغال العامة والإسكان",
+      "Ministry of Public Works & Housing"
+     ],
+     "l": "mopwh.png"
+    },
+    {
+     "n": [
+      "وزارة الاقتصاد الوطني",
+      "Ministry of National Economy"
+     ],
+     "l": "mone.png"
+    },
+    {
+     "n": [
+      "الجهاز المركزي للإحصاء الفلسطيني",
+      "PCBS — Central Bureau of Statistics"
+     ],
+     "l": "pcbs.png"
+    },
+    {
+     "n": [
+      "الإدارة العامة لضريبة الأملاك",
+      "General Directorate of Property Tax"
+     ],
+     "l": "ptax-dir.png"
+    },
+    {
+     "n": [
+      "هيئة الإذاعة والتلفزيون",
+      "Palestine Broadcasting Corporation"
+     ],
+     "l": "pbc.png"
+    },
+    {
+     "n": [
+      "هيئة مقاومة الجدار والاستيطان",
+      "Wall & Colonization Resistance Commission"
+     ],
+     "l": "wall-comm.png"
+    },
+    {
+     "n": [
+      "هيئة شؤون الأسرى والمحررين",
+      "Commission of Detainees' Affairs"
+     ],
+     "l": "detainees.png"
+    }
+   ]
+  },
+  {
+   "key": "mun",
+   "title": [
+    "البلديات والهيئات المحلية",
+    "Municipalities & Local Bodies"
+   ],
+   "items": [
+    {
+     "n": [
+      "بلدية البيرة",
+      "Al-Bireh"
+     ],
+     "l": "bireh.png"
+    },
+    {
+     "n": [
+      "بلدية طولكرم",
+      "Tulkarem"
+     ],
+     "l": "tulkarem.png"
+    },
+    {
+     "n": [
+      "بلدية أريحا",
+      "Jericho"
+     ],
+     "l": "jericho.png"
+    },
+    {
+     "n": [
+      "بلدية دورا",
+      "Dura"
+     ],
+     "l": "dura.png"
+    },
+    {
+     "n": [
+      "بلدية بيرزيت",
+      "Birzeit"
+     ],
+     "l": "birzeit-mun.png"
+    },
+    {
+     "n": [
+      "بلدية الرام",
+      "Al-Ram"
+     ],
+     "l": "alram.png"
+    },
+    {
+     "n": [
+      "بلدية عقربا",
+      "Aqraba"
+     ],
+     "l": "aqraba.png"
+    },
+    {
+     "n": [
+      "بلدية الخضر",
+      "Al-Khader"
+     ],
+     "l": "khader.png"
+    },
+    {
+     "n": [
+      "بلدية حوارة",
+      "Howwara"
+     ],
+     "l": "howwara.png"
+    },
+    {
+     "n": [
+      "بلدية سبسطية",
+      "Sabastia"
+     ],
+     "l": "sabastia.png"
+    },
+    {
+     "n": [
+      "بلدية عزون",
+      "Azzun"
+     ],
+     "l": "azzun.png"
+    },
+    {
+     "n": [
+      "بلدية يعبد",
+      "Ya'abad"
+     ],
+     "l": "yaabad.png"
+    },
+    {
+     "n": [
+      "بلدية صوريف",
+      "Surif"
+     ],
+     "l": "surif.png"
+    },
+    {
+     "n": [
+      "بلدية نوبا",
+      "Nuba"
+     ],
+     "l": "nuba.png"
+    },
+    {
+     "n": [
+      "بلدية الدوحة",
+      "Ad-Doha"
+     ],
+     "l": "doha.png"
+    },
+    {
+     "n": [
+      "بلدية عقابا",
+      "Aqqaba"
+     ],
+     "l": "aqqaba.png"
+    },
+    {
+     "n": [
+      "بلدية بني زيد الغربية",
+      "West Bani Zaid"
+     ],
+     "l": "bani-zaid.png"
+    },
+    {
+     "n": [
+      "بلدية عصيرة الشمالية",
+      "Asira ash-Shamaliya"
+     ],
+     "l": "asira.png"
+    },
+    {
+     "n": [
+      "بلدية الزاوية",
+      "Az-Zawya"
+     ],
+     "l": "zawya.png"
+    },
+    {
+     "n": [
+      "بلدية ترقوميا",
+      "Tarqumia"
+     ],
+     "l": "tarqumia.png"
+    },
+    {
+     "n": [
+      "بلدية الكرمل",
+      "Al-Karmel"
+     ],
+     "l": "karmel.png"
+    },
+    {
+     "n": [
+      "بلدية الكفريات",
+      "Al-Kafriyat"
+     ],
+     "l": "kafriyat.png"
+    },
+    {
+     "n": [
+      "بلدية زعترة",
+      "Za'atara"
+     ],
+     "l": "zaatara.png"
+    },
+    {
+     "n": [
+      "بلدية الفخاري",
+      "Al-Fukhari"
+     ],
+     "l": "fukhari.png"
+    },
+    {
+     "n": [
+      "بلدية خزاعة",
+      "Khuza'a"
+     ],
+     "l": "khuzaa.png"
+    },
+    {
+     "n": [
+      "بلدية البريج",
+      "Al-Breij"
+     ],
+     "l": "breij.png"
+    },
+    {
+     "n": [
+      "بلدية المغازي",
+      "Al-Maghazi"
+     ],
+     "l": "maghazi.png"
+    },
+    {
+     "n": [
+      "بلدية الزهراء",
+      "Az-Zahra"
+     ],
+     "l": "zahra.png"
+    },
+    {
+     "n": [
+      "بلدية الشوكة",
+      "Ash-Shuka"
+     ],
+     "l": "shuka.png"
+    },
+    {
+     "n": [
+      "بلدية كفر اللبد",
+      "Kufr al-Labad"
+     ],
+     "l": "kufr-labad.png"
+    },
+    {
+     "n": [
+      "بلدية عجة",
+      "Ajja"
+     ],
+     "l": "ajja.png"
+    },
+    {
+     "n": [
+      "بلدية برقين",
+      "Burqin"
+     ],
+     "l": "burqin.png"
+    },
+    {
+     "n": [
+      "بلدية الشيوخ",
+      "Ash-Shuyoukh"
+     ],
+     "l": "shuyoukh.png"
+    },
+    {
+     "n": [
+      "بلدية تقوع",
+      "Tuqu'"
+     ],
+     "l": "tuqu.png"
+    },
+    {
+     "n": [
+      "مصلحة مياه بلديات الساحل",
+      "CMWU — Coastal Municipalities Water Utility"
+     ],
+     "l": null
+    },
+    {
+     "n": [
+      "القبيبة – عمواس",
+      "Al-Qubeibeh (Emmaus)"
+     ],
+     "l": "nm1.png"
+    },
+    {
+     "n": [
+      "السواحرة الشرقية",
+      "East Sawahreh"
+     ],
+     "l": "nm2.png"
+    },
+    {
+     "n": [
+      "الجيب",
+      "Al-Jib"
+     ],
+     "l": "nm3.png"
+    },
+    {
+     "n": [
+      "الطيبة",
+      "Taybeh"
+     ],
+     "l": "nm4.png"
+    },
+    {
+     "n": [
+      "المزرعة الشرقية",
+      "Al-Mazra'a ash-Sharqiya"
+     ],
+     "l": "nm5.png"
+    },
+    {
+     "n": [
+      "عطارة",
+      "Atara"
+     ],
+     "l": "nm6.png"
+    },
+    {
+     "n": [
+      "بيت عور التحتا",
+      "Beit Ur al-Tahta"
+     ],
+     "l": "nm7.png"
+    },
+    {
+     "n": [
+      "كوبر",
+      "Kobar"
+     ],
+     "l": "nm8.png"
+    },
+    {
+     "n": [
+      "باقة الشرقية",
+      "Baqa ash-Sharqiya"
+     ],
+     "l": null
+    },
+    {
+     "n": [
+      "زيتا",
+      "Zeita"
+     ],
+     "l": "nm10.png"
+    },
+    {
+     "n": [
+      "بيت أولا",
+      "Beit Ula"
+     ],
+     "l": "nm11.png"
+    },
+    {
+     "n": [
+      "هندازة – بريضعة",
+      "Hindaza & Breideh"
+     ],
+     "l": "nm12.png"
+    },
+    {
+     "n": [
+      "نحالين",
+      "Nahhalin"
+     ],
+     "l": "nm13.png"
+    },
+    {
+     "n": [
+      "جيوس",
+      "Jayyous"
+     ],
+     "l": "nm14.png"
+    },
+    {
+     "n": [
+      "كفل حارس",
+      "Kifl Haris"
+     ],
+     "l": "nm15.png"
+    },
+    {
+     "n": [
+      "الزبابدة",
+      "Zababdeh"
+     ],
+     "l": "nm16.png"
+    },
+    {
+     "n": [
+      "جبع",
+      "Jab'a"
+     ],
+     "l": "nm17.png"
+    },
+    {
+     "n": [
+      "ميثلون",
+      "Meithalun"
+     ],
+     "l": "nm18.png"
+    },
+    {
+     "n": [
+      "سيلة الظهر",
+      "Silat ad-Dhahr"
+     ],
+     "l": null
+    }
+   ]
+  },
+  {
+   "key": "fund",
+   "title": [
+    "الممولون والشركاء الدوليون",
+    "International Funders & Partners"
+   ],
+   "items": [
+    {
+     "n": [
+      "الوكالة الأمريكية للتنمية الدولية",
+      "USAID"
+     ],
+     "l": "usaid.png"
+    },
+    {
+     "n": [
+      "البنك الدولي",
+      "The World Bank"
+     ],
+     "l": "world-bank.png"
+    },
+    {
+     "n": [
+      "الوكالة الألمانية للتعاون الدولي",
+      "GIZ"
+     ],
+     "l": "giz.png"
+    },
+    {
+     "n": [
+      "Global Communities",
+      "Global Communities"
+     ],
+     "l": "global-communities.png"
+    },
+    {
+     "n": [
+      "Tetra Tech",
+      "Tetra Tech"
+     ],
+     "l": "tetra-tech.png"
+    },
+    {
+     "n": [
+      "التعاون البلجيكي BTC",
+      "BTC — Belgian Development Agency"
+     ],
+     "l": "btc.png"
+    },
+    {
+     "n": [
+      "CHF International",
+      "CHF International"
+     ],
+     "l": "chf.png"
+    }
+   ]
+  },
+  {
+   "key": "uni",
+   "title": [
+    "الجامعات",
+    "Universities"
+   ],
+   "items": [
+    {
+     "n": [
+      "جامعة القدس",
+      "Al-Quds University"
+     ],
+     "l": "alquds-univ.png"
+    },
+    {
+     "n": [
+      "جامعة بيرزيت",
+      "Birzeit University"
+     ],
+     "l": "birzeit-univ.png"
+    },
+    {
+     "n": [
+      "جامعة فلسطين التقنية – خضوري",
+      "Palestine Technical University – Kadoorie"
+     ],
+     "l": "ptu.png"
+    },
+    {
+     "n": [
+      "جامعة النجاح الوطنية",
+      "An-Najah National University"
+     ],
+     "l": null
+    }
+   ]
+  },
+  {
+   "key": "priv",
+   "title": [
+    "القطاع الخاص والمؤسسات",
+    "Private Sector & Organizations"
+   ],
+   "items": [
+    {
+     "n": [
+      "الاتصالات الفلسطينية بالتل",
+      "Paltel"
+     ],
+     "l": "paltel.png"
+    },
+    {
+     "n": [
+      "شركة جوّال",
+      "Jawwal"
+     ],
+     "l": null
+    },
+    {
+     "n": [
+      "مؤسسة التعاون",
+      "Welfare Association (Taawon)"
+     ],
+     "l": null
+    },
+    {
+     "n": [
+      "HEC للاستشارات الهندسية",
+      "HEC — Hydro Engineering Consultancy"
+     ],
+     "l": "hec.png"
+    },
+    {
+     "n": [
+      "ATLAS لتقنيات الخرائط",
+      "ATLAS Mapping Technology"
+     ],
+     "l": "atlas-tech.png"
+    },
+    {
+     "n": [
+      "صحيفة القدس",
+      "Al-Quds Newspaper"
+     ],
+     "l": "alquds-news.png"
+    },
+    {
+     "n": [
+      "LaserMax",
+      "LaserMax"
+     ],
+     "l": "lasermax.png"
+    },
+    {
+     "n": [
+      "Reach",
+      "Reach"
+     ],
+     "l": "reach.png"
+    }
+   ]
+  }
+ ],
+ "partners": [
+  {
+   "n": [
+    "Microsoft",
+    "Microsoft"
+   ],
+   "l": "microsoft.png"
+  },
+  {
+   "n": [
+    "Oracle",
+    "Oracle"
+   ],
+   "l": "oracle.png"
+  },
+  {
+   "n": [
+    "DocuWare",
+    "DocuWare"
+   ],
+   "l": "docuware.png"
+  },
+  {
+   "n": [
+    "Zeutschel",
+    "Zeutschel"
+   ],
+   "l": "zeutschel.png"
+  },
+  {
+   "n": [
+    "OpenKM",
+    "OpenKM"
+   ],
+   "l": "openkm.png"
+  },
+  {
+   "n": [
+    "مجموعة UTTS – عُمان",
+    "UTTS Group – Oman"
+   ],
+   "l": "utts.png"
+  }
+ ],
+ "map": {
+  "w": 604.6,
+  "h": 640.0,
+  "proj": {
+   "lon0": 34.1,
+   "lon1": 35.68,
+   "lat0": 31.18,
+   "lat1": 32.6
+  },
+  "paths": [
+   {
+    "code": "JEN",
+    "nameAr": "جنين",
+    "nameEn": "Jenin",
+    "d": "M440.3 34.3 446.8 37.8 457.6 40.7 476.3 36.4 485.4 37.9 491.4 42.8 498.2 45.0 504.9 62.5 502.1 73.8 504.3 81.5 507.7 84.8 507.1 92.3 504.9 95.4 504.7 93.6 501.5 93.8 501.0 98.4 498.5 95.8 495.1 95.4 495.3 100.5 491.6 105.6 488.5 104.3 488.4 103.2 490.3 103.2 488.1 100.6 488.3 98.2 484.5 100.7 485.2 102.2 482.2 102.4 481.9 104.9 476.6 104.9 473.3 107.2 472.8 115.3 469.5 116.9 471.3 117.4 469.5 120.2 474.1 126.1 471.6 129.8 470.0 128.3 470.6 131.9 466.7 135.9 451.7 127.1 450.6 131.3 448.2 133.4 442.7 134.4 431.8 130.5 430.9 133.2 430.6 130.8 429.7 131.4 428.4 129.3 424.0 129.3 419.8 127.3 413.1 131.2 409.1 128.8 408.0 125.9 407.0 127.1 404.9 124.5 402.4 124.4 403.1 122.8 401.0 121.8 402.1 120.5 400.1 118.1 403.3 115.5 398.2 114.1 392.7 108.3 386.0 111.2 386.3 108.9 389.1 108.5 388.5 107.2 392.3 105.2 389.5 104.6 392.7 99.7 399.6 95.2 399.1 92.2 394.8 91.2 393.2 92.6 391.9 90.9 387.7 91.0 392.1 85.4 393.1 82.7 391.2 81.5 392.6 80.6 379.9 83.7 379.3 82.1 378.2 83.0 379.3 80.0 378.0 79.0 380.9 78.1 382.2 71.1 378.2 65.0 372.2 64.6 379.9 55.9 387.2 55.6 397.3 48.5 397.9 46.4 406.1 42.7 413.1 34.7 416.7 34.0 420.0 28.7 425.6 26.0 427.3 23.2 430.4 22.0 440.3 34.3Z",
+    "cx": 442.5,
+    "cy": 79.9,
+    "area": 9596,
+    "fill": "#dcebfa"
+   },
+   {
+    "code": "TKM",
+    "nameAr": "طولكرم",
+    "nameEn": "Tulkarem",
+    "d": "M402.9 116.0 400.1 118.9 402.1 120.5 401.0 121.8 403.1 122.9 398.2 124.3 401.2 124.5 401.3 126.4 399.1 127.6 397.3 131.8 398.9 131.0 398.6 133.5 402.9 135.0 402.9 136.7 406.5 136.0 404.7 138.9 406.5 138.6 407.7 144.0 405.6 145.3 408.7 146.8 405.8 148.4 400.9 147.1 400.4 149.7 402.3 150.1 402.9 154.4 404.1 152.9 405.9 153.8 405.1 157.3 402.7 157.9 400.3 161.7 397.6 160.3 394.7 161.1 395.4 163.3 391.2 162.8 388.0 165.1 388.4 166.9 383.8 169.5 378.3 168.5 377.6 166.4 374.8 167.4 374.2 171.6 376.8 176.0 372.5 179.7 372.4 181.7 365.1 178.2 363.3 175.6 353.9 173.3 354.8 167.3 348.4 167.3 352.1 164.6 351.8 161.3 356.1 151.0 352.6 145.4 348.1 144.2 350.9 118.6 354.8 117.1 355.4 114.6 359.6 114.5 360.3 109.7 363.4 107.6 362.9 101.2 359.9 99.5 364.8 88.2 367.2 73.3 369.7 67.2 372.8 64.0 378.2 65.0 382.2 71.1 380.9 78.1 378.0 79.0 379.3 80.0 378.2 83.0 379.3 82.1 379.9 83.7 392.6 80.6 391.2 81.5 393.1 82.7 392.1 85.4 387.7 91.0 391.9 90.9 393.2 92.6 394.8 91.2 398.5 91.7 399.9 94.0 392.7 99.7 389.5 104.6 392.3 105.2 388.5 107.2 389.1 108.5 386.3 108.9 386.0 111.2 392.7 108.3 395.4 112.1 402.9 116.0Z",
+    "cx": 376.4,
+    "cy": 128.4,
+    "area": 4049,
+    "fill": "#e1f1e2"
+   },
+   {
+    "code": "TBS",
+    "nameAr": "طوباس",
+    "nameEn": "Tubas",
+    "d": "M520.7 84.8 527.7 85.1 532.5 89.0 543.6 91.8 551.4 96.2 557.6 95.6 559.9 96.8 559.0 99.2 560.4 103.7 558.8 107.8 558.2 105.5 556.2 104.9 558.7 113.2 556.6 115.4 557.9 120.8 556.3 125.2 559.0 126.9 560.4 130.6 556.9 135.6 559.8 137.2 561.6 141.3 561.2 145.9 558.2 147.3 559.0 151.0 560.8 152.2 559.9 157.0 563.3 160.4 561.9 162.9 560.2 161.3 560.3 163.3 558.2 163.1 560.5 167.3 562.7 166.4 562.1 170.5 563.9 171.4 560.8 172.2 563.1 173.2 564.1 176.0 560.5 176.0 559.9 180.9 562.4 180.2 563.8 183.4 562.4 185.2 556.8 182.2 550.0 182.8 546.9 187.2 544.8 186.7 545.0 191.9 541.9 192.4 535.2 188.3 533.0 191.1 528.0 188.7 525.5 184.8 525.7 182.2 527.6 180.8 526.8 175.4 525.0 176.0 521.0 173.5 521.0 171.3 517.0 172.3 515.7 166.0 513.2 166.0 511.9 167.8 509.0 164.1 507.0 165.1 506.9 160.5 502.3 157.4 495.3 156.0 486.1 146.1 483.8 150.6 478.6 146.2 472.7 146.7 467.0 143.9 466.7 141.6 468.8 140.0 466.0 136.9 470.6 131.9 470.0 128.3 471.6 129.8 474.1 126.1 469.5 120.2 471.3 117.4 469.5 116.9 472.8 115.3 473.3 107.2 476.6 104.9 481.9 104.9 482.2 102.4 485.2 102.2 484.5 100.7 488.3 98.2 488.1 100.6 490.3 103.2 488.4 103.2 488.5 104.3 491.6 105.6 495.3 100.5 495.1 95.4 498.5 95.8 501.0 98.4 501.5 93.8 504.7 93.6 504.9 95.4 508.2 89.8 506.8 85.3 512.9 87.5 515.2 85.0 520.7 84.8Z",
+    "cx": 521.9,
+    "cy": 133.6,
+    "area": 6667,
+    "fill": "#fdeddc"
+   },
+   {
+    "code": "NAB",
+    "nameAr": "نابلس",
+    "nameEn": "Nablus",
+    "d": "M406.5 201.4 408.9 200.9 409.3 198.6 411.2 197.6 410.3 196.4 412.3 197.0 412.2 193.3 409.6 192.4 412.7 186.3 411.7 185.4 413.8 179.9 407.1 180.5 406.2 178.6 409.5 178.2 407.5 175.4 408.8 173.2 406.9 173.2 408.4 171.4 407.6 169.4 411.0 167.9 411.3 169.8 412.6 166.6 411.1 165.9 413.2 163.6 411.5 164.4 409.9 162.0 407.2 163.2 405.7 162.0 405.4 159.0 407.7 156.9 405.3 153.5 404.0 152.9 402.9 154.4 402.3 150.1 400.5 150.2 400.9 147.1 405.8 148.4 408.8 146.5 405.6 145.3 407.7 144.0 406.5 138.6 404.7 138.9 406.5 136.0 402.9 136.7 402.9 135.0 398.6 133.5 398.9 131.0 397.3 131.8 399.1 127.6 401.3 126.4 401.2 124.5 398.2 124.3 403.3 123.8 407.0 127.1 408.0 125.9 409.1 128.8 413.1 131.2 419.8 127.3 424.0 129.3 428.4 129.3 429.7 131.4 430.6 130.8 430.9 133.2 431.8 130.5 442.7 134.4 448.2 133.4 450.6 131.3 451.7 127.1 455.3 128.5 466.7 135.9 465.7 137.7 468.8 140.0 466.7 141.6 468.3 145.4 472.7 146.7 478.6 146.2 483.8 150.6 486.1 146.1 495.3 156.0 502.3 157.4 506.9 160.5 506.9 165.0 509.0 164.1 511.9 167.8 508.0 170.3 505.5 167.0 503.7 170.0 505.4 175.4 504.4 176.3 510.5 192.5 508.1 194.2 508.0 196.4 504.8 197.3 502.8 199.8 501.3 217.5 505.3 222.6 499.9 226.3 497.8 225.2 497.5 222.6 494.3 223.9 493.8 226.4 490.1 227.6 489.7 230.2 491.8 239.4 499.0 247.2 506.6 249.0 507.7 255.6 500.2 253.0 488.0 253.3 488.0 251.4 485.6 250.7 472.6 252.4 458.3 246.0 456.1 249.2 451.1 246.3 449.7 241.9 447.0 243.3 448.4 244.2 447.5 244.7 443.8 243.3 440.6 245.4 437.4 243.9 436.0 246.7 433.7 246.0 433.4 244.0 435.4 243.0 434.0 243.1 434.3 241.4 433.1 242.5 428.6 239.6 426.3 240.4 429.7 240.6 428.8 242.4 428.7 241.2 427.3 243.1 423.8 242.7 423.0 245.8 421.1 242.0 419.2 242.1 421.7 239.9 420.1 238.3 427.8 236.0 427.1 233.2 435.0 228.7 435.9 222.9 439.0 221.0 438.6 222.9 440.4 223.8 440.9 220.6 444.8 216.9 438.3 212.4 438.2 214.1 433.5 214.7 433.9 216.2 428.8 220.3 426.5 215.7 414.6 214.1 411.4 210.1 408.5 210.8 405.6 206.6 402.5 205.7 403.7 202.6 406.5 201.4Z",
+    "cx": 456.0,
+    "cy": 188.2,
+    "area": 9714,
+    "fill": "#eee7f8"
+   },
+   {
+    "code": "QLQ",
+    "nameAr": "قلقيلية",
+    "nameEn": "Qalqilya",
+    "d": "M407.0 156.6 407.3 158.2 405.1 159.9 405.7 162.0 407.2 163.2 409.9 162.0 411.5 164.4 413.2 163.6 411.1 165.9 412.6 166.6 411.3 169.8 409.8 167.9 407.6 169.4 408.4 171.4 406.9 172.4 408.8 173.2 407.7 176.4 409.8 177.4 408.7 178.9 406.2 178.6 407.1 180.5 413.8 179.9 411.7 185.4 412.7 186.3 409.0 193.5 405.4 194.7 403.3 193.0 400.4 194.8 397.8 194.2 392.7 198.1 392.2 197.1 386.1 198.8 383.8 197.1 384.8 196.2 382.2 195.5 383.3 192.0 380.4 192.8 377.2 189.8 375.8 191.2 372.3 190.8 371.3 192.2 373.2 201.5 370.9 203.0 370.4 206.1 367.7 205.4 366.0 207.2 364.8 210.0 366.0 210.6 364.9 211.5 366.0 213.8 359.4 214.8 356.9 212.8 353.4 220.7 349.0 218.8 341.6 222.0 338.8 213.7 340.5 206.4 338.8 203.8 335.2 202.3 335.2 198.6 328.9 191.1 328.4 184.6 330.2 180.7 339.9 177.2 348.4 167.3 351.2 168.2 349.8 166.9 353.9 166.9 355.2 170.1 353.7 170.8 353.9 173.3 363.3 175.6 365.1 178.2 372.4 181.7 372.5 179.7 376.8 176.0 374.2 171.6 374.8 167.4 377.6 166.4 378.3 168.5 383.8 169.5 388.4 166.9 388.0 165.1 391.2 162.8 395.4 163.3 394.7 161.1 397.6 160.3 400.3 161.7 402.7 157.9 406.3 155.7 407.0 156.6Z",
+    "cx": 369.0,
+    "cy": 187.9,
+    "area": 2663,
+    "fill": "#dcf1f4"
+   },
+   {
+    "code": "JRC",
+    "nameAr": "اريحا",
+    "nameEn": "Jericho",
+    "d": "M515.9 166.2 517.0 172.3 521.0 171.3 521.0 173.5 525.0 176.0 526.8 175.4 527.6 180.8 525.7 182.2 525.5 184.8 529.1 189.5 533.0 191.1 535.2 188.3 542.9 192.4 545.0 191.9 544.8 186.7 546.9 187.2 550.0 182.8 556.9 182.2 560.5 185.0 558.2 187.4 558.9 191.3 556.4 191.2 558.5 193.4 555.6 192.7 556.9 193.6 556.3 195.9 557.6 194.9 558.1 196.2 554.6 197.0 557.6 198.6 557.5 200.0 555.9 199.8 556.5 201.5 557.1 200.4 559.7 201.5 558.3 205.3 552.9 206.0 552.8 208.6 555.0 209.1 553.9 210.4 552.6 209.5 552.3 211.4 553.3 212.3 555.4 210.7 554.0 212.4 555.3 213.2 553.5 213.8 552.4 220.5 548.2 221.6 549.4 224.0 548.2 224.9 551.2 226.7 550.4 229.9 553.4 230.6 552.4 233.4 553.7 233.7 551.0 233.0 551.7 234.3 550.1 234.8 550.8 236.4 549.4 235.6 549.4 239.1 547.4 238.1 548.5 240.8 547.5 241.5 549.2 241.5 547.2 242.3 548.3 243.1 547.0 243.9 547.4 247.5 545.2 248.7 543.8 247.2 544.6 251.4 543.2 254.1 545.2 256.8 543.9 260.3 547.1 261.3 544.8 263.6 547.2 265.1 545.1 268.0 547.0 268.7 546.4 270.6 548.3 270.7 548.6 269.4 549.3 271.0 550.2 269.8 549.7 271.3 551.9 271.0 549.2 276.7 550.3 278.8 551.6 278.2 551.8 281.3 554.1 283.3 551.4 289.0 552.9 290.8 550.9 291.4 552.8 293.0 551.7 295.8 553.2 296.5 551.7 298.1 553.3 298.5 552.9 300.9 551.4 300.1 552.2 302.1 549.8 301.7 550.9 304.6 546.4 305.0 545.3 311.7 548.4 316.9 547.6 318.6 549.0 318.1 547.5 319.5 549.6 321.8 548.4 323.1 550.9 324.4 550.9 326.9 554.9 327.4 553.3 328.4 553.9 331.6 551.9 331.9 552.1 333.5 550.0 335.0 554.6 340.8 553.4 341.2 554.7 344.1 553.2 346.6 554.6 349.7 551.7 350.3 552.4 352.6 551.0 352.9 552.7 354.4 552.0 357.9 555.8 363.6 554.5 369.1 558.3 376.1 554.6 378.1 538.9 374.3 531.5 386.1 527.1 378.3 526.5 373.2 520.6 367.7 514.7 367.8 500.5 373.4 493.0 370.5 491.4 368.2 489.2 369.2 485.2 364.5 492.9 362.5 487.4 356.2 483.8 357.4 482.7 353.6 486.5 349.3 488.4 344.1 494.8 345.3 499.3 343.3 494.6 321.5 497.6 321.0 503.7 315.7 498.9 308.6 499.5 303.0 497.9 302.8 498.8 300.1 497.7 299.4 498.9 297.9 497.2 297.1 498.4 294.4 492.3 290.7 497.6 291.5 500.9 287.2 502.0 278.3 498.2 276.6 509.3 274.8 507.7 250.6 503.7 247.4 499.0 247.2 494.2 242.6 491.8 239.4 490.1 227.6 493.8 226.4 494.3 223.9 497.5 222.6 497.8 225.2 499.9 226.3 505.3 222.6 501.3 217.5 502.8 199.8 504.8 197.3 508.0 196.4 508.1 194.2 510.5 192.6 504.4 176.3 505.4 175.4 503.7 173.1 503.7 169.5 505.5 167.0 508.0 170.3 513.2 166.0 515.9 166.2Z",
+    "cx": 524.8,
+    "cy": 280.9,
+    "area": 10136,
+    "fill": "#f9e9e6"
+   },
+   {
+    "code": "SLF",
+    "nameAr": "سلفيت",
+    "nameEn": "Salfit",
+    "d": "M407.1 200.9 403.7 202.6 402.5 205.7 405.6 206.6 408.5 210.8 411.4 210.1 414.6 214.1 426.5 215.7 428.8 220.3 433.9 216.2 433.5 214.7 438.2 214.1 438.3 212.4 444.9 217.2 440.9 220.6 440.4 223.8 438.6 222.9 439.0 221.0 435.9 222.9 435.0 228.7 427.1 233.2 427.8 236.0 420.1 238.3 421.7 239.7 421.3 241.5 418.2 242.8 417.8 245.7 415.7 244.2 412.0 244.8 411.1 242.1 409.4 242.5 408.1 240.6 410.0 239.0 405.9 239.5 401.6 242.7 400.0 241.2 397.4 242.0 395.7 239.8 390.4 239.5 386.0 241.4 383.9 244.5 374.1 243.8 373.6 248.3 368.8 249.9 366.7 246.8 365.2 248.5 361.1 248.6 361.4 246.8 359.7 246.1 357.4 247.5 350.8 244.4 348.8 245.6 346.0 240.8 342.6 241.7 339.5 231.4 337.7 229.9 339.4 224.9 345.8 219.6 349.0 218.8 353.4 220.7 356.9 212.8 359.4 214.8 366.3 213.6 364.8 210.0 366.0 207.2 367.7 205.4 370.4 206.1 370.9 203.0 373.2 201.5 371.3 192.2 372.3 190.8 375.8 191.2 377.2 189.8 380.4 192.8 383.3 192.0 382.2 195.5 384.8 196.2 383.8 197.1 386.1 198.8 392.2 197.1 392.7 198.1 397.8 194.2 400.4 194.8 403.3 193.0 405.4 194.7 411.1 192.5 412.3 197.0 410.3 196.4 411.2 197.6 409.3 198.6 409.2 200.5 407.1 200.9Z",
+    "cx": 387.1,
+    "cy": 223.3,
+    "area": 3379,
+    "fill": "#f3efd9"
+   },
+   {
+    "code": "RAM",
+    "nameAr": "رام الله والبيرة",
+    "nameEn": "Ramallah",
+    "d": "M497.5 291.5 492.3 290.7 498.4 294.4 497.2 297.1 498.9 297.9 497.7 299.4 498.8 300.1 497.9 302.8 499.5 303.0 498.9 308.6 503.7 315.7 497.6 321.0 494.6 321.5 499.3 343.3 494.8 345.3 487.0 344.1 483.4 341.0 482.2 343.4 479.0 341.8 476.4 344.9 474.4 344.2 472.5 342.6 472.4 337.8 468.8 336.3 465.9 331.6 459.3 331.9 456.8 327.3 448.5 322.9 444.4 322.7 442.4 328.6 439.2 326.1 439.2 322.0 428.9 321.5 428.6 324.0 426.0 325.6 418.7 320.3 416.1 321.5 415.9 324.6 413.0 325.9 416.7 331.3 415.5 334.4 409.7 330.2 405.0 332.9 403.8 330.6 401.0 329.6 399.2 331.3 388.2 330.5 378.0 326.4 379.5 330.4 374.7 339.8 368.8 337.6 371.1 340.5 365.2 337.3 361.7 347.8 357.3 352.1 352.8 352.9 346.7 351.4 336.1 353.2 330.1 348.7 327.7 338.1 328.7 333.5 346.5 328.4 354.1 329.2 354.9 326.3 353.4 321.7 354.9 318.6 353.3 308.5 343.6 303.0 336.6 284.9 341.8 282.3 343.8 274.3 344.2 262.7 345.9 261.5 346.0 257.5 342.6 241.7 344.6 240.4 348.8 245.6 350.8 244.4 357.4 247.5 359.7 246.1 361.4 246.8 361.1 248.6 365.2 248.5 366.7 246.8 368.8 249.9 373.6 248.3 374.1 243.8 383.9 244.5 386.0 241.4 390.4 239.5 395.7 239.8 397.4 242.0 400.0 241.2 401.6 242.7 405.9 239.5 410.0 239.0 408.1 240.6 409.3 242.5 411.1 242.1 412.8 245.3 415.7 244.2 417.1 246.0 418.2 242.8 421.1 242.0 423.4 245.9 423.8 242.7 427.3 243.1 428.7 241.2 428.7 242.5 429.7 240.6 426.3 240.4 430.0 239.7 433.1 242.5 434.3 241.4 434.0 243.1 435.4 243.0 433.4 244.0 433.7 246.0 435.4 246.6 437.6 243.9 440.6 245.4 443.8 243.3 448.0 244.5 447.0 243.3 449.7 241.9 451.1 246.3 456.1 249.2 458.3 246.0 472.6 252.4 485.6 250.7 488.0 251.4 488.0 253.3 500.2 253.0 505.8 254.5 507.8 255.2 509.3 274.8 498.2 276.6 502.0 278.3 502.2 283.7 497.5 291.5Z",
+    "cx": 419.5,
+    "cy": 290.9,
+    "area": 14071,
+    "fill": "#e6ecf4"
+   },
+   {
+    "code": "JER",
+    "nameAr": "القدس",
+    "nameEn": "Jerusalem",
+    "d": "M420.6 384.3 424.4 384.1 428.5 390.0 431.7 385.8 437.5 382.6 437.3 379.3 432.6 377.0 433.5 373.5 431.4 369.9 430.0 359.8 419.1 356.3 405.1 357.0 398.6 354.9 390.3 349.1 385.6 350.4 368.8 337.6 374.7 339.8 379.5 330.4 378.0 326.4 388.2 330.5 399.2 331.3 401.0 329.6 403.8 330.6 405.0 332.9 409.7 330.2 415.5 334.4 416.7 331.3 413.0 325.9 415.9 324.6 416.1 321.5 418.6 320.3 426.0 325.6 428.6 324.0 428.9 321.5 439.2 322.0 439.2 326.1 442.4 328.6 444.8 322.3 451.1 323.7 456.8 327.3 459.3 331.9 465.9 331.6 468.8 336.3 472.4 337.8 472.5 342.6 474.4 344.2 476.4 344.9 479.0 341.8 482.2 343.4 483.4 341.0 488.4 344.1 486.5 349.3 482.7 353.6 483.8 357.4 487.4 356.2 492.9 362.5 485.2 364.5 489.2 369.2 491.4 368.2 493.0 370.5 500.5 373.4 514.7 367.8 520.6 367.7 526.5 373.2 527.1 378.3 531.5 386.1 525.9 392.4 519.5 387.7 514.9 386.6 509.6 389.1 505.8 385.5 503.7 387.0 501.9 385.5 492.9 385.7 479.7 390.8 471.8 387.5 467.8 389.6 465.3 388.9 465.9 392.1 464.9 392.0 466.3 393.5 464.0 393.1 463.9 390.8 460.5 394.0 450.6 392.2 447.9 393.2 446.8 396.6 444.5 395.4 443.1 398.3 436.5 396.5 434.9 394.5 431.7 395.5 428.0 391.4 427.5 392.4 424.9 390.8 418.6 390.7 417.2 392.3 416.7 390.9 414.5 392.0 412.0 387.1 418.8 383.5 420.6 384.3Z",
+    "cx": 450.2,
+    "cy": 358.9,
+    "area": 5607,
+    "fill": "#d8e6f6"
+   },
+   {
+    "code": "BTH",
+    "nameAr": "بيت لحم",
+    "nameEn": "Bethlehem",
+    "d": "M410.2 387.6 412.0 387.1 415.2 392.2 418.6 390.7 424.9 390.8 427.5 392.4 428.0 391.4 431.7 395.5 434.9 394.5 436.5 396.5 443.1 398.3 444.5 395.4 446.8 396.6 447.9 393.2 450.6 392.2 460.5 394.0 463.9 390.8 464.0 393.1 466.3 393.5 464.9 392.0 465.7 388.7 467.8 389.6 471.8 387.5 479.7 390.8 495.3 385.5 501.9 385.5 503.7 387.0 505.8 385.5 509.6 389.1 515.0 386.5 520.4 388.2 525.9 392.4 521.1 396.0 517.7 401.6 514.7 412.8 516.2 419.3 512.8 422.2 512.4 425.0 508.5 429.1 507.5 433.7 502.5 439.1 501.4 442.9 499.9 453.4 504.2 465.0 499.6 472.0 496.3 473.2 495.6 483.7 497.3 490.8 495.7 495.1 496.8 499.5 480.3 512.3 472.0 507.8 462.8 506.8 461.5 504.7 462.3 502.9 460.5 501.9 458.2 495.3 448.7 486.9 445.0 487.6 433.5 478.6 431.5 475.1 432.9 474.0 429.0 470.0 427.7 466.0 432.5 456.4 427.7 454.9 420.7 447.4 415.8 444.9 413.9 445.5 412.5 444.1 412.0 446.2 406.2 444.7 405.6 446.7 403.8 445.5 402.1 441.5 396.6 437.6 397.6 435.4 402.6 437.1 402.9 435.5 406.2 435.0 406.3 433.2 402.8 431.5 403.2 430.1 389.2 428.7 387.0 425.6 385.3 426.5 377.1 424.0 376.0 420.1 372.0 422.0 369.5 418.8 363.2 421.7 363.0 418.7 370.3 413.0 375.0 411.5 384.5 399.4 390.2 398.9 393.8 391.2 395.4 390.4 396.7 392.2 398.8 392.1 405.1 385.9 410.2 387.6Z",
+    "cx": 456.2,
+    "cy": 435.4,
+    "area": 10655,
+    "fill": "#e8f3d9"
+   },
+   {
+    "code": "GZA",
+    "nameAr": "غزة",
+    "nameEn": "Gaza",
+    "d": "M139.2 477.6 144.1 481.8 141.4 483.7 145.8 488.3 149.6 486.9 150.9 489.4 151.6 486.9 155.3 487.3 153.4 492.0 156.0 492.6 157.3 496.1 124.7 528.7 121.0 526.7 121.0 522.2 118.5 517.9 119.8 515.3 114.7 513.2 113.6 511.0 106.2 511.2 135.3 474.9 139.2 477.6Z",
+    "cx": 132.5,
+    "cy": 501.1,
+    "area": 1210,
+    "fill": "#fbe9d0"
+   },
+   {
+    "code": "JBA",
+    "nameAr": "شمالي قطاع غزة",
+    "nameEn": "Gaza North",
+    "d": "M149.6 486.9 145.5 488.1 141.4 483.7 144.1 481.8 135.3 474.9 150.1 452.8 179.4 477.6 173.9 487.8 162.7 494.5 157.3 496.1 156.0 492.6 153.4 492.0 155.3 487.3 151.6 486.9 150.9 489.4 149.6 486.9Z",
+    "cx": 157.2,
+    "cy": 475.8,
+    "area": 1011,
+    "fill": "#e9e3f4"
+   },
+   {
+    "code": "KHN",
+    "nameAr": "خان يونس",
+    "nameEn": "Khan Yunis",
+    "d": "M73.2 547.1 76.1 544.0 80.9 545.4 86.6 544.6 90.8 547.0 92.4 544.9 101.4 552.0 104.7 552.8 101.9 558.0 104.8 584.0 102.3 590.2 93.3 595.5 88.4 603.3 81.8 588.2 75.3 589.1 72.0 587.2 61.3 570.4 56.0 565.0 73.2 547.1Z",
+    "cx": 84.2,
+    "cy": 569.6,
+    "area": 1768,
+    "fill": "#d7eef0"
+   },
+   {
+    "code": "MDL",
+    "nameAr": "المنطقة الوسطى",
+    "nameEn": "Middle Area",
+    "d": "M103.8 513.9 106.2 511.2 111.8 510.9 118.7 514.3 120.2 515.9 118.5 517.9 121.0 522.2 121.0 526.7 124.9 527.9 107.8 545.3 104.9 552.6 101.4 552.0 92.4 544.9 90.8 547.0 86.6 544.6 80.9 545.4 76.1 544.0 90.8 529.6 103.8 513.9Z",
+    "cx": 103.4,
+    "cy": 531.7,
+    "area": 955,
+    "fill": "#f7e3ea"
+   },
+   {
+    "code": "RFA",
+    "nameAr": "رفح",
+    "nameEn": "Rafah",
+    "d": "M49.9 571.2 56.0 565.0 56.9 565.6 72.0 587.2 75.3 589.1 81.8 588.2 88.4 603.3 74.2 612.1 69.4 617.6 63.8 619.8 53.9 587.6 52.1 587.1 45.7 575.0 49.9 571.2Z",
+    "cx": 66.3,
+    "cy": 593.4,
+    "area": 1022,
+    "fill": "#eff0d8"
+   },
+   {
+    "code": "HBN",
+    "nameAr": "الخليل",
+    "nameEn": "Hebron",
+    "d": "M472.0 507.8 480.3 512.3 452.4 534.3 433.1 552.1 406.9 556.6 395.2 561.3 350.8 559.1 314.7 566.5 302.9 555.9 298.1 544.7 300.1 534.9 304.3 525.8 315.5 511.1 320.7 500.2 322.2 494.2 321.9 471.6 325.9 452.2 343.0 429.7 363.0 418.7 364.2 422.2 367.2 419.2 370.0 418.9 372.0 422.0 376.0 420.1 377.1 424.0 385.3 426.5 387.0 425.6 389.2 428.7 403.2 430.1 402.8 431.5 406.3 433.2 406.2 435.0 402.9 435.5 402.6 437.1 397.6 435.4 397.1 438.5 402.1 441.5 402.6 444.4 405.1 446.6 406.5 446.6 406.2 444.7 412.0 446.2 412.5 444.1 413.9 445.5 415.8 444.9 420.7 447.4 427.7 454.9 432.5 456.4 427.7 466.0 429.0 470.0 432.9 474.0 431.5 475.1 432.6 477.5 437.3 482.6 440.6 483.3 445.0 487.6 448.7 486.9 458.2 495.3 460.5 501.9 462.3 502.9 461.5 504.7 462.8 506.8 472.0 507.8Z",
+    "cx": 379.2,
+    "cy": 501.0,
+    "area": 16373,
+    "fill": "#e2e9f0"
+   }
+  ],
+  "points": [
+   {
+    "n": [
+     "بلدية البيرة",
+     "Al-Bireh"
+    ],
+    "g": [
+     "رام الله والبيرة",
+     "Ramallah & Al-Bireh"
+    ],
+    "lat": 31.907,
+    "lon": 35.216,
+    "s": "csc",
+    "l": "bireh.png"
+   },
+   {
+    "n": [
+     "بلدية طولكرم",
+     "Tulkarem"
+    ],
+    "g": [
+     "طولكرم",
+     "Tulkarem"
+    ],
+    "lat": 32.311,
+    "lon": 35.028,
+    "s": "csc",
+    "l": "tulkarem.png"
+   },
+   {
+    "n": [
+     "بلدية أريحا",
+     "Jericho"
+    ],
+    "g": [
+     "أريحا",
+     "Jericho"
+    ],
+    "lat": 31.857,
+    "lon": 35.456,
+    "s": "csc",
+    "l": "jericho.png"
+   },
+   {
+    "n": [
+     "بلدية دورا",
+     "Dura"
+    ],
+    "g": [
+     "الخليل",
+     "Hebron"
+    ],
+    "lat": 31.507,
+    "lon": 35.028,
+    "s": "both",
+    "l": "dura.png"
+   },
+   {
+    "n": [
+     "بلدية بيرزيت",
+     "Birzeit"
+    ],
+    "g": [
+     "رام الله والبيرة",
+     "Ramallah & Al-Bireh"
+    ],
+    "lat": 31.975,
+    "lon": 35.195,
+    "s": "csc",
+    "l": "birzeit-mun.png"
+   },
+   {
+    "n": [
+     "بلدية الرام",
+     "Al-Ram"
+    ],
+    "g": [
+     "القدس",
+     "Jerusalem"
+    ],
+    "lat": 31.848,
+    "lon": 35.234,
+    "s": "csc",
+    "l": "alram.png"
+   },
+   {
+    "n": [
+     "بلدية عقربا",
+     "Aqraba"
+    ],
+    "g": [
+     "نابلس",
+     "Nablus"
+    ],
+    "lat": 32.124,
+    "lon": 35.345,
+    "s": "csc",
+    "l": "aqraba.png"
+   },
+   {
+    "n": [
+     "بلدية الخضر",
+     "Al-Khader"
+    ],
+    "g": [
+     "بيت لحم",
+     "Bethlehem"
+    ],
+    "lat": 31.694,
+    "lon": 35.17,
+    "s": "csc",
+    "l": "khader.png"
+   },
+   {
+    "n": [
+     "بلدية حوارة",
+     "Howwara"
+    ],
+    "g": [
+     "نابلس",
+     "Nablus"
+    ],
+    "lat": 32.152,
+    "lon": 35.253,
+    "s": "csc",
+    "l": "howwara.png"
+   },
+   {
+    "n": [
+     "بلدية سبسطية",
+     "Sabastia"
+    ],
+    "g": [
+     "نابلس",
+     "Nablus"
+    ],
+    "lat": 32.276,
+    "lon": 35.191,
+    "s": "csc",
+    "l": "sabastia.png"
+   },
+   {
+    "n": [
+     "بلدية عزون",
+     "Azzun"
+    ],
+    "g": [
+     "قلقيلية",
+     "Qalqilya"
+    ],
+    "lat": 32.176,
+    "lon": 35.06,
+    "s": "csc",
+    "l": "azzun.png"
+   },
+   {
+    "n": [
+     "بلدية يعبد",
+     "Ya'abad"
+    ],
+    "g": [
+     "جنين",
+     "Jenin"
+    ],
+    "lat": 32.446,
+    "lon": 35.169,
+    "s": "csc",
+    "l": "yaabad.png"
+   },
+   {
+    "n": [
+     "بلدية صوريف",
+     "Surif"
+    ],
+    "g": [
+     "الخليل",
+     "Hebron"
+    ],
+    "lat": 31.653,
+    "lon": 35.062,
+    "s": "csc",
+    "l": "surif.png"
+   },
+   {
+    "n": [
+     "بلدية نوبا",
+     "Nuba"
+    ],
+    "g": [
+     "الخليل",
+     "Hebron"
+    ],
+    "lat": 31.618,
+    "lon": 35.03,
+    "s": "csc",
+    "l": "nuba.png"
+   },
+   {
+    "n": [
+     "بلدية الدوحة",
+     "Ad-Doha"
+    ],
+    "g": [
+     "بيت لحم",
+     "Bethlehem"
+    ],
+    "lat": 31.702,
+    "lon": 35.182,
+    "s": "csc",
+    "l": "doha.png"
+   },
+   {
+    "n": [
+     "بلدية عقابا",
+     "Aqqaba"
+    ],
+    "g": [
+     "طوباس",
+     "Tubas"
+    ],
+    "lat": 32.343,
+    "lon": 35.264,
+    "s": "csc",
+    "l": "aqqaba.png"
+   },
+   {
+    "n": [
+     "بلدية بني زيد الغربية",
+     "West Bani Zaid"
+    ],
+    "g": [
+     "رام الله والبيرة",
+     "Ramallah & Al-Bireh"
+    ],
+    "lat": 32.024,
+    "lon": 35.108,
+    "s": "csc",
+    "l": "bani-zaid.png"
+   },
+   {
+    "n": [
+     "بلدية عصيرة الشمالية",
+     "Asira ash-Shamaliya"
+    ],
+    "g": [
+     "نابلس",
+     "Nablus"
+    ],
+    "lat": 32.272,
+    "lon": 35.272,
+    "s": "csc",
+    "l": "asira.png"
+   },
+   {
+    "n": [
+     "بلدية الزاوية",
+     "Az-Zawya"
+    ],
+    "g": [
+     "سلفيت",
+     "Salfit"
+    ],
+    "lat": 32.128,
+    "lon": 35.011,
+    "s": "csc",
+    "l": "zawya.png"
+   },
+   {
+    "n": [
+     "بلدية ترقوميا",
+     "Tarqumia"
+    ],
+    "g": [
+     "الخليل",
+     "Hebron"
+    ],
+    "lat": 31.571,
+    "lon": 34.981,
+    "s": "csc",
+    "l": "tarqumia.png"
+   },
+   {
+    "n": [
+     "بلدية الكرمل",
+     "Al-Karmel"
+    ],
+    "g": [
+     "الخليل",
+     "Hebron"
+    ],
+    "lat": 31.421,
+    "lon": 35.132,
+    "s": "csc",
+    "l": "karmel.png"
+   },
+   {
+    "n": [
+     "بلدية الكفريات",
+     "Al-Kafriyat"
+    ],
+    "g": [
+     "طولكرم",
+     "Tulkarem"
+    ],
+    "lat": 32.245,
+    "lon": 35.033,
+    "s": "csc",
+    "l": "kafriyat.png"
+   },
+   {
+    "n": [
+     "بلدية زعترة",
+     "Za'atara"
+    ],
+    "g": [
+     "بيت لحم",
+     "Bethlehem"
+    ],
+    "lat": 31.648,
+    "lon": 35.253,
+    "s": "csc",
+    "l": "zaatara.png"
+   },
+   {
+    "n": [
+     "بلدية الفخاري",
+     "Al-Fukhari"
+    ],
+    "g": [
+     "خانيونس",
+     "Khan Younis"
+    ],
+    "lat": 31.276,
+    "lon": 34.313,
+    "s": "csc",
+    "l": "fukhari.png"
+   },
+   {
+    "n": [
+     "بلدية خزاعة",
+     "Khuza'a"
+    ],
+    "g": [
+     "خانيونس",
+     "Khan Younis"
+    ],
+    "lat": 31.306,
+    "lon": 34.363,
+    "s": "csc",
+    "l": "khuzaa.png"
+   },
+   {
+    "n": [
+     "بلدية البريج",
+     "Al-Breij"
+    ],
+    "g": [
+     "الوسطى",
+     "Deir al-Balah"
+    ],
+    "lat": 31.44,
+    "lon": 34.403,
+    "s": "csc",
+    "l": "breij.png"
+   },
+   {
+    "n": [
+     "بلدية المغازي",
+     "Al-Maghazi"
+    ],
+    "g": [
+     "الوسطى",
+     "Deir al-Balah"
+    ],
+    "lat": 31.422,
+    "lon": 34.389,
+    "s": "csc",
+    "l": "maghazi.png"
+   },
+   {
+    "n": [
+     "بلدية الزهراء",
+     "Az-Zahra"
+    ],
+    "g": [
+     "غزة",
+     "Gaza"
+    ],
+    "lat": 31.482,
+    "lon": 34.421,
+    "s": "csc",
+    "l": "zahra.png"
+   },
+   {
+    "n": [
+     "بلدية الشوكة",
+     "Ash-Shuka"
+    ],
+    "g": [
+     "رفح",
+     "Rafah"
+    ],
+    "lat": 31.238,
+    "lon": 34.296,
+    "s": "csc",
+    "l": "shuka.png"
+   },
+   {
+    "n": [
+     "بلدية كفر اللبد",
+     "Kufr al-Labad"
+    ],
+    "g": [
+     "طولكرم",
+     "Tulkarem"
+    ],
+    "lat": 32.291,
+    "lon": 35.098,
+    "s": "csc",
+    "l": "kufr-labad.png"
+   },
+   {
+    "n": [
+     "بلدية عجة",
+     "Ajja"
+    ],
+    "g": [
+     "جنين",
+     "Jenin"
+    ],
+    "lat": 32.339,
+    "lon": 35.203,
+    "s": "csc",
+    "l": "ajja.png"
+   },
+   {
+    "n": [
+     "بلدية برقين",
+     "Burqin"
+    ],
+    "g": [
+     "جنين",
+     "Jenin"
+    ],
+    "lat": 32.455,
+    "lon": 35.259,
+    "s": "csc",
+    "l": "burqin.png"
+   },
+   {
+    "n": [
+     "بلدية الشيوخ",
+     "Ash-Shuyoukh"
+    ],
+    "g": [
+     "الخليل",
+     "Hebron"
+    ],
+    "lat": 31.618,
+    "lon": 35.14,
+    "s": "csc",
+    "l": "shuyoukh.png"
+   },
+   {
+    "n": [
+     "بلدية تقوع",
+     "Tuqu'"
+    ],
+    "g": [
+     "بيت لحم",
+     "Bethlehem"
+    ],
+    "lat": 31.633,
+    "lon": 35.23,
+    "s": "csc",
+    "l": "tuqu.png"
+   },
+   {
+    "n": [
+     "القبيبة – عمواس",
+     "Al-Qubeibeh (Emmaus)"
+    ],
+    "g": [
+     "القدس",
+     "Jerusalem"
+    ],
+    "lat": 31.839,
+    "lon": 35.137,
+    "s": "csc",
+    "l": "nm1.png"
+   },
+   {
+    "n": [
+     "السواحرة الشرقية",
+     "East Sawahreh"
+    ],
+    "g": [
+     "القدس",
+     "Jerusalem"
+    ],
+    "lat": 31.752,
+    "lon": 35.283,
+    "s": "csc",
+    "l": "nm2.png"
+   },
+   {
+    "n": [
+     "الجيب",
+     "Al-Jib"
+    ],
+    "g": [
+     "القدس",
+     "Jerusalem"
+    ],
+    "lat": 31.868,
+    "lon": 35.18,
+    "s": "csc",
+    "l": "nm3.png"
+   },
+   {
+    "n": [
+     "الطيبة",
+     "Taybeh"
+    ],
+    "g": [
+     "رام الله والبيرة",
+     "Ramallah & Al-Bireh"
+    ],
+    "lat": 31.955,
+    "lon": 35.301,
+    "s": "csc",
+    "l": "nm4.png"
+   },
+   {
+    "n": [
+     "المزرعة الشرقية",
+     "Al-Mazra'a ash-Sharqiya"
+    ],
+    "g": [
+     "رام الله والبيرة",
+     "Ramallah & Al-Bireh"
+    ],
+    "lat": 31.988,
+    "lon": 35.275,
+    "s": "csc",
+    "l": "nm5.png"
+   },
+   {
+    "n": [
+     "عطارة",
+     "Atara"
+    ],
+    "g": [
+     "رام الله والبيرة",
+     "Ramallah & Al-Bireh"
+    ],
+    "lat": 32.03,
+    "lon": 35.198,
+    "s": "csc",
+    "l": "nm6.png"
+   },
+   {
+    "n": [
+     "بيت عور التحتا",
+     "Beit Ur al-Tahta"
+    ],
+    "g": [
+     "رام الله والبيرة",
+     "Ramallah & Al-Bireh"
+    ],
+    "lat": 31.888,
+    "lon": 35.104,
+    "s": "csc",
+    "l": "nm7.png"
+   },
+   {
+    "n": [
+     "كوبر",
+     "Kobar"
+    ],
+    "g": [
+     "رام الله والبيرة",
+     "Ramallah & Al-Bireh"
+    ],
+    "lat": 31.988,
+    "lon": 35.169,
+    "s": "csc",
+    "l": "nm8.png"
+   },
+   {
+    "n": [
+     "بلدية باقة الشرقية",
+     "Baqa ash-Sharqiya"
+    ],
+    "g": [
+     "طولكرم",
+     "Tulkarem"
+    ],
+    "lat": 32.412,
+    "lon": 35.052,
+    "s": "csc",
+    "l": null
+   },
+   {
+    "n": [
+     "زيتا",
+     "Zeita"
+    ],
+    "g": [
+     "طولكرم",
+     "Tulkarem"
+    ],
+    "lat": 32.397,
+    "lon": 35.03,
+    "s": "csc",
+    "l": "nm10.png"
+   },
+   {
+    "n": [
+     "بيت أولا",
+     "Beit Ula"
+    ],
+    "g": [
+     "الخليل",
+     "Hebron"
+    ],
+    "lat": 31.558,
+    "lon": 35.02,
+    "s": "csc",
+    "l": "nm11.png"
+   },
+   {
+    "n": [
+     "هندازة – بريضعة",
+     "Hindaza & Breideh"
+    ],
+    "g": [
+     "بيت لحم",
+     "Bethlehem"
+    ],
+    "lat": 31.681,
+    "lon": 35.235,
+    "s": "csc",
+    "l": "nm12.png"
+   },
+   {
+    "n": [
+     "نحالين",
+     "Nahhalin"
+    ],
+    "g": [
+     "بيت لحم",
+     "Bethlehem"
+    ],
+    "lat": 31.687,
+    "lon": 35.108,
+    "s": "csc",
+    "l": "nm13.png"
+   },
+   {
+    "n": [
+     "جيوس",
+     "Jayyous"
+    ],
+    "g": [
+     "قلقيلية",
+     "Qalqilya"
+    ],
+    "lat": 32.19,
+    "lon": 35.048,
+    "s": "csc",
+    "l": "nm14.png"
+   },
+   {
+    "n": [
+     "كفل حارس",
+     "Kifl Haris"
+    ],
+    "g": [
+     "سلفيت",
+     "Salfit"
+    ],
+    "lat": 32.117,
+    "lon": 35.157,
+    "s": "csc",
+    "l": "nm15.png"
+   },
+   {
+    "n": [
+     "الزبابدة",
+     "Zababdeh"
+    ],
+    "g": [
+     "جنين",
+     "Jenin"
+    ],
+    "lat": 32.372,
+    "lon": 35.371,
+    "s": "csc",
+    "l": "nm16.png"
+   },
+   {
+    "n": [
+     "جبع",
+     "Jab'a"
+    ],
+    "g": [
+     "جنين",
+     "Jenin"
+    ],
+    "lat": 32.328,
+    "lon": 35.293,
+    "s": "csc",
+    "l": "nm17.png"
+   },
+   {
+    "n": [
+     "ميثلون",
+     "Meithalun"
+    ],
+    "g": [
+     "جنين",
+     "Jenin"
+    ],
+    "lat": 32.355,
+    "lon": 35.268,
+    "s": "csc",
+    "l": "nm18.png"
+   },
+   {
+    "n": [
+     "بلدية سيلة الظهر",
+     "Silat ad-Dhahr"
+    ],
+    "g": [
+     "جنين",
+     "Jenin"
+    ],
+    "lat": 32.359,
+    "lon": 35.24,
+    "s": "csc",
+    "l": null
+   },
+   {
+    "n": [
+     "بلدية عتيل",
+     "Attil"
+    ],
+    "g": [
+     "طولكرم",
+     "Tulkarem"
+    ],
+    "lat": 32.386,
+    "lon": 35.033,
+    "s": "csc",
+    "l": null
+   },
+   {
+    "n": [
+     "بلدية يطا",
+     "Yatta"
+    ],
+    "g": [
+     "الخليل",
+     "Hebron"
+    ],
+    "lat": 31.449,
+    "lon": 35.089,
+    "s": "mad",
+    "l": null
+   },
+   {
+    "n": [
+     "بلدية بيت لحم",
+     "Bethlehem"
+    ],
+    "g": [
+     "بيت لحم",
+     "Bethlehem"
+    ],
+    "lat": 31.705,
+    "lon": 35.202,
+    "s": "mad",
+    "l": null
+   },
+   {
+    "n": [
+     "مصلحة مياه بلديات الساحل",
+     "CMWU"
+    ],
+    "g": [
+     "قطاع غزة",
+     "Gaza Strip"
+    ],
+    "lat": 31.52,
+    "lon": 34.44,
+    "s": "water",
+    "l": null
+   }
+  ]
+ }
+}

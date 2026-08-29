@@ -29,11 +29,19 @@ interface Kiosk {
 const Ctx = createContext<Kiosk>({ on: false, attract: false, begin: () => {} })
 export const useKiosk = () => useContext(Ctx)
 
+/**
+ * Reads the mode AND stamps the root synchronously. React runs child effects
+ * before the parent's, so stamping in an effect left CoverageMap measuring the
+ * previous mode and drawing 13px governorate labels on a booth panel.
+ */
 function readMode(): boolean {
   const p = new URLSearchParams(window.location.search).get('mode')
-  if (p === 'kiosk') { try { localStorage.setItem('kioskMode', '1') } catch {} ; return true }
-  if (p === 'web') { try { localStorage.removeItem('kioskMode') } catch {} ; return false }
-  try { return localStorage.getItem('kioskMode') === '1' } catch { return false }
+  let on: boolean
+  if (p === 'kiosk') { try { localStorage.setItem('kioskMode', '1') } catch {} ; on = true }
+  else if (p === 'web') { try { localStorage.removeItem('kioskMode') } catch {} ; on = false }
+  else { try { on = localStorage.getItem('kioskMode') === '1' } catch { on = false } }
+  document.documentElement.setAttribute('data-mode', on ? 'kiosk' : 'web')
+  return on
 }
 
 /** Keeps the panel awake. The lock dies whenever the page hides and does not
@@ -68,9 +76,6 @@ export function KioskProvider({ children }: { children: ReactNode }) {
   const langRef = useRef(lang)
   langRef.current = lang
 
-  useEffect(() => {
-    document.documentElement.setAttribute('data-mode', on ? 'kiosk' : 'web')
-  }, [on])
   useWakeLock(on)
 
   /**
@@ -144,11 +149,11 @@ function AttractScreen({ onBegin }: { onBegin: () => void }) {
       sub: ['منذ 2008 · فلسطين والشرق الأوسط', 'Since 2008 · Palestine & the Middle East'],
     },
     {
-      eyebrow: ['الذكاء الاصطناعي · سَبْر', 'Artificial Intelligence · Sabr'],
-      line: ['ذكاءٌ اصطناعي لا يستطيع التسريب', 'An AI that cannot leak'],
+      eyebrow: ['المساعد الذكي · سَبْر', 'Sabr · the assistant'],
+      line: ['اسأل بالعربية، يجيبك من بياناتك', 'Ask in Arabic, get an answer from your data'],
       sub: [
-        'لا اتصال بقاعدة البيانات · بصلاحيات السائل نفسه',
-        'No database connection · the asker’s own permissions',
+        'يقرأ بصلاحياتك أنت، لا بصلاحياته',
+        'It reads with your permissions, not its own',
       ],
     },
     {

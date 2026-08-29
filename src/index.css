@@ -165,20 +165,24 @@ body {
 [data-mode="kiosk"] [contenteditable] {
   user-select: text;
 }
-/* Reach: every control clears 88px, primary actions 120px. */
+/* Reach: every control clears 88px in BOTH axes - min-height alone left the
+   34px icon buttons in the slideshow HUD a 34px-wide target. Primary
+   navigation gets 120px. */
 [data-mode="kiosk"] button,
-[data-mode="kiosk"] .tab,
+[data-mode="kiosk"] .mbtn,
 [data-mode="kiosk"] a[href^="#/p/"] {
   min-height: 88px;
+  min-width: 88px;
 }
 [data-mode="kiosk"] button[aria-label="prev"],
 [data-mode="kiosk"] button[aria-label="next"] {
   min-width: 120px;
   min-height: 120px;
 }
-[data-mode="kiosk"] .mbtn {
-  min-width: 88px;
-  min-height: 88px;
+/* Map labels are drawn in SVG user units, so the rem scale never reaches
+   them; lift the base the zoom handler multiplies. */
+[data-mode="kiosk"] .gov-label {
+  font-weight: 700;
 }
 /* Nothing on a booth screen is decorative-small. */
 [data-mode="kiosk"] .cl-en,
@@ -190,6 +194,10 @@ body {
    floor at this scale; lift rather than hide - they carry the proof. */
 [data-mode="kiosk"] .tag,
 [data-mode="kiosk"] .count {
-  font-size: 0.8rem;
+  font-size: 0.82rem;
+}
+/* Mono eyebrows are set below the 20px secondary floor at booth scale. */
+[data-mode="kiosk"] .font-mono {
+  font-size: max(0.8rem, 1em);
 }
 [data-mode="kiosk"] .thumbs-scroll { display: none; }
