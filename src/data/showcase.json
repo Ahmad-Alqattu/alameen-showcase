@@ -951,6 +951,408 @@
    "usersNote": [
     "القائمة الكاملة في قسم عملاؤنا وعلى الخريطة",
     "Full list under Clients and on the map"
+   ],
+   "portals": [
+    {
+     "n": [
+      "بلدية يعبد",
+      "Ya’abad"
+     ],
+     "l": "yaabad.png",
+     "shot": "yabad.jpg",
+     "url": "https://yabad.ps/",
+     "gov": "جنين",
+     "w": 900,
+     "h": 563
+    },
+    {
+     "n": [
+      "بلدية طولكرم",
+      "Tulkarem"
+     ],
+     "l": "tulkarem.png",
+     "shot": "tulkarem.jpg",
+     "url": "https://eservice.mtulkarm.com/",
+     "gov": "طولكرم",
+     "w": 900,
+     "h": 563
+    },
+    {
+     "n": [
+      "بلدية القبيبة – عمواس",
+      "Al-Qubeibeh (Emmaus)"
+     ],
+     "l": "nm1.png",
+     "shot": "nm1.jpg",
+     "url": "http://82.102.219.143:8088",
+     "gov": "القدس",
+     "w": 900,
+     "h": 563
+    },
+    {
+     "n": [
+      "بلدية السواحرة الشرقية",
+      "East Sawahreh"
+     ],
+     "l": "nm2.png",
+     "shot": "nm2.jpg",
+     "url": "http://188.161.40.57:8088",
+     "gov": "القدس",
+     "w": 900,
+     "h": 563
+    },
+    {
+     "n": [
+      "بلدية الجيب",
+      "Al-Jib"
+     ],
+     "l": "nm3.png",
+     "shot": "nm3.jpg",
+     "url": "http://46.60.105.157:8088",
+     "gov": "القدس",
+     "w": 900,
+     "h": 563
+    },
+    {
+     "n": [
+      "بلدية الطيبة",
+      "Taybeh"
+     ],
+     "l": "nm4.png",
+     "shot": "nm4.jpg",
+     "url": "http://139.190.177.157:8088",
+     "gov": "رام الله",
+     "w": 900,
+     "h": 563
+    },
+    {
+     "n": [
+      "بلدية المزرعة الشرقية",
+      "Al-Mazra’a ash-Sharqiya"
+     ],
+     "l": "nm5.png",
+     "shot": "nm5.jpg",
+     "url": "http://46.43.88.95:8088",
+     "gov": "رام الله",
+     "w": 900,
+     "h": 563
+    },
+    {
+     "n": [
+      "بلدية عطارة",
+      "Atara"
+     ],
+     "l": "nm6.png",
+     "shot": "nm6.jpg",
+     "url": "http://213.6.132.125:8088",
+     "gov": "رام الله",
+     "w": 900,
+     "h": 563
+    },
+    {
+     "n": [
+      "بلدية بيت عور التحتا",
+      "Beit Ur al-Tahta"
+     ],
+     "l": "nm7.png",
+     "shot": "nm7.jpg",
+     "url": "http://213.6.113.154:8088",
+     "gov": "رام الله",
+     "w": 900,
+     "h": 563
+    },
+    {
+     "n": [
+      "بلدية كوبر",
+      "Kobar"
+     ],
+     "l": "nm8.png",
+     "shot": "nm8.jpg",
+     "url": "http://213.6.66.27:8088",
+     "gov": "رام الله",
+     "w": 900,
+     "h": 563
+    },
+    {
+     "n": [
+      "بلدية زيتا",
+      "Zeita"
+     ],
+     "l": "nm10.png",
+     "shot": "nm10.jpg",
+     "url": "http://213.6.58.34:8088",
+     "gov": "طولكرم",
+     "w": 900,
+     "h": 563
+    },
+    {
+     "n": [
+      "بلدية بيت أولا",
+      "Beit Ula"
+     ],
+     "l": "nm11.png",
+     "shot": "nm11.jpg",
+     "url": "http://213.6.181.242:8088",
+     "gov": "الخليل",
+     "w": 900,
+     "h": 563
+    },
+    {
+     "n": [
+      "بلدية هندازة – بريضعة",
+      "Hindaza & Breideh"
+     ],
+     "l": "nm12.png",
+     "shot": "nm12.jpg",
+     "url": "http://213.6.214.229:8088",
+     "gov": "بيت لحم",
+     "w": 900,
+     "h": 563
+    },
+    {
+     "n": [
+      "بلدية نحالين",
+      "Nahhalin"
+     ],
+     "l": "nm13.png",
+     "shot": "nm13.jpg",
+     "url": "http://213.6.41.113:8088",
+     "gov": "بيت لحم",
+     "w": 900,
+     "h": 563
+    },
+    {
+     "n": [
+      "بلدية جيوس",
+      "Jayyous"
+     ],
+     "l": "nm14.png",
+     "shot": "nm14.jpg",
+     "url": "http://82.213.58.231:8088",
+     "gov": "قلقيلية",
+     "w": 900,
+     "h": 563
+    },
+    {
+     "n": [
+      "بلدية كفل حارس",
+      "Kifl Haris"
+     ],
+     "l": "nm15.png",
+     "shot": "nm15.jpg",
+     "url": "http://217.21.11.37:8088",
+     "gov": "سلفيت",
+     "w": 900,
+     "h": 563
+    },
+    {
+     "n": [
+      "بلدية الزبابدة",
+      "Zababdeh"
+     ],
+     "l": "nm16.png",
+     "shot": "nm16.jpg",
+     "url": "http://213.6.236.230:8088",
+     "gov": "جنين",
+     "w": 900,
+     "h": 563
+    },
+    {
+     "n": [
+      "بلدية جبع",
+      "Jab’a"
+     ],
+     "l": "nm17.png",
+     "shot": "nm17.jpg",
+     "url": "http://62.16.79.205:8088",
+     "gov": "جنين",
+     "w": 900,
+     "h": 563
+    },
+    {
+     "n": [
+      "بلدية ميثلون",
+      "Meithalun"
+     ],
+     "l": "nm18.png",
+     "shot": "nm18.jpg",
+     "url": "http://45.113.108.223:8088",
+     "gov": "جنين",
+     "w": 900,
+     "h": 563
+    }
+   ],
+   "apps": [
+    {
+     "n": [
+      "بلدية طولكرم",
+      "Tulkarem"
+     ],
+     "icon": "tulkarem_icon.png",
+     "shots": [
+      {
+       "f": "tulkarem_1.jpg",
+       "w": 193,
+       "h": 420
+      },
+      {
+       "f": "tulkarem_2.jpg",
+       "w": 193,
+       "h": 420
+      },
+      {
+       "f": "tulkarem_3.jpg",
+       "w": 193,
+       "h": 420
+      }
+     ],
+     "url": "https://play.google.com/store/apps/details?id=com.mtulkarm.eservice.twa"
+    },
+    {
+     "n": [
+      "بلدية يعبد",
+      "Ya’abad"
+     ],
+     "icon": "yabad_icon.png",
+     "shots": [
+      {
+       "f": "yabad_1.jpg",
+       "w": 202,
+       "h": 420
+      },
+      {
+       "f": "yabad_2.jpg",
+       "w": 202,
+       "h": 420
+      }
+     ],
+     "url": "https://play.google.com/store/apps/details?id=ps.yabad.twa"
+    },
+    {
+     "n": [
+      "بلدية عزون",
+      "Azzun"
+     ],
+     "icon": "azzun_icon.png",
+     "shots": [
+      {
+       "f": "azzun_1.jpg",
+       "w": 193,
+       "h": 420
+      },
+      {
+       "f": "azzun_2.jpg",
+       "w": 193,
+       "h": 420
+      },
+      {
+       "f": "azzun_3.jpg",
+       "w": 193,
+       "h": 420
+      }
+     ],
+     "url": "https://play.google.com/store/apps/details?id=org.azzoun.emun"
+    },
+    {
+     "n": [
+      "بلدية حوارة",
+      "Howwara"
+     ],
+     "icon": "howwara_icon.png",
+     "shots": [
+      {
+       "f": "howwara_1.jpg",
+       "w": 202,
+       "h": 420
+      },
+      {
+       "f": "howwara_2.jpg",
+       "w": 202,
+       "h": 420
+      },
+      {
+       "f": "howwara_3.jpg",
+       "w": 202,
+       "h": 420
+      }
+     ],
+     "url": "https://play.google.com/store/apps/details?id=com.alameenapps.howwara"
+    },
+    {
+     "n": [
+      "بلدية الكوم",
+      "Al-Kum"
+     ],
+     "icon": "alkum_icon.png",
+     "shots": [
+      {
+       "f": "alkum_1.jpg",
+       "w": 202,
+       "h": 420
+      },
+      {
+       "f": "alkum_2.jpg",
+       "w": 202,
+       "h": 420
+      },
+      {
+       "f": "alkum_3.jpg",
+       "w": 202,
+       "h": 420
+      }
+     ],
+     "url": "https://play.google.com/store/apps/details?id=org.alkum.emun"
+    },
+    {
+     "n": [
+      "بلدية عقابا",
+      "Aqqaba"
+     ],
+     "icon": "aqqaba_icon.png",
+     "shots": [
+      {
+       "f": "aqqaba_1.jpg",
+       "w": 202,
+       "h": 420
+      },
+      {
+       "f": "aqqaba_2.jpg",
+       "w": 202,
+       "h": 420
+      },
+      {
+       "f": "aqqaba_3.jpg",
+       "w": 202,
+       "h": 420
+      }
+     ],
+     "url": "https://play.google.com/store/apps/details?id=ps.aqqaba.emun"
+    },
+    {
+     "n": [
+      "بلدية ترقوميا",
+      "Tarqumia"
+     ],
+     "icon": "tarqumia_icon.png",
+     "shots": [
+      {
+       "f": "tarqumia_1.jpg",
+       "w": 193,
+       "h": 420
+      },
+      {
+       "f": "tarqumia_2.jpg",
+       "w": 193,
+       "h": 420
+      },
+      {
+       "f": "tarqumia_3.jpg",
+       "w": 193,
+       "h": 420
+      }
+     ],
+     "url": "https://play.google.com/store/apps/details?id=org.tarqumia_city.eservice.twa"
+    }
    ]
   },
   {

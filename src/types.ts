@@ -14,6 +14,25 @@ export interface ProductUser {
   l: string | null
 }
 
+/** A client's live portal: a screenshot for offline proof, a link for the curious. */
+export interface Portal {
+  n: Bi
+  l: string
+  shot: string
+  url: string
+  gov: string
+  w: number
+  h: number
+}
+
+/** A published mobile app: the store listing plus its own phone screenshots. */
+export interface AppEntry {
+  n: Bi
+  icon: string
+  shots: { f: string; w: number; h: number }[]
+  url: string
+}
+
 export interface Product {
   slug: string
   logo: string
@@ -27,6 +46,8 @@ export interface Product {
   imgs: ProductImage[]
   users?: ProductUser[]
   usersNote?: Bi
+  portals?: Portal[]
+  apps?: AppEntry[]
 }
 
 export interface ClientItem {

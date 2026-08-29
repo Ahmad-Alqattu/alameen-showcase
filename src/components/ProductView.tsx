@@ -3,6 +3,7 @@ import { hasArabic, useI18n } from '../i18n'
 import { clientLogo, productImg, productLogo } from '../data'
 import type { Product } from '../types'
 import { Wrap, SectionLabel } from './Chrome'
+import { Apps, Portals } from './Portals'
 import { goHome } from '../hooks/useHashRoute'
 
 const AUTOPLAY_MS = 6000
@@ -191,6 +192,9 @@ export function ProductView({ product: p }: { product: Product }) {
             </button>
           ))}
         </div>
+
+        {p.portals && p.portals.length > 0 && <Portals portals={p.portals} />}
+        {p.apps && p.apps.length > 0 && <Apps apps={p.apps} />}
 
         {/* details */}
         <div className="mt-4 pb-14 grid md:grid-cols-[minmax(300px,1.15fr)_minmax(300px,1fr)] grid-cols-1 gap-[clamp(22px,4vw,56px)]">

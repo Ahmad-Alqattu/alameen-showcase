@@ -176,6 +176,31 @@ describe('brand assets', () => {
   })
 })
 
+describe('client portals and apps', () => {
+  const es = SHOWCASE.products.find((p) => p.slug === 'eservices')!
+
+  it('every portal has a screenshot, a logo and a reachable-looking URL', () => {
+    expect(es.portals?.length).toBeGreaterThan(0)
+    for (const p of es.portals!) {
+      expect(bothLangs(p.n)).toBe(true)
+      expect(assetExists(`assets/portals/${p.shot}`), `missing shot ${p.shot}`).toBe(true)
+      expect(assetExists(`assets/clients/${p.l}`), `missing logo ${p.l}`).toBe(true)
+      expect(p.url).toMatch(/^https?:\/\//)
+    }
+  })
+
+  it('every app has an icon, phone shots and a store link', () => {
+    expect(es.apps?.length).toBeGreaterThan(0)
+    for (const a of es.apps!) {
+      expect(bothLangs(a.n)).toBe(true)
+      expect(assetExists(`assets/apps/${a.icon}`), `missing icon ${a.icon}`).toBe(true)
+      expect(a.shots.length).toBeGreaterThan(0)
+      for (const sh of a.shots) expect(assetExists(`assets/apps/${sh.f}`), `missing ${sh.f}`).toBe(true)
+      expect(a.url).toContain('play.google.com')
+    }
+  })
+})
+
 describe('the recorded demo', () => {
   it('ships both codecs and a poster', () => {
     for (const f of ['assets/video/sabr_demo.webm', 'assets/video/sabr_demo.mp4', 'assets/video/sabr_poster.jpg'])
