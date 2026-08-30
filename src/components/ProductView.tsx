@@ -27,14 +27,33 @@ export function ProductView({ product: p }: { product: Product }) {
   const n = imgs.length
   const img = imgs[Math.min(idx, n - 1)]
 
+  /**
+   * Bring the stage back into view when the visitor changes the image
+   * themselves — a thumbnail sits below the stage, so clicking one from down
+   * the page swaps a picture they cannot see. Autoplay never scrolls: yanking
+   * the page while someone is reading the details is worse than the problem.
+   */
+  const revealStage = useCallback(() => {
+    const el = stageRef.current
+    if (!el) return
+    const r = el.getBoundingClientRect()
+    const header = 84 // the sticky top bar
+    if (r.top < header || r.bottom > window.innerHeight) {
+      window.scrollTo({
+        top: window.scrollY + r.top - header,
+        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+      })
+    }
+  }, [])
+
   const go = useCallback(
     (i: number, manual = false) => {
       setIdx(((i % n) + n) % n)
-      if (manual) setPlaying(false)
+      if (manual) { setPlaying(false); revealStage() }
       startRef.current = Date.now()
       setProgress(0)
     },
-    [n],
+    [n, revealStage],
   )
 
   /* autoplay + progress */
@@ -68,9 +87,16 @@ export function ProductView({ product: p }: { product: Product }) {
     return () => document.removeEventListener('keydown', on)
   }, [idx, go])
 
-  /* keep the active thumbnail in view */
+  /* Keep the active thumbnail in view by scrolling the strip itself.
+     scrollIntoView would have walked up to the document and moved the page. */
   useEffect(() => {
-    thumbsRef.current?.children[idx]?.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' })
+    const strip = thumbsRef.current
+    const el = strip?.children[idx] as HTMLElement | undefined
+    if (!strip || !el) return
+    strip.scrollTo({
+      left: el.offsetLeft - strip.clientWidth / 2 + el.clientWidth / 2,
+      behavior: 'smooth',
+    })
   }, [idx])
 
   const fullscreen = () => {
@@ -111,7 +137,7 @@ export function ProductView({ product: p }: { product: Product }) {
             {(['staff', 'citizen'] as const).map((sd) => (
               <button
                 key={sd}
-                onClick={() => { setSide(sd); setIdx(0); setPlaying(true) }}
+                onClick={() => { setSide(sd); setIdx(0); setPlaying(true); revealStage() }}
                 className={`px-5 py-2.5 rounded-full text-[.86rem] font-semibold border transition ${
                   side === sd
                     ? 'bg-navy border-navy text-white shadow-[0_8px_20px_-8px_rgb(0_40_78/.5)]'

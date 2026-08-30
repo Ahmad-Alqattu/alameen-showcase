@@ -25,6 +25,11 @@ class MockIntersectionObserver implements IntersectionObserver {
 }
 vi.stubGlobal('IntersectionObserver', MockIntersectionObserver)
 
+/** jsdom gives elements no scrollTo; the thumbnail strip calls it on itself. */
+if (!Element.prototype.scrollTo) {
+  Element.prototype.scrollTo = () => {}
+}
+
 if (!window.matchMedia) {
   vi.stubGlobal(
     'matchMedia',
