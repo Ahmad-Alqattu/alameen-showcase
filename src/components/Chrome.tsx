@@ -64,7 +64,7 @@ export function Topbar() {
     <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-line">
       <Wrap className="flex items-center justify-between gap-3.5 py-3.5">
         <a href="#/" aria-label="Al-Ameen Technologies">
-          <img className="h-9 block" src="./assets/logo-alameen.svg" alt="Al-Ameen Technologies" />
+          <img className="h-14 block" src="./assets/logo-alameen.png" alt="Al-Ameen Technologies" />
         </a>
         <nav className="hidden md:flex items-center gap-1 flex-wrap">
           {anchors.map(([k, id]) => (
@@ -182,7 +182,7 @@ export function Footer() {
         </div>
 
         <div className="mt-[clamp(30px,5vh,54px)] pt-6 border-t border-white/12 flex flex-wrap items-center justify-between gap-5">
-          <img className="h-8" src="./assets/logo-alameen-white.svg" alt="Al-Ameen Technologies" />
+          <img className="h-12" src="./assets/logo-alameen-white.png" alt="Al-Ameen Technologies" />
           <div className="font-mono text-[.72rem] text-[#7fa3c6]">
             © {new Date().getFullYear()} {L(['الأمين للتقنيات', 'Al-Ameen Technologies'])}
           </div>

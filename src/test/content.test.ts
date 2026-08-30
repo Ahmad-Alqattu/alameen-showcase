@@ -163,8 +163,8 @@ describe('company profile', () => {
 describe('brand assets', () => {
   it('company logos and fonts ship with the site', () => {
     for (const f of [
-      'assets/logo-alameen.svg',
-      'assets/logo-alameen-white.svg',
+      'assets/logo-alameen.png',
+      'assets/logo-alameen-white.png',
       'assets/fonts/readex-arabic.woff2',
       'assets/fonts/readex-latin.woff2',
       'icons/icon-192.png',

@@ -186,9 +186,9 @@ function AttractScreen({ onBegin }: { onBegin: () => void }) {
           [background:radial-gradient(900px_540px_at_78%_-10%,rgb(0_167_225/.3),transparent_62%),radial-gradient(700px_460px_at_-6%_105%,rgb(0_120_233/.26),transparent_60%)]"
       />
       <img
-        src="./assets/logo-alameen-white.svg"
+        src="./assets/logo-alameen-white.png"
         alt="Al-Ameen Technologies"
-        className="relative h-[clamp(44px,5vh,80px)] mb-[6vh]"
+        className="relative h-[clamp(64px,8vh,120px)] mb-[6vh]"
       />
       <div key={scene} className="relative animate-rise">
         <div className="font-mono text-[clamp(1rem,1.6vw,1.6rem)] tracking-[.18em] uppercase text-cyan mb-[3vh]">
