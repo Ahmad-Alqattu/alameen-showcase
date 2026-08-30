@@ -1,0 +1,14 @@
+[Unit]
+Description=Al-Ameen booth — local static server for the showcase
+Documentation=file://%h/dev/alameen-showcase/BOOTH-CARD.md
+
+[Service]
+# Serves the SAME dist/ that is published. No internet needed: the build only
+# wants an HTTP origin, because browsers refuse module scripts over file://.
+WorkingDirectory=%h/dev/alameen-showcase/dist
+ExecStart=/usr/bin/python3 -m http.server 4173 --bind 127.0.0.1
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Al-Ameen QR
+Name[ar]=باركود الأمين
+Comment=Full-screen QR to the published site — for the stand or to print
+Comment[ar]=باركود بملء الشاشة للموقع المنشور — للستاند أو للطباعة
+Exec=google-chrome --new-window --start-fullscreen "file:///home/ahmadq/Desktop/Al-Ameen QR.html"
+Icon=/home/ahmadq/dev/alameen-showcase/public/icons/icon-512.png
+Terminal=false
+Categories=Utility;

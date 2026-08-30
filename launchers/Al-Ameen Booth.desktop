@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Al-Ameen Booth
+Name[ar]=ستاند الأمين — عرض المعرض
+Comment=Serve the showcase locally (offline) and open Chrome in kiosk mode
+Comment[ar]=يشغّل النسخة المحلية بدون إنترنت ويفتح كروم بوضع المعرض
+Exec=/home/ahmadq/dev/alameen-showcase/booth-launch.sh
+Icon=/home/ahmadq/dev/alameen-showcase/public/icons/icon-512.png
+Terminal=false
+Categories=Utility;

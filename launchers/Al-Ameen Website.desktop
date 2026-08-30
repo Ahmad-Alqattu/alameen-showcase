@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Al-Ameen Website
+Name[ar]=موقع الأمين — النسخة المنشورة
+Comment=Open the published site on GitHub Pages
+Comment[ar]=يفتح الموقع المنشور على الإنترنت
+Exec=google-chrome --new-window https://ahmad-alqattu.github.io/alameen-showcase/
+Icon=/home/ahmadq/dev/alameen-showcase/public/icons/icon-512.png
+Terminal=false
+Categories=Utility;

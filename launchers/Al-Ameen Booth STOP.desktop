@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Al-Ameen Booth STOP
+Name[ar]=إيقاف ستاند الأمين
+Comment=Close the booth Chrome window and the local server
+Comment[ar]=يغلق نافذة كروم الخاصة بالستاند والسيرفر المحلي
+Exec=/home/ahmadq/dev/alameen-showcase/booth-stop.sh
+Icon=process-stop
+Terminal=false
+Categories=Utility;
