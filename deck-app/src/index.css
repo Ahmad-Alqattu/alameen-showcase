@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+/* The deck paints its own ground; nothing else styles this page. */
+html, body, #root { height: 100%; margin: 0; }
+body { font-family: system-ui, -apple-system, "Segoe UI", Tahoma, sans-serif; }
+
+/* =========================================
+   Showcase — the portal presenting its own sections
+   =========================================
+   A deck that runs on a lobby screen or a projector, so the motion has one job: make each thing
+   ARRIVE, then hold still long enough to be read. Everything below is entrance motion with `both`
+   fill — a delayed element must be invisible before its turn, not flash and then animate — and
+   only the client marquee and the flow pulse repeat. Nothing pulses, glows or breathes: on a light
+   editorial ground that reads as decoration, and decoration is what this deck is not.
+
+   `showcase-root` sets `direction` from the language, so the two point/row keyframes below are the
+   only place that has to know which way "in from the side" runs. */
+
+@keyframes showcase-rise      { from { opacity: 0; transform: translateY(18px); }          to { opacity: 1; transform: none; } }
+@keyframes showcase-point     { from { opacity: 0; transform: translateX(-22px); }         to { opacity: 1; transform: none; } }
+@keyframes showcase-point-rtl { from { opacity: 0; transform: translateX(22px); }          to { opacity: 1; transform: none; } }
+@keyframes showcase-pop       { from { opacity: 0; transform: scale(.86) translateY(10px); } to { opacity: 1; transform: none; } }
+@keyframes showcase-drop      { from { opacity: 0; transform: translateY(-14px) scale(.7); } to { opacity: 1; transform: none; } }
+@keyframes showcase-draw      { from { stroke-dasharray: 1 620; }                          to { stroke-dasharray: 620 620; } }
+@keyframes showcase-descend   { from { top: -.75rem; opacity: 0; } 35% { opacity: 1; } to { top: 100%; opacity: 0; } }
+@keyframes showcase-marquee   { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-50%, 0, 0); } }
+@keyframes showcase-screen    { from { opacity: 0; transform: scale(.97); }                to { opacity: 1; transform: none; } }
+
+.showcase-enter  { animation: showcase-rise .6s cubic-bezier(.22, 1, .36, 1) both; }
+.showcase-point  { animation: showcase-point .55s cubic-bezier(.22, 1, .36, 1) both; }
+.showcase-pop    { animation: showcase-pop .55s cubic-bezier(.22, 1, .36, 1) both; }
+.showcase-drop   { animation: showcase-drop .5s cubic-bezier(.34, 1.56, .64, 1) both; }
+.showcase-draw   { animation: showcase-draw 1.4s ease-out both; }
+/* The pulse that runs down each hop of the AI-flow diagram. */
+.showcase-descend { animation: showcase-descend 2.4s ease-in-out infinite; }
+/* The client wall: one strip duplicated, translated by exactly half its width, so the seam between
+   the copy and the original never shows and the loop has no jump to hide. */
+.showcase-marquee { animation: showcase-marquee 42s linear infinite; }
+.showcase-marquee:hover { animation-play-state: paused; }
+/* A real screenshot crossfading in over the one before it. */
+.showcase-screen { animation: showcase-screen .55s cubic-bezier(.22, 1, .36, 1) both; }
+
+[dir="rtl"] .showcase-point { animation-name: showcase-point-rtl; }
+
+/* The deck covers the viewport, so its own scrollbars would be a bug rather than an affordance. */
+.showcase-root { overscroll-behavior: contain; }
+
+/* A slide that cannot move still has to be legible: hold every entrance at its END state rather
+   than at the `from` frame the `both` fill would otherwise freeze it on.
+   (html[data-a11y-motion="reduce"] shortens durations globally; this covers the OS setting.) */
+@media (prefers-reduced-motion: reduce) {
+  .showcase-enter, .showcase-point, .showcase-pop,
+  .showcase-drop, .showcase-draw, .showcase-screen {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    stroke-dasharray: none;
+  }
+  .showcase-descend, .showcase-marquee { animation: none; }
+}
