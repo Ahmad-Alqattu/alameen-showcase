@@ -46,6 +46,7 @@ export default function ShowcaseStage({ slide, onInteract }: { slide: ShowcaseSl
       ) : (
         <>
           {!slide.logoOnly && slide.visual === 'funders' && <FundersVisual />}
+          {!slide.logoOnly && slide.visual === 'ecosystem' && slide.ecosystem && <EcosystemVisual items={slide.ecosystem} />}
           {!slide.logoOnly && slide.visual === 'chips' && slide.chips && <ChipsVisual items={slide.chips} />}
           {!slide.logoOnly && slide.visual === 'logogrid' && <LogoGridVisual logos={HEADLINE_CLIENT_LOGOS} />}
           {!slide.logoOnly && slide.visual === 'partnerwall' && <LogoGridVisual logos={PARTNER_LOGOS} large />}
@@ -386,6 +387,37 @@ function FundersVisual() {
                className="max-w-full max-h-full object-contain" />
         </span>
       ))}
+    </div>
+  );
+}
+
+/**
+ * The platform seen whole.
+ *
+ * Nine capabilities on one board, arriving together, before any single one is opened. A
+ * feature list read down a column is nine claims; the same nine as a board is one system,
+ * which is the thing being sold. Each tile carries only its name — the slides that follow
+ * are where a capability earns its sentence.
+ */
+function EcosystemVisual({ items }: { items: { key: string; icon: keyof typeof CHIP_ICONS }[] }) {
+  const { t } = useTranslation();
+  return (
+    <div className="grid grid-cols-3 gap-3 sm:gap-4 w-full h-full auto-rows-fr content-center max-w-2xl">
+      {items.map(({ key, icon }, i) => {
+        const Icon = CHIP_ICONS[icon];
+        return (
+          <div
+            key={key}
+            className="showcase-pop flex flex-col items-center justify-center gap-2 text-center rounded-xl bg-white ring-1 ring-slate-900/8 px-3 py-4 min-h-0"
+            style={{ animationDelay: `${i * 70}ms` }}
+          >
+            <Icon className="w-6 h-6 shrink-0" style={{ color: 'var(--accent)' }} strokeWidth={1.8} />
+            <span className="text-xs sm:text-sm font-bold leading-tight text-slate-700">
+              {t(`showcase.ecosystem.${key}`)}
+            </span>
+          </div>
+        );
+      })}
     </div>
   );
 }

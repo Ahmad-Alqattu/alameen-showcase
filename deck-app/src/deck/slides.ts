@@ -21,6 +21,9 @@ import {
   Boxes,
   Code2,
   Globe,
+  FileText,
+  KeyRound,
+  MessageSquare,
   Archive,
   Lightbulb,
   Server,
@@ -60,7 +63,8 @@ export type SlideVisual =
   | 'logogrid'
   | 'partnerwall'
   | 'chips'
-  | 'funders';
+  | 'funders'
+  | 'ecosystem';
 
 /**
  * The chapters the deck is grouped into.
@@ -111,6 +115,11 @@ export interface ShowcaseSlide {
    */
   image?: string;
   /**
+   * The nine capabilities, drawn as one board. Named here rather than in the locale files
+   * because each carries its own icon and accent, which are design, not translation.
+   */
+  ecosystem?: { key: string; icon: keyof typeof CHIP_ICONS }[];
+  /**
    * Short labels drawn as a tile grid — specializations, a technology stack, a method.
    * These are lists whose items are the picture: no screenshot says ".NET 10" and a
    * paragraph that does say it is not read at four metres.
@@ -140,6 +149,8 @@ export interface ShowcaseSlide {
 export const CHIP_ICONS = {
   Code2, Globe, Smartphone, Map: MapIcon, Sparkles, ClipboardList, Archive, Lightbulb,
   Server, Atom, Database, MapPin, Container, Plug,
+  BarChart3, LayoutDashboard, GitBranch, FileText, FileCheck2, BellRing, KeyRound,
+  Users, Wand2, MessageSquare,
 } as const;
 
 export const SLIDE_ACCENTS = {
@@ -194,6 +205,27 @@ export const SHOWCASE_SLIDES: ShowcaseSlide[] = [
   { id: 'partners', section: 'company', Icon: Handshake, visual: 'partnerwall', points: 5, accent: 'slate' },
 
   // ── The AI, before the products, because it runs through all of them ──────
+  { id: 'ecosystem', section: 'platform', Icon: Boxes, visual: 'ecosystem', points: 3, accent: 'teal',
+    ecosystem: [
+      { key: 'eservices', icon: 'ClipboardList' },
+      { key: 'hr', icon: 'Users' },
+      { key: 'gis', icon: 'Map' },
+      { key: 'mis', icon: 'BarChart3' },
+      { key: 'portal', icon: 'Globe' },
+      { key: 'documents', icon: 'FileCheck2' },
+    ] },
+  { id: 'capabilities', section: 'platform', Icon: Layers, visual: 'ecosystem', points: 3, accent: 'teal',
+    ecosystem: [
+      { key: 'workflow', icon: 'GitBranch' },
+      { key: 'aiEngine', icon: 'Sparkles' },
+      { key: 'forms', icon: 'FileText' },
+      { key: 'reportBuilder', icon: 'LayoutDashboard' },
+      { key: 'aiReports', icon: 'Wand2' },
+      { key: 'assistant', icon: 'MessageSquare' },
+      { key: 'notifications', icon: 'BellRing' },
+      { key: 'permissions', icon: 'KeyRound' },
+      { key: 'apiFirst', icon: 'Plug' },
+    ] },
   { id: 'aiAssistant', section: 'ai', Icon: Sparkles, visual: 'aiflow', shots: ['dwp/03.jpg'], points: 3, accent: 'violet' },
   { id: 'aiAnswers', section: 'ai', Icon: Sparkles, visual: 'aiflow', shots: ['dwp/04.jpg'], points: 3, accent: 'violet' },
   { id: 'aiMap', section: 'ai', Icon: MapPin, visual: 'aiflow', shots: ['dwp/05.jpg'], points: 3, accent: 'violet' },
