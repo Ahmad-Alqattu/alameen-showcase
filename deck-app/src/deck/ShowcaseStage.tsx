@@ -10,6 +10,7 @@ import {
   type ProductShot,
 } from './mapData';
 import { asset } from './assetUrl';
+import { useBilingual } from './bilingual';
 
 /** How long one real screen holds before the next crossfades in. */
 const SCREEN_HOLD_MS = 3400;
@@ -400,7 +401,7 @@ function FundersVisual() {
  * are where a capability earns its sentence.
  */
 function EcosystemVisual({ items }: { items: { key: string; icon: keyof typeof CHIP_ICONS }[] }) {
-  const { t } = useTranslation();
+  const bi = useBilingual();
   return (
     <div className="grid grid-cols-3 gap-3 sm:gap-4 w-full h-full auto-rows-fr content-center max-w-2xl">
       {items.map(({ key, icon }, i) => {
@@ -412,8 +413,11 @@ function EcosystemVisual({ items }: { items: { key: string; icon: keyof typeof C
             style={{ animationDelay: `${i * 70}ms` }}
           >
             <Icon className="w-6 h-6 shrink-0" style={{ color: 'var(--accent)' }} strokeWidth={1.8} />
-            <span className="text-xs sm:text-sm font-bold leading-tight text-slate-700">
-              {t(`showcase.ecosystem.${key}`)}
+            <span dir="ltr" className="text-xs sm:text-sm font-black leading-tight text-slate-800">
+              {bi(`showcase.ecosystem.${key}`).en}
+            </span>
+            <span className="text-[11px] leading-tight text-slate-500">
+              {bi(`showcase.ecosystem.${key}`).ar}
             </span>
           </div>
         );

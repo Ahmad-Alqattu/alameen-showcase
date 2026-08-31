@@ -1,1 +1,1 @@
-{"root":["./src/i18n.ts","./src/main.tsx","./src/deck/CoverageMap.tsx","./src/deck/ShowcaseApp.tsx","./src/deck/ShowcaseStage.tsx","./src/deck/assetUrl.ts","./src/deck/mapData.ts","./src/deck/slides.ts","./src/hooks/useAuth.ts"],"version":"5.9.3"}
+{"root":["./src/i18n.ts","./src/main.tsx","./src/deck/CoverageMap.tsx","./src/deck/ShowcaseApp.tsx","./src/deck/ShowcaseStage.tsx","./src/deck/assetUrl.ts","./src/deck/bilingual.ts","./src/deck/mapData.ts","./src/deck/slides.ts","./src/hooks/useAuth.ts"],"version":"5.9.3"}

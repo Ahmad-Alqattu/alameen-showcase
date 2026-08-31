@@ -5,6 +5,7 @@ import QRCode from 'qrcode';
 import { ChevronRight, ChevronLeft, Pause, Play, Maximize2, Minimize2, X } from 'lucide-react';
 import { useAuth } from '../hooks/useAuth';
 import ShowcaseStage from './ShowcaseStage';
+import { useBilingual } from './bilingual';
 import {
   SHOWCASE_SLIDES,
   SHOWCASE_SECTIONS,
@@ -38,6 +39,7 @@ export default function ShowcaseApp() {
   const navigate = useNavigate();
   const { user } = useAuth();
   const isAr = i18n.language === 'ar';
+  const bi = useBilingual();
 
   const [index, setIndex] = useState(0);
   const [playing, setPlaying] = useState(true);
@@ -136,8 +138,8 @@ export default function ShowcaseApp() {
   }, []);
 
   const points = useMemo(
-    () => Array.from({ length: slide.points }, (_, i) => t(`showcase.slides.${slide.id}.b${i + 1}`)),
-    [slide, t],
+    () => Array.from({ length: slide.points }, (_, i) => bi(`showcase.slides.${slide.id}.b${i + 1}`)),
+    [slide, bi],
   );
 
   // A few slides correspond to a section of THIS platform. Offer it only to someone whose account
@@ -164,15 +166,23 @@ export default function ShowcaseApp() {
           <div className="flex items-center gap-2.5">
             <slide.Icon className="w-4 h-4 shrink-0" style={{ color: accent }} strokeWidth={2.4} />
             <p className="text-xs sm:text-sm font-bold tracking-[.08em] uppercase" style={{ color: accent }}>
-              {t(`showcase.slides.${slide.id}.eyebrow`)}
+              {bi(`showcase.slides.${slide.id}.eyebrow`).ar}
+              <span className="mx-2 opacity-40">·</span>
+              {bi(`showcase.slides.${slide.id}.eyebrow`).en}
             </p>
             <span className="flex-1 h-px bg-slate-200" />
           </div>
           <h1 className="mt-2.5 text-2xl sm:text-3xl xl:text-4xl font-black tracking-tight leading-[1.15] text-slate-900">
-            {t(`showcase.slides.${slide.id}.title`)}
+            {bi(`showcase.slides.${slide.id}.title`).ar}
           </h1>
-          <p className="mt-2 text-sm sm:text-base text-slate-500 leading-relaxed max-w-4xl">
-            {t(`showcase.slides.${slide.id}.tagline`)}
+          <p dir="ltr" className="mt-1 text-base sm:text-lg font-bold tracking-tight text-slate-400 text-start">
+            {bi(`showcase.slides.${slide.id}.title`).en}
+          </p>
+          <p className="mt-2.5 text-sm sm:text-base text-slate-500 leading-relaxed max-w-4xl">
+            {bi(`showcase.slides.${slide.id}.tagline`).ar}
+          </p>
+          <p dir="ltr" className="mt-1 text-xs sm:text-sm text-slate-400 leading-relaxed max-w-4xl text-start">
+            {bi(`showcase.slides.${slide.id}.tagline`).en}
           </p>
         </header>
 
@@ -209,7 +219,8 @@ export default function ShowcaseApp() {
                 className="showcase-point relative overflow-hidden rounded-xl bg-white ring-1 ring-slate-900/8 shadow-[0_1px_2px_rgb(15_23_42/.04)] ps-5 pe-4 py-3.5"
               >
                 <span className="absolute inset-y-0 start-0 w-1.5" style={{ background: accent }} />
-                <p className="text-base sm:text-lg font-medium leading-[1.7] text-slate-800">{text}</p>
+                <p className="text-sm sm:text-base font-medium leading-[1.6] text-slate-800">{text.ar}</p>
+                <p dir="ltr" className="mt-1 text-[11px] sm:text-xs leading-snug text-slate-400 text-start">{text.en}</p>
               </div>
             ))}
           </div>
@@ -252,7 +263,7 @@ export default function ShowcaseApp() {
                     className={`truncate text-start text-[10px] sm:text-[11px] font-bold tracking-wide transition-colors ${active ? '' : 'text-slate-400 hover:text-slate-600'}`}
                     style={active ? { color: accent } : undefined}
                   >
-                    {t(`showcase.sections.${section}`)}
+                    {bi(`showcase.sections.${section}`).ar}
                   </button>
                   <div className="flex items-center gap-1">
                     {inSection.map((s) => {
@@ -314,10 +325,13 @@ export default function ShowcaseApp() {
             {t('showcase.nowShowing')}
           </p>
           <p className="mt-1.5 text-sm font-bold leading-snug text-slate-800">
-            {t(`showcase.slides.${slide.id}.title`)}
+            {bi(`showcase.slides.${slide.id}.title`).ar}
+          </p>
+          <p dir="ltr" className="mt-0.5 text-[11px] font-semibold leading-snug text-slate-400">
+            {bi(`showcase.slides.${slide.id}.title`).en}
           </p>
           <p className="mt-2 text-[11px] leading-relaxed text-slate-500">
-            {t(`showcase.slides.${slide.id}.caption`)}
+            {bi(`showcase.slides.${slide.id}.caption`).ar}
           </p>
           {canOpenSection && (
             <button
