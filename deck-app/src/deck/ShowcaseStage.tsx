@@ -260,7 +260,7 @@ function LogoWallVisual() {
 function MarkVisual() {
   return (
     <div className="flex flex-col items-center gap-10">
-      <img src={asset("logo-alameen.png")} alt="" className="showcase-pop w-64 sm:w-80 h-auto" />
+      <img src={asset("logo-alameen.png")} alt="" className="showcase-pop w-80 sm:w-[28rem] h-auto" />
       <div className="flex items-center gap-2">
         {Array.from({ length: 5 }, (_, i) => (
           <span

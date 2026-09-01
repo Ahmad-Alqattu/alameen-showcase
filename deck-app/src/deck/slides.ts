@@ -186,6 +186,7 @@ export const SLIDE_ACCENTS = {
  */
 export const SHOWCASE_SLIDES: ShowcaseSlide[] = [
   // ── Who we are ────────────────────────────────────────────────────────────
+  { id: 'cover', section: 'company', Icon: Sparkles, visual: 'mark', points: 0, accent: 'company' },
   { id: 'company', short: true, section: 'company', Icon: Building2, visual: 'mark', shots: ['dwp/02.jpg', 'madeenati/01.jpg', 'eservices/01.jpg', 'eywa/01.jpg', 'buildflow/01.jpg', 'ptax/01.jpg'], points: 4, accent: 'company' },
   { id: 'reach', section: 'company', Icon: BarChart3, visual: 'logogrid', points: 5, accent: 'company' },
   { id: 'coverage', section: 'company', Icon: MapPin, visual: 'coverage', points: 4, accent: 'sky' },
@@ -341,6 +342,6 @@ export function activeSlides(): ShowcaseSlide[] {
   // second, before the assistant, or the assistant reads as a chat box with no platform
   // under it. In source order it falls after the AI section and arrives too late to do
   // that job.
-  const ORDER = ['company', 'ecosystem', 'aiAssistant', 'aiAnswers', 'aiMap', 'aiDashboard', 'contact'];
+  const ORDER = ['cover', 'ecosystem', 'aiAssistant', 'aiAnswers', 'aiMap', 'aiDashboard'];
   return ORDER.flatMap((id) => SHOWCASE_SLIDES.filter((s) => s.id === id));
 }

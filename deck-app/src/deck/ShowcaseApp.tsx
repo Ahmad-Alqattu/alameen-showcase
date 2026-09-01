@@ -164,27 +164,28 @@ export default function ShowcaseApp() {
 
       <main className="relative flex-1 min-w-0 flex flex-col px-6 sm:px-8 lg:px-10 pt-6 pb-4 gap-4">
         {/* ── Title ── re-keyed per slide so the entrance replays. */}
-        <header key={`head-${slide.id}`} className="showcase-enter shrink-0">
-          <div className="flex items-center gap-2.5">
-            <slide.Icon className="w-4 h-4 shrink-0" style={{ color: accent }} strokeWidth={2.4} />
-            <p className="text-sm sm:text-base font-bold tracking-[.08em] uppercase" style={{ color: accent }}>
-              {bi(`showcase.slides.${slide.id}.eyebrow`).ar}
-              <span className="mx-2 opacity-40">·</span>
-              {bi(`showcase.slides.${slide.id}.eyebrow`).en}
-            </p>
-            <span className="flex-1 h-px bg-slate-200" />
-          </div>
-          <h1 className="mt-2.5 text-3xl sm:text-4xl xl:text-5xl font-black tracking-tight leading-[1.12] text-slate-900">
+        <header key={`head-${slide.id}`} className="showcase-enter shrink-0 pt-4 sm:pt-7 text-center">
+          <p className="inline-flex items-center gap-2.5 text-sm sm:text-base font-bold tracking-[.08em] uppercase" style={{ color: accent }}>
+            <slide.Icon className="w-5 h-5" strokeWidth={2.2} />
+            {bi(`showcase.slides.${slide.id}.eyebrow`).ar}
+            {bi(`showcase.slides.${slide.id}.eyebrow`).en !== bi(`showcase.slides.${slide.id}.eyebrow`).ar && (
+              <>
+                <span className="opacity-40">·</span>
+                {bi(`showcase.slides.${slide.id}.eyebrow`).en}
+              </>
+            )}
+          </p>
+          <h1 className="mt-3 text-4xl sm:text-5xl xl:text-6xl font-black tracking-tight leading-[1.1] text-slate-900">
             {bi(`showcase.slides.${slide.id}.title`).ar}
           </h1>
-          <p dir="ltr" className="mt-1 text-lg sm:text-xl xl:text-2xl font-bold tracking-tight text-slate-400 text-end">
+          <p dir="ltr" className="mt-2 text-xl sm:text-2xl xl:text-3xl font-bold tracking-tight text-slate-500">
             {bi(`showcase.slides.${slide.id}.title`).en}
           </p>
-          <p className="mt-3 text-base sm:text-lg text-slate-500 leading-relaxed max-w-4xl">
+          <p className="mt-3 text-base sm:text-lg text-slate-500 leading-relaxed max-w-5xl mx-auto">
             {bi(`showcase.slides.${slide.id}.tagline`).ar}
-          </p>
-          <p dir="ltr" className="mt-1 text-sm sm:text-base text-slate-400 leading-relaxed max-w-4xl text-end">
-            {bi(`showcase.slides.${slide.id}.tagline`).en}
+            <span dir="ltr" className="block mt-1 text-sm sm:text-base text-slate-400">
+              {bi(`showcase.slides.${slide.id}.tagline`).en}
+            </span>
           </p>
         </header>
 
@@ -211,7 +212,7 @@ export default function ShowcaseApp() {
               them implied an order the content does not have. Each is its own card with the
               slide's colour on its leading edge — they stack, arrive one at a time, and read as
               facts rather than as minutes of a meeting. */}
-          <div className="w-full xl:w-auto xl:min-w-[19rem] xl:max-w-[30rem] flex flex-col justify-center gap-2.5 min-w-0">
+          <div hidden={slide.points === 0} className="w-full xl:w-auto xl:min-w-[19rem] xl:max-w-[30rem] flex flex-col justify-center gap-2.5 min-w-0">
             {points.map((text, i) => (
               <div
                 key={`${slide.id}-${i}`}

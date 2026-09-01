@@ -57,6 +57,12 @@
       "apiFirst": "API First"
     },
     "slides": {
+      "cover": {
+        "eyebrow": "LEAP 2026",
+        "title": "One Integrated Digital Ecosystem",
+        "tagline": "Connecting services, data and AI into measurable impact.",
+        "caption": "Alameen Technologies — since 2008, 86 organizations run on our systems."
+      },
       "company": {
         "eyebrow": "About us",
         "title": "Alameen Technologies",
