@@ -59,7 +59,7 @@ export default function ShowcaseStage({
         <>
           {!slide.logoOnly && slide.visual === 'funders' && <FundersVisual />}
           {!slide.logoOnly && slide.visual === 'ecosystem' && slide.ecosystem && <EcosystemVisual items={slide.ecosystem} />}
-          {!slide.logoOnly && slide.visual === 'hub' && <HubVisual />}
+          {!slide.logoOnly && slide.visual === 'hub' && slide.ecosystem && <HubVisual items={slide.ecosystem} />}
           {!slide.logoOnly && slide.visual === 'chips' && slide.chips && <ChipsVisual items={slide.chips} />}
           {!slide.logoOnly && slide.visual === 'logogrid' && <LogoGridVisual logos={HEADLINE_CLIENT_LOGOS} />}
           {!slide.logoOnly && slide.visual === 'partnerwall' && <LogoGridVisual logos={PARTNER_LOGOS} large />}
@@ -485,28 +485,28 @@ function FundersVisual() {
 function EcosystemVisual({ items }: { items: { key: string; icon: keyof typeof CHIP_ICONS }[] }) {
   const bi = useBilingual();
   return (
-    <div className="grid grid-cols-4 gap-2.5 sm:gap-3 w-full h-full auto-rows-fr content-center max-w-5xl">
+    <div className="grid grid-cols-4 gap-3 sm:gap-4 w-full h-full auto-rows-fr content-center max-w-7xl mx-auto">
       {items.map(({ key, icon }, i) => {
         const Icon = CHIP_ICONS[icon];
         return (
           <div
             key={key}
-            className="showcase-pop flex flex-col items-center justify-center gap-1.5 text-center rounded-2xl bg-white ring-1 ring-slate-900/8 px-4 py-5 min-h-0"
+            className="showcase-pop flex flex-col items-center justify-center gap-1.5 text-center rounded-2xl bg-white ring-1 ring-slate-900/8 px-4 py-6 min-h-0"
             style={{ animationDelay: `${i * 70}ms` }}
           >
-            <Icon className="w-9 h-9 sm:w-10 sm:h-10 shrink-0" style={{ color: 'var(--accent)' }} strokeWidth={1.6} />
-            <span dir="ltr" className="text-sm sm:text-base font-black leading-tight text-slate-800">
+            <Icon className="w-12 h-12 sm:w-14 sm:h-14 shrink-0" style={{ color: 'var(--accent)' }} strokeWidth={1.5} />
+            <span dir="ltr" className="text-base sm:text-xl font-black leading-tight text-slate-800">
               {bi(`showcase.ecosystem.${key}`).en}
             </span>
-            <span className="text-xs sm:text-sm leading-tight text-slate-500">
+            <span className="text-sm sm:text-base leading-tight text-slate-500">
               {bi(`showcase.ecosystem.${key}`).ar}
             </span>
             {/* What the capability is FOR. A name alone makes the visitor guess; one line
                 each turns twelve labels into twelve reasons. */}
-            <span dir="ltr" className="mt-0.5 text-[11px] sm:text-xs font-bold leading-tight" style={{ color: 'var(--accent)' }}>
+            <span dir="ltr" className="mt-0.5 text-xs sm:text-sm font-bold leading-tight" style={{ color: 'var(--accent)' }}>
               {bi(`showcase.ecosystemFeature.${key}`).en}
             </span>
-            <span className="text-[11px] sm:text-xs leading-tight text-slate-400">
+            <span className="text-xs sm:text-sm leading-tight text-slate-400">
               {bi(`showcase.ecosystemFeature.${key}`).ar}
             </span>
           </div>
@@ -517,93 +517,66 @@ function EcosystemVisual({ items }: { items: { key: string; icon: keyof typeof C
 }
 
 /**
- * The claim, drawn instead of asserted.
+ * The claim, drawn instead of asserted — and no longer capped at six.
  *
- * "Connected services" shown as six separate cards contradicted itself — the eye saw six
- * systems standing apart. Here the platform sits at the centre and the six domains are
- * wired to it, so the first glance carries the sentence: parts of one thing, not products
- * in a row. The shared capabilities sit under the hub as one quiet line, because they are
- * the reason the wiring works, not six more boxes.
+ * This was a ring: the company mark at the centre and six domains wired to it. The picture
+ * argued well, but it argued for exactly six, because a ring has as many seats as it has and
+ * the seventh domain had nowhere to sit. The number was a property of the drawing, not of
+ * the company.
+ *
+ * So: a grid of however many there are, standing on one core band. The band is the sentence
+ * the mark in the middle used to carry, and it carries it better — a logo at the centre says
+ * "these belong to us", which nobody doubts; a shared foundation under all of them says
+ * "these are one system", which is the thing being claimed. Adding a domain is a line in
+ * `slides.ts` now, not a redraw.
  */
-function HubVisual() {
+function HubVisual({ items }: { items: { key: string; icon: keyof typeof CHIP_ICONS }[] }) {
   const bi = useBilingual();
-  const domains = [
-    { key: 'eservices', icon: 'ClipboardList' },
-    { key: 'documents', icon: 'FileCheck2' },
-    { key: 'gis', icon: 'Map' },
-    { key: 'mis', icon: 'BarChart3' },
-    { key: 'portal', icon: 'Globe' },
-    { key: 'hr', icon: 'Users' },
-  ] as const;
-  const CX = 480, CY = 250, RX = 360, RY = 175;
-  const pos = domains.map((_, i) => {
-    const a = (Math.PI * 2 * i) / domains.length - Math.PI / 2;
-    return { x: CX + RX * Math.cos(a), y: CY + RY * Math.sin(a) };
-  });
   return (
-    <div className="relative w-full max-w-5xl mx-auto" style={{ aspectRatio: '960/560' }}>
-      <svg viewBox="0 0 960 560" className="absolute inset-0 w-full h-full" role="presentation">
-        {pos.map((p, i) => (
-          <line key={i} x1={CX} y1={CY} x2={p.x} y2={p.y}
-            stroke="var(--accent)" strokeOpacity="0.35" strokeWidth="2" strokeDasharray="6 5" />
-        ))}
-        <ellipse cx={CX} cy={CY} rx={RX} ry={RY} fill="none"
-          stroke="var(--accent)" strokeOpacity="0.12" strokeWidth="1.5" />
-      </svg>
-
-      {/* The hub. */}
-      <div
-        className="absolute"
-        style={{ left: '50%', top: `${(CY / 560) * 100}%`, transform: 'translate(-50%, -50%)' }}
-      >
-      <div
-        className="showcase-pop grid place-items-center text-center rounded-2xl bg-white ring-2 shadow-[0_18px_50px_-20px_rgb(15_23_42/.35)] px-6 py-4"
-        style={{ ['--tw-ring-color' as string]: 'var(--accent)' }}
-      >
-        <img src={asset('logo-alameen.png')} alt="" className="w-40 sm:w-52 h-auto" />
-        <span className="mt-1 text-sm sm:text-base font-black text-slate-800" dir="ltr">One Platform</span>
-        <span className="text-xs sm:text-sm text-slate-500">منصة واحدة</span>
+    <div className="w-full h-full min-h-0 flex flex-col justify-center gap-3 sm:gap-4 max-w-7xl mx-auto">
+      <div className="grid grid-cols-5 gap-2.5 sm:gap-3 auto-rows-fr flex-1 min-h-0">
+        {items.map(({ key, icon }, i) => {
+          const Icon = CHIP_ICONS[icon];
+          return (
+            <div
+              key={key}
+              className="showcase-pop flex flex-col items-center justify-center text-center gap-1 rounded-2xl bg-white ring-1 ring-slate-900/8 px-2.5 py-4 min-h-0"
+              style={{ animationDelay: `${i * 70}ms` }}
+            >
+              <Icon className="w-10 h-10 sm:w-12 sm:h-12 shrink-0" style={{ color: 'var(--accent)' }} strokeWidth={1.5} />
+              <span dir="ltr" className="text-sm sm:text-base font-black leading-tight text-slate-800">
+                {bi(`showcase.ecosystem.${key}`).en}
+              </span>
+              <span className="text-xs sm:text-sm leading-tight text-slate-500">
+                {bi(`showcase.ecosystem.${key}`).ar}
+              </span>
+              <span dir="ltr" className="mt-0.5 text-[11px] sm:text-xs font-bold leading-tight" style={{ color: 'var(--accent)' }}>
+                {bi(`showcase.ecosystemFeature.${key}`).en}
+              </span>
+              <span className="text-[11px] sm:text-xs leading-tight text-slate-400">
+                {bi(`showcase.ecosystemFeature.${key}`).ar}
+              </span>
+            </div>
+          );
+        })}
       </div>
-      </div>
 
-      {domains.map(({ key, icon }, i) => {
-        const Icon = CHIP_ICONS[icon];
-        return (
-          <div
-            key={key}
-            className="absolute"
-            style={{ left: `${(pos[i].x / 960) * 100}%`, top: `${(pos[i].y / 560) * 100}%`,
-                     transform: 'translate(-50%, -50%)' }}
-          >
-          <div
-            className="showcase-pop flex flex-col items-center justify-center text-center gap-1 rounded-xl bg-white ring-1 ring-slate-900/10 shadow-sm px-4 py-3 min-w-[11.5rem]"
-            style={{ animationDelay: `${250 + i * 110}ms` }}
-          >
-            <Icon className="w-6 h-6" style={{ color: 'var(--accent)' }} strokeWidth={1.8} />
-            <span dir="ltr" className="text-sm font-black leading-tight text-slate-800">
-              {bi(`showcase.ecosystem.${key}`).en}
-            </span>
-            <span className="text-xs leading-tight text-slate-500">
-              {bi(`showcase.ecosystem.${key}`).ar}
-            </span>
-            <span dir="ltr" className="text-[10px] font-bold leading-tight" style={{ color: 'var(--accent)' }}>
-              {bi(`showcase.ecosystemFeature.${key}`).en}
-            </span>
-            <span className="text-[10px] leading-tight text-slate-400">
-              {bi(`showcase.ecosystemFeature.${key}`).ar}
-            </span>
-          </div>
-          </div>
-        );
-      })}
-
-      {/* Why the wiring works — one quiet line, not six more boxes. */}
+      {/* The one thing under all of them — drawn as the ground they stand on. */}
       <div
-        className="showcase-enter absolute inset-x-0 text-center"
-        style={{ top: '95%' }}
+        className="showcase-enter shrink-0 rounded-2xl px-5 py-3 text-center"
+        style={{
+          background: 'color-mix(in srgb, var(--accent) 9%, white)',
+          boxShadow: 'inset 0 0 0 1.5px color-mix(in srgb, var(--accent) 26%, white)',
+        }}
       >
-        <p className="text-xs sm:text-sm font-bold text-slate-600">{bi('showcase.spine').ar}</p>
-        <p dir="ltr" className="text-[11px] sm:text-xs font-semibold text-slate-400">{bi('showcase.spine').en}</p>
+        <p className="text-sm sm:text-base font-black" style={{ color: 'var(--accent)' }}>
+          {bi('showcase.oneCore').ar}
+        </p>
+        <p dir="ltr" className="text-xs sm:text-sm font-bold" style={{ color: 'var(--accent)', opacity: 0.7 }}>
+          {bi('showcase.oneCore').en}
+        </p>
+        <p className="mt-1 text-sm sm:text-lg font-bold text-slate-700">{bi('showcase.spine').ar}</p>
+        <p dir="ltr" className="text-xs sm:text-sm font-semibold text-slate-400">{bi('showcase.spine').en}</p>
       </div>
     </div>
   );

@@ -64,6 +64,9 @@ export default function ShowcaseApp() {
   const accent = SLIDE_ACCENTS[slide.accent];
   // A slide showing real screens has more to show, so it is given more time to show it.
   const showsScreens = Boolean(slide.product || slide.shots || slide.demo);
+  // A landscape picture should not surrender a third of the deck so that two words can have
+  // a card to themselves. Those scenes run their points as a strip under the tagline.
+  const wide = slide.wide ?? (Boolean(slide.demo) || slide.visual === 'ecosystem' || slide.visual === 'hub');
   const duration = slide.durationMs ?? (showsScreens ? PRODUCT_SLIDE_DURATION_MS : SLIDE_DURATION_MS);
 
   const go = useCallback((delta: number) => {
@@ -207,11 +210,28 @@ export default function ShowcaseApp() {
 
             The map and the logo walls have no width of their own — they fill what they are given —
             so those still stretch. */}
+        {/* The strip: the same claims, arriving one at a time as they always did, laid across
+            the top where they cost height instead of width. */}
+        {wide && slide.points > 0 && (
+          <div className="shrink-0 flex flex-wrap items-stretch justify-center gap-2.5">
+            {points.map((text, i) => (
+              <div
+                key={`strip-${slide.id}-${i}`}
+                hidden={i >= revealed}
+                className="showcase-point relative overflow-hidden rounded-xl bg-white ring-1 ring-slate-900/8 shadow-[0_1px_2px_rgb(15_23_42/.04)] ps-4 pe-3.5 py-2.5 max-w-[26rem]"
+              >
+                <span className="absolute inset-y-0 start-0 w-1.5" style={{ background: accent }} />
+                <p className="text-base sm:text-lg font-semibold leading-snug text-slate-800">{text.ar}</p>
+              </div>
+            ))}
+          </div>
+        )}
+
         <div className="flex-1 min-h-0 flex flex-col xl:flex-row items-center justify-center gap-6 xl:gap-10">
 <div
             key={`stage-${slide.id}`}
             className={`showcase-enter w-full h-full min-h-[14rem] min-w-0 flex items-center justify-center ${
-              showsScreens ? 'xl:w-auto xl:flex-none' : 'xl:flex-1'
+              showsScreens && !wide ? 'xl:w-auto xl:flex-none' : 'xl:flex-1'
             }`}
           >
             <ShowcaseStage slide={slide} playing={playing} onInteract={() => setPlaying(false)} />
@@ -221,7 +241,7 @@ export default function ShowcaseApp() {
               them implied an order the content does not have. Each is its own card with the
               slide's colour on its leading edge — they stack, arrive one at a time, and read as
               facts rather than as minutes of a meeting. */}
-          <div hidden={slide.points === 0} className="w-full xl:w-auto xl:min-w-[19rem] xl:max-w-[30rem] flex flex-col justify-center gap-2.5 min-w-0">
+          <div hidden={slide.points === 0 || wide} className="w-full xl:w-auto xl:min-w-[19rem] xl:max-w-[30rem] flex flex-col justify-center gap-2.5 min-w-0">
             {points.map((text, i) => (
               <div
                 key={`${slide.id}-${i}`}

@@ -138,6 +138,15 @@ export interface ShowcaseSlide {
    */
   demo?: string;
   /**
+   * This scene's picture is landscape, so its points run as a strip above it rather than a
+   * column beside it.
+   *
+   * Left unset it is inferred — a film, the ecosystem, the capability board. Set it by hand
+   * only for a scene whose screenshots happen to be wide, which nothing here can know until
+   * the image has loaded.
+   */
+  wide?: boolean;
+  /**
    * How long this scene holds, overriding the default for its kind.
    *
    * A film is the one thing on the stage with a length of its own: cut it off at the
@@ -181,6 +190,7 @@ export const CHIP_ICONS = {
   Server, Atom, Database, MapPin, Container, Plug,
   BarChart3, LayoutDashboard, GitBranch, FileText, FileCheck2, BellRing, KeyRound,
   Users, Wand2, MessageSquare, ScanBarcode, ScanLine, Zap,
+  Droplets, HardHat, Receipt,
 } as const;
 
 export const SLIDE_ACCENTS = {
@@ -239,11 +249,15 @@ export const SHOWCASE_SLIDES: ShowcaseSlide[] = [
   { id: 'ecosystem', short: true, section: 'platform', Icon: Boxes, visual: 'hub', points: 0, accent: 'teal',
     ecosystem: [
       { key: 'eservices', icon: 'ClipboardList' },
-      { key: 'hr', icon: 'Users' },
-      { key: 'gis', icon: 'Map' },
-      { key: 'mis', icon: 'BarChart3' },
       { key: 'portal', icon: 'Globe' },
+      { key: 'water', icon: 'Droplets' },
+      { key: 'licensing', icon: 'HardHat' },
+      { key: 'gis', icon: 'Map' },
+      { key: 'hr', icon: 'Users' },
+      { key: 'revenue', icon: 'Receipt' },
+      { key: 'labs', icon: 'Atom' },
       { key: 'documents', icon: 'FileCheck2' },
+      { key: 'mis', icon: 'BarChart3' },
     ] },
   // Twelve, in four readings of three: what you build with, what you look at it through,
   // what it puts on paper and in the field, and what keeps it running by itself.

@@ -65,7 +65,11 @@
       "issuedDocs": "Issued Documents",
       "barcode": "Barcode Tracking",
       "scanRead": "Scan & Read",
-      "automation": "Automation Rules"
+      "automation": "Automation Rules",
+      "water": "Water & Utilities",
+      "licensing": "Licensing & Permits",
+      "revenue": "Revenue & Fees",
+      "labs": "Labs & Quality"
     },
     "ecosystemFeature": {
       "eservices": "One digital journey",
@@ -88,7 +92,11 @@
       "issuedDocs": "Scan the QR, verify it",
       "barcode": "Print, scan, find it",
       "scanRead": "Scan a page, extract the data",
-      "automation": "Conditions that act by themselves"
+      "automation": "Conditions that act by themselves",
+      "water": "Source to the meter",
+      "licensing": "Apply, decide, issue",
+      "revenue": "Assessed, collected, receipted",
+      "labs": "Sample to certificate"
     },
     "slides": {
       "cover": {
@@ -182,9 +190,9 @@
       },
       "ecosystem": {
         "eyebrow": "The Ecosystem",
-        "title": "Six domains. One connected platform.",
-        "tagline": "One identity, shared data, and capabilities that serve every domain.",
-        "caption": "From service to decision — everything connected.",
+        "title": "Growing domains. One platform.",
+        "tagline": "One identity, shared data, and capabilities that serve every domain — a new one is assembled onto what is already running.",
+        "caption": "From service to decision — all of it connected.",
         "b1": "One sign-in and one permission model across every domain.",
         "b2": "Data is read once, so the indicator, the map and the report share a source.",
         "b3": "Adding a domain is assembly on the platform, not a project from zero."
@@ -442,6 +450,7 @@
         "b4": "+970 599 206 305"
       }
     },
-    "spine": "Identity • permissions • data • workflow • audit"
+    "spine": "Identity • permissions • data • workflow • audit",
+    "oneCore": "One core under all of them"
   }
 }
