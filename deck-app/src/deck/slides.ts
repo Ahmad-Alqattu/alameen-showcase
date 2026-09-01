@@ -125,6 +125,23 @@ export interface ShowcaseSlide {
    */
   image?: string;
   /**
+   * A silent recording of the real product, played where the stills would go.
+   *
+   * Named without an extension, as `<name>`: the stage pairs `demos/<name>.mp4` with the
+   * `demos/<name>.jpg` frame beside it, so a scene still loading, a deck a presenter has
+   * paused, and the PowerPoint export all show the frame the film opens on rather than a
+   * black rectangle. Silent and looping, because a stand has no sound and no one to press
+   * play.
+   */
+  demo?: string;
+  /**
+   * How long this scene holds, overriding the default for its kind.
+   *
+   * A film is the one thing on the stage with a length of its own: cut it off at the
+   * fourteen seconds a drawing gets and the visitor watches a dashboard half-built.
+   */
+  durationMs?: number;
+  /**
    * The nine capabilities, drawn as one board. Named here rather than in the locale files
    * because each carries its own icon and accent, which are design, not translation.
    */
@@ -199,7 +216,7 @@ export const SHOWCASE_SLIDES: ShowcaseSlide[] = [
       { label: 'تطبيقات الويب', icon: 'Globe' },
       { label: 'تطبيقات الجوال', icon: 'Smartphone' },
       { label: 'نظم المعلومات الجغرافية', icon: 'Map' },
-      { label: 'الذكاء الاصطناعي التطبيقي', icon: 'Sparkles' },
+      { label: 'الذكاء الصناعي التطبيقي', icon: 'Sparkles' },
       { label: 'بوابات الخدمات الإلكترونية', icon: 'ClipboardList' },
       { label: 'الأرشفة الرقمية', icon: 'Archive' },
       { label: 'الاستشارات التقنية', icon: 'Lightbulb' },
@@ -243,10 +260,10 @@ export const SHOWCASE_SLIDES: ShowcaseSlide[] = [
   // The one slide that keeps a diagram: it is a claim about WHERE the permission check
   // sits, and no screenshot shows a place in an architecture.
   { id: 'aiSafety', section: 'ai', Icon: ShieldCheck, visual: 'aiflow', points: 4, accent: 'emerald' },
-  { id: 'aiReport', section: 'ai', Icon: Wand2, visual: 'chart', shots: ['dwp/06.jpg'], points: 3, accent: 'indigo' },
+  { id: 'aiReport', section: 'ai', Icon: Wand2, visual: 'chart', demo: 'assistant-chart-print', durationMs: 24_500, points: 3, accent: 'indigo' },
   { id: 'aiReportBuilder', section: 'ai', Icon: Wand2, visual: 'chart', shots: ['dwp/09.jpg'], points: 3, accent: 'indigo' },
   { id: 'aiDashboard', short: true, section: 'ai', Icon: LayoutDashboard, visual: 'chart', shots: ['dwp/10.jpg'], points: 3, accent: 'indigo' },
-  { id: 'aiDashboardBuild', section: 'ai', Icon: LayoutDashboard, visual: 'chart', shots: ['dwp/11.jpg'], points: 3, accent: 'indigo' },
+  { id: 'aiDashboardBuild', short: true, section: 'ai', Icon: LayoutDashboard, visual: 'chart', demo: 'dynamic-dashboard-ai', durationMs: 26_800, points: 3, accent: 'indigo' },
 
   // ── What the platform underneath every product does ───────────────────────
   { id: 'workflow', section: 'platform', Icon: GitBranch, visual: 'workflow', shots: ['dwp/12.jpg', 'dwp/19.jpg', 'dwp/20.jpg', 'dwp/22.jpg'], points: 5, accent: 'orange' },
@@ -343,6 +360,6 @@ export function activeSlides(): ShowcaseSlide[] {
   // second, before the assistant, or the assistant reads as a chat box with no platform
   // under it. In source order it falls after the AI section and arrives too late to do
   // that job.
-  const ORDER = ['cover', 'ecosystem', 'aiAssistant', 'aiAnswers', 'aiMap', 'aiDashboard'];
+  const ORDER = ['cover', 'ecosystem', 'aiAssistant', 'aiAnswers', 'aiMap', 'aiDashboard', 'aiDashboardBuild'];
   return ORDER.flatMap((id) => SHOWCASE_SLIDES.filter((s) => s.id === id));
 }

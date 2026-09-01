@@ -62,8 +62,8 @@ export default function ShowcaseApp() {
   const slide = slides[index];
   const accent = SLIDE_ACCENTS[slide.accent];
   // A slide showing real screens has more to show, so it is given more time to show it.
-  const showsScreens = Boolean(slide.product || slide.shots);
-  const duration = showsScreens ? PRODUCT_SLIDE_DURATION_MS : SLIDE_DURATION_MS;
+  const showsScreens = Boolean(slide.product || slide.shots || slide.demo);
+  const duration = slide.durationMs ?? (showsScreens ? PRODUCT_SLIDE_DURATION_MS : SLIDE_DURATION_MS);
 
   const go = useCallback((delta: number) => {
     setIndex((current) => (current + delta + slides.length) % slides.length);
@@ -213,7 +213,7 @@ export default function ShowcaseApp() {
               showsScreens ? 'xl:w-auto xl:flex-none' : 'xl:flex-1'
             }`}
           >
-            <ShowcaseStage slide={slide} onInteract={() => setPlaying(false)} />
+            <ShowcaseStage slide={slide} playing={playing} onInteract={() => setPlaying(false)} />
           </div>
 
           {/* Not a bullet list. These are separate claims, not steps in a sequence, and numbering
@@ -335,13 +335,13 @@ export default function ShowcaseApp() {
             <Sparkles className="w-3.5 h-3.5" strokeWidth={2.4} />
             Ecosystem · Powered by AI
           </p>
-          <p className="text-[11px] font-semibold text-slate-500">منظومة مدعومة بالذكاء الاصطناعي</p>
+          <p className="text-[11px] font-semibold text-slate-500">منظومة مدعومة بالذكاء الصناعي</p>
           {/* The capability keywords, one quiet strip — and the point that carries them:
               everything on this platform can simply be asked. */}
           <p dir="ltr" className="mt-2 text-[10px] font-bold tracking-wide text-slate-400">
             Dynamic Forms · Workflow · OCR · GIS &amp; more
           </p>
-          <p className="text-[10px] font-semibold text-slate-500">وكلّها تُسأل عبر الذكاء الاصطناعي</p>
+          <p className="text-[10px] font-semibold text-slate-500">وكلّها تُسأل عبر الذكاء الصناعي</p>
         </div>
 
         <div key={`caption-${slide.id}`} className="showcase-enter flex-1 lg:flex-none min-w-0 lg:w-full lg:text-center">

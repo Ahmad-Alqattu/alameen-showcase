@@ -1,6 +1,11 @@
 {
   "showcase": {
     "nowShowing": "Now showing",
+    "recordedLive": "Live capture",
+    "demos": {
+      "dynamic-dashboard-ai": "A whole dashboard from one sentence — recorded in the product, uncut",
+      "assistant-chart-print": "From a question to a report ready to print — recorded in the product"
+    },
     "openSection": "Open section",
     "previous": "Previous",
     "next": "Next",

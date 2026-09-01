@@ -26,7 +26,16 @@ const SCREEN_HOLD_MS = 3400;
  * The ground is light on purpose. Every screenshot here is of a light interface; floating those on
  * a dark, glowing panel made them look like renderings of software rather than software.
  */
-export default function ShowcaseStage({ slide, onInteract }: { slide: ShowcaseSlide; onInteract?: () => void }) {
+export default function ShowcaseStage({
+  slide,
+  playing = true,
+  onInteract,
+}: {
+  slide: ShowcaseSlide;
+  /** The deck's own play state: pausing the deck has to stop the film too. */
+  playing?: boolean;
+  onInteract?: () => void;
+}) {
   const accent = SLIDE_ACCENTS[slide.accent];
   const shots = resolveShots(slide);
 
@@ -34,15 +43,17 @@ export default function ShowcaseStage({ slide, onInteract }: { slide: ShowcaseSl
     <div
       // The coverage map is operable, so the stage is only hidden from assistive tech when what
       // it holds is decoration.
-      aria-hidden={slide.visual === 'coverage' || shots.length > 0 ? undefined : true}
+      aria-hidden={slide.visual === 'coverage' || slide.demo || shots.length > 0 ? undefined : true}
       // Screens hug their own width so the cards can sit right beside them; everything else fills
       // what it is given, because a map or a logo wall has no width of its own.
       className={`showcase-stage relative h-full min-h-0 flex items-center justify-center ${
-        shots.length > 0 ? 'w-fit max-w-full' : 'w-full'
+        slide.demo || shots.length > 0 ? 'w-fit max-w-full' : 'w-full'
       }`}
       style={{ ['--accent' as string]: accent }}
     >
-      {shots.length > 0 ? (
+      {slide.demo ? (
+        <DemoVisual name={slide.demo} playing={playing} />
+      ) : shots.length > 0 ? (
         <ScreensVisual shots={shots} onInteract={onInteract} />
       ) : (
         <>
@@ -60,6 +71,76 @@ export default function ShowcaseStage({ slide, onInteract }: { slide: ShowcaseSl
         </>
       )}
     </div>
+  );
+}
+
+/**
+ * A recording of the real product, playing on the stage.
+ *
+ * Silent, looping and un-seekable on purpose: there is no one at the stand to press play, no
+ * speakers to hear, and a visitor who arrives mid-film should be able to wait one loop rather
+ * than hunt for a control. The badge is not decoration — a moving screen is the one thing on
+ * this stage a sceptic reads as an animation, so it says, in both languages, that this was
+ * recorded in the running product.
+ *
+ * It follows the deck's own play state, so a presenter who pauses to talk over a frame gets
+ * the frame held, and `?paused=1` exports the film's opening frame instead of a blur.
+ */
+function DemoVisual({ name, playing }: { name: string; playing: boolean }) {
+  const bi = useBilingual();
+  const ref = useRef<HTMLVideoElement>(null);
+  const caption = bi(`showcase.demos.${name}`);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (playing) void el.play().catch(() => {});
+    else el.pause();
+  }, [playing]);
+
+  // A new scene restarts its film from the top rather than resuming where it was left.
+  useEffect(() => {
+    if (ref.current) ref.current.currentTime = 0;
+  }, [name]);
+
+  return (
+    <figure className="h-full max-w-full min-h-0 flex flex-col items-center justify-center gap-2.5">
+      {/* Sized exactly like a screenshot — `h-full w-auto`, not `max-h-full` — so the box is the
+          width the picture actually paints and the point cards can sit right beside it. The
+          62vw cap is what keeps them on screen at all: a 1920-wide film given no ceiling
+          takes the whole stage and pushes them off the edge. */}
+      <div className="showcase-enter relative flex-1 min-h-0 w-fit max-w-full">
+        <video
+          ref={ref}
+          src={asset(`demos/${name}.mp4`)}
+          poster={asset(`demos/${name}.jpg`)}
+          muted
+          loop
+          playsInline
+          preload="auto"
+          className="h-full w-auto max-w-[62vw] object-contain rounded-lg ring-1 ring-slate-900/10 shadow-[0_24px_60px_-24px_rgb(15_23_42/.45)] bg-white"
+        />
+      </div>
+
+      {/* The mark sits beside the caption, never over the film: a badge laid on the picture
+          covers the product's own interface, which is the one thing this scene is here to
+          show. It still has to be said — a moving screen is what a sceptic reads as an
+          animation, so the deck states plainly that this was recorded in the product. */}
+      <figcaption className="shrink-0 flex flex-col items-center gap-1 text-center">
+        <div className="flex items-center gap-2 flex-wrap justify-center">
+          <span
+            className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-[11px] font-black ring-1 ring-current/25"
+            style={{ color: 'var(--accent)' }}
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-current animate-pulse" />
+            {bi('showcase.recordedLive').ar}
+            <span dir="ltr" className="font-bold opacity-60">{bi('showcase.recordedLive').en}</span>
+          </span>
+          <p className="text-sm sm:text-base font-bold text-slate-700">{caption.ar}</p>
+        </div>
+        <p dir="ltr" className="text-xs font-semibold text-slate-400">{caption.en}</p>
+      </figcaption>
+    </figure>
   );
 }
 
