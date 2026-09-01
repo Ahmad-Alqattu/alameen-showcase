@@ -75,7 +75,11 @@ const CLIENT_GROUPS: { key: string; ar: string; en: string; files: string[] }[] 
 ];
 
 /**
- * The twelve, at rail size.
+ * What the platform is made of, at rail size.
+ *
+ * Not "the twelve", here or in the copy above them. A printed count is read as a ceiling —
+ * a visitor who sees twelve concludes there are twelve and stops asking — and this list has
+ * grown twice already while the deck was being written.
  *
  * Their own short names, not the board's: "Report Builder" does not fit in a third of a
  * sixteen-rem column, and a name clipped mid-word is worse than a shorter true one. Terms
@@ -87,7 +91,7 @@ const CLIENT_GROUPS: { key: string; ar: string; en: string; files: string[] }[] 
  * own. Named that way on purpose — "Finance Link", not "Finance" — so the tile still holds
  * when a delegate asks which of the two it is.
  *
- * Permissions and audit are deliberately absent. They were never a thirteenth thing anyone
+ * Permissions and audit are deliberately absent. They were never one more thing anyone
  * chooses; they are the core, and the core has its own band on the ecosystem scene.
  */
 const CAPABILITIES: { en: string; ar: string; Icon: LucideIcon }[] = [
@@ -127,7 +131,7 @@ export default function RailShowreel({ accent }: { accent: string }) {
   return (
     // Only on the wide layout: on a phone the rail is a strip along the bottom, where this
     // would be competing with the caption for a few centimetres.
-    <div className="hidden lg:flex w-full flex-col gap-5" aria-hidden>
+    <div className="hidden lg:flex w-full flex-col gap-9" aria-hidden>
       {/* ── Who we serve — the one part that cycles ── */}
       <div>
         <div className="transition-opacity duration-[420ms] ease-out" style={{ opacity: shown ? 1 : 0 }}>
@@ -136,19 +140,21 @@ export default function RailShowreel({ accent }: { accent: string }) {
           </p>
           <p dir="ltr" className="text-[10px] font-semibold leading-tight text-slate-400">{group.en}</p>
 
-          {/* Three fixed rows whatever the group holds, so the block below never jumps. */}
-          <div className="mt-2 grid grid-cols-3 grid-rows-3 auto-rows-fr gap-1.5 h-[9.5rem]">
+          {/* Three fixed rows whatever the group holds, so the block below never jumps —
+              and each row tall enough that a mark is a mark and not a smudge. What is
+              capped is the height; the width follows whatever shape the emblem is. */}
+          <div className="mt-2 grid grid-cols-3 grid-rows-3 auto-rows-fr gap-1.5 h-[13rem]">
             {group.files.map((file, i) => (
               <div
                 key={`${at}-${file}`}
-                className="showcase-pop grid place-items-center rounded-md ring-1 ring-slate-900/8 bg-white p-1"
+                className="showcase-pop grid place-items-center rounded-lg ring-1 ring-slate-900/8 bg-white p-1.5 overflow-hidden"
                 style={{ animationDelay: `${i * 45}ms` }}
               >
                 <img
                   src={asset(`showcase/clients/${file}`)}
                   alt=""
                   loading="lazy"
-                  className="max-w-full max-h-full object-contain"
+                  className="w-auto h-auto max-w-full max-h-full object-contain"
                 />
               </div>
             ))}
@@ -160,20 +166,20 @@ export default function RailShowreel({ accent }: { accent: string }) {
              to believe while every other scene plays. ── */}
       <div>
         <p className="text-[10px] font-black tracking-[.08em] uppercase leading-tight" style={{ color: accent }}>
-          {bi('showcase.slides.capabilities.title').ar}
+          {bi('showcase.railCapabilities').ar}
         </p>
         <p dir="ltr" className="text-[10px] font-semibold leading-tight text-slate-400">
-          {bi('showcase.slides.capabilities.title').en}
+          {bi('showcase.railCapabilities').en}
         </p>
 
         <div className="mt-2 grid grid-cols-3 gap-1.5">
           {CAPABILITIES.map(({ en, ar, Icon }, i) => (
             <div
               key={en}
-              className="showcase-pop flex flex-col items-center justify-center text-center gap-0.5 h-[3.1rem] rounded-md ring-1 ring-slate-900/8 bg-white px-0.5"
+              className="showcase-pop flex flex-col items-center justify-center text-center gap-1 h-[3.6rem] rounded-lg ring-1 ring-slate-900/8 bg-white px-0.5"
               style={{ animationDelay: `${300 + i * 35}ms` }}
             >
-              <Icon className="w-3.5 h-3.5 shrink-0" style={{ color: accent }} strokeWidth={2} />
+              <Icon className="w-[1.15rem] h-[1.15rem] shrink-0" style={{ color: accent }} strokeWidth={1.9} />
               <span dir="ltr" className="text-[8px] font-black leading-none text-slate-700">{en}</span>
               <span className="text-[8px] leading-none text-slate-400">{ar}</span>
             </div>

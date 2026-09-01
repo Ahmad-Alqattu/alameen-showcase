@@ -197,15 +197,6 @@
         "b2": "Data is read once, so the indicator, the map and the report share a source.",
         "b3": "Adding a domain is assembly on the platform, not a project from zero."
       },
-      "capabilities": {
-        "eyebrow": "Capabilities",
-        "title": "12 capabilities. One core. One assistant.",
-        "tagline": "Identity • permissions • data • workflow • audit — one core carries all twelve.",
-        "caption": "Twelve capabilities over the same core.",
-        "b1": "Each is configured, not released.",
-        "b2": "What is built for one domain is available to the rest at once.",
-        "b3": "And the assistant reaches all twelve with the asker's own permissions."
-      },
       "aiAssistant": {
         "eyebrow": "The assistant",
         "title": "Ask your operational data",
@@ -451,6 +442,7 @@
       }
     },
     "spine": "Identity • permissions • data • workflow • audit",
-    "oneCore": "One core under all of them"
+    "oneCore": "One core under all of them",
+    "railCapabilities": "Many capabilities. One core. One assistant."
   }
 }
