@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useNavigate } from 'react-router';
 import { useTranslation } from 'react-i18next';
 import QRCode from 'qrcode';
-import { ChevronRight, ChevronLeft, Pause, Play, Maximize2, Minimize2, X } from 'lucide-react';
+import { ChevronRight, ChevronLeft, Pause, Play, Maximize2, Minimize2, X, Sparkles } from 'lucide-react';
 import { useAuth } from '../hooks/useAuth';
 import ShowcaseStage from './ShowcaseStage';
 import { useBilingual } from './bilingual';
@@ -43,8 +43,16 @@ export default function ShowcaseApp() {
   // Read once: the cut is a property of how the page was opened, not of any state.
   const slides = useMemo(() => activeSlides(), []);
 
-  const [index, setIndex] = useState(0);
-  const [playing, setPlaying] = useState(true);
+  // How the page was opened can also name a scene and hold it still. A capture tool — the
+  // PowerPoint export, the deck's own smoke test — needs one deterministic frame, not a
+  // loop it has to chase with keypresses.
+  const [index, setIndex] = useState(() => {
+    const asked = Number(new URLSearchParams(window.location.search).get('slide'));
+    return Number.isFinite(asked) && asked >= 1 ? Math.min(asked, slides.length) - 1 : 0;
+  });
+  const [playing, setPlaying] = useState(
+    () => !new URLSearchParams(window.location.search).has('paused'),
+  );
   const [progress, setProgress] = useState(0); // 0..1 through the current slide
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [qr, setQr] = useState<string | null>(null);
@@ -320,7 +328,21 @@ export default function ShowcaseApp() {
           that puts the company in the visitor's hand. On a phone it becomes a strip along the bottom
           instead — 10% of a narrow screen is not a column, it is a margin. */}
       <aside className="shrink-0 w-full lg:w-[13%] lg:min-w-[16.5rem] border-t lg:border-t-0 border-s-0 lg:border-s border-slate-200 bg-white flex lg:flex-col items-center gap-4 p-4 lg:px-3.5 lg:py-7">
-        <img src={asset("logo-alameen.png")} alt="" className="hidden lg:block w-full h-auto" />
+        <div className="hidden lg:block w-full text-center">
+          <img src={asset("logo-alameen.png")} alt="" className="w-full h-auto" />
+          {/* One line, every scene: the thesis of the whole deck under the mark. */}
+          <p dir="ltr" className="mt-2 inline-flex items-center gap-1.5 text-[11px] font-black tracking-[.14em] uppercase" style={{ color: accent }}>
+            <Sparkles className="w-3.5 h-3.5" strokeWidth={2.4} />
+            Ecosystem · Powered by AI
+          </p>
+          <p className="text-[11px] font-semibold text-slate-500">منظومة مدعومة بالذكاء الاصطناعي</p>
+          {/* The capability keywords, one quiet strip — and the point that carries them:
+              everything on this platform can simply be asked. */}
+          <p dir="ltr" className="mt-2 text-[10px] font-bold tracking-wide text-slate-400">
+            Dynamic Forms · Workflow · OCR · GIS &amp; more
+          </p>
+          <p className="text-[10px] font-semibold text-slate-500">وكلّها تُسأل عبر الذكاء الاصطناعي</p>
+        </div>
 
         <div key={`caption-${slide.id}`} className="showcase-enter flex-1 lg:flex-none min-w-0 lg:w-full lg:text-center">
           <p className="text-[10px] font-black tracking-[.1em] uppercase" style={{ color: accent }}>
