@@ -485,7 +485,7 @@ function FundersVisual() {
 function EcosystemVisual({ items }: { items: { key: string; icon: keyof typeof CHIP_ICONS }[] }) {
   const bi = useBilingual();
   return (
-    <div className="grid grid-cols-3 gap-3 sm:gap-4 w-full h-full auto-rows-fr content-center max-w-2xl">
+    <div className="grid grid-cols-4 gap-2.5 sm:gap-3 w-full h-full auto-rows-fr content-center max-w-5xl">
       {items.map(({ key, icon }, i) => {
         const Icon = CHIP_ICONS[icon];
         return (
@@ -598,12 +598,13 @@ function HubVisual() {
       })}
 
       {/* Why the wiring works — one quiet line, not six more boxes. */}
-      <p
-        className="showcase-enter absolute inset-x-0 text-center text-xs sm:text-sm font-semibold text-slate-500"
-        style={{ top: '96%' }}
+      <div
+        className="showcase-enter absolute inset-x-0 text-center"
+        style={{ top: '95%' }}
       >
-        هوية وصلاحيات موحدة · مسارات عمل موحدة · بيانات مشتركة · تقارير وتحليلات
-      </p>
+        <p className="text-xs sm:text-sm font-bold text-slate-600">{bi('showcase.spine').ar}</p>
+        <p dir="ltr" className="text-[11px] sm:text-xs font-semibold text-slate-400">{bi('showcase.spine').en}</p>
+      </div>
     </div>
   );
 }

@@ -54,42 +54,54 @@
       "workflow": "Workflow",
       "aiEngine": "AI Engine",
       "forms": "Dynamic Forms",
-      "reportBuilder": "Report & Dashboard Builder",
+      "reportBuilder": "Report Builder",
       "aiReports": "AI Reports",
-      "assistant": "Personal Assistant",
-      "notifications": "Targeted Notifications",
-      "permissions": "Group & User Permissions",
-      "apiFirst": "API First"
+      "assistant": "AI Assistant",
+      "notifications": "Notifications",
+      "permissions": "Permissions & Audit",
+      "apiFirst": "API First",
+      "serviceBuilder": "Service Builder",
+      "dashboards": "Dashboards",
+      "issuedDocs": "Issued Documents",
+      "barcode": "Barcode Tracking",
+      "scanRead": "Scan & Read",
+      "automation": "Automation Rules"
     },
     "ecosystemFeature": {
       "eservices": "One digital journey",
-      "hr": "One workforce record",
+      "hr": "One employee record",
       "gis": "Heatmaps & clusters",
       "mis": "Live indicators",
       "portal": "Service without a visit",
       "documents": "Governed content",
-      "workflow": "No-code automation",
+      "workflow": "Stages, deadlines, owners",
       "aiEngine": "Answers within permissions",
       "forms": "New fields, no release",
-      "reportBuilder": "Build it yourself",
+      "reportBuilder": "A report without a developer",
       "aiReports": "A report from a sentence",
-      "assistant": "On every screen",
-      "notifications": "Reaches the right channel",
-      "permissions": "Row-level, enforced",
-      "apiFirst": "Integrates by default"
+      "assistant": "Ask your own data",
+      "notifications": "Inbox, email and SMS",
+      "permissions": "Down to the row, all logged",
+      "apiFirst": "Integrates by default",
+      "serviceBuilder": "Define a service, not screens",
+      "dashboards": "Composed, not coded",
+      "issuedDocs": "Scan the QR, verify it",
+      "barcode": "Print, scan, find it",
+      "scanRead": "Scan a page, extract the data",
+      "automation": "Conditions that act by themselves"
     },
     "slides": {
       "cover": {
         "eyebrow": "LEAP 2026",
         "title": "One Integrated Digital Ecosystem",
-        "tagline": "Connecting services, data and AI into measurable impact.",
+        "tagline": "We connect services, data and AI to create measurable impact.",
         "caption": "Alameen Technologies — since 2008, 86 organizations run on our systems."
       },
       "company": {
         "eyebrow": "About us",
         "title": "Alameen Technologies",
         "tagline": "Over fifteen years building software and GIS systems for municipalities, institutions and government bodies across Palestine and the Middle East.",
-        "caption": "A strategic partner, not a technology vendor.",
+        "caption": "A strategic partner in digital transformation.",
         "b1": "To be the first technology choice for e-governance and digital transformation.",
         "b2": "Innovative technologies that serve society's needs and support its growth.",
         "b3": "A national digital infrastructure that elevates government and service performance.",
@@ -100,7 +112,7 @@
         "title": "Who we serve",
         "tagline": "Eighty-six organizations run on our systems — from ministries to municipalities to universities — since the company was founded in 2008.",
         "caption": "Figures drawn from our actual client register.",
-        "b1": "13 ministries and government authorities — Water, Land, Education, Finance, Social Affairs, Transport.",
+        "b1": "13 ministries and government authorities — Water, Land, Education, Finance, Social Development, Transport.",
         "b2": "54 municipalities and local bodies across the governorates.",
         "b3": "7 international funders and partners: World Bank, USAID, GIZ, Global Communities, Tetra Tech, BTC.",
         "b4": "4 universities and 8 private-sector organizations.",
@@ -109,11 +121,11 @@
       "coverage": {
         "eyebrow": "Coverage",
         "title": "Where our systems run",
-        "tagline": "From Jenin to Rafah: systems in production across all sixteen governorates — not proposals on a slide.",
+        "tagline": "From Jenin to Rafah: systems in live operation across all sixteen governorates.",
         "caption": "57 live deployment sites on the map of Palestine.",
         "b1": "54 municipalities and local bodies run on our systems, from Jenin in the north to Rafah in the south.",
-        "b2": "53 sites run the e-services platform — including citizen service centers in 30 municipalities, funded by the MDLF.",
-        "b3": "The Madeenati GIS across the major West Bank cities, and one site running both systems together.",
+        "b2": "54 sites run the e-services platform — including citizen service centers in 30 municipalities, funded by the MDLF.",
+        "b3": "The Madeenati GIS at Bethlehem, Dura and Yatta — one of them running both systems together.",
         "b4": "And the water sector nationally, as far as the Coastal Municipalities Water Utility in Gaza."
       },
       "clients": {
@@ -121,8 +133,8 @@
         "title": "Who runs on our systems",
         "tagline": "Eighty-six organizations — ministries, municipalities, universities, international funders and private-sector institutions.",
         "caption": "Every mark is an organization running one of our systems.",
-        "b1": "Water Authority, Land Authority, Education, Finance, Social Affairs, Transport.",
-        "b2": "Al-Bireh, Tulkarem, Jericho, Bethlehem, Dura, Birzeit, Al-Ram — and fifty-four municipalities.",
+        "b1": "Water Authority, Land Authority, Education, Finance, Social Development, Transport.",
+        "b2": "Al-Bireh, Tulkarem, Jericho, Bethlehem, Dura, Birzeit, Al-Ram — fifty-four municipalities in all.",
         "b3": "World Bank, USAID, GIZ, Global Communities, Tetra Tech, Belgian BTC.",
         "b4": "Al-Quds, Birzeit, An-Najah and Khadoorie universities, and private-sector organizations."
       },
@@ -130,7 +142,7 @@
         "eyebrow": "Track record",
         "title": "Flagship projects",
         "tagline": "Systems delivered and running, funded and supervised by the World Bank, USAID, GIZ and the Municipal Development and Lending Fund.",
-        "caption": "Projects delivered, not proposals.",
+        "caption": "Delivered and handed over to the organizations that run them.",
         "b1": "The WSDIS water distribution system, linked to billing and control — World Bank.",
         "b2": "Citizen service centers across 30 municipalities — MDLF.",
         "b3": "E-services for Al-Bireh, Tulkarem, Jericho and Bethlehem — USAID-funded.",
@@ -140,28 +152,28 @@
       "specializations": {
         "eyebrow": "Our specializations",
         "title": "What we do well",
-        "tagline": "Eight lines of work, each proven by a system running today at a real organization — not a list of intentions.",
+        "tagline": "Eight lines of work, each with systems running today at government and local bodies.",
         "caption": "Every specialization has a delivered system behind it.",
         "b1": "Full enterprise systems, from the database to the screen.",
         "b2": "Geographic information systems: maps, layers and spatial analysis.",
-        "b3": "Applied AI governed by permissions — not a laboratory experiment.",
+        "b3": "Applied AI that works within the user's permissions, on their organization's own data.",
         "b4": "E-services portals for citizens and staff, and digital archiving."
       },
       "stack": {
         "eyebrow": "Technologies",
         "title": "What we build on today",
-        "tagline": "Currently supported versions, not inherited ones: .NET 10, React 19, PostgreSQL 18 — all containerized and deployed into your infrastructure.",
+        "tagline": "Versions still in support today — .NET 10, React 19, PostgreSQL 18 — containerized into your infrastructure.",
         "caption": "The same stack running the national water platform.",
-        "b1": "Current supported versions, so you do not buy a system born obsolete.",
+        "b1": "Versions still inside their official support window, for a long operational life.",
         "b2": "PostGIS puts geography in the database itself, with no separate map server.",
-        "b3": "Docker containers deploy to your servers or your cloud — no vendor lock-in.",
+        "b3": "Docker containers deploy to your servers or your cloud — you choose the environment.",
         "b4": "REST APIs documented with OpenAPI, so integration with your existing systems is direct."
       },
       "partners": {
         "eyebrow": "Partnerships",
         "title": "Our technology partners",
         "tagline": "We build on established global platforms and deliver regionally through a local partner in the Gulf market.",
-        "caption": "Working technology partnerships, not logos on a slide.",
+        "caption": "Established, accredited technology partnerships.",
         "b1": "Microsoft — development and operations platforms.",
         "b2": "Oracle — databases and enterprise solutions.",
         "b3": "DocuWare and OpenKM — document management and digital archiving.",
@@ -179,20 +191,20 @@
       },
       "capabilities": {
         "eyebrow": "Capabilities",
-        "title": "Technology that makes the transformation smarter",
-        "tagline": "What the six domains share: nine capabilities built into the platform rather than bolted onto it.",
-        "caption": "The same capabilities serve every domain.",
+        "title": "12 capabilities. One core. One assistant.",
+        "tagline": "Identity • permissions • data • workflow • audit — one core carries all twelve.",
+        "caption": "Twelve capabilities over the same core.",
         "b1": "Each is configured, not released.",
         "b2": "What is built for one domain is available to the rest at once.",
-        "b3": "Documented REST interfaces, so integrating with your existing systems is a known path."
+        "b3": "And the assistant reaches all twelve with the asker's own permissions."
       },
       "aiAssistant": {
         "eyebrow": "The assistant",
         "title": "Ask your operational data",
-        "tagline": "A question in plain language, answered from this organization's own data — not from general knowledge and not from a model trained on someone else's.",
+        "tagline": "A question in plain language, answered from this organization's own data alone.",
         "caption": "Sabr, the assistant, inside the platform.",
         "b1": "Ask in Arabic or English — no special phrasing, no query language.",
-        "b2": "The answer carries the real table it came from, not a bare number.",
+        "b2": "The answer comes with the real table behind it, so it can be checked.",
         "b3": "It works inside the asker's own permissions — it sees what they see, no more."
       },
       "aiAnswers": {
@@ -210,15 +222,15 @@
         "tagline": "A question about assets that have a location is answered spatially: the result is drawn on the map instead of staying as rows.",
         "caption": "Well density across the governorates, from one question.",
         "b1": "Located assets are drawn on the map automatically.",
-        "b2": "Heat maps and geographic centroids from the same question.",
-        "b3": "The true count and the records without a location are stated, so a partial map is never read as a whole one."
+        "b2": "Density heat maps and shading by governorate, from the same question.",
+        "b3": "The true count and the records with no location are both stated."
       },
       "aiSafety": {
         "eyebrow": "Governance",
         "title": "The model never reaches the database",
-        "tagline": "No connection string, no SQL, not one table name — the assistant asks the governed reporting engine with the asking user’s own token.",
+        "tagline": "No connection string, no SQL, not one table name — the assistant asks the governed reporting engine with the user's own token.",
         "caption": "The first question a government client asks, answered by design rather than by promise.",
-        "b1": "Every call carries the asker's permissions: a dataset they cannot read is not in the catalog, and a column they cannot read is refused by the endpoint.",
+        "b1": "Every call carries the asker's permissions: a dataset they cannot read never appears; a column they cannot read is refused.",
         "b2": "Tenant isolation and row-level limits apply on the same path a human report run takes.",
         "b3": "Results are aggregated and capped by us, not by the model — no table dumps.",
         "b4": "Metadata travels with every result: the filters, the column units, and the true row count."
@@ -239,12 +251,12 @@
         "caption": "A report drafted from plain language.",
         "b1": "Columns, filters and grouping proposed from the description.",
         "b2": "The user edits and approves — the decision stays with them.",
-        "b3": "Datasets are whitelisted and governed, so no source is invented."
+        "b3": "Datasets are approved and permission-governed, and the model is limited to them."
       },
       "aiDashboard": {
         "eyebrow": "Dynamic dashboards",
         "title": "The same engine, on the dashboard",
-        "tagline": "A dashboard is a grid of tiles, each a saved report with its own permissions and filters — not a screen a developer had to write.",
+        "tagline": "A dashboard is a grid of tiles, each a saved report with its own permissions and filters — assembled by configuration.",
         "caption": "A dashboard composed from saved reports.",
         "b1": "Every tile is a saved report, with its own permissions.",
         "b2": "Set the period once and every tile follows it.",
@@ -283,11 +295,11 @@
       },
       "documents": {
         "eyebrow": "Issued documents",
-        "title": "A document that cannot be edited once issued",
+        "title": "Issued once, never edited, verifiable by anyone",
         "tagline": "A licence or certificate is a signed snapshot produced by the step that granted it — never edited afterwards, corrected by revoking and re-issuing.",
         "caption": "The document previewed before issuing, then the signed copy.",
         "b1": "Preview the document at real page size before it is issued.",
-        "b2": "What is issued is frozen: re-rendering it from today\\u2019s data would defeat the point.",
+        "b2": "What is issued stays as issued: rebuilt from today's data, it would no longer be what was approved.",
         "b3": "A printed QR opens a public verification page with no sign-in.",
         "b4": "Revoke and re-issue is the correction path, never an edit to what was issued."
       },
@@ -297,8 +309,8 @@
         "tagline": "Location is not a separate screen: every asset and every request carries its own, and the map is one layer over all the modules.",
         "caption": "Infrastructure and resources, on the same map.",
         "b1": "Every module's assets on one map, each layer declaring its source.",
-        "b2": "Import the geometry instead of redrawing it by hand.",
-        "b3": "Shapefile and GeoJSON both, for import and export — never a single format.",
+        "b2": "Import a boundary or a route from a file instead of redrawing it by hand.",
+        "b3": "Full support for both Shapefile and GeoJSON, import and export.",
         "b4": "Layers are granted to roles, so a role sees only what belongs to it."
       },
       "notifications": {
@@ -318,7 +330,7 @@
         "caption": "Reference deployment: Palestinian Water Authority",
         "b1": "Licensing & digital services",
         "b2": "Staged, SLA-timed workflow engine",
-        "b3": "20 GIS layers · 3,707 mapped features",
+        "b3": "Configurable GIS layers over every module's assets",
         "b4": "Sabr — the AI assistant",
         "b5": "No-code, AI-drafted report builder"
       },
@@ -326,7 +338,7 @@
         "eyebrow": "Municipalities & Cities",
         "title": "Madeenati GIS System",
         "tagline": "An integrated platform for managing and analysing city & municipal geographic data",
-        "caption": "Deployed across Palestinian municipalities",
+        "caption": "In production at Palestinian municipalities",
         "b1": "Geographic map viewer — layered, interactive",
         "b2": "Land management — parcels, ownership, transactions",
         "b3": "Building management — apartments & numbering",
@@ -342,7 +354,7 @@
         "b2": "Configured workflows & approvals",
         "b3": "No-code form builder",
         "b4": "Certificate & document templates",
-        "b5": "Building permits — online end to end"
+        "b5": "Building permits — submitted and tracked online"
       },
       "eywa": {
         "eyebrow": "Human Resources",
@@ -351,7 +363,7 @@
         "caption": "In production across multiple organizations",
         "b1": "Employee profile & history",
         "b2": "Recruitment & interviews to hiring",
-        "b3": "Time, attendance & shifts",
+        "b3": "Attendance, shifts & leave",
         "b4": "Employee self-services",
         "b5": "File transactions — promotions, allowances"
       },
@@ -373,7 +385,7 @@
         "caption": "Developed for the Palestinian water sector",
         "b1": "Interactive network map & layers",
         "b2": "Communities & providers database",
-        "b3": "Conceptual module — items & relations",
+        "b3": "Network schematic — elements and how they connect",
         "b4": "Fair Water Allocation Model",
         "b5": "Consumption analysis & loss detection"
       },
@@ -411,9 +423,9 @@
       },
       "social": {
         "eyebrow": "Social Sector",
-        "title": "Ministry of Social Affairs App",
+        "title": "Ministry of Social Development App",
         "tagline": "Collecting and analysing social data with interactive indicators and reports",
-        "caption": "For the Ministry of Social Affairs — State of Palestine",
+        "caption": "For the Ministry of Social Development — State of Palestine",
         "b1": "Field data collection",
         "b2": "Interactive indicators & charts",
         "b3": "Program & project tracking",
@@ -429,6 +441,7 @@
         "b3": "+970 2 2988555",
         "b4": "+970 599 206 305"
       }
-    }
+    },
+    "spine": "Identity • permissions • data • workflow • audit"
   }
 }

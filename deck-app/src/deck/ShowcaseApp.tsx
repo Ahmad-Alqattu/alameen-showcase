@@ -5,6 +5,7 @@ import QRCode from 'qrcode';
 import { ChevronRight, ChevronLeft, Pause, Play, Maximize2, Minimize2, X, Sparkles } from 'lucide-react';
 import { useAuth } from '../hooks/useAuth';
 import ShowcaseStage from './ShowcaseStage';
+import RailShowreel from './RailShowreel';
 import { useBilingual } from './bilingual';
 import {
   activeSlides,
@@ -336,12 +337,10 @@ export default function ShowcaseApp() {
             Ecosystem · Powered by AI
           </p>
           <p className="text-[11px] font-semibold text-slate-500">منظومة مدعومة بالذكاء الصناعي</p>
-          {/* The capability keywords, one quiet strip — and the point that carries them:
-              everything on this platform can simply be asked. */}
-          <p dir="ltr" className="mt-2 text-[10px] font-bold tracking-wide text-slate-400">
-            Dynamic Forms · Workflow · OCR · GIS &amp; more
-          </p>
-          <p className="text-[10px] font-semibold text-slate-500">وكلّها تُسأل عبر الذكاء الصناعي</p>
+          {/* The point that carries the showreel below: everything the rail is about to
+              cycle through can simply be asked. */}
+          <p className="mt-1.5 text-[10px] font-semibold text-slate-500">وكلّها تُسأل عبر الذكاء الصناعي</p>
+          <p dir="ltr" className="text-[10px] font-semibold text-slate-400">and every one of them can just be asked</p>
         </div>
 
         <div key={`caption-${slide.id}`} className="showcase-enter flex-1 lg:flex-none min-w-0 lg:w-full lg:text-center">
@@ -367,6 +366,8 @@ export default function ShowcaseApp() {
             </button>
           )}
         </div>
+
+        <RailShowreel accent={accent} />
 
         <div className="shrink-0 lg:mt-auto w-full max-w-[7rem] lg:max-w-[8rem] lg:mx-auto text-center">
           <div className="rounded-lg ring-1 ring-slate-200 p-2 bg-white">
