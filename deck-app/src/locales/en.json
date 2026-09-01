@@ -42,7 +42,7 @@
     "ecosystem": {
       "eservices": "E-Services",
       "hr": "HR Management",
-      "gis": "GIS Solution",
+      "gis": "GIS & Map Reports",
       "mis": "MIS & Analytics",
       "portal": "Citizen Portal",
       "documents": "Document Management",
@@ -55,6 +55,23 @@
       "notifications": "Targeted Notifications",
       "permissions": "Group & User Permissions",
       "apiFirst": "API First"
+    },
+    "ecosystemFeature": {
+      "eservices": "One digital journey",
+      "hr": "One workforce record",
+      "gis": "Heatmaps & clusters",
+      "mis": "Live indicators",
+      "portal": "Service without a visit",
+      "documents": "Governed content",
+      "workflow": "No-code automation",
+      "aiEngine": "Answers within permissions",
+      "forms": "New fields, no release",
+      "reportBuilder": "Build it yourself",
+      "aiReports": "A report from a sentence",
+      "assistant": "On every screen",
+      "notifications": "Reaches the right channel",
+      "permissions": "Row-level, enforced",
+      "apiFirst": "Integrates by default"
     },
     "slides": {
       "cover": {

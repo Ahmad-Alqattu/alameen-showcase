@@ -410,7 +410,7 @@ function EcosystemVisual({ items }: { items: { key: string; icon: keyof typeof C
         return (
           <div
             key={key}
-            className="showcase-pop flex flex-col items-center justify-center gap-2.5 text-center rounded-2xl bg-white ring-1 ring-slate-900/8 px-4 py-5 min-h-0"
+            className="showcase-pop flex flex-col items-center justify-center gap-1.5 text-center rounded-2xl bg-white ring-1 ring-slate-900/8 px-4 py-5 min-h-0"
             style={{ animationDelay: `${i * 70}ms` }}
           >
             <Icon className="w-9 h-9 sm:w-10 sm:h-10 shrink-0" style={{ color: 'var(--accent)' }} strokeWidth={1.6} />
@@ -419,6 +419,14 @@ function EcosystemVisual({ items }: { items: { key: string; icon: keyof typeof C
             </span>
             <span className="text-xs sm:text-sm leading-tight text-slate-500">
               {bi(`showcase.ecosystem.${key}`).ar}
+            </span>
+            {/* What the capability is FOR. A name alone makes the visitor guess; one line
+                each turns twelve labels into twelve reasons. */}
+            <span dir="ltr" className="mt-0.5 text-[11px] sm:text-xs font-bold leading-tight" style={{ color: 'var(--accent)' }}>
+              {bi(`showcase.ecosystemFeature.${key}`).en}
+            </span>
+            <span className="text-[11px] sm:text-xs leading-tight text-slate-400">
+              {bi(`showcase.ecosystemFeature.${key}`).ar}
             </span>
           </div>
         );
@@ -487,7 +495,7 @@ function HubVisual() {
                      transform: 'translate(-50%, -50%)' }}
           >
           <div
-            className="showcase-pop flex flex-col items-center justify-center text-center gap-1 rounded-xl bg-white ring-1 ring-slate-900/10 shadow-sm px-4 py-3 min-w-[9.5rem]"
+            className="showcase-pop flex flex-col items-center justify-center text-center gap-1 rounded-xl bg-white ring-1 ring-slate-900/10 shadow-sm px-4 py-3 min-w-[11.5rem]"
             style={{ animationDelay: `${250 + i * 110}ms` }}
           >
             <Icon className="w-6 h-6" style={{ color: 'var(--accent)' }} strokeWidth={1.8} />
@@ -496,6 +504,12 @@ function HubVisual() {
             </span>
             <span className="text-xs leading-tight text-slate-500">
               {bi(`showcase.ecosystem.${key}`).ar}
+            </span>
+            <span dir="ltr" className="text-[10px] font-bold leading-tight" style={{ color: 'var(--accent)' }}>
+              {bi(`showcase.ecosystemFeature.${key}`).en}
+            </span>
+            <span className="text-[10px] leading-tight text-slate-400">
+              {bi(`showcase.ecosystemFeature.${key}`).ar}
             </span>
           </div>
           </div>
