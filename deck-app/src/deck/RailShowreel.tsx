@@ -1,61 +1,56 @@
 import { useEffect, useState } from 'react';
 import {
   FileText, GitBranch, ClipboardList, Wand2, LayoutDashboard, MessageSquare,
-  FileCheck2, ScanBarcode, ScanLine, BellRing, Zap, KeyRound,
+  FileCheck2, ScanBarcode, ScanText, BellRing, Zap, Plug,
   type LucideIcon,
 } from 'lucide-react';
 import { asset } from './assetUrl';
+import { useBilingual } from './bilingual';
 
 /**
- * The lower half of the side rail, which was empty.
+ * The side rail's lower half — two blocks that between them fill it.
  *
- * The rail carried the mark, the caption for whatever is on the stage, and the QR at the
- * foot — and a hand's width of nothing in between, on every scene, for the whole loop. Two
- * things the deck never has room to say outright fit exactly there, so they take turns in
- * that space: who the company has actually served, and what the platform is made of.
+ * It started as one slot showing one thing at a time, and that was the mistake: a visitor
+ * who glanced at the rail saw six ministry marks and concluded the company works for
+ * ministries. A rotating panel only reads as "a sample of many" if you watch it rotate, and
+ * nobody at a stand watches a rail. So the two stories stand at once, stacked, and only the
+ * client block cycles — through fuller groups, nine marks at a time, so each turn already
+ * looks like a lot rather than like all there is.
  *
- * One slot, not two stacked blocks. A rail beside a moving stage can hold one quiet thing
- * changing slowly; two of them compete with the slide for the visitor's eye, which is the
- * one thing the rail must never do. So the panels cross-fade — out, swap, in — every few
- * seconds, and the marks inside pop in one after another rather than all at once.
- *
- * The two kinds alternate, so a visitor who glances twice sees one of each rather than
- * four consecutive logo walls.
+ * The capability block below it is the slide that used to be scene eleven, shrunk. Twelve
+ * tiles were worth a board when the deck had thirty-five scenes to spend; as a thing the
+ * visitor should be able to check at any moment — while the assistant is answering, while
+ * the film is playing — they are worth more here, permanently, than they were worth once.
  */
 
 const HOLD_MS = 5200;
 const FADE_MS = 420;
 
 /**
- * Who the company has served, grouped the way the register itself groups them.
- *
- * Files are real marks under `public/assets/clients` (86 of them; these are the ones an
- * international visitor recognises). Six or nine per group so a three-wide row stays even.
+ * Who the company has served, in groups big enough that one of them is not mistaken for the
+ * whole answer. Files are real marks under `public/assets/clients` (86 in the register).
  */
 const CLIENT_GROUPS: { key: string; ar: string; en: string; files: string[] }[] = [
   {
-    key: 'ministries',
-    ar: 'الوزارات',
-    en: 'Ministries',
-    files: ['mof.png', 'moe.png', 'mone.png', 'mopwh.png', 'mot.png', 'mosd.png'],
-  },
-  {
-    key: 'authorities',
-    ar: 'الهيئات والدوائر الحكومية',
-    en: 'Government authorities',
-    files: ['pwa-auth.png', 'land-auth.png', 'pcbs.png', 'pbc.png', 'ptax-dir.png', 'detainees.png'],
-  },
-  {
-    key: 'funders',
-    ar: 'الممولون والشركاء الدوليون',
-    en: 'International funders',
-    files: ['world-bank.png', 'usaid.png', 'giz.png', 'tetra-tech.png', 'global-communities.png', 'btc.png'],
+    key: 'government',
+    ar: 'وزارات وهيئات حكومية',
+    en: 'Ministries & authorities',
+    files: ['mof.png', 'moe.png', 'mone.png', 'mopwh.png', 'mot.png', 'mosd.png',
+            'pwa-auth.png', 'land-auth.png', 'pcbs.png'],
   },
   {
     key: 'cities',
-    ar: 'البلديات والمدن',
+    ar: 'بلديات ومدن',
     en: 'Municipalities & cities',
-    files: ['jericho.png', 'bireh.png', 'tulkarem.png', 'birzeit-mun.png', 'dura.png', 'alram.png'],
+    files: ['bireh.png', 'tulkarem.png', 'jericho.png', 'dura.png', 'birzeit-mun.png',
+            'alram.png', 'aqraba.png', 'khader.png', 'sabastia.png'],
+  },
+  {
+    key: 'councils',
+    ar: 'بلديات ومجالس خدمات',
+    en: 'Municipalities & service councils',
+    files: ['azzun.png', 'yaabad.png', 'surif.png', 'nuba.png', 'doha.png',
+            'aqqaba.png', 'bani-zaid.png', 'asira.png', 'zawya.png'],
   },
   {
     key: 'gaza',
@@ -64,65 +59,61 @@ const CLIENT_GROUPS: { key: string; ar: string; en: string; files: string[] }[] 
     files: ['breij.png', 'maghazi.png', 'khuzaa.png', 'shuka.png', 'zahra.png', 'fukhari.png'],
   },
   {
+    key: 'funders',
+    ar: 'ممولون وشركاء دوليون',
+    en: 'International funders & partners',
+    files: ['world-bank.png', 'usaid.png', 'giz.png', 'tetra-tech.png',
+            'global-communities.png', 'btc.png'],
+  },
+  {
     key: 'academia',
-    ar: 'الجامعات والقطاع الخاص',
+    ar: 'جامعات وقطاع خاص',
     en: 'Universities & private sector',
-    files: ['birzeit-univ.png', 'alquds-univ.png', 'ptu.png', 'paltel.png', 'hec.png', 'atlas-tech.png'],
+    files: ['birzeit-univ.png', 'alquds-univ.png', 'ptu.png', 'paltel.png',
+            'hec.png', 'atlas-tech.png'],
   },
 ];
 
 /**
- * What the platform is made of — every one of these is shipped code, not a roadmap.
+ * The twelve, at rail size.
  *
- * Deliberately NOT translated where the room says the word in English: a visitor at an
- * international stand reads Barcode and QR and AI faster than any Arabic coinage for them,
- * and a coined term reads as a translation exercise rather than as the company's own voice.
+ * Their own short names, not the board's: "Report Builder" does not fit in a third of a
+ * sixteen-rem column, and a name clipped mid-word is worse than a shorter true one. Terms
+ * the room says in English stay in English — Barcode, QR, OCR, AI.
+ *
+ * Two of these are not the same kind of claim as the other ten, and the deck should know
+ * which: OCR is on the build list rather than shipped, and Finance Link is an integration
+ * with the organisation's existing financial system rather than a financial module of our
+ * own. Named that way on purpose — "Finance Link", not "Finance" — so the tile still holds
+ * when a delegate asks which of the two it is.
+ *
+ * Permissions and audit are deliberately absent. They were never a thirteenth thing anyone
+ * chooses; they are the core, and the core has its own band on the ecosystem scene.
  */
-const TECH_PANELS: { ar: string; en: string; items: { ar: string; en: string; Icon: LucideIcon }[] }[] = [
-  {
-    ar: 'يُبنى بالإعداد',
-    en: 'Built by configuration',
-    items: [
-      { en: 'Dynamic Forms', ar: 'نماذج ديناميكية', Icon: FileText },
-      { en: 'Workflow', ar: 'مسارات عمل', Icon: GitBranch },
-      { en: 'Service Builder', ar: 'منشئ خدمات', Icon: ClipboardList },
-      { en: 'Report Builder', ar: 'منشئ تقارير', Icon: Wand2 },
-      { en: 'Dashboards', ar: 'لوحات', Icon: LayoutDashboard },
-      { en: 'AI Assistant', ar: 'مساعد ذكي', Icon: MessageSquare },
-    ],
-  },
-  {
-    ar: 'يشتغل بنفسه',
-    en: 'Runs on its own',
-    items: [
-      { en: 'QR Verification', ar: 'تحقّق من الوثيقة', Icon: FileCheck2 },
-      { en: 'Barcode', ar: 'باركود', Icon: ScanBarcode },
-      { en: 'Scan & Read', ar: 'مسح وقراءة', Icon: ScanLine },
-      { en: 'Notifications', ar: 'إشعارات', Icon: BellRing },
-      { en: 'Automation', ar: 'أتمتة', Icon: Zap },
-      { en: 'Permissions', ar: 'صلاحيات', Icon: KeyRound },
-    ],
-  },
+const CAPABILITIES: { en: string; ar: string; Icon: LucideIcon }[] = [
+  { en: 'Forms', ar: 'نماذج', Icon: FileText },
+  { en: 'Workflow', ar: 'مسارات', Icon: GitBranch },
+  { en: 'Services', ar: 'خدمات', Icon: ClipboardList },
+  { en: 'Reports', ar: 'تقارير', Icon: Wand2 },
+  { en: 'Dashboards', ar: 'لوحات', Icon: LayoutDashboard },
+  { en: 'AI', ar: 'ذكاء صناعي', Icon: MessageSquare },
+  { en: 'QR Verify', ar: 'تحقّق', Icon: FileCheck2 },
+  { en: 'Barcode', ar: 'باركود', Icon: ScanBarcode },
+  { en: 'OCR', ar: 'مسح وقراءة', Icon: ScanText },
+  { en: 'Alerts', ar: 'إشعارات', Icon: BellRing },
+  { en: 'Automation', ar: 'أتمتة', Icon: Zap },
+  { en: 'Finance Link', ar: 'تكامل مالي', Icon: Plug },
 ];
 
-/** clients, tech, clients, tech — so a glance in either direction finds both stories. */
-type Panel =
-  | { kind: 'clients'; ar: string; en: string; files: string[] }
-  | { kind: 'tech'; ar: string; en: string; items: { ar: string; en: string; Icon: LucideIcon }[] };
-
-const PANELS: Panel[] = CLIENT_GROUPS.flatMap((group, i) => [
-  { kind: 'clients' as const, ar: group.ar, en: group.en, files: group.files },
-  { kind: 'tech' as const, ...TECH_PANELS[i % TECH_PANELS.length] },
-]);
-
 export default function RailShowreel({ accent }: { accent: string }) {
+  const bi = useBilingual();
   const [at, setAt] = useState(0);
   const [shown, setShown] = useState(true);
 
   useEffect(() => {
     const hide = setTimeout(() => setShown(false), HOLD_MS);
     const swap = setTimeout(() => {
-      setAt((n) => (n + 1) % PANELS.length);
+      setAt((n) => (n + 1) % CLIENT_GROUPS.length);
       setShown(true);
     }, HOLD_MS + FADE_MS);
     return () => {
@@ -131,28 +122,27 @@ export default function RailShowreel({ accent }: { accent: string }) {
     };
   }, [at]);
 
-  const panel = PANELS[at];
+  const group = CLIENT_GROUPS[at];
 
   return (
     // Only on the wide layout: on a phone the rail is a strip along the bottom, where this
     // would be competing with the caption for a few centimetres.
-    <div className="hidden lg:block w-full" aria-hidden>
-      <div
-        className="transition-opacity duration-[420ms] ease-out"
-        style={{ opacity: shown ? 1 : 0 }}
-      >
-        <p className="text-[10px] font-black tracking-[.1em] uppercase" style={{ color: accent }}>
-          {panel.ar}
-        </p>
-        <p dir="ltr" className="text-[10px] font-semibold text-slate-400">{panel.en}</p>
+    <div className="hidden lg:flex w-full flex-col gap-5" aria-hidden>
+      {/* ── Who we serve — the one part that cycles ── */}
+      <div>
+        <div className="transition-opacity duration-[420ms] ease-out" style={{ opacity: shown ? 1 : 0 }}>
+          <p className="text-[10px] font-black tracking-[.08em] uppercase leading-tight" style={{ color: accent }}>
+            {group.ar}
+          </p>
+          <p dir="ltr" className="text-[10px] font-semibold leading-tight text-slate-400">{group.en}</p>
 
-        {panel.kind === 'clients' ? (
-          <div className="mt-2.5 grid grid-cols-3 gap-1.5">
-            {panel.files.map((file, i) => (
+          {/* Three fixed rows whatever the group holds, so the block below never jumps. */}
+          <div className="mt-2 grid grid-cols-3 grid-rows-3 auto-rows-fr gap-1.5 h-[9.5rem]">
+            {group.files.map((file, i) => (
               <div
                 key={`${at}-${file}`}
-                className="showcase-pop grid place-items-center h-14 rounded-md ring-1 ring-slate-900/8 bg-white p-1"
-                style={{ animationDelay: `${i * 55}ms` }}
+                className="showcase-pop grid place-items-center rounded-md ring-1 ring-slate-900/8 bg-white p-1"
+                style={{ animationDelay: `${i * 45}ms` }}
               >
                 <img
                   src={asset(`showcase/clients/${file}`)}
@@ -163,21 +153,32 @@ export default function RailShowreel({ accent }: { accent: string }) {
               </div>
             ))}
           </div>
-        ) : (
-          <div className="mt-2.5 grid grid-cols-2 gap-1.5">
-            {panel.items.map(({ en, ar, Icon }, i) => (
-              <div
-                key={`${at}-${en}`}
-                className="showcase-pop flex flex-col items-center justify-center text-center gap-0.5 h-14 rounded-md ring-1 ring-slate-900/8 bg-white px-1"
-                style={{ animationDelay: `${i * 55}ms` }}
-              >
-                <Icon className="w-3.5 h-3.5 shrink-0" style={{ color: accent }} strokeWidth={2} />
-                <span dir="ltr" className="text-[9px] font-black leading-none text-slate-700">{en}</span>
-                <span className="text-[8px] leading-none text-slate-400">{ar}</span>
-              </div>
-            ))}
-          </div>
-        )}
+        </div>
+      </div>
+
+      {/* ── What it is made of — always there, because it is what the visitor is being asked
+             to believe while every other scene plays. ── */}
+      <div>
+        <p className="text-[10px] font-black tracking-[.08em] uppercase leading-tight" style={{ color: accent }}>
+          {bi('showcase.slides.capabilities.title').ar}
+        </p>
+        <p dir="ltr" className="text-[10px] font-semibold leading-tight text-slate-400">
+          {bi('showcase.slides.capabilities.title').en}
+        </p>
+
+        <div className="mt-2 grid grid-cols-3 gap-1.5">
+          {CAPABILITIES.map(({ en, ar, Icon }, i) => (
+            <div
+              key={en}
+              className="showcase-pop flex flex-col items-center justify-center text-center gap-0.5 h-[3.1rem] rounded-md ring-1 ring-slate-900/8 bg-white px-0.5"
+              style={{ animationDelay: `${300 + i * 35}ms` }}
+            >
+              <Icon className="w-3.5 h-3.5 shrink-0" style={{ color: accent }} strokeWidth={2} />
+              <span dir="ltr" className="text-[8px] font-black leading-none text-slate-700">{en}</span>
+              <span className="text-[8px] leading-none text-slate-400">{ar}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

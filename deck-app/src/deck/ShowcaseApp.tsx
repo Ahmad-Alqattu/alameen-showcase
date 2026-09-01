@@ -66,7 +66,7 @@ export default function ShowcaseApp() {
   const showsScreens = Boolean(slide.product || slide.shots || slide.demo);
   // A landscape picture should not surrender a third of the deck so that two words can have
   // a card to themselves. Those scenes run their points as a strip under the tagline.
-  const wide = slide.wide ?? (Boolean(slide.demo) || slide.visual === 'ecosystem' || slide.visual === 'hub');
+  const wide = slide.wide ?? (Boolean(slide.demo) || slide.visual === 'hub');
   const duration = slide.durationMs ?? (showsScreens ? PRODUCT_SLIDE_DURATION_MS : SLIDE_DURATION_MS);
 
   const go = useCallback((delta: number) => {

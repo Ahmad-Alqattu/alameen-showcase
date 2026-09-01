@@ -67,7 +67,6 @@ export type SlideVisual =
   | 'partnerwall'
   | 'chips'
   | 'funders'
-  | 'ecosystem'
   | 'hub';
 
 /**
@@ -154,8 +153,8 @@ export interface ShowcaseSlide {
    */
   durationMs?: number;
   /**
-   * The nine capabilities, drawn as one board. Named here rather than in the locale files
-   * because each carries its own icon and accent, which are design, not translation.
+   * The domains this platform covers, drawn as one board. Named here rather than in the
+   * locale files because each carries its own icon, which is design, not translation.
    */
   ecosystem?: { key: string; icon: keyof typeof CHIP_ICONS }[];
   /**
@@ -258,23 +257,6 @@ export const SHOWCASE_SLIDES: ShowcaseSlide[] = [
       { key: 'labs', icon: 'Atom' },
       { key: 'documents', icon: 'FileCheck2' },
       { key: 'mis', icon: 'BarChart3' },
-    ] },
-  // Twelve, in four readings of three: what you build with, what you look at it through,
-  // what it puts on paper and in the field, and what keeps it running by itself.
-  { id: 'capabilities', section: 'platform', Icon: Layers, visual: 'ecosystem', points: 3, accent: 'teal',
-    ecosystem: [
-      { key: 'forms', icon: 'FileText' },
-      { key: 'workflow', icon: 'GitBranch' },
-      { key: 'serviceBuilder', icon: 'ClipboardList' },
-      { key: 'reportBuilder', icon: 'Wand2' },
-      { key: 'dashboards', icon: 'LayoutDashboard' },
-      { key: 'assistant', icon: 'MessageSquare' },
-      { key: 'issuedDocs', icon: 'FileCheck2' },
-      { key: 'barcode', icon: 'ScanBarcode' },
-      { key: 'scanRead', icon: 'ScanLine' },
-      { key: 'notifications', icon: 'BellRing' },
-      { key: 'automation', icon: 'Zap' },
-      { key: 'permissions', icon: 'KeyRound' },
     ] },
   { id: 'aiAssistant', short: true, section: 'ai', Icon: Sparkles, visual: 'aiflow', shots: ['dwp/03.jpg', 'live/honest-map.png'], points: 3, accent: 'violet' },
   { id: 'aiAnswers', short: true, section: 'ai', Icon: Sparkles, visual: 'aiflow', shots: ['dwp/04.jpg', 'live/nitrates-pie.png', 'live/rainfall-years.png'], points: 3, accent: 'violet' },

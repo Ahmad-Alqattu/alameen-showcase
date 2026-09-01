@@ -58,7 +58,6 @@ export default function ShowcaseStage({
       ) : (
         <>
           {!slide.logoOnly && slide.visual === 'funders' && <FundersVisual />}
-          {!slide.logoOnly && slide.visual === 'ecosystem' && slide.ecosystem && <EcosystemVisual items={slide.ecosystem} />}
           {!slide.logoOnly && slide.visual === 'hub' && slide.ecosystem && <HubVisual items={slide.ecosystem} />}
           {!slide.logoOnly && slide.visual === 'chips' && slide.chips && <ChipsVisual items={slide.chips} />}
           {!slide.logoOnly && slide.visual === 'logogrid' && <LogoGridVisual logos={HEADLINE_CLIENT_LOGOS} />}
@@ -470,48 +469,6 @@ function FundersVisual() {
                className="max-w-full max-h-full object-contain" />
         </span>
       ))}
-    </div>
-  );
-}
-
-/**
- * The platform seen whole.
- *
- * Nine capabilities on one board, arriving together, before any single one is opened. A
- * feature list read down a column is nine claims; the same nine as a board is one system,
- * which is the thing being sold. Each tile carries only its name — the slides that follow
- * are where a capability earns its sentence.
- */
-function EcosystemVisual({ items }: { items: { key: string; icon: keyof typeof CHIP_ICONS }[] }) {
-  const bi = useBilingual();
-  return (
-    <div className="grid grid-cols-4 gap-3 sm:gap-4 w-full h-full auto-rows-fr content-center max-w-7xl mx-auto">
-      {items.map(({ key, icon }, i) => {
-        const Icon = CHIP_ICONS[icon];
-        return (
-          <div
-            key={key}
-            className="showcase-pop flex flex-col items-center justify-center gap-1.5 text-center rounded-2xl bg-white ring-1 ring-slate-900/8 px-4 py-6 min-h-0"
-            style={{ animationDelay: `${i * 70}ms` }}
-          >
-            <Icon className="w-12 h-12 sm:w-14 sm:h-14 shrink-0" style={{ color: 'var(--accent)' }} strokeWidth={1.5} />
-            <span dir="ltr" className="text-base sm:text-xl font-black leading-tight text-slate-800">
-              {bi(`showcase.ecosystem.${key}`).en}
-            </span>
-            <span className="text-sm sm:text-base leading-tight text-slate-500">
-              {bi(`showcase.ecosystem.${key}`).ar}
-            </span>
-            {/* What the capability is FOR. A name alone makes the visitor guess; one line
-                each turns twelve labels into twelve reasons. */}
-            <span dir="ltr" className="mt-0.5 text-xs sm:text-sm font-bold leading-tight" style={{ color: 'var(--accent)' }}>
-              {bi(`showcase.ecosystemFeature.${key}`).en}
-            </span>
-            <span className="text-xs sm:text-sm leading-tight text-slate-400">
-              {bi(`showcase.ecosystemFeature.${key}`).ar}
-            </span>
-          </div>
-        );
-      })}
     </div>
   );
 }
