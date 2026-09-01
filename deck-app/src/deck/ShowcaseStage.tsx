@@ -48,6 +48,7 @@ export default function ShowcaseStage({ slide, onInteract }: { slide: ShowcaseSl
         <>
           {!slide.logoOnly && slide.visual === 'funders' && <FundersVisual />}
           {!slide.logoOnly && slide.visual === 'ecosystem' && slide.ecosystem && <EcosystemVisual items={slide.ecosystem} />}
+          {!slide.logoOnly && slide.visual === 'hub' && <HubVisual />}
           {!slide.logoOnly && slide.visual === 'chips' && slide.chips && <ChipsVisual items={slide.chips} />}
           {!slide.logoOnly && slide.visual === 'logogrid' && <LogoGridVisual logos={HEADLINE_CLIENT_LOGOS} />}
           {!slide.logoOnly && slide.visual === 'partnerwall' && <LogoGridVisual logos={PARTNER_LOGOS} large />}
@@ -422,6 +423,92 @@ function EcosystemVisual({ items }: { items: { key: string; icon: keyof typeof C
           </div>
         );
       })}
+    </div>
+  );
+}
+
+/**
+ * The claim, drawn instead of asserted.
+ *
+ * "Connected services" shown as six separate cards contradicted itself — the eye saw six
+ * systems standing apart. Here the platform sits at the centre and the six domains are
+ * wired to it, so the first glance carries the sentence: parts of one thing, not products
+ * in a row. The shared capabilities sit under the hub as one quiet line, because they are
+ * the reason the wiring works, not six more boxes.
+ */
+function HubVisual() {
+  const bi = useBilingual();
+  const domains = [
+    { key: 'eservices', icon: 'ClipboardList' },
+    { key: 'documents', icon: 'FileCheck2' },
+    { key: 'gis', icon: 'Map' },
+    { key: 'mis', icon: 'BarChart3' },
+    { key: 'portal', icon: 'Globe' },
+    { key: 'hr', icon: 'Users' },
+  ] as const;
+  const CX = 480, CY = 250, RX = 360, RY = 175;
+  const pos = domains.map((_, i) => {
+    const a = (Math.PI * 2 * i) / domains.length - Math.PI / 2;
+    return { x: CX + RX * Math.cos(a), y: CY + RY * Math.sin(a) };
+  });
+  return (
+    <div className="relative w-full max-w-5xl mx-auto" style={{ aspectRatio: '960/560' }}>
+      <svg viewBox="0 0 960 560" className="absolute inset-0 w-full h-full" role="presentation">
+        {pos.map((p, i) => (
+          <line key={i} x1={CX} y1={CY} x2={p.x} y2={p.y}
+            stroke="var(--accent)" strokeOpacity="0.35" strokeWidth="2" strokeDasharray="6 5" />
+        ))}
+        <ellipse cx={CX} cy={CY} rx={RX} ry={RY} fill="none"
+          stroke="var(--accent)" strokeOpacity="0.12" strokeWidth="1.5" />
+      </svg>
+
+      {/* The hub. */}
+      <div
+        className="absolute"
+        style={{ left: '50%', top: `${(CY / 560) * 100}%`, transform: 'translate(-50%, -50%)' }}
+      >
+      <div
+        className="showcase-pop grid place-items-center text-center rounded-2xl bg-white ring-2 shadow-[0_18px_50px_-20px_rgb(15_23_42/.35)] px-6 py-4"
+        style={{ ['--tw-ring-color' as string]: 'var(--accent)' }}
+      >
+        <img src={asset('logo-alameen.png')} alt="" className="w-40 sm:w-52 h-auto" />
+        <span className="mt-1 text-sm sm:text-base font-black text-slate-800" dir="ltr">One Platform</span>
+        <span className="text-xs sm:text-sm text-slate-500">منصة واحدة</span>
+      </div>
+      </div>
+
+      {domains.map(({ key, icon }, i) => {
+        const Icon = CHIP_ICONS[icon];
+        return (
+          <div
+            key={key}
+            className="absolute"
+            style={{ left: `${(pos[i].x / 960) * 100}%`, top: `${(pos[i].y / 560) * 100}%`,
+                     transform: 'translate(-50%, -50%)' }}
+          >
+          <div
+            className="showcase-pop flex flex-col items-center justify-center text-center gap-1 rounded-xl bg-white ring-1 ring-slate-900/10 shadow-sm px-4 py-3 min-w-[9.5rem]"
+            style={{ animationDelay: `${250 + i * 110}ms` }}
+          >
+            <Icon className="w-6 h-6" style={{ color: 'var(--accent)' }} strokeWidth={1.8} />
+            <span dir="ltr" className="text-sm font-black leading-tight text-slate-800">
+              {bi(`showcase.ecosystem.${key}`).en}
+            </span>
+            <span className="text-xs leading-tight text-slate-500">
+              {bi(`showcase.ecosystem.${key}`).ar}
+            </span>
+          </div>
+          </div>
+        );
+      })}
+
+      {/* Why the wiring works — one quiet line, not six more boxes. */}
+      <p
+        className="showcase-enter absolute inset-x-0 text-center text-xs sm:text-sm font-semibold text-slate-500"
+        style={{ top: '96%' }}
+      >
+        هوية وصلاحيات موحدة · مسارات عمل موحدة · بيانات مشتركة · تقارير وتحليلات
+      </p>
     </div>
   );
 }

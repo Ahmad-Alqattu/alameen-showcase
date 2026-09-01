@@ -222,8 +222,7 @@ export default function ShowcaseApp() {
                 className="showcase-point relative overflow-hidden rounded-xl bg-white ring-1 ring-slate-900/8 shadow-[0_1px_2px_rgb(15_23_42/.04)] ps-5 pe-4 py-3.5"
               >
                 <span className="absolute inset-y-0 start-0 w-1.5" style={{ background: accent }} />
-                <p className="text-base sm:text-lg font-semibold leading-[1.55] text-slate-800">{text.ar}</p>
-                <p dir="ltr" className="mt-1 text-xs sm:text-sm leading-snug text-slate-400 text-end">{text.en}</p>
+                <p className="text-lg sm:text-xl font-semibold leading-[1.55] text-slate-800">{text.ar}</p>
               </div>
             ))}
           </div>

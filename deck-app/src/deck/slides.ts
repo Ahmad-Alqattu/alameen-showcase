@@ -64,7 +64,8 @@ export type SlideVisual =
   | 'partnerwall'
   | 'chips'
   | 'funders'
-  | 'ecosystem';
+  | 'ecosystem'
+  | 'hub';
 
 /**
  * The chapters the deck is grouped into.
@@ -215,7 +216,7 @@ export const SHOWCASE_SLIDES: ShowcaseSlide[] = [
   { id: 'partners', section: 'company', Icon: Handshake, visual: 'partnerwall', points: 5, accent: 'slate' },
 
   // ── The AI, before the products, because it runs through all of them ──────
-  { id: 'ecosystem', short: true, section: 'platform', Icon: Boxes, visual: 'ecosystem', points: 3, accent: 'teal',
+  { id: 'ecosystem', short: true, section: 'platform', Icon: Boxes, visual: 'hub', points: 0, accent: 'teal',
     ecosystem: [
       { key: 'eservices', icon: 'ClipboardList' },
       { key: 'hr', icon: 'Users' },
