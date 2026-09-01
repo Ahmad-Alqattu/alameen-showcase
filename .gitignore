@@ -1,3 +1,10 @@
 node_modules/
 dist/
 *.local
+
+## Deck exports and capture tooling: the scripts are tracked, what they produce is not
+artifacts/pptx-venv/
+artifacts/demos/
+artifacts/*.zip
+artifacts/*.png
+artifacts/*.pptx
