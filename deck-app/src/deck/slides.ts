@@ -335,5 +335,12 @@ export const POINT_BUILD_SHARE = 0.62;
  */
 export function activeSlides(): ShowcaseSlide[] {
   const full = new URLSearchParams(window.location.search).get('deck') === 'full';
-  return full ? SHOWCASE_SLIDES : SHOWCASE_SLIDES.filter((s) => s.short);
+  if (full) return SHOWCASE_SLIDES;
+  // Explicit order, not source order. The cut escalates — who we are, that this is a real
+  // system, the assistant, then ask, analyse, connect — and the ecosystem has to land
+  // second, before the assistant, or the assistant reads as a chat box with no platform
+  // under it. In source order it falls after the AI section and arrives too late to do
+  // that job.
+  const ORDER = ['company', 'ecosystem', 'aiAssistant', 'aiAnswers', 'aiMap', 'aiDashboard', 'contact'];
+  return ORDER.flatMap((id) => SHOWCASE_SLIDES.filter((s) => s.id === id));
 }

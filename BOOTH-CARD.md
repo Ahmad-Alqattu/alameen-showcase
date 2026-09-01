@@ -29,7 +29,8 @@
 | وضع المعرض | `http://localhost:4173/?mode=kiosk` |
 | الخروج من وضع المعرض | `http://localhost:4173/?mode=web` |
 | منتج مباشرة | `http://localhost:4173/#/p/dwp` |
-| **العرض التقديمي (محلي)** | `http://localhost:4174/` |
+| **العرض التقديمي (محلي)** | `http://localhost:4174/` — **٧ مشاهد، دقيقة وربع** |
+| العرض الكامل (٣٤ شريحة) | `http://localhost:4174/?deck=full` |
 | الرابط العام (للباركود) | https://ahmad-alqattu.github.io/alameen-showcase/ |
 | **العرض التقديمي (منشور)** | https://ahmad-alqattu.github.io/alameen-showcase/deck/ |
 

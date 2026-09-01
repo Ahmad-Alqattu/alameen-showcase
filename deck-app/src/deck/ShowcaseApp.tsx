@@ -167,23 +167,23 @@ export default function ShowcaseApp() {
         <header key={`head-${slide.id}`} className="showcase-enter shrink-0">
           <div className="flex items-center gap-2.5">
             <slide.Icon className="w-4 h-4 shrink-0" style={{ color: accent }} strokeWidth={2.4} />
-            <p className="text-xs sm:text-sm font-bold tracking-[.08em] uppercase" style={{ color: accent }}>
+            <p className="text-sm sm:text-base font-bold tracking-[.08em] uppercase" style={{ color: accent }}>
               {bi(`showcase.slides.${slide.id}.eyebrow`).ar}
               <span className="mx-2 opacity-40">·</span>
               {bi(`showcase.slides.${slide.id}.eyebrow`).en}
             </p>
             <span className="flex-1 h-px bg-slate-200" />
           </div>
-          <h1 className="mt-2.5 text-2xl sm:text-3xl xl:text-4xl font-black tracking-tight leading-[1.15] text-slate-900">
+          <h1 className="mt-2.5 text-3xl sm:text-4xl xl:text-5xl font-black tracking-tight leading-[1.12] text-slate-900">
             {bi(`showcase.slides.${slide.id}.title`).ar}
           </h1>
-          <p dir="ltr" className="mt-1 text-base sm:text-lg font-bold tracking-tight text-slate-400 text-start">
+          <p dir="ltr" className="mt-1 text-lg sm:text-xl xl:text-2xl font-bold tracking-tight text-slate-400 text-end">
             {bi(`showcase.slides.${slide.id}.title`).en}
           </p>
-          <p className="mt-2.5 text-sm sm:text-base text-slate-500 leading-relaxed max-w-4xl">
+          <p className="mt-3 text-base sm:text-lg text-slate-500 leading-relaxed max-w-4xl">
             {bi(`showcase.slides.${slide.id}.tagline`).ar}
           </p>
-          <p dir="ltr" className="mt-1 text-xs sm:text-sm text-slate-400 leading-relaxed max-w-4xl text-start">
+          <p dir="ltr" className="mt-1 text-sm sm:text-base text-slate-400 leading-relaxed max-w-4xl text-end">
             {bi(`showcase.slides.${slide.id}.tagline`).en}
           </p>
         </header>
@@ -221,8 +221,8 @@ export default function ShowcaseApp() {
                 className="showcase-point relative overflow-hidden rounded-xl bg-white ring-1 ring-slate-900/8 shadow-[0_1px_2px_rgb(15_23_42/.04)] ps-5 pe-4 py-3.5"
               >
                 <span className="absolute inset-y-0 start-0 w-1.5" style={{ background: accent }} />
-                <p className="text-sm sm:text-base font-medium leading-[1.6] text-slate-800">{text.ar}</p>
-                <p dir="ltr" className="mt-1 text-[11px] sm:text-xs leading-snug text-slate-400 text-start">{text.en}</p>
+                <p className="text-base sm:text-lg font-semibold leading-[1.55] text-slate-800">{text.ar}</p>
+                <p dir="ltr" className="mt-1 text-xs sm:text-sm leading-snug text-slate-400 text-end">{text.en}</p>
               </div>
             ))}
           </div>

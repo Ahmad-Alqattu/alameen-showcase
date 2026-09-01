@@ -159,14 +159,14 @@ function ScreensVisual({ shots, onInteract }: { shots: { slug: string; shot: Pro
           // `h-full w-auto` and not `max-h-full`: with a max-height the box keeps the file's intrinsic
           // width while the picture inside shrinks to fit the height, so a tall phone capture
           // reserved several hundred pixels it never painted and pushed the cards away from it.
-          className="showcase-screen h-full w-auto max-w-[54vw] object-contain rounded-lg ring-1 ring-slate-900/10 group-hover:ring-slate-900/25 shadow-[0_24px_60px_-24px_rgb(15_23_42/.45)] bg-white transition-shadow"
+          className="showcase-screen h-full w-auto max-w-[62vw] object-contain rounded-lg ring-1 ring-slate-900/10 group-hover:ring-slate-900/25 shadow-[0_24px_60px_-24px_rgb(15_23_42/.45)] bg-white transition-shadow"
         />
       </button>
 
       {caption && (
         <figcaption
           key={`${shot.f}-cap`}
-          className="showcase-enter shrink-0 w-full text-center text-sm sm:text-base font-bold text-slate-700"
+          className="showcase-enter shrink-0 w-full text-center text-base sm:text-lg font-bold text-slate-700"
         >
           {caption}
         </figcaption>
@@ -409,14 +409,14 @@ function EcosystemVisual({ items }: { items: { key: string; icon: keyof typeof C
         return (
           <div
             key={key}
-            className="showcase-pop flex flex-col items-center justify-center gap-2 text-center rounded-xl bg-white ring-1 ring-slate-900/8 px-3 py-4 min-h-0"
+            className="showcase-pop flex flex-col items-center justify-center gap-2.5 text-center rounded-2xl bg-white ring-1 ring-slate-900/8 px-4 py-5 min-h-0"
             style={{ animationDelay: `${i * 70}ms` }}
           >
-            <Icon className="w-6 h-6 shrink-0" style={{ color: 'var(--accent)' }} strokeWidth={1.8} />
-            <span dir="ltr" className="text-xs sm:text-sm font-black leading-tight text-slate-800">
+            <Icon className="w-9 h-9 sm:w-10 sm:h-10 shrink-0" style={{ color: 'var(--accent)' }} strokeWidth={1.6} />
+            <span dir="ltr" className="text-sm sm:text-base font-black leading-tight text-slate-800">
               {bi(`showcase.ecosystem.${key}`).en}
             </span>
-            <span className="text-[11px] leading-tight text-slate-500">
+            <span className="text-xs sm:text-sm leading-tight text-slate-500">
               {bi(`showcase.ecosystem.${key}`).ar}
             </span>
           </div>
