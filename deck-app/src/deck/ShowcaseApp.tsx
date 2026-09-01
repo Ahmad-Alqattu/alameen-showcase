@@ -7,7 +7,7 @@ import { useAuth } from '../hooks/useAuth';
 import ShowcaseStage from './ShowcaseStage';
 import { useBilingual } from './bilingual';
 import {
-  SHOWCASE_SLIDES,
+  activeSlides,
   SHOWCASE_SECTIONS,
   SLIDE_ACCENTS,
   SLIDE_DURATION_MS,
@@ -40,6 +40,8 @@ export default function ShowcaseApp() {
   const { user } = useAuth();
   const isAr = i18n.language === 'ar';
   const bi = useBilingual();
+  // Read once: the cut is a property of how the page was opened, not of any state.
+  const slides = useMemo(() => activeSlides(), []);
 
   const [index, setIndex] = useState(0);
   const [playing, setPlaying] = useState(true);
@@ -49,14 +51,14 @@ export default function ShowcaseApp() {
   // Points a paused presenter has stepped in by hand, on top of whatever the clock revealed.
   const [steppedPoints, setSteppedPoints] = useState(0);
 
-  const slide = SHOWCASE_SLIDES[index];
+  const slide = slides[index];
   const accent = SLIDE_ACCENTS[slide.accent];
   // A slide showing real screens has more to show, so it is given more time to show it.
   const showsScreens = Boolean(slide.product || slide.shots);
   const duration = showsScreens ? PRODUCT_SLIDE_DURATION_MS : SLIDE_DURATION_MS;
 
   const go = useCallback((delta: number) => {
-    setIndex((current) => (current + delta + SHOWCASE_SLIDES.length) % SHOWCASE_SLIDES.length);
+    setIndex((current) => (current + delta + slides.length) % slides.length);
     setProgress(0);
     setSteppedPoints(0);
   }, []);
@@ -248,8 +250,8 @@ export default function ShowcaseApp() {
               band. Each band is as wide as the chapter is long, and its own slides sit inside it. */}
           <nav className="flex-1 flex items-end gap-3 sm:gap-5 min-w-0" aria-label={t('showcase.sections')}>
             {SHOWCASE_SECTIONS.map((section) => {
-              const first = SHOWCASE_SLIDES.findIndex((s) => s.section === section);
-              const inSection = SHOWCASE_SLIDES.filter((s) => s.section === section);
+              const first = slides.findIndex((s) => s.section === section);
+              const inSection = slides.filter((s) => s.section === section);
               const active = slide.section === section;
               return (
                 <div
@@ -267,7 +269,7 @@ export default function ShowcaseApp() {
                   </button>
                   <div className="flex items-center gap-1">
                     {inSection.map((s) => {
-                      const i = SHOWCASE_SLIDES.indexOf(s);
+                      const i = slides.indexOf(s);
                       return (
                         <button
                           key={s.id}
@@ -296,7 +298,7 @@ export default function ShowcaseApp() {
           {/* A fraction reads the same way in both languages; left to inherit RTL it came out
               reversed as "20 / 3". */}
           <span dir="ltr" className="shrink-0 text-xs sm:text-sm tabular-nums text-slate-400 font-bold">
-            {index + 1} / {SHOWCASE_SLIDES.length}
+            {index + 1} / {slides.length}
           </span>
 
           <div className="flex items-center gap-1">

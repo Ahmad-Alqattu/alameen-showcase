@@ -75,6 +75,15 @@ export type SlideVisual =
 export type ShowcaseSection = 'company' | 'ai' | 'platform' | 'products' | 'contact';
 
 export interface ShowcaseSlide {
+  /**
+   * Part of the seven-scene elevator cut.
+   *
+   * A stand is walk-past traffic: the full deck runs eight minutes and nobody standing in
+   * an aisle sees a whole turn of it. The short cut is a seventy-second loop that opens on
+   * the assistant and proves it sits on a real system — the version a visitor actually
+   * catches. The long one survives untouched for a meeting where someone sits down.
+   */
+  short?: boolean;
   /** Also the i18n key suffix: showcase.slides.<id>.* */
   id: string;
   section: ShowcaseSection;
@@ -177,7 +186,7 @@ export const SLIDE_ACCENTS = {
  */
 export const SHOWCASE_SLIDES: ShowcaseSlide[] = [
   // ── Who we are ────────────────────────────────────────────────────────────
-  { id: 'company', section: 'company', Icon: Building2, visual: 'mark', shots: ['dwp/02.jpg', 'madeenati/01.jpg', 'eservices/01.jpg', 'eywa/01.jpg', 'buildflow/01.jpg', 'ptax/01.jpg'], points: 4, accent: 'company' },
+  { id: 'company', short: true, section: 'company', Icon: Building2, visual: 'mark', shots: ['dwp/02.jpg', 'madeenati/01.jpg', 'eservices/01.jpg', 'eywa/01.jpg', 'buildflow/01.jpg', 'ptax/01.jpg'], points: 4, accent: 'company' },
   { id: 'reach', section: 'company', Icon: BarChart3, visual: 'logogrid', points: 5, accent: 'company' },
   { id: 'coverage', section: 'company', Icon: MapPin, visual: 'coverage', points: 4, accent: 'sky' },
   { id: 'clients', section: 'company', Icon: Users2, visual: 'logowall', points: 4, accent: 'company' },
@@ -205,7 +214,7 @@ export const SHOWCASE_SLIDES: ShowcaseSlide[] = [
   { id: 'partners', section: 'company', Icon: Handshake, visual: 'partnerwall', points: 5, accent: 'slate' },
 
   // ── The AI, before the products, because it runs through all of them ──────
-  { id: 'ecosystem', section: 'platform', Icon: Boxes, visual: 'ecosystem', points: 3, accent: 'teal',
+  { id: 'ecosystem', short: true, section: 'platform', Icon: Boxes, visual: 'ecosystem', points: 3, accent: 'teal',
     ecosystem: [
       { key: 'eservices', icon: 'ClipboardList' },
       { key: 'hr', icon: 'Users' },
@@ -226,15 +235,15 @@ export const SHOWCASE_SLIDES: ShowcaseSlide[] = [
       { key: 'permissions', icon: 'KeyRound' },
       { key: 'apiFirst', icon: 'Plug' },
     ] },
-  { id: 'aiAssistant', section: 'ai', Icon: Sparkles, visual: 'aiflow', shots: ['dwp/03.jpg'], points: 3, accent: 'violet' },
-  { id: 'aiAnswers', section: 'ai', Icon: Sparkles, visual: 'aiflow', shots: ['dwp/04.jpg'], points: 3, accent: 'violet' },
-  { id: 'aiMap', section: 'ai', Icon: MapPin, visual: 'aiflow', shots: ['dwp/05.jpg'], points: 3, accent: 'violet' },
+  { id: 'aiAssistant', short: true, section: 'ai', Icon: Sparkles, visual: 'aiflow', shots: ['dwp/03.jpg'], points: 3, accent: 'violet' },
+  { id: 'aiAnswers', short: true, section: 'ai', Icon: Sparkles, visual: 'aiflow', shots: ['dwp/04.jpg'], points: 3, accent: 'violet' },
+  { id: 'aiMap', short: true, section: 'ai', Icon: MapPin, visual: 'aiflow', shots: ['dwp/05.jpg'], points: 3, accent: 'violet' },
   // The one slide that keeps a diagram: it is a claim about WHERE the permission check
   // sits, and no screenshot shows a place in an architecture.
   { id: 'aiSafety', section: 'ai', Icon: ShieldCheck, visual: 'aiflow', points: 4, accent: 'emerald' },
   { id: 'aiReport', section: 'ai', Icon: Wand2, visual: 'chart', shots: ['dwp/06.jpg'], points: 3, accent: 'indigo' },
   { id: 'aiReportBuilder', section: 'ai', Icon: Wand2, visual: 'chart', shots: ['dwp/09.jpg'], points: 3, accent: 'indigo' },
-  { id: 'aiDashboard', section: 'ai', Icon: LayoutDashboard, visual: 'chart', shots: ['dwp/10.jpg'], points: 3, accent: 'indigo' },
+  { id: 'aiDashboard', short: true, section: 'ai', Icon: LayoutDashboard, visual: 'chart', shots: ['dwp/10.jpg'], points: 3, accent: 'indigo' },
   { id: 'aiDashboardBuild', section: 'ai', Icon: LayoutDashboard, visual: 'chart', shots: ['dwp/11.jpg'], points: 3, accent: 'indigo' },
 
   // ── What the platform underneath every product does ───────────────────────
@@ -257,7 +266,7 @@ export const SHOWCASE_SLIDES: ShowcaseSlide[] = [
   { id: 'social', section: 'products', Icon: HeartHandshake, visual: 'chart', product: 'social', logoOnly: true, points: 4, accent: 'indigo' },
 
   // ── The way in ────────────────────────────────────────────────────────────
-  { id: 'contact', section: 'contact', Icon: Mail, visual: 'mark', points: 4, accent: 'company' },
+  { id: 'contact', short: true, section: 'contact', Icon: Mail, visual: 'mark', points: 4, accent: 'company' },
 ];
 
 /** Chapter order, for the clustered nav. */
@@ -317,3 +326,14 @@ export const QR_TARGET = 'https://alameentech.com';
  * still, long enough to be read.
  */
 export const POINT_BUILD_SHARE = 0.62;
+
+/**
+ * Which cut is playing.
+ *
+ * `?deck=full` opens the long version; anything else gets the elevator cut, because the
+ * default viewer is a stranger walking past a screen, not a client in a chair.
+ */
+export function activeSlides(): ShowcaseSlide[] {
+  const full = new URLSearchParams(window.location.search).get('deck') === 'full';
+  return full ? SHOWCASE_SLIDES : SHOWCASE_SLIDES.filter((s) => s.short);
+}
