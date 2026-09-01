@@ -359,8 +359,8 @@ export default function ShowcaseApp() {
           <p className="text-[11px] font-semibold text-slate-500">منظومة مدعومة بالذكاء الصناعي</p>
           {/* The point that carries the showreel below: everything the rail is about to
               cycle through can simply be asked. */}
-          <p className="mt-1.5 text-[10px] font-semibold text-slate-500">وكلّها تُسأل عبر الذكاء الصناعي</p>
-          <p dir="ltr" className="text-[10px] font-semibold text-slate-400">and every one of them can just be asked</p>
+          <p className="mt-1.5 text-[10px] font-semibold text-slate-500">وبياناتها تُسأل بالذكاء الصناعي</p>
+          <p dir="ltr" className="text-[10px] font-semibold text-slate-400">and the data behind them can simply be asked</p>
         </div>
 
         <div key={`caption-${slide.id}`} className="showcase-enter flex-1 lg:flex-none min-w-0 lg:w-full lg:text-center">

@@ -364,6 +364,8 @@ export function activeSlides(): ShowcaseSlide[] {
   // second, before the assistant, or the assistant reads as a chat box with no platform
   // under it. In source order it falls after the AI section and arrives too late to do
   // that job.
-  const ORDER = ['cover', 'ecosystem', 'aiAssistant', 'aiAnswers', 'aiMap', 'aiDashboard', 'aiDashboardBuild'];
+  // No cover: the rail carries the mark, the name and the thesis on every scene, so a whole
+  // scene introducing the company was introducing what the visitor was already looking at.
+  const ORDER = ['ecosystem', 'aiAssistant', 'aiAnswers', 'aiMap', 'aiDashboard', 'aiDashboardBuild'];
   return ORDER.flatMap((id) => SHOWCASE_SLIDES.filter((s) => s.id === id));
 }

@@ -68,7 +68,7 @@
       "automation": "Automation Rules",
       "water": "Water & Utilities",
       "licensing": "Licensing & Permits",
-      "revenue": "Revenue & Fees",
+      "revenue": "Revenue & Finance Link",
       "labs": "Labs & Quality"
     },
     "ecosystemFeature": {
@@ -95,7 +95,7 @@
       "automation": "Conditions that act by themselves",
       "water": "Source to the meter",
       "licensing": "Apply, decide, issue",
-      "revenue": "Assessed, collected, receipted",
+      "revenue": "Fees collected, your finance system linked",
       "labs": "Sample to certificate"
     },
     "slides": {
@@ -108,7 +108,7 @@
       "company": {
         "eyebrow": "About us",
         "title": "Alameen Technologies",
-        "tagline": "Over fifteen years building software and GIS systems for municipalities, institutions and government bodies across Palestine and the Middle East.",
+        "tagline": "Building software and GIS systems since 2008 for municipalities, institutions and government bodies across Palestine and the Middle East.",
         "caption": "A strategic partner in digital transformation.",
         "b1": "To be the first technology choice for e-governance and digital transformation.",
         "b2": "Innovative technologies that serve society's needs and support its growth.",
@@ -120,27 +120,27 @@
         "title": "Who we serve",
         "tagline": "Eighty-six organizations run on our systems — from ministries to municipalities to universities — since the company was founded in 2008.",
         "caption": "Figures drawn from our actual client register.",
-        "b1": "13 ministries and government authorities — Water, Land, Education, Finance, Social Development, Transport.",
+        "b1": "13 ministries and government authorities, among them Water, Land, Education, Finance, Social Development and Transport.",
         "b2": "54 municipalities and local bodies across the governorates.",
-        "b3": "7 international funders and partners: World Bank, USAID, GIZ, Global Communities, Tetra Tech, BTC.",
+        "b3": "7 international funders and partners: World Bank, USAID, GIZ, Global Communities, Tetra Tech, BTC, CHF International.",
         "b4": "4 universities and 8 private-sector organizations.",
         "b5": "More than a thousand schools served by the interactive educational atlas."
       },
       "coverage": {
         "eyebrow": "Coverage",
         "title": "Where our systems run",
-        "tagline": "From Jenin to Rafah: systems in live operation across all sixteen governorates.",
+        "tagline": "From Jenin to Rafah: live sites in fifteen governorates, and the water sector nationally.",
         "caption": "57 live deployment sites on the map of Palestine.",
         "b1": "54 municipalities and local bodies run on our systems, from Jenin in the north to Rafah in the south.",
         "b2": "54 sites run the e-services platform — including citizen service centers in 30 municipalities, funded by the MDLF.",
-        "b3": "The Madeenati GIS at Bethlehem, Dura and Yatta — one of them running both systems together.",
+        "b3": "The Madeenati GIS at Bethlehem, Yatta and Dura — Dura running both systems together.",
         "b4": "And the water sector nationally, as far as the Coastal Municipalities Water Utility in Gaza."
       },
       "clients": {
         "eyebrow": "Our clients",
         "title": "Who runs on our systems",
         "tagline": "Eighty-six organizations — ministries, municipalities, universities, international funders and private-sector institutions.",
-        "caption": "Every mark is an organization running one of our systems.",
+        "caption": "Every mark is a client or a partner from our register.",
         "b1": "Water Authority, Land Authority, Education, Finance, Social Development, Transport.",
         "b2": "Al-Bireh, Tulkarem, Jericho, Bethlehem, Dura, Birzeit, Al-Ram — fifty-four municipalities in all.",
         "b3": "World Bank, USAID, GIZ, Global Communities, Tetra Tech, Belgian BTC.",
@@ -160,8 +160,8 @@
       "specializations": {
         "eyebrow": "Our specializations",
         "title": "What we do well",
-        "tagline": "Eight lines of work, each with systems running today at government and local bodies.",
-        "caption": "Every specialization has a delivered system behind it.",
+        "tagline": "Our lines of work, with systems running today at government and local bodies.",
+        "caption": "Every specialization has delivered work behind it.",
         "b1": "Full enterprise systems, from the database to the screen.",
         "b2": "Geographic information systems: maps, layers and spatial analysis.",
         "b3": "Applied AI that works within the user's permissions, on their organization's own data.",
@@ -211,7 +211,7 @@
         "title": "One assistant, every shape of answer",
         "tagline": "A single answer becomes a table, a chart or a printed document — the user picks the shape, not the model.",
         "caption": "Switch the shape of a result without asking again.",
-        "b1": "Table, bars, pie, line — switched instantly, with no new question.",
+        "b1": "Table, bars, line, pie, KPI cards, map — switched instantly, with no new question.",
         "b2": "Official letterheaded printing from any result.",
         "b3": "Excel export with correct Arabic ordering."
       },
@@ -255,10 +255,10 @@
       "aiDashboard": {
         "eyebrow": "Dynamic dashboards",
         "title": "The same engine, on the dashboard",
-        "tagline": "A dashboard is a grid of tiles, each a saved report with its own permissions and filters — assembled by configuration.",
+        "tagline": "A dashboard is a grid of tiles — a tile is a saved report with its own permissions and filters, assembled by configuration.",
         "caption": "A dashboard composed from saved reports.",
-        "b1": "Every tile is a saved report, with its own permissions.",
-        "b2": "Set the period once and every tile follows it.",
+        "b1": "A tile is a saved report, with its own permissions.",
+        "b2": "Set the period once and the tiles follow it.",
         "b3": "A dashboard is data, not code: copied to another organization with no release."
       },
       "aiDashboardBuild": {
@@ -277,7 +277,7 @@
         "caption": "The path is drawn in front of you, and each route carries its rules.",
         "b1": "Stages with SLA timers and a defined owner for each step.",
         "b2": "The path is drawn as a diagram — click any route to see the condition that opens it.",
-        "b3": "Not one path but a library of them, one per request type.",
+        "b3": "A library of paths, one per request type.",
         "b4": "Every decision is recorded with its author and time, so the path is auditable rather than assumed.",
         "b5": "Changing a path is configuration that takes effect immediately, not a new release."
       },
@@ -304,8 +304,8 @@
       },
       "geo": {
         "eyebrow": "Geography",
-        "title": "No record without geography",
-        "tagline": "Location is not a separate screen: every asset and every request carries its own, and the map is one layer over all the modules.",
+        "title": "Location lives on the record itself",
+        "tagline": "Location lives on the record: assets and requests carry their own, and the map is one layer over the modules.",
         "caption": "Infrastructure and resources, on the same map.",
         "b1": "Every module's assets on one map, each layer declaring its source.",
         "b2": "Import a boundary or a route from a file instead of redrawing it by hand.",
@@ -443,6 +443,6 @@
     },
     "spine": "Identity • permissions • data • workflow • audit",
     "oneCore": "One core under all of them",
-    "railCapabilities": "Many capabilities. One core. One assistant."
+    "railCapabilities": "One platform. Everything the organisation runs on."
   }
 }

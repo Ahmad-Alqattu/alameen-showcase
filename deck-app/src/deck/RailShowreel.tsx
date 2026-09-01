@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import {
-  FileText, GitBranch, ClipboardList, Wand2, LayoutDashboard, MessageSquare,
-  FileCheck2, ScanBarcode, ScanText, BellRing, Zap, Plug,
+  FileText, GitBranch, ClipboardList, Wand2, LayoutDashboard,
+  FileCheck2, ScanBarcode, ScanText, BellRing, Zap, Mic, Sparkles,
   type LucideIcon,
 } from 'lucide-react';
 import { asset } from './assetUrl';
@@ -77,36 +77,34 @@ const CLIENT_GROUPS: { key: string; ar: string; en: string; files: string[] }[] 
 /**
  * What the platform is made of, at rail size.
  *
- * Not "the twelve", here or in the copy above them. A printed count is read as a ceiling —
- * a visitor who sees twelve concludes there are twelve and stops asking — and this list has
- * grown twice already while the deck was being written.
+ * Full names, two columns. Three columns forced abbreviations — "Services", "Reports",
+ * "AI" — and an abbreviation on a rail is a word the visitor has to decode instead of
+ * read. "Service Definition" is the one that mattered most: "Services" named nothing a
+ * visitor could picture, while the real idea is that a request type is defined once and
+ * every screen that touches it comes from that definition.
  *
- * Their own short names, not the board's: "Report Builder" does not fit in a third of a
- * sixteen-rem column, and a name clipped mid-word is worse than a shorter true one. Terms
- * the room says in English stay in English — Barcode, QR, OCR, AI.
+ * Nothing here is said anywhere else in the deck. Finance Link is the ecosystem scene's
+ * Revenue tile, permissions and audit are its core band, GIS is one of its domains — a
+ * rail that repeats the stage wastes the only space the stage does not have.
  *
- * Two of these are not the same kind of claim as the other ten, and the deck should know
- * which: OCR is on the build list rather than shipped, and Finance Link is an integration
- * with the organisation's existing financial system rather than a financial module of our
- * own. Named that way on purpose — "Finance Link", not "Finance" — so the tile still holds
- * when a delegate asks which of the two it is.
- *
- * Permissions and audit are deliberately absent. They were never one more thing anyone
- * chooses; they are the core, and the core has its own band on the ecosystem scene.
+ * Not a count, in the heading or in this comment. A printed number is read as a ceiling,
+ * and this list has grown twice already while the deck was being written. One claim here
+ * is forward-looking by the owner's decision — OCR is on the build list rather than
+ * shipped — and it is named plainly rather than dressed up.
  */
 const CAPABILITIES: { en: string; ar: string; Icon: LucideIcon }[] = [
-  { en: 'Forms', ar: 'نماذج', Icon: FileText },
-  { en: 'Workflow', ar: 'مسارات', Icon: GitBranch },
-  { en: 'Services', ar: 'خدمات', Icon: ClipboardList },
-  { en: 'Reports', ar: 'تقارير', Icon: Wand2 },
-  { en: 'Dashboards', ar: 'لوحات', Icon: LayoutDashboard },
-  { en: 'AI', ar: 'ذكاء صناعي', Icon: MessageSquare },
-  { en: 'QR Verify', ar: 'تحقّق', Icon: FileCheck2 },
-  { en: 'Barcode', ar: 'باركود', Icon: ScanBarcode },
-  { en: 'OCR', ar: 'مسح وقراءة', Icon: ScanText },
-  { en: 'Alerts', ar: 'إشعارات', Icon: BellRing },
-  { en: 'Automation', ar: 'أتمتة', Icon: Zap },
-  { en: 'Finance Link', ar: 'تكامل مالي', Icon: Plug },
+  { en: 'Dynamic Forms', ar: 'نماذج ديناميكية', Icon: FileText },
+  { en: 'Workflow Engine', ar: 'مسارات العمل', Icon: GitBranch },
+  { en: 'Service Definition', ar: 'تعريف الخدمات', Icon: ClipboardList },
+  { en: 'Report Builder', ar: 'منشئ التقارير', Icon: Wand2 },
+  { en: 'Dashboard Builder', ar: 'منشئ اللوحات', Icon: LayoutDashboard },
+  { en: 'AI Assistant', ar: 'المساعد الذكي', Icon: Sparkles },
+  { en: 'Voice Q&A', ar: 'سؤال وجواب صوتاً', Icon: Mic },
+  { en: 'Issued Documents', ar: 'الوثائق الصادرة', Icon: FileCheck2 },
+  { en: 'Barcode Tracking', ar: 'تتبع بالباركود', Icon: ScanBarcode },
+  { en: 'OCR & Scanning', ar: 'مسح ضوئي وOCR', Icon: ScanText },
+  { en: 'Notifications', ar: 'الإشعارات', Icon: BellRing },
+  { en: 'Automation Rules', ar: 'قواعد الأتمتة', Icon: Zap },
 ];
 
 export default function RailShowreel({ accent }: { accent: string }) {
@@ -131,7 +129,7 @@ export default function RailShowreel({ accent }: { accent: string }) {
   return (
     // Only on the wide layout: on a phone the rail is a strip along the bottom, where this
     // would be competing with the caption for a few centimetres.
-    <div className="hidden lg:flex w-full flex-col gap-9" aria-hidden>
+    <div className="hidden lg:flex w-full flex-col gap-6" aria-hidden>
       {/* ── Who we serve — the one part that cycles ── */}
       <div>
         <div className="transition-opacity duration-[420ms] ease-out" style={{ opacity: shown ? 1 : 0 }}>
@@ -143,7 +141,7 @@ export default function RailShowreel({ accent }: { accent: string }) {
           {/* Three fixed rows whatever the group holds, so the block below never jumps —
               and each row tall enough that a mark is a mark and not a smudge. What is
               capped is the height; the width follows whatever shape the emblem is. */}
-          <div className="mt-2 grid grid-cols-3 grid-rows-3 auto-rows-fr gap-1.5 h-[13rem]">
+          <div className="mt-2 grid grid-cols-3 grid-rows-3 auto-rows-fr gap-1.5 h-[10rem]">
             {group.files.map((file, i) => (
               <div
                 key={`${at}-${file}`}
@@ -172,15 +170,15 @@ export default function RailShowreel({ accent }: { accent: string }) {
           {bi('showcase.railCapabilities').en}
         </p>
 
-        <div className="mt-2 grid grid-cols-3 gap-1.5">
+        <div className="mt-2 grid grid-cols-2 gap-1.5">
           {CAPABILITIES.map(({ en, ar, Icon }, i) => (
             <div
               key={en}
-              className="showcase-pop flex flex-col items-center justify-center text-center gap-1 h-[3.6rem] rounded-lg ring-1 ring-slate-900/8 bg-white px-0.5"
+              className="showcase-pop flex flex-col items-center justify-center text-center gap-0.5 h-[2.7rem] rounded-lg ring-1 ring-slate-900/8 bg-white px-1"
               style={{ animationDelay: `${300 + i * 35}ms` }}
             >
-              <Icon className="w-[1.15rem] h-[1.15rem] shrink-0" style={{ color: accent }} strokeWidth={1.9} />
-              <span dir="ltr" className="text-[8px] font-black leading-none text-slate-700">{en}</span>
+              <Icon className="w-4 h-4 shrink-0" style={{ color: accent }} strokeWidth={1.9} />
+              <span dir="ltr" className="text-[8.5px] font-black leading-none text-slate-700">{en}</span>
               <span className="text-[8px] leading-none text-slate-400">{ar}</span>
             </div>
           ))}
