@@ -155,7 +155,7 @@ function ScreensVisual({ shots, onInteract }: { shots: { slug: string; shot: Pro
           key={`${slug}/${shot.f}`}
           ref={imgRef}
           onLoad={() => setPaintedWidth(imgRef.current?.getBoundingClientRect().width || undefined)}
-          src={asset(`showcase/products/${slug}/${shot.f}`)}
+          src={asset(slug === 'live' ? `live/${shot.f}` : `showcase/products/${slug}/${shot.f}`)}
           alt=""
           // `h-full w-auto` and not `max-h-full`: with a max-height the box keeps the file's intrinsic
           // width while the picture inside shrinks to fit the height, so a tall phone capture
