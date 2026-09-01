@@ -237,8 +237,8 @@ export const SHOWCASE_SLIDES: ShowcaseSlide[] = [
       { key: 'permissions', icon: 'KeyRound' },
       { key: 'apiFirst', icon: 'Plug' },
     ] },
-  { id: 'aiAssistant', short: true, section: 'ai', Icon: Sparkles, visual: 'aiflow', shots: ['dwp/03.jpg'], points: 3, accent: 'violet' },
-  { id: 'aiAnswers', short: true, section: 'ai', Icon: Sparkles, visual: 'aiflow', shots: ['dwp/04.jpg'], points: 3, accent: 'violet' },
+  { id: 'aiAssistant', short: true, section: 'ai', Icon: Sparkles, visual: 'aiflow', shots: ['dwp/03.jpg', 'live/honest-map.png'], points: 3, accent: 'violet' },
+  { id: 'aiAnswers', short: true, section: 'ai', Icon: Sparkles, visual: 'aiflow', shots: ['dwp/04.jpg', 'live/nitrates-pie.png', 'live/rainfall-years.png'], points: 3, accent: 'violet' },
   { id: 'aiMap', short: true, section: 'ai', Icon: MapPin, visual: 'aiflow', shots: ['dwp/05.jpg'], points: 3, accent: 'violet' },
   // The one slide that keeps a diagram: it is a claim about WHERE the permission check
   // sits, and no screenshot shows a place in an architecture.

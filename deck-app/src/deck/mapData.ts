@@ -214,9 +214,9 @@ export const CLIENT_LOGOS: string[] = [
 export type ProductShot = { f: string; cap?: [string, string] };
 export const PRODUCT_SHOTS: Record<string, ProductShot[]> = {
   "live": [
-    { f: "table.png", cap: ["إجابة حيّة — يخاطب سائله بصفته، من بيانات 2023 الفعلية", "Live answer — addresses its asker by role, from real 2023 data"] },
-    { f: "springs.png", cap: ["إجابة حيّة — 82 نبعاً في رام الله والبيرة، 27% من أصل 308", "Live answer — 82 springs in Ramallah, 27% of 308"] },
-    { f: "rainfall.png", cap: ["إجابة حيّة — جنين الأعلى هطولاً وأريحا الأدنى", "Live answer — Jenin wettest, Jericho driest"] },
+    { f: "nitrates-pie.png", cap: ["إجابة حيّة من المختبر — الخليل 102.58 ملغم/لتر نترات، 23% من المجموع", "Live lab answer — Hebron at 102.58 mg/L nitrates, 23% of the total"] },
+    { f: "rainfall-years.png", cap: ["إجابة حيّة — خمسون سنة هطول في منحنى واحد، وذروة 1992", "Live answer — fifty years of rainfall in one curve, peaking in 1992"] },
+    { f: "honest-map.png", cap: ["طُلبت خريطة فاعتذر بصدق: البيانات بلا موقع — ثم رسمها أعمدة", "Asked for a map, it declined honestly — the data has no geography — then drew bars"] },
   ],
   "dwp": [
     { f: "03.jpg", cap: ["\u00ab\u0627\u0633\u0623\u0644 \u0628\u064a\u0627\u0646\u0627\u062a\u0643 \u0627\u0644\u062a\u0634\u063a\u064a\u0644\u064a\u0629\u00bb \u2014 \u0627\u0644\u0645\u0633\u0627\u0639\u062f \u0627\u0644\u0630\u0643\u064a \u00ab\u0633\u064e\u0628\u0652\u0631\u00bb", "Ask your operational data \u2014 Sabr"] },
