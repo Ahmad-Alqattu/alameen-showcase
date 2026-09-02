@@ -8,3 +8,6 @@ artifacts/demos/
 artifacts/*.zip
 artifacts/*.png
 artifacts/*.pptx
+artifacts/slides/
+artifacts/video/
+artifacts/*.mp4
