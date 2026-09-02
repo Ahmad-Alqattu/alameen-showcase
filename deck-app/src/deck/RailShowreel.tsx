@@ -107,12 +107,7 @@ const CAPABILITIES: { en: string; ar: string; Icon: LucideIcon }[] = [
   { en: 'Automation Rules', ar: 'قواعد الأتمتة', Icon: Zap },
 ];
 
-/**
- * True when the screen is too short to stand both blocks up at a readable size.
- *
- * Height, not width: the rail's problem is never how wide the column is — it is 16.5rem on
- * every screen that shows it at all — but how much of it there is above the QR.
- */
+/** Height, not width: the rail is 16.5rem wide wherever it appears at all. */
 function useShortScreen() {
   const [short, setShort] = useState(
     () => typeof window !== 'undefined' && window.matchMedia('(max-height: 900px)').matches,
@@ -132,24 +127,19 @@ export default function RailShowreel({ accent }: { accent: string }) {
   const [at, setAt] = useState(0);
   const [shown, setShown] = useState(true);
 
-  // On a tall screen only the client groups cycle. On a short one the capability block
-  // takes its turn in the same slot, so the sequence is group, capabilities, group, …
-  const steps = short ? CLIENT_GROUPS.length * 2 : CLIENT_GROUPS.length;
-
   useEffect(() => {
     const hide = setTimeout(() => setShown(false), HOLD_MS);
     const swap = setTimeout(() => {
-      setAt((n) => (n + 1) % steps);
+      setAt((n) => (n + 1) % CLIENT_GROUPS.length);
       setShown(true);
     }, HOLD_MS + FADE_MS);
     return () => {
       clearTimeout(hide);
       clearTimeout(swap);
     };
-  }, [at, steps]);
+  }, [at]);
 
-  const showingCaps = short && at % 2 === 1;
-  const group = CLIENT_GROUPS[(short ? Math.floor(at / 2) : at) % CLIENT_GROUPS.length];
+  const group = CLIENT_GROUPS[at];
 
   const heading = (ar: string, en: string) => (
     <>
@@ -160,59 +150,58 @@ export default function RailShowreel({ accent }: { accent: string }) {
     </>
   );
 
-  const clients = (
-    <div>
-      {heading(group.ar, group.en)}
-      {/* Three fixed rows whatever the group holds, so nothing below it jumps — and each
-          row tall enough that a mark is a mark and not a smudge. What is capped is the
-          height; the width follows whatever shape the emblem is. */}
-      <div className="mt-2 grid grid-cols-3 grid-rows-3 auto-rows-fr gap-1.5 h-[10rem]">
-        {group.files.map((file, i) => (
-          <div
-            key={`${at}-${file}`}
-            className="showcase-pop grid place-items-center rounded-lg ring-1 ring-slate-900/8 bg-white p-1.5 overflow-hidden"
-            style={{ animationDelay: `${i * 45}ms` }}
-          >
-            <img
-              src={asset(`showcase/clients/${file}`)}
-              alt=""
-              loading="lazy"
-              className="w-auto h-auto max-w-full max-h-full object-contain"
-            />
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-
-  const capabilities = (
-    <div>
-      {heading(bi('showcase.railCapabilities').ar, bi('showcase.railCapabilities').en)}
-      <div className="mt-2 grid grid-cols-2 gap-1.5">
-        {CAPABILITIES.map(({ en, ar, Icon }, i) => (
-          <div
-            key={`${at}-${en}`}
-            className="showcase-pop flex flex-col items-center justify-center text-center gap-0.5 h-[2.7rem] [@media(max-height:900px)]:h-[1.8rem] rounded-lg ring-1 ring-slate-900/8 bg-white px-1"
-            style={{ animationDelay: `${(short ? 0 : 300) + i * 35}ms` }}
-          >
-            <Icon className="w-4 h-4 shrink-0" style={{ color: accent }} strokeWidth={1.9} />
-            <span dir="ltr" className="text-[8.5px] font-black leading-none text-slate-700">{en}</span>
-            <span className="text-[8px] leading-none text-slate-400 [@media(max-height:900px)]:hidden">{ar}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-
   return (
     // Only on the wide layout: on a phone the rail is a strip along the bottom, where this
     // would be competing with the caption for a few centimetres.
-    <div className="hidden lg:flex w-full min-h-0 flex-col gap-6" aria-hidden>
+    //
+    // Both blocks, at every height. A rail that swaps what it is saying makes the visitor
+    // wait to learn something the booth screen tells at a glance; the height a laptop is
+    // short of comes from the mark, the gloss and the QR around them instead.
+    <div className="hidden lg:flex w-full min-h-0 flex-col gap-6 [@media(max-height:900px)]:gap-3" aria-hidden>
+      {/* ── Who we serve — the one part that cycles ── */}
       <div className="transition-opacity duration-[420ms] ease-out" style={{ opacity: shown ? 1 : 0 }}>
-        {showingCaps ? capabilities : clients}
+        {heading(group.ar, group.en)}
+        {/* Three fixed rows whatever the group holds, so the block below never jumps — and
+            each row tall enough that a mark is a mark and not a smudge. What is capped is
+            the height; the width follows whatever shape the emblem is. */}
+        <div className="mt-2 grid grid-cols-3 auto-rows-fr gap-1.5 h-[10rem] [@media(max-height:900px)]:h-[5.25rem]">
+          {group.files.slice(0, short ? 6 : 9).map((file, i) => (
+            <div
+              key={`${at}-${file}`}
+              className="showcase-pop grid place-items-center rounded-lg ring-1 ring-slate-900/8 bg-white p-1.5 [@media(max-height:900px)]:p-1 overflow-hidden"
+              style={{ animationDelay: `${i * 45}ms` }}
+            >
+              <img
+                src={asset(`showcase/clients/${file}`)}
+                alt=""
+                loading="lazy"
+                className="w-auto h-auto max-w-full max-h-full object-contain"
+              />
+            </div>
+          ))}
+        </div>
       </div>
-      {/* On the booth screen the second block does not wait its turn. */}
-      {!short && capabilities}
+
+      {/* ── What it is made of — always there, because it is what the visitor is being
+             asked to believe while every other scene plays. ── */}
+      <div>
+        {heading(bi('showcase.railCapabilities').ar, bi('showcase.railCapabilities').en)}
+        <div className="mt-2 grid grid-cols-2 gap-1.5">
+          {CAPABILITIES.map(({ en, ar, Icon }, i) => (
+            <div
+              key={en}
+              className="showcase-pop flex flex-col items-center justify-center text-center gap-0.5 h-[2.7rem] [@media(max-height:900px)]:h-[1.7rem] rounded-lg ring-1 ring-slate-900/8 bg-white px-1"
+              style={{ animationDelay: `${300 + i * 35}ms` }}
+            >
+              <Icon className="w-4 h-4 shrink-0" style={{ color: accent }} strokeWidth={1.9} />
+              <span dir="ltr" className="text-[8.5px] font-black leading-none text-slate-700">{en}</span>
+              {/* On a laptop the row is too short for two lines, and the English name is
+                  the half that gets scanned at that size. */}
+              <span className="text-[8px] leading-none text-slate-400 [@media(max-height:900px)]:hidden">{ar}</span>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

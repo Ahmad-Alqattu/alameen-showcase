@@ -350,7 +350,7 @@ export default function ShowcaseApp() {
           instead — 10% of a narrow screen is not a column, it is a margin. */}
       <aside className="shrink-0 w-full lg:w-[13%] lg:min-w-[16.5rem] border-t lg:border-t-0 border-s-0 lg:border-s border-slate-200 bg-white flex lg:flex-col items-center gap-4 p-4 lg:px-3.5 lg:py-7">
         <div className="hidden lg:block w-full text-center">
-          <img src={asset("logo-alameen.png")} alt="" className="w-full h-auto" />
+          <img src={asset("logo-alameen.png")} alt="" className="w-full h-auto mx-auto [@media(max-height:900px)]:max-h-16 [@media(max-height:900px)]:w-auto" />
           {/* One line, every scene: the thesis of the whole deck under the mark. */}
           <p dir="ltr" className="mt-2 inline-flex items-center gap-1.5 text-[11px] font-black tracking-[.14em] uppercase" style={{ color: accent }}>
             <Sparkles className="w-3.5 h-3.5" strokeWidth={2.4} />
@@ -359,8 +359,8 @@ export default function ShowcaseApp() {
           <p className="text-[11px] font-semibold text-slate-500">منظومة مدعومة بالذكاء الصناعي</p>
           {/* The point that carries the showreel below: everything the rail is about to
               cycle through can simply be asked. */}
-          <p className="mt-1.5 text-[10px] font-semibold text-slate-500">وبياناتها تُسأل بالذكاء الصناعي</p>
-          <p dir="ltr" className="text-[10px] font-semibold text-slate-400">and the data behind them can simply be asked</p>
+          <p className="mt-1.5 text-[10px] font-semibold text-slate-500 [@media(max-height:900px)]:hidden">وبياناتها تُسأل بالذكاء الصناعي</p>
+          <p dir="ltr" className="text-[10px] font-semibold text-slate-400 [@media(max-height:900px)]:hidden">and the data behind them can simply be asked</p>
         </div>
 
         <div key={`caption-${slide.id}`} className="showcase-enter flex-1 lg:flex-none min-w-0 lg:w-full lg:text-center">
@@ -389,7 +389,7 @@ export default function ShowcaseApp() {
 
         <RailShowreel accent={accent} />
 
-        <div className="shrink-0 lg:mt-auto w-full max-w-[7rem] lg:max-w-[8rem] lg:mx-auto text-center">
+        <div className="shrink-0 lg:mt-auto w-full max-w-[7rem] lg:max-w-[8rem] [@media(max-height:900px)]:lg:max-w-[5.5rem] lg:mx-auto text-center">
           <div className="rounded-lg ring-1 ring-slate-200 p-2 bg-white">
             {qr
               ? <img src={qr} alt={t('showcase.qrAlt')} className="w-full h-auto" />
