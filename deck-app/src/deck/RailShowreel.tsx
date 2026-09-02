@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import {
   FileText, GitBranch, ClipboardList, Wand2, LayoutDashboard,
-  FileCheck2, ScanText, BellRing, Zap, Sparkles, FileBarChart2, MessageSquare,
+  FileCheck2, ScanText, Sparkles, FileBarChart2, MessageSquare, Building2, Plug,
   type LucideIcon,
 } from 'lucide-react';
 import { asset } from './assetUrl';
@@ -103,8 +103,8 @@ const CAPABILITIES: { en: string; ar: string; Icon: LucideIcon }[] = [
   { en: 'AI Assistant', ar: 'المساعد الذكي', Icon: MessageSquare },
   { en: 'Issued Documents', ar: 'الوثائق الصادرة', Icon: FileCheck2 },
   { en: 'OCR & Scanning', ar: 'مسح ضوئي وOCR', Icon: ScanText },
-  { en: 'Notifications', ar: 'الإشعارات', Icon: BellRing },
-  { en: 'Automation Rules', ar: 'قواعد الأتمتة', Icon: Zap },
+  { en: 'Multi-Tenancy', ar: 'تعدد المؤسسات', Icon: Building2 },
+  { en: 'API & Integration', ar: 'تكامل وAPI', Icon: Plug },
 ];
 
 /** Height, not width: the rail is 16.5rem wide wherever it appears at all. */
