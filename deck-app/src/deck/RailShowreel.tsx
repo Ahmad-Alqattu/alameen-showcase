@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import {
   FileText, GitBranch, ClipboardList, Wand2, LayoutDashboard,
-  FileCheck2, ScanBarcode, ScanText, BellRing, Zap, Mic, Sparkles,
+  FileCheck2, ScanText, BellRing, Zap, Sparkles, FileBarChart2, MessageSquare,
   type LucideIcon,
 } from 'lucide-react';
 import { asset } from './assetUrl';
@@ -96,12 +96,12 @@ const CAPABILITIES: { en: string; ar: string; Icon: LucideIcon }[] = [
   { en: 'Dynamic Forms', ar: 'نماذج ديناميكية', Icon: FileText },
   { en: 'Workflow Engine', ar: 'مسارات العمل', Icon: GitBranch },
   { en: 'Service Definition', ar: 'تعريف الخدمات', Icon: ClipboardList },
-  { en: 'Report Builder', ar: 'منشئ التقارير', Icon: Wand2 },
+  { en: 'Report Builder', ar: 'منشئ التقارير', Icon: FileBarChart2 },
+  { en: 'AI Reports', ar: 'تقارير AI', Icon: Wand2 },
   { en: 'Dashboard Builder', ar: 'منشئ اللوحات', Icon: LayoutDashboard },
-  { en: 'AI Assistant', ar: 'المساعد الذكي', Icon: Sparkles },
-  { en: 'Voice Q&A', ar: 'سؤال وجواب صوتاً', Icon: Mic },
+  { en: 'AI Dashboards', ar: 'لوحات AI', Icon: Sparkles },
+  { en: 'AI Assistant', ar: 'المساعد الذكي', Icon: MessageSquare },
   { en: 'Issued Documents', ar: 'الوثائق الصادرة', Icon: FileCheck2 },
-  { en: 'Barcode Tracking', ar: 'تتبع بالباركود', Icon: ScanBarcode },
   { en: 'OCR & Scanning', ar: 'مسح ضوئي وOCR', Icon: ScanText },
   { en: 'Notifications', ar: 'الإشعارات', Icon: BellRing },
   { en: 'Automation Rules', ar: 'قواعد الأتمتة', Icon: Zap },
