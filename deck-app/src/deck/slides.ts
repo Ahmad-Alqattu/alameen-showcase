@@ -266,7 +266,6 @@ export const SHOWCASE_SLIDES: ShowcaseSlide[] = [
   { id: 'aiSafety', section: 'ai', Icon: ShieldCheck, visual: 'aiflow', points: 4, accent: 'emerald' },
   { id: 'aiReport', section: 'ai', Icon: Wand2, visual: 'chart', demo: 'assistant-chart-print', durationMs: 24_500, points: 3, accent: 'indigo' },
   { id: 'aiReportBuilder', section: 'ai', Icon: Wand2, visual: 'chart', shots: ['dwp/09.jpg'], points: 3, accent: 'indigo' },
-  { id: 'aiDashboard', short: true, section: 'ai', Icon: LayoutDashboard, visual: 'chart', shots: ['dwp/10.jpg'], points: 3, accent: 'indigo' },
   { id: 'aiDashboardBuild', short: true, section: 'ai', Icon: LayoutDashboard, visual: 'chart', demo: 'dynamic-dashboard-ai', durationMs: 26_800, points: 3, accent: 'indigo' },
 
   // ── What the platform underneath every product does ───────────────────────
@@ -366,6 +365,6 @@ export function activeSlides(): ShowcaseSlide[] {
   // that job.
   // No cover: the rail carries the mark, the name and the thesis on every scene, so a whole
   // scene introducing the company was introducing what the visitor was already looking at.
-  const ORDER = ['ecosystem', 'aiAssistant', 'aiAnswers', 'aiMap', 'aiDashboard', 'aiDashboardBuild'];
+  const ORDER = ['ecosystem', 'aiAssistant', 'aiAnswers', 'aiMap', 'aiDashboardBuild'];
   return ORDER.flatMap((id) => SHOWCASE_SLIDES.filter((s) => s.id === id));
 }

@@ -389,7 +389,7 @@ export default function ShowcaseApp() {
 
         <RailShowreel accent={accent} />
 
-        <div className="shrink-0 lg:mt-auto w-full max-w-[7rem] lg:max-w-[8rem] [@media(max-height:900px)]:lg:max-w-[5.5rem] lg:mx-auto text-center">
+        <div className="shrink-0 w-full max-w-[7rem] lg:max-w-[8rem] [@media(max-height:900px)]:lg:max-w-[5.5rem] lg:mx-auto text-center">
           <div className="rounded-lg ring-1 ring-slate-200 p-2 bg-white">
             {qr
               ? <img src={qr} alt={t('showcase.qrAlt')} className="w-full h-auto" />

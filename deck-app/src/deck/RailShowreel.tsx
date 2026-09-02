@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import {
-  FileText, GitBranch, ClipboardList, Wand2, LayoutDashboard,
-  FileCheck2, ScanText, Sparkles, FileBarChart2, MessageSquare, Building2, Plug,
+  FileText, GitBranch, ClipboardList, Wand2,
+  FileCheck2, ScanText, Sparkles, FileBarChart2, MessageSquare, Building2, Plug, Stamp,
   type LucideIcon,
 } from 'lucide-react';
 import { asset } from './assetUrl';
@@ -98,10 +98,10 @@ const CAPABILITIES: { en: string; ar: string; Icon: LucideIcon }[] = [
   { en: 'Service Definition', ar: 'تعريف الخدمات', Icon: ClipboardList },
   { en: 'Report Builder', ar: 'منشئ التقارير', Icon: FileBarChart2 },
   { en: 'AI Reports', ar: 'تقارير AI', Icon: Wand2 },
-  { en: 'Dashboard Builder', ar: 'منشئ اللوحات', Icon: LayoutDashboard },
   { en: 'AI Dashboards', ar: 'لوحات AI', Icon: Sparkles },
   { en: 'AI Assistant', ar: 'المساعد الذكي', Icon: MessageSquare },
   { en: 'Issued Documents', ar: 'الوثائق الصادرة', Icon: FileCheck2 },
+  { en: 'E-Stamp', ar: 'الختم الإلكتروني', Icon: Stamp },
   { en: 'OCR & Scanning', ar: 'مسح ضوئي وOCR', Icon: ScanText },
   { en: 'Multi-Tenancy', ar: 'تعدد المؤسسات', Icon: Building2 },
   { en: 'API & Integration', ar: 'تكامل وAPI', Icon: Plug },
@@ -141,13 +141,20 @@ export default function RailShowreel({ accent }: { accent: string }) {
 
   const group = CLIENT_GROUPS[at];
 
+  // Sizes in vh, not rem: this column is on a laptop, a booth screen and a 45-inch 4K panel,
+  // and a caption that is right on one of them is unreadable on another.
+  const label = { fontSize: 'clamp(9px, 0.95vh, 20px)' };
+  const tileEn = { fontSize: 'clamp(8px, 0.82vh, 17px)' };
+  const tileAr = { fontSize: 'clamp(7.5px, 0.78vh, 16px)' };
+  const iconSize = 'clamp(0.85rem, 1.55vh, 2.1rem)';
+
   const heading = (ar: string, en: string) => (
-    <>
-      <p className="text-[10px] font-black tracking-[.08em] uppercase leading-tight" style={{ color: accent }}>
+    <div className="shrink-0">
+      <p className="font-black tracking-[.08em] uppercase leading-tight" style={{ color: accent, ...label }}>
         {ar}
       </p>
-      <p dir="ltr" className="text-[10px] font-semibold leading-tight text-slate-400">{en}</p>
-    </>
+      <p dir="ltr" className="font-semibold leading-tight text-slate-400" style={label}>{en}</p>
+    </div>
   );
 
   return (
@@ -157,14 +164,14 @@ export default function RailShowreel({ accent }: { accent: string }) {
     // Both blocks, at every height. A rail that swaps what it is saying makes the visitor
     // wait to learn something the booth screen tells at a glance; the height a laptop is
     // short of comes from the mark, the gloss and the QR around them instead.
-    <div className="hidden lg:flex w-full min-h-0 flex-col gap-6 [@media(max-height:900px)]:gap-3" aria-hidden>
+    <div className="hidden lg:flex w-full flex-1 min-h-0 flex-col gap-4 [@media(max-height:900px)]:gap-2" aria-hidden>
       {/* ── Who we serve — the one part that cycles ── */}
-      <div className="transition-opacity duration-[420ms] ease-out" style={{ opacity: shown ? 1 : 0 }}>
+      <div className="flex-[2] min-h-0 flex flex-col transition-opacity duration-[420ms] ease-out" style={{ opacity: shown ? 1 : 0 }}>
         {heading(group.ar, group.en)}
         {/* Three fixed rows whatever the group holds, so the block below never jumps — and
             each row tall enough that a mark is a mark and not a smudge. What is capped is
             the height; the width follows whatever shape the emblem is. */}
-        <div className="mt-2 grid grid-cols-3 auto-rows-fr gap-1.5 h-[10rem] [@media(max-height:900px)]:h-[5.25rem]">
+        <div className="mt-1.5 grid grid-cols-3 auto-rows-fr gap-1.5 flex-1 min-h-0">
           {group.files.slice(0, short ? 6 : 9).map((file, i) => (
             <div
               key={`${at}-${file}`}
@@ -184,20 +191,20 @@ export default function RailShowreel({ accent }: { accent: string }) {
 
       {/* ── What it is made of — always there, because it is what the visitor is being
              asked to believe while every other scene plays. ── */}
-      <div>
+      <div className="flex-[3] min-h-0 flex flex-col">
         {heading(bi('showcase.railCapabilities').ar, bi('showcase.railCapabilities').en)}
-        <div className="mt-2 grid grid-cols-2 gap-1.5">
+        <div className="mt-1.5 grid grid-cols-2 auto-rows-fr gap-1.5 flex-1 min-h-0">
           {CAPABILITIES.map(({ en, ar, Icon }, i) => (
             <div
               key={en}
-              className="showcase-pop flex flex-col items-center justify-center text-center gap-0.5 h-[2.7rem] [@media(max-height:900px)]:h-[1.7rem] rounded-lg ring-1 ring-slate-900/8 bg-white px-1"
+              className="showcase-pop flex flex-col items-center justify-center text-center gap-0.5 min-h-0 rounded-lg ring-1 ring-slate-900/8 bg-white px-1"
               style={{ animationDelay: `${300 + i * 35}ms` }}
             >
-              <Icon className="w-4 h-4 shrink-0" style={{ color: accent }} strokeWidth={1.9} />
-              <span dir="ltr" className="text-[8.5px] font-black leading-none text-slate-700">{en}</span>
+              <Icon className="shrink-0" style={{ color: accent, width: iconSize, height: iconSize }} strokeWidth={1.9} />
+              <span dir="ltr" className="font-black leading-none text-slate-700" style={tileEn}>{en}</span>
               {/* On a laptop the row is too short for two lines, and the English name is
                   the half that gets scanned at that size. */}
-              <span className="text-[8px] leading-none text-slate-400 [@media(max-height:900px)]:hidden">{ar}</span>
+              <span className="leading-none text-slate-400 [@media(max-height:900px)]:hidden" style={tileAr}>{ar}</span>
             </div>
           ))}
         </div>
