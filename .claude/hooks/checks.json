@@ -1,0 +1,5 @@
+[
+  { "name": "types", "paths": "^src/.*\\.(ts|tsx)$|^tsconfig", "command": "npx tsc -b --noEmit", "timeout": 150 },
+  { "name": "deck-types", "paths": "^deck-app/src/.*\\.(ts|tsx)$|^deck-app/tsconfig", "cwd": "deck-app", "command": "npx tsc -b --noEmit", "timeout": 150 },
+  { "name": "unit", "paths": "^src/.*\\.(ts|tsx|json)$", "command": "npx vitest run --reporter=dot", "timeout": 150 }
+]

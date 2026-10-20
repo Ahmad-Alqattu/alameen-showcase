@@ -1,0 +1,6 @@
+{
+  "forbidden": ["~/dev/alameen-municipal"],
+  "secret_roots": ["~/Downloads/municipality (1)"],
+  "secret_under": ["[^\\s'\"]*\\.env", "[^\\s'\"]*database", "[^\\s'\"]*storage", "[^\\s'\"]*tmp", "[^\\s'\"]*vendor", "[^\\s'\"]*\\.sql"],
+  "background_only": ["\\bnpx\\s+playwright\\s+test\\b", "\\bnpm\\s+run\\s+test:e2e\\b", "\\bnpm\\s+run\\s+build\\b"]
+}

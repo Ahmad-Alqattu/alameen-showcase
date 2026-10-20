@@ -13,3 +13,4 @@ artifacts/slides-full/
 artifacts/video/
 artifacts/*.mp4
 __pycache__/
+.claude/hooks/.stop-verify-state.json

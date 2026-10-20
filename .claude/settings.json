@@ -1,0 +1,31 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run dev)",
+      "Bash(npm run lint)",
+      "Bash(npx tsc -b --noEmit)",
+      "Bash(npx vitest run:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git show:*)",
+      "Read",
+      "Grep",
+      "Glob"
+    ],
+    "ask": ["Bash(git push:*)", "Bash(git rm:*)"]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash|Read|Edit|Write|NotebookEdit|Grep|Glob",
+        "hooks": [{ "type": "command", "command": "python3 -I \"$CLAUDE_PROJECT_DIR/.claude/hooks/guard.py\"", "timeout": 5 }]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [{ "type": "command", "command": "python3 -I \"$CLAUDE_PROJECT_DIR/.claude/hooks/stop-verify.py\"", "timeout": 300, "statusMessage": "فحص سريع للملفات المعدّلة…" }]
+      }
+    ]
+  }
+}
