@@ -49,6 +49,7 @@ ICONS = {
     "droplet": '<path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/>',
     "map": '<path d="M9 3 3 6v15l6-3 6 3 6-3V3l-6 3-6-3zM9 3v15M15 6v15"/>',
     "receipt": '<path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1z"/><path d="M8 7h8M8 11h8M8 15h5"/>',
+    "archive": '<rect x="2" y="3" width="20" height="5" rx="1"/><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8M10 12h4"/>',
     "book": '<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2zM22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>',
 }
 
@@ -183,7 +184,7 @@ INDEX = [
     ("iOS", "Android", "تطبيق مياه فلسطين", "سلطة المياه الفلسطينية", ["pwa-auth.png"], "0284C7"),
     ("GIS", "", "مدينتي — نظام GIS للبلديات", "بلديات بيت لحم ودورا ويطا", ["dura.png"], "C2410C"),
     ("3,711+", "سجل", "رقمنة سجلات ضريبة الأملاك", "الإدارة العامة لضريبة الأملاك", ["ptax-dir.png"], "059669"),
-    ("1,000+", "مدرسة", "الأطلس التعليمي التفاعلي", "وزارة التربية والتعليم", ["moe.png"], "D97706"),
+    (["150K", "750K"], ["معاملة منتهية", "صحيفة"], "رقمنة سلطة الأراضي", "سلطة الأراضي الفلسطينية", ["land-auth.png"], "B45309"),
 ]
 
 
@@ -194,6 +195,13 @@ def index_page(n: int) -> str:
         x = 1000 if col == 0 else 150  # RTL: first item on the right
         y = 330 + row * 146
         imgs = "".join(f'<img src="{a("clients/" + l)}" style="height:48px;width:48px;object-fit:contain">' for l in logos)
+        # A project may carry more than one count (the Land Authority: transactions and sheets).
+        bigs, smalls = (big, small) if isinstance(big, list) else ([big], [small])
+        stat_blocks = "".join(
+            f'''<div style="width:118px;text-align:center;border-right:1px solid #E2E8F0;padding-right:14px">
+    <div style="font-size:30px;font-weight:700;color:#{color};line-height:1.1;direction:ltr">{e(b)}</div>
+    <div style="font-size:14px;color:#64748B">{e(sm)}</div>
+  </div>''' for b, sm in zip(bigs, smalls))
         cards.append(f"""
 <div class="card" style="position:absolute;left:{x}px;top:{y}px;width:770px;height:128px;direction:rtl;display:flex;align-items:center;gap:22px;padding:0 26px">
   <div style="font-size:18px;font-weight:700;color:#CBD5E1;width:28px">{i + 1:02d}</div>
@@ -202,10 +210,7 @@ def index_page(n: int) -> str:
     <div style="font-size:16px;color:#64748B;margin-top:4px"><b style="color:#{color};font-weight:700">لمن: </b>{e(whom)}</div>
   </div>
   <div style="display:flex;gap:6px">{imgs}</div>
-  <div style="width:118px;text-align:center;border-right:1px solid #E2E8F0;padding-right:14px">
-    <div style="font-size:30px;font-weight:700;color:#{color};line-height:1.1;direction:ltr">{e(big)}</div>
-    <div style="font-size:14px;color:#64748B">{e(small)}</div>
-  </div>
+  {stat_blocks}
 </div>""")
     body = "".join(cards)
     body += ('<div style="position:absolute;left:150px;right:150px;top:930px;text-align:center;font-size:17px;color:#64748B;direction:rtl">'
@@ -354,26 +359,31 @@ def ptax_page(n):
                  "products/ptax/07.jpg", second_w=400)
 
 
-def atlas_page(n):
-    spec = dict(
-        color="D97706",
-        head=dict(eyebrow_en="PROJECT 08", eyebrow_ar="التعليم", icon_name="book", color="D97706",
-                  title="الأطلس التعليمي التفاعلي لفلسطين", sub="Interactive educational atlas of Palestine",
-                  d_ar="خرائط متعددة الطبقات ومحتوى جغرافي وتاريخي، يخدم أكثر من 1,000 مدرسة.",
-                  d_en="Layered maps and geo-historical content, serving more than 1,000 schools."),
-        points=["موقع كل مدرسة على الخريطة مع بياناتها.",
-                "مؤشرات الطلبة والمعلمين حسب المديرية والمدرسة.",
-                "تقارير وخرائط قابلة للطباعة والتصدير.",
-                "ربط المنهاج بالأرض والتاريخ والهوية."],
-        who="وزارة التربية والتعليم — أكثر من 1,000 مدرسة",
-        logos=["moe.png"],
-    )
-    return split(n, spec, ("products/atlas/03.jpg", "المدرسة وموقعها وبياناتها على الأطلس"),
-                 "products/atlas/09.jpg", second_w=440)
+def land_page(n):
+    """No screens to show here: the work is the digitization itself, so its two counts are the picture.
+
+    The terms are the client's own — «ملف معاملة منتهية» and «صحيفة» carry a specific meaning
+    in the Land Authority's records, so they are quoted as given and not paraphrased.
+    """
+    c = "B45309"
+    stats = [("150,000", "ملف معاملة منتهية"), ("750,000", "صحيفة")]
+    body = ""
+    for i, (big, ar) in enumerate(stats):
+        x = 1000 if i == 0 else 150  # RTL: first on the right
+        body += f"""
+<div class="card" style="position:absolute;left:{x}px;top:330px;width:770px;height:380px;direction:rtl;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;border-top:6px solid #{c}">
+  <div style="font-size:140px;font-weight:700;color:#{c};line-height:1;direction:ltr">{e(big)}</div>
+  <div style="font-size:46px;font-weight:600;line-height:1.3">{e(ar)}</div>
+</div>"""
+    body += who("لمن", "سلطة الأراضي الفلسطينية", ["land-auth.png"], c, 560, 760, 800)
+    return page(n, body, eyebrow_en="PROJECT 08", eyebrow_ar="سلطة الأراضي", icon_name="archive", color=c,
+                title="رقمنة سلطة الأراضي", sub="Palestinian Land Authority digitization",
+                d_ar="150 ألف ملف معاملة منتهية، و750 ألف صحيفة.",
+                d_en="150,000 completed transaction files and 750,000 sheets.")
 
 
 SCENES = [index_page, csc_page, portals_page, apps_page, wsdis_page, water_app_page,
-          madeenati_page, ptax_page, atlas_page]
+          madeenati_page, ptax_page, land_page]
 
 
 def main():

@@ -65,6 +65,8 @@ export type SlideVisual =
   | 'logowall'
   | 'logogrid'
   | 'partnerwall'
+  | 'clientbrief'
+  | 'projectbrief'
   | 'chips'
   | 'funders'
   | 'hub';
@@ -162,7 +164,7 @@ export interface ShowcaseSlide {
    * These are lists whose items are the picture: no screenshot says ".NET 10" and a
    * paragraph that does say it is not read at four metres.
    */
-  chips?: { label: string; icon: keyof typeof CHIP_ICONS }[];
+  chips?: { label: string; labelEn?: string; icon: keyof typeof CHIP_ICONS }[];
   /** Only for slides that correspond to a section of THIS platform, for the "open" affordance. */
   route?: string;
   moduleCode?: string;
@@ -217,11 +219,11 @@ export const SLIDE_ACCENTS = {
 export const SHOWCASE_SLIDES: ShowcaseSlide[] = [
   // ── Who we are ────────────────────────────────────────────────────────────
   { id: 'cover', section: 'company', Icon: Sparkles, visual: 'mark', points: 0, accent: 'company' },
-  { id: 'company', short: true, section: 'company', Icon: Building2, visual: 'mark', shots: ['dwp/02.jpg', 'madeenati/01.jpg', 'eservices/01.jpg', 'eywa/01.jpg', 'buildflow/01.jpg', 'ptax/01.jpg'], points: 4, accent: 'company' },
+  { id: 'company', short: true, section: 'company', Icon: Building2, visual: 'mark', shots: ['dwp/02.jpg', 'dwp/06.jpg', 'dwp/11.jpg', 'dwp/17.jpg', 'dwp/21.jpg', 'dwp/24.jpg'], points: 4, accent: 'company' },
   { id: 'reach', section: 'company', Icon: BarChart3, visual: 'logogrid', points: 5, accent: 'company' },
   { id: 'coverage', section: 'company', Icon: MapPin, visual: 'coverage', points: 4, accent: 'sky' },
-  { id: 'clients', section: 'company', Icon: Users2, visual: 'logowall', points: 4, accent: 'company' },
-  { id: 'projects', section: 'company', Icon: Landmark, visual: 'funders', points: 5, accent: 'slate' },
+  { id: 'clients', section: 'company', Icon: Users2, visual: 'clientbrief', points: 0, wide: true, accent: 'company' },
+  { id: 'projects', section: 'company', Icon: Landmark, visual: 'projectbrief', points: 0, wide: true, accent: 'slate' },
   { id: 'specializations', section: 'company', Icon: Layers, visual: 'chips', points: 4, accent: 'company',
     chips: [
       { label: 'تطوير الأنظمة والبرمجيات', icon: 'Code2' },
@@ -257,6 +259,21 @@ export const SHOWCASE_SLIDES: ShowcaseSlide[] = [
       { key: 'labs', icon: 'Atom' },
       { key: 'documents', icon: 'FileCheck2' },
       { key: 'mis', icon: 'BarChart3' },
+    ] },
+  { id: 'platformCapabilities', section: 'platform', Icon: Boxes, visual: 'chips', points: 0, wide: true, accent: 'teal',
+    chips: [
+      { label: 'النماذج الديناميكية', labelEn: 'Dynamic Forms', icon: 'FileText' },
+      { label: 'مسارات العمل', labelEn: 'Workflow Engine', icon: 'GitBranch' },
+      { label: 'تعريف الخدمات', labelEn: 'Service Definition', icon: 'ClipboardList' },
+      { label: 'منشئ التقارير', labelEn: 'Report Builder', icon: 'BarChart3' },
+      { label: 'تقارير بالذكاء الصناعي', labelEn: 'AI Reports', icon: 'Wand2' },
+      { label: 'لوحات بالذكاء الصناعي', labelEn: 'AI Dashboards', icon: 'LayoutDashboard' },
+      { label: 'المساعد الذكي', labelEn: 'AI Assistant', icon: 'MessageSquare' },
+      { label: 'الوثائق الصادرة', labelEn: 'Issued Documents', icon: 'FileCheck2' },
+      { label: 'الختم الإلكتروني', labelEn: 'E-Stamp', icon: 'KeyRound' },
+      { label: 'المسح الضوئي وقراءة البيانات', labelEn: 'OCR & Scanning', icon: 'ScanLine' },
+      { label: 'تعدد المؤسسات', labelEn: 'Multi-Tenancy', icon: 'Users' },
+      { label: 'واجهات التكامل', labelEn: 'API & Integration', icon: 'Plug' },
     ] },
   { id: 'aiAssistant', short: true, section: 'ai', Icon: Sparkles, visual: 'aiflow', shots: ['dwp/03.jpg', 'live/honest-map.png'], points: 3, accent: 'violet' },
   { id: 'aiAnswers', short: true, section: 'ai', Icon: Sparkles, visual: 'aiflow', shots: ['dwp/04.jpg', 'live/nitrates-pie.png', 'live/rainfall-years.png'], points: 3, accent: 'violet' },
@@ -356,8 +373,38 @@ export const POINT_BUILD_SHARE = 0.62;
  * default viewer is a stranger walking past a screen, not a client in a chair.
  */
 export function activeSlides(): ShowcaseSlide[] {
-  const full = new URLSearchParams(window.location.search).get('deck') === 'full';
+  const cut = new URLSearchParams(window.location.search).get('deck');
+  const full = cut === 'full';
   if (full) return SHOWCASE_SLIDES;
+  if (cut === 'overview') {
+    // Sendable general overview: the strongest sourced company record, the connected platform,
+    // the two recorded AI flows, and the current product UI. Legacy product captures stay out of
+    // this cut when the new platform already demonstrates the same capability more clearly.
+    const ORDER = [
+      'cover',
+      'coverage',
+      'clients',
+      'projects',
+      'partners',
+      'ecosystem',
+      'platformCapabilities',
+      'aiAssistant',
+      'aiAnswers',
+      'aiMap',
+      'aiSafety',
+      'aiReport',
+      'aiReportBuilder',
+      'aiDashboardBuild',
+      'workflow',
+      'services',
+      'documents',
+      'geo',
+      'notifications',
+      'dwp',
+      'contact',
+    ];
+    return ORDER.flatMap((id) => SHOWCASE_SLIDES.filter((s) => s.id === id));
+  }
   // Explicit order, not source order. The cut escalates — who we are, that this is a real
   // system, the assistant, then ask, analyse, connect — and the ecosystem has to land
   // second, before the assistant, or the assistant reads as a chat box with no platform

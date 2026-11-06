@@ -63,6 +63,8 @@ export default function ShowcaseStage({
           {!slide.logoOnly && slide.visual === 'logogrid' && <LogoGridVisual logos={HEADLINE_CLIENT_LOGOS} />}
           {!slide.logoOnly && slide.visual === 'partnerwall' && <LogoGridVisual logos={PARTNER_LOGOS} large />}
           {!slide.logoOnly && slide.visual === 'logowall' && <LogoWallVisual />}
+          {!slide.logoOnly && slide.visual === 'clientbrief' && <ClientBriefVisual />}
+          {!slide.logoOnly && slide.visual === 'projectbrief' && <ProjectBriefVisual />}
           {!slide.logoOnly && slide.visual === 'coverage' && <CoverageMap onInteract={onInteract} />}
           {slide.logoOnly && slide.product && <ProductMarkVisual slug={slide.product} />}
           {slide.visual === 'mark' && !slide.logoOnly && <MarkVisual />}
@@ -428,9 +430,10 @@ function ProductMarkVisual({ slug }: { slug: string }) {
  * same things is not.
  */
 function ChipsVisual({ items }: { items: NonNullable<ShowcaseSlide['chips']> }) {
+  const dense = items.length > 8;
   return (
-    <div className="grid grid-cols-2 gap-3 sm:gap-4 w-full h-full auto-rows-fr content-center max-w-xl">
-      {items.map(({ label, icon }, i) => {
+    <div className={`grid ${dense ? 'grid-cols-3 max-w-6xl' : 'grid-cols-2 max-w-xl'} gap-3 sm:gap-4 w-full h-full auto-rows-fr content-center`}>
+      {items.map(({ label, labelEn, icon }, i) => {
         const Icon = CHIP_ICONS[icon];
         const latin = !/[\u0600-\u06FF]/.test(label);
         return (
@@ -442,10 +445,74 @@ function ChipsVisual({ items }: { items: NonNullable<ShowcaseSlide['chips']> }) 
             <Icon className="w-5 h-5 shrink-0" style={{ color: 'var(--accent)' }} strokeWidth={2} />
             {/* A Latin technical name is LTR text in an RTL page: left to inherit the page
                 direction, the bidi pass moves the leading dot of ".NET 10" to the end. */}
-            <span dir={latin ? 'ltr' : undefined} className="text-sm sm:text-base font-bold text-slate-700 leading-tight">
-              {label}
+            <span className="min-w-0">
+              {labelEn && <span dir="ltr" className="block text-sm sm:text-base font-black text-slate-700 leading-tight">{labelEn}</span>}
+              <span dir={latin ? 'ltr' : undefined} className="block text-xs sm:text-sm font-bold text-slate-500 leading-tight mt-1">{label}</span>
             </span>
           </span>
+        );
+      })}
+    </div>
+  );
+}
+
+const CLIENT_BRIEF_GROUPS = [
+  { key: 'government', logos: ['pwa-auth.png', 'land-auth.png', 'moe.png', 'mof.png'] },
+  { key: 'municipalities', logos: ['bireh.png', 'tulkarem.png', 'jericho.png', 'dura.png'] },
+  { key: 'international', logos: ['world-bank.png', 'usaid.png', 'giz.png', 'global-communities.png'] },
+  { key: 'education', logos: ['birzeit-univ.png', 'alquds-univ.png', 'ptu.png', 'paltel.png'] },
+];
+
+function ClientBriefVisual() {
+  const bi = useBilingual();
+  return (
+    <div className="grid grid-cols-4 gap-4 w-full h-full max-w-7xl mx-auto auto-rows-fr">
+      {CLIENT_BRIEF_GROUPS.map((group, groupIndex) => (
+        <section
+          key={group.key}
+          className="showcase-pop rounded-2xl bg-white ring-1 ring-slate-900/8 p-5 flex flex-col min-h-0"
+          style={{ animationDelay: `${groupIndex * 100}ms` }}
+        >
+          <h3 className="text-lg font-black text-slate-800 leading-tight">{bi(`showcase.clientGroups.${group.key}.title`).ar}</h3>
+          <p dir="ltr" className="mt-1 text-xs font-bold text-slate-400">{bi(`showcase.clientGroups.${group.key}.title`).en}</p>
+          <div className="mt-4 grid grid-cols-2 grid-rows-2 gap-3 flex-1 min-h-0">
+            {group.logos.map((file) => (
+              <span key={file} className="grid place-items-center rounded-xl bg-slate-50 ring-1 ring-slate-900/6 p-3 min-h-0">
+                <img src={asset(`showcase/clients/${file}`)} alt="" className="max-w-full max-h-full object-contain" />
+              </span>
+            ))}
+          </div>
+          <p className="mt-4 text-sm font-semibold leading-relaxed text-slate-600">{bi(`showcase.clientGroups.${group.key}.summary`).ar}</p>
+          <p dir="ltr" className="mt-1 text-[11px] font-semibold leading-snug text-slate-400">{bi(`showcase.clientGroups.${group.key}.summary`).en}</p>
+        </section>
+      ))}
+    </div>
+  );
+}
+
+const PROJECT_LOGOS = ['world-bank.png', null, 'usaid.png', 'giz.png', 'ptax-dir.png'] as const;
+
+function ProjectBriefVisual() {
+  const bi = useBilingual();
+  return (
+    <div className="w-full h-full max-w-6xl mx-auto flex flex-col justify-center gap-3">
+      {PROJECT_LOGOS.map((logo, i) => {
+        const copy = bi(`showcase.slides.projects.b${i + 1}`);
+        return (
+          <section
+            key={i}
+            className="showcase-pop flex items-center gap-5 rounded-2xl bg-white ring-1 ring-slate-900/8 px-6 py-4 min-h-0"
+            style={{ animationDelay: `${i * 90}ms` }}
+          >
+            <span dir="ltr" className="shrink-0 w-10 text-xl font-black text-slate-300">{String(i + 1).padStart(2, '0')}</span>
+            <span className="flex-1 min-w-0">
+              <span className="block text-lg font-bold leading-snug text-slate-800">{copy.ar}</span>
+              <span dir="ltr" className="block mt-1 text-xs font-semibold leading-snug text-slate-400">{copy.en}</span>
+            </span>
+            <span className="shrink-0 grid place-items-center w-28 h-14">
+              {logo && <img src={asset(`showcase/clients/${logo}`)} alt="" className="max-w-full max-h-full object-contain" />}
+            </span>
+          </section>
         );
       })}
     </div>

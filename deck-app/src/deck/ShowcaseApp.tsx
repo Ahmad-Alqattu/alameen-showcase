@@ -41,6 +41,7 @@ export default function ShowcaseApp() {
   const { user } = useAuth();
   const isAr = i18n.language === 'ar';
   const bi = useBilingual();
+  const overview = new URLSearchParams(window.location.search).get('deck') === 'overview';
   // Read once: the cut is a property of how the page was opened, not of any state.
   const slides = useMemo(() => activeSlides(), []);
 
@@ -162,6 +163,9 @@ export default function ShowcaseApp() {
   const canOpenSection =
     Boolean(slide.route) &&
     (!slide.moduleCode || Boolean(user?.isSuperAdmin || user?.modules.includes(slide.moduleCode)));
+  const eyebrow = overview && slide.id === 'cover'
+    ? { ar: 'عرض عام', en: 'GENERAL OVERVIEW' }
+    : bi(`showcase.slides.${slide.id}.eyebrow`);
 
   return (
     <div
@@ -170,20 +174,22 @@ export default function ShowcaseApp() {
       style={{ ['--accent' as string]: accent }}
     >
       {/* One hairline of progress across the very top, the way a deck marks its own place. */}
-      <div className="absolute top-0 inset-x-0 h-[3px] bg-slate-200/70 z-10">
-        <div className="h-full transition-none" style={{ width: `${progress * 100}%`, background: accent }} />
-      </div>
+      {!overview && (
+        <div className="absolute top-0 inset-x-0 h-[3px] bg-slate-200/70 z-10">
+          <div className="h-full transition-none" style={{ width: `${progress * 100}%`, background: accent }} />
+        </div>
+      )}
 
-      <main className="relative flex-1 min-w-0 flex flex-col px-6 sm:px-8 lg:px-10 pt-6 pb-4 gap-4">
+      <main className={`relative flex-1 min-w-0 flex flex-col px-6 sm:px-8 ${overview ? 'lg:px-20 pt-8 pb-7' : 'lg:px-10 pt-6 pb-4'} gap-4`}>
         {/* ── Title ── re-keyed per slide so the entrance replays. */}
         <header key={`head-${slide.id}`} className="showcase-enter shrink-0 pt-4 sm:pt-7 text-center">
           <p className="inline-flex items-center gap-2.5 text-sm sm:text-base font-bold tracking-[.08em] uppercase" style={{ color: accent }}>
             <slide.Icon className="w-5 h-5" strokeWidth={2.2} />
-            {bi(`showcase.slides.${slide.id}.eyebrow`).ar}
-            {bi(`showcase.slides.${slide.id}.eyebrow`).en !== bi(`showcase.slides.${slide.id}.eyebrow`).ar && (
+            {eyebrow.ar}
+            {eyebrow.en !== eyebrow.ar && (
               <>
                 <span className="opacity-40">·</span>
-                {bi(`showcase.slides.${slide.id}.eyebrow`).en}
+                {eyebrow.en}
               </>
             )}
           </p>
@@ -258,6 +264,17 @@ export default function ShowcaseApp() {
         </div>
 
         {/* ── Controls ── */}
+        {overview ? (
+          <footer className="shrink-0 flex items-center justify-between border-t border-slate-200 pt-3">
+            <div className="flex items-center gap-3">
+              <img src={asset("logo-alameen.png")} alt="Alameen Technologies" className="h-8 w-auto" />
+              <span dir="ltr" className="text-[11px] font-bold tracking-[.12em] text-slate-400">GENERAL OVERVIEW</span>
+            </div>
+            <span dir="ltr" className="text-xs tabular-nums text-slate-400 font-bold">
+              {index + 1} / {slides.length}
+            </span>
+          </footer>
+        ) : (
         <footer className="shrink-0 flex items-center gap-3 sm:gap-4">
           <div className="flex items-center gap-1">
             <ControlButton label={t('showcase.previous')} onClick={() => go(-1)}>
@@ -342,13 +359,14 @@ export default function ShowcaseApp() {
             </ControlButton>
           </div>
         </footer>
+        )}
       </main>
 
       {/* ── Side rail ──
           A tenth of the width: the mark, the caption for what is on screen, and at the foot the code
           that puts the company in the visitor's hand. On a phone it becomes a strip along the bottom
           instead — 10% of a narrow screen is not a column, it is a margin. */}
-      <aside className="shrink-0 w-full lg:w-[13%] lg:min-w-[16.5rem] border-t lg:border-t-0 border-s-0 lg:border-s border-slate-200 bg-white flex lg:flex-col items-center gap-4 p-4 lg:px-3.5 lg:py-7">
+      {!overview && <aside className="shrink-0 w-full lg:w-[13%] lg:min-w-[16.5rem] border-t lg:border-t-0 border-s-0 lg:border-s border-slate-200 bg-white flex lg:flex-col items-center gap-4 p-4 lg:px-3.5 lg:py-7">
         <div className="hidden lg:block w-full text-center">
           <img src={asset("logo-alameen.png")} alt="" className="w-full h-auto mx-auto [@media(max-height:900px)]:max-h-16 [@media(max-height:900px)]:w-auto" />
           {/* One line, every scene: the thesis of the whole deck under the mark. */}
@@ -399,7 +417,7 @@ export default function ShowcaseApp() {
           <p className="mt-2.5 text-xs font-bold leading-tight text-slate-700">{t('showcase.companyName')}</p>
           <p className="mt-0.5 text-[10px] leading-tight text-slate-400">{t('showcase.companyWeb')}</p>
         </div>
-      </aside>
+      </aside>}
     </div>
   );
 }

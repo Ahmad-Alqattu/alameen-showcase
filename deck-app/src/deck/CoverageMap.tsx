@@ -36,6 +36,7 @@ interface View { x: number; y: number; w: number; h: number }
 export default function CoverageMap({ onInteract }: { onInteract?: () => void }) {
   const { t, i18n } = useTranslation();
   const isAr = i18n.language === 'ar';
+  const overview = new URLSearchParams(window.location.search).get('deck') === 'overview';
   const lang = isAr ? 0 : 1;
 
   const wrapRef = useRef<HTMLDivElement>(null);
@@ -282,11 +283,11 @@ export default function CoverageMap({ onInteract }: { onInteract?: () => void })
           </div>
         )}
 
-        <div className="absolute top-3 end-3 flex flex-col gap-1.5">
+        {!overview && <div className="absolute top-3 end-3 flex flex-col gap-1.5">
           <MapButton label={t('showcase.zoomIn')} onClick={() => zoomFromCentre(1 / 1.45)}><Plus className="w-4 h-4" /></MapButton>
           <MapButton label={t('showcase.zoomOut')} onClick={() => zoomFromCentre(1.45)}><Minus className="w-4 h-4" /></MapButton>
           <MapButton label={t('showcase.resetView')} onClick={() => { onInteract?.(); setHovered(null); setView(HOME); }}><Locate className="w-4 h-4" /></MapButton>
-        </div>
+        </div>}
       </div>
 
       {/* Legend, with the count of sites in each category. */}
@@ -298,7 +299,7 @@ export default function CoverageMap({ onInteract }: { onInteract?: () => void })
             <b className="text-slate-900 tabular-nums">{n}</b>
           </span>
         ))}
-        <span className="text-[11px] text-slate-400">{t('showcase.mapHint')}</span>
+        {!overview && <span className="text-[11px] text-slate-400">{t('showcase.mapHint')}</span>}
       </div>
     </div>
   );

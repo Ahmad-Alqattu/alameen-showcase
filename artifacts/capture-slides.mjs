@@ -16,7 +16,7 @@
  *   board anyway — the thing worth exporting is the board after it has been built.
  *
  * Usage:
- *   node artifacts/capture-slides.mjs [short|full] [baseUrl]
+ *   node artifacts/capture-slides.mjs [short|overview|full] [baseUrl]
  */
 import { chromium } from 'playwright';
 import { mkdirSync, rmSync, writeFileSync } from 'node:fs';
@@ -26,8 +26,8 @@ import { fileURLToPath } from 'node:url';
 const CUT = (process.argv[2] || 'short').toLowerCase();
 const BASE = process.argv[3] || 'http://localhost:4174';
 const HERE = dirname(fileURLToPath(import.meta.url));
-const OUT = join(HERE, CUT === 'full' ? 'slides-full' : 'slides-short');
-const QUERY = CUT === 'full' ? 'deck=full&' : '';
+const OUT = join(HERE, CUT === 'full' ? 'slides-full' : CUT === 'overview' ? 'slides-overview' : 'slides-short');
+const QUERY = CUT === 'full' ? 'deck=full&' : CUT === 'overview' ? 'deck=overview&' : '';
 
 rmSync(OUT, { recursive: true, force: true });
 mkdirSync(OUT, { recursive: true });

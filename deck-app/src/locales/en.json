@@ -34,6 +34,24 @@
       "both": "E-Services + Madeenati",
       "water": "Water sector"
     },
+    "clientGroups": {
+      "government": {
+        "title": "Government organizations",
+        "summary": "Water and Land Authorities, the ministries of Education and Finance, and others."
+      },
+      "municipalities": {
+        "title": "Municipalities and local bodies",
+        "summary": "54 municipalities and local bodies, including Al-Bireh, Tulkarem, Jericho and Dura."
+      },
+      "international": {
+        "title": "International funders and partners",
+        "summary": "World Bank, USAID, GIZ, Global Communities and other partners."
+      },
+      "education": {
+        "title": "Universities and private sector",
+        "summary": "Birzeit, Al-Quds and Khadoorie universities, alongside private-sector organizations."
+      }
+    },
     "nextScreen": "Next screen",
     "companyName": "Alameen Technologies",
     "companyWeb": "alameentech.com",
@@ -196,6 +214,12 @@
         "b1": "One sign-in and one permission model across every domain.",
         "b2": "Data is read once, so the indicator, the map and the report share a source.",
         "b3": "Adding a domain is assembly on the platform, not a project from zero."
+      },
+      "platformCapabilities": {
+        "eyebrow": "Platform capabilities",
+        "title": "Shared capabilities in every system",
+        "tagline": "Reusable capabilities across domains, so every new addition starts from a platform already in operation.",
+        "caption": "Core platform capabilities."
       },
       "aiAssistant": {
         "eyebrow": "The assistant",
